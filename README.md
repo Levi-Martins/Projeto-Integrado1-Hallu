@@ -1,5 +1,6 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=00F4FF&height=180&section=header&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=35&fontSize=40&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=fff&font=Comfortaa&duration=3700&size=35&center=true&vCenter=true&width=1000&lines=Projeto+Integrado+I+-+2023.1;+Equipe+Hallu+-+ޙައްލު;+Sistemas+e+Mídias+Digitais+-+UFC;+Seja+Bem+vindo(a)!+😉)](https://git.io/typing-svg)
 
 # 👀 Sobre o projeto
 <p> O projeto foi realizado na disciplina de Projeto Integrado I, do terceiro semestre, do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC).</p><p> O objetivo foi desenvolver um dispositivo interativo para o Allan, secretário do curso de SMD, a fim de auxiliar os alunos dos semestres mais avançados (a partir do 6º semestre) a concluírem o curso.</p><p> Nosso site será uma espécie de calculadora de créditos, que contabilizará os créditos e horas que faltam para os alunos se formarem.</p><p>Além disso, o site contará com informações sobre a grade curricular (cadeiras obrigatórias/eletivas/optativas/horas complementares/TCC), como é feita a contabilização de horas/créditos e também um breve resumo sobre cada cadeira.</p>
