@@ -9,11 +9,9 @@
 
 # Integrantes da Equipe
 
-![](https://github.com/cardealdani.png?size=50)
-![](https://github.com/levi-martins.png?size=50)
-![](https://github.com/junior-rod.png?size=50)
-![](https://github.com/deborahharrop.png?size=50)
-![](https://github.com/cacaffurtado.png?size=50)
+<a href="https://github.com/Levi-Martins/Projeto-Integrado1-Hallu/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Levi-Martins/Projeto-Integrado1-Hallu" />
+</a>
 
 
 
