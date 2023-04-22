@@ -14,8 +14,6 @@
 </a>
 
 
-
-
 # 📃Relatório Técnico
 <h4>Neste Relatório, está descrito tudo sobre o projeto<h4>
 - Link para o Relatório Técnico:
