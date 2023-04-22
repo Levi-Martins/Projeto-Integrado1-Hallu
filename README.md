@@ -9,6 +9,15 @@
 
 # Integrantes da Equipe
 
+![](https://github.com/cardealdani.png?size=50)
+![](https://github.com/levi-martins.png?size=50)
+![](https://github.com/junior-rod.png?size=50)
+![](https://github.com/deborahharrop.png?size=50)
+![](https://github.com/cacaffurtado.png?size=50)
+
+
+
+
 # 📃Relatório Técnico
 <h4>Neste Relatório, está descrito tudo sobre o projeto<h4>
 - Link para o Relatório Técnico:
