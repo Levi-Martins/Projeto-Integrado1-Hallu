@@ -7,12 +7,25 @@
  <br>
   
 
-# Integrantes da Equipe
+# 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻👨‍💻 Integrantes da Equipe
 
-<a href="https://github.com/Levi-Martins/Projeto-Integrado1-Hallu/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Levi-Martins/Projeto-Integrado1-Hallu" />
-</a>
+![](https://github.com/deborahharrop.png?size=110)
+![](https://github.com/cacaffurtado.png?size=110)
+![](https://github.com/biankacosta.png?size=110)
+![](https://github.com/levi-martins.png?size=110)
+![](https://github.com/junior-rod.png?size=110)
+![](https://github.com/cardealdani.png?size=110)
 
+
+- ***Deborah Harrop***: Líder/Atendimento
+- ***Carolina Furtado***: Designer/Conteudista/Revisora
+- ***Bianka Costa***: Designer/Arquiteta da informação
+- ***Levi Martins***: Programador
+- ***Will Júnior***: Programador
+- ***Daniel Cardeal***: Programador/Coordenador de Testes
+
+ <br>
+  
 
 # 📃Relatório Técnico
 <h4>Neste Relatório, está descrito tudo sobre o projeto<h4>
