@@ -1,6 +1,6 @@
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=180&section=header&text=Projeto+Integrado+1+-+Hallu&fontAlignY=35&fontSize=30&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=23D7DF&height=180&section=header&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=35&fontSize=30&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
 
-Repositório para armazenar a aplicação feita pela equipe hallu na disciplina de projeto integrado 1
+- Repositório para armazenar a aplicação feita pela equipe hallu na disciplina de projeto integrado 1
 
 # 👀 Sobre o projeto
 O projeto foi realizado na disciplina de Projeto Integrado I, do terceiro semestre, do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC).</p><p> O objetivo foi desenvolver um dispositivo interativo para o Allan, secretário do curso de SMD, a fim de auxiliar os alunos dos semestres mais avançados (a partir do 6º semestre) a concluírem o curso.</p><p> Nosso site será uma espécie de calculadora de créditos, que contabilizará os créditos e horas que faltam para os alunos se formarem.</p><p> Além disso, o site contará com informações sobre a grade curricular (cadeiras obrigatórias/eletivas/optativas/horas complementares/TCC), como é feita a contabilização de horas/créditos e também um breve resumo sobre cada cadeira.</p>
@@ -22,4 +22,4 @@ O projeto foi realizado na disciplina de Projeto Integrado I, do terceiro semest
 - <h2>Banco de Dados</h2>
 <h3>Google Sheets:</h3><p> Escolhemos o Google Sheets pois é uma ferramenta que serve como banco de dados e como nós não vamos ter um sistema de cadastro de usuário e nem um cadastro de dados da parte do utilizador da aplicação, preferimos utilizar ele para se comunicar com o back-end que por sua vez se comunica com o front. Outro motivo foi para o fácil acesso e modificação da aplicação vindo da parte do administrador.</p>
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=180&section=footer&text=Projeto+Integrado+1+-+Hallu&fontAlignY=70&fontSize=30&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=23D7DF&height=180&section=footer&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=70&fontSize=30&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
