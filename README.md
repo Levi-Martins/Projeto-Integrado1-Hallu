@@ -1,4 +1,4 @@
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=19,12&height=180&section=header&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=35&fontSize=40&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=30,12&height=180&section=header&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=35&fontSize=40&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=fff&font=Comfortaa&duration=3700&size=35&center=true&vCenter=true&width=1000&lines=Projeto+Integrado+I+-+2023.1;+Equipe+Hallu+-+ޙައްލު;+Sistemas+e+Mídias+Digitais+-+UFC;+Seja+Bem+vindo(a)!+😉)](https://git.io/typing-svg)
 
