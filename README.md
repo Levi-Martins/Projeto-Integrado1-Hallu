@@ -27,16 +27,27 @@
  <br>
   
 
-# 📃Relatório Técnico
+<!-- # 📃Relatório Técnico
 <h4>Neste Relatório, está descrito tudo sobre o projeto<h4>
 - Link para o Relatório Técnico:
   
- <p>🔗 https://docs.google.com/document/d/1AtPl-xIAr9qHdO1rX10HTUl597x1zyx-BlvnrIl1X2A/edit#heading=h.o05vgqhism7l</p>
+ <p>🔗 https://docs.google.com/document/d/1AtPl-xIAr9qHdO1rX10HTUl597x1zyx-BlvnrIl1X2A/view#heading=h.dw9vxcv83553</p>
 
  <br>
-  
+   -->
   
 # 🖥Linguagens de programação utilizadas
+ ![](https://img.shields.io/badge/HTML5-122E40?style=for-the-badge&logo=html5&logoColor=white)
+ ![](https://img.shields.io/badge/CSS3-122E40?style=for-the-badge&logo=css3&logoColor=white)
+ ![](https://img.shields.io/badge/JavaScript-122E40?style=for-the-badge&logo=javascript&logoColor=white)
+ ![](https://img.shields.io/badge/Python-122E40?style=for-the-badge&logo=python&logoColor=white)
+ ![FastApi](https://img.shields.io/badge/-FastApi-white?style=for-the-badge&logo=fastapi&labelColor=122E40&textColor=0D1117&color=122E40&logoColor=white)&nbsp;
+ 
+ ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-122E40?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC&labelColor=122E40&logoColor=white)&nbsp;
+![Pycharm](https://img.shields.io/badge/-Pycharm-122E40?style=for-the-badge&logo=pycharm&labelColor=122E40&logoColor=white)&nbsp;
+![GitHub](https://img.shields.io/badge/-GitHub-122E40?style=for-the-badge&logo=github&labelColor=122E40&logoColor=white)&nbsp;
+ ![](https://img.shields.io/badge/GoogleSheets-122E40?style=for-the-badge&logo=google-sheets&logoColor=white)
+ 
 - <h2>Front-end</h2>
 
 <H3>JavaScript:</H3><p> 	Escolhemos JavaScript pois é amplamente utilizado para criar aplicações web interativas e dinâmicas, adicionar recursos de validação de formulários, criar animações, manipular o conteúdo de páginas web, fornecer funcionalidade de armazenamento local e se comunicar com servidores web para obter e enviar dados em tempo real.</p>
