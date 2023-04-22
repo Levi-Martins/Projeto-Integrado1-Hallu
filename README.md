@@ -43,6 +43,6 @@
  <br>
   
 - <h2>Banco de Dados</h2>
-<h3>Google Sheets:</h3><p> Escolhemos o Google Sheets pois é uma ferramenta que serve como banco de dados e como nós não vamos ter um sistema de cadastro de usuário e nem um cadastro de dados da parte do utilizador da aplicação, preferimos utilizar ele para se comunicar com o back-end que por sua vez se comunica com o front. Outro motivo foi para o fácil acesso e modificação da aplicação vindo da parte do administrador.</p>
+<h3>Google Sheets:</h3><p> Escolhemos o Google Sheets pois é uma ferramenta que serve como banco de dados e como nós não vamos ter um sistema de cadastro de usuário e nem um cadastro de dados da parte do utilizador da aplicação, preferimos utilizar ele para se comunicar com o back-end que por sua vez se comunica com o front. Outro motivo foi para o fácil acesso e modificação da aplicação vindo da parte do administrador..</p>
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=23D7DF&height=180&section=footer&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=70&fontSize=30&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
