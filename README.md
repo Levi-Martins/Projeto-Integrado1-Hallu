@@ -7,7 +7,7 @@
  <br>
   
 
-# 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻🧗‍♂️ Integrantes da Equipe
+# 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻👨‍🔧 Integrantes da Equipe
 
 ![](https://github.com/deborahharrop.png?size=110)
 ![](https://github.com/cacaffurtado.png?size=110)
