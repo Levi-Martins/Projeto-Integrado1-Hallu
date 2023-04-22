@@ -2,7 +2,7 @@
 
 
 # 👀 Sobre o projeto
-<p> O projeto foi realizado na disciplina de Projeto Integrado I, do terceiro semestre, do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC).</p><p> O objetivo foi desenvolver um dispositivo interativo para o Allan, secretário do curso de SMD, a fim de auxiliar os alunos dos semestres mais avançados (a partir do 6º semestre) a concluírem o curso.</p><p> Nosso site será uma espécie de calculadora de créditos, que contabilizará os créditos e horas que faltam para os alunos se formarem.</p><p> Além disso, o site contará com informações sobre a grade curricular (cadeiras obrigatórias/eletivas/optativas/horas complementares/TCC), como é feita a contabilização de horas/créditos e também um breve resumo sobre cada cadeira.</p>
+<p> O projeto foi realizado na disciplina de Projeto Integrado I, do terceiro semestre, do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC).</p><p> O objetivo foi desenvolver um dispositivo interativo para o Allan, secretário do curso de SMD, a fim de auxiliar os alunos dos semestres mais avançados (a partir do 6º semestre) a concluírem o curso.</p><p> Nosso site será uma espécie de calculadora de créditos, que contabilizará os créditos e horas que faltam para os alunos se formarem.</p><p>Além disso, o site contará com informações sobre a grade curricular (cadeiras obrigatórias/eletivas/optativas/horas complementares/TCC), como é feita a contabilização de horas/créditos e também um breve resumo sobre cada cadeira.</p>
 
  <br>
   
