@@ -9,13 +9,15 @@
   
 
 # 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻👨‍💻 Integrantes da Equipe
+<div>
+  <a href ="https://github.com/deborahharrop" target_='blank'><img src="https://github.com/deborahharrop.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/cacaffurtado" target_='blank'><img src="https://github.com/cacaffurtado.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/biankacosta" target_='blank'><img src="https://github.com/biankacosta.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/levi-martins" target_='blank'><img src="https://github.com/levi-martins.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/junior-rod" target_='blank'><img src="https://github.com/junior-rod.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/cardealdani" target_='blank'><img src="https://github.com/cardealdani.png" width="165" height="165"></a>
+</div>
 
-![](https://github.com/deborahharrop.png?size=165)
-![](https://github.com/cacaffurtado.png?size=165)
-![](https://github.com/biankacosta.png?size=165)
-![](https://github.com/levi-martins.png?size=165)
-![](https://github.com/junior-rod.png?size=165)
-![](https://github.com/cardealdani.png?size=165)
 
 
 - ***Deborah Harrop***: Líder/Atendimento
