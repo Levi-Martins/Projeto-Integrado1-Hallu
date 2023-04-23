@@ -10,12 +10,12 @@
 
 # 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻👨‍💻 Integrantes da Equipe
 
-![](https://github.com/deborahharrop.png?size=110)
-![](https://github.com/cacaffurtado.png?size=110)
-![](https://github.com/biankacosta.png?size=110)
-![](https://github.com/levi-martins.png?size=110)
-![](https://github.com/junior-rod.png?size=110)
-![](https://github.com/cardealdani.png?size=110)
+![](https://github.com/deborahharrop.png?size=165)
+![](https://github.com/cacaffurtado.png?size=165)
+![](https://github.com/biankacosta.png?size=165)
+![](https://github.com/levi-martins.png?size=165)
+![](https://github.com/junior-rod.png?size=165)
+![](https://github.com/cardealdani.png?size=165)
 
 
 - ***Deborah Harrop***: Líder/Atendimento
