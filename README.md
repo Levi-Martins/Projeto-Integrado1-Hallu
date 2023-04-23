@@ -1,9 +1,11 @@
+
+
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=30,12&height=180&section=header&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=35&fontSize=40&fontColor=fff&animation=twinkling&fontAlaigny=35"/>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=fff&font=Comfortaa&duration=3700&size=35&center=true&vCenter=true&width=1000&lines=Projeto+Integrado+I+-+2023.1;+Equipe+Hallu+(ޙައްލު);+Sistemas+e+Mídias+Digitais+-+UFC;+Seja+Bem+vindo(a)!+😉)](https://git.io/typing-svg)
 
 # 👀 Sobre o projeto
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <br>
 
 <p> O projeto foi realizado na disciplina de Projeto Integrado I, do terceiro semestre, do curso de Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC).</p><p> O objetivo foi desenvolver um dispositivo interativo para o Allan, secretário do curso de SMD, a fim de auxiliar os alunos dos semestres mais avançados (a partir do 6º semestre) a concluírem o curso.</p><p> Nosso site será uma espécie de calculadora de créditos, que contabilizará os créditos e horas que faltam para os alunos se formarem.</p><p>Além disso, o site contará com informações sobre a grade curricular (cadeiras obrigatórias/eletivas/optativas/horas complementares/TCC), como é feita a contabilização de horas/créditos e também um breve resumo sobre cada cadeira.</p>
@@ -20,21 +22,26 @@
   <tr>
     <td style="text-align: center;">
       <a href="https://github.com/deborahharrop" target="_blank"><img src="https://github.com/deborahharrop.png"
-          width="165" height="165" style="margin-right: 10px;"></a>
+          width="125" height="125" style="margin-right: 10px;"></a>
     </td>
     <td>
       <p><b>Deborah Harrop</b><br> ≻<i> Líder</i><br> ≻<i> Atendimento</i></p>
     </td>
+  </tr>
+  <tr>
     <td style="text-align: center;">
       <a href="https://github.com/cacaffurtado" target="_blank"><img src="https://github.com/cacaffurtado.png"
-          width="165" height="165" style="margin-right: 10px;"></a>
+          width="125" height="125" style="margin-right: 10px;"></a>
     </td>
     <td>
       <p><b>Carolina Furtado</b><br>≻<i> Designer</i><br> ≻<i> Conteudista</i><br> ≻<i> Revisora</i></p>
     </td>
-    <td style="text-align: center;">
-      <a href="https://github.com/biankacosta" target="_blank"><img src="https://github.com/biankacosta.png" width="165"
-          height="165" style="margin-right: 10px;"></a>
+   
+ </tr>
+ <tr>
+   <td style="text-align: center;">
+      <a href="https://github.com/biankacosta" target="_blank"><img src="https://github.com/biankacosta.png" width="125"
+          height="125" style="margin-right: 10px;"></a>
     </td>
     <td>
       <p><b>Bianka Costa</b><br>≻<i> Designer</i><br> ≻<i>Arquiteta da informação</i>
@@ -42,30 +49,34 @@
     </td>
   </tr>
   <tr>
-  </tr>
   <td style="text-align: center;">
-    <a href="https://github.com/levi-martins" target="_blank"><img src="https://github.com/levi-martins.png" width="165"
-        height="165" style="margin-right: 10px;"></a>
+    <a href="https://github.com/levi-martins" target="_blank"><img src="https://github.com/levi-martins.png" width="125"
+        height="125" style="margin-right: 10px;"></a>
   </td>
   <td>
     <p><b>Levi Martins</b><br>≻<i> Programador</i></p>
   </td>
+ </tr>
+   <tr>
   <td style="text-align: center;">
-    <a href="https://github.com/junior-rod" target="_blank"><img src="https://github.com/junior-rod.png" width="165"
-        height="165" style="margin-right: 10px;"></a>
+    <a href="https://github.com/junior-rod" target="_blank"><img src="https://github.com/junior-rod.png" width="125"
+        height="125" style="margin-right: 10px;"></a>
   </td>
   <td>
     <p><b>Will Júnior</b><br>≻<i> Programador</i></p>
   </td>
+</tr>
+<tr>
   <td style="text-align: center;">
-    <a href="https://github.com/cardealdani" target="_blank"><img src="https://github.com/cardealdani.png" width="165"
-        height="165" style="margin-right: 10px;"></a>
+    <a href="https://github.com/cardealdani" target="_blank"><img src="https://github.com/cardealdani.png" width="125"
+        height="125" style="margin-right: 10px;"></a>
   </td>
   <td>
     <p><b>Daniel Cardeal</b><br>≻<i> Programador </i><br> ≻<i> Coordenador de Testes</i></p>
   </td>
   </tr>
 </table>
+
 
 
  <br>
