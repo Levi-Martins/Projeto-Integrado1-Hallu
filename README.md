@@ -10,12 +10,12 @@
 
 # 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻👨‍💻 Integrantes da Equipe
 <div>
-  <a href ="https://github.com/deborahharrop" target=_'blank'><img src="https://github.com/deborahharrop.png" width="165" height="165" style="margin-right: 10px;"></a>
-  <a href ="https://github.com/cacaffurtado" target='_blank'><img src="https://github.com/cacaffurtado.png" width="165" height="165" style="margin-right: 10px;"></a>
-  <a href ="https://github.com/biankacosta" target='_blank'><img src="https://github.com/biankacosta.png" width="165" height="165" style="margin-right: 10px;"></a>
-  <a href ="https://github.com/levi-martins" target='_blank'><img src="https://github.com/levi-martins.png" width="165" height="165" style="margin-right: 10px;"></a>
-  <a href ="https://github.com/junior-rod" target='_blank'><img src="https://github.com/junior-rod.png" width="165" height="165" style="margin-right: 10px;"></a>
-  <a href ="https://github.com/cardealdani" target='_blank'><img src="https://github.com/cardealdani.png" width="165" height="165"></a>
+  <a href ="https://github.com/deborahharrop" target="_blank"><img src="https://github.com/deborahharrop.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/cacaffurtado" target="_blank"><img src="https://github.com/cacaffurtado.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/biankacosta" target="_blank"><img src="https://github.com/biankacosta.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/levi-martins" target="_blank"><img src="https://github.com/levi-martins.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/junior-rod" target="_blank"><img src="https://github.com/junior-rod.png" width="165" height="165" style="margin-right: 10px;"></a>
+  <a href ="https://github.com/cardealdani" target="_blank"><img src="https://github.com/cardealdani.png" width="165" height="165"></a>
 </div>
 
 
