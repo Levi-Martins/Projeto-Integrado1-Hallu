@@ -15,50 +15,57 @@
 
 <br>
 
+
 <table>
   <tr>
     <td style="text-align: center;">
       <a href="https://github.com/deborahharrop" target="_blank"><img src="https://github.com/deborahharrop.png"
-          width="125" height="125" style="margin-right: 10px;"></a>
+          width="165" height="165" style="margin-right: 10px;"></a>
+    </td>
+    <td>
+      <p><b>Deborah Harrop</b><br> ≻<i> Líder</i><br> ≻<i> Atendimento</i></p>
     </td>
     <td style="text-align: center;">
       <a href="https://github.com/cacaffurtado" target="_blank"><img src="https://github.com/cacaffurtado.png"
-          width="125" height="125" style="margin-right: 10px;"></a>
+          width="165" height="165" style="margin-right: 10px;"></a>
+    </td>
+    <td>
+      <p><b>Carolina Furtado</b><br>≻<i> Designer</i><br> ≻<i> Conteudista</i><br> ≻<i> Revisora</i></p>
     </td>
     <td style="text-align: center;">
-      <a href="https://github.com/biankacosta" target="_blank"><img src="https://github.com/biankacosta.png" width="125"
-          height="125" style="margin-right: 10px;"></a>
+      <a href="https://github.com/biankacosta" target="_blank"><img src="https://github.com/biankacosta.png" width="165"
+          height="165" style="margin-right: 10px;"></a>
     </td>
-    <td style="text-align: center;">
-      <a href="https://github.com/levi-martins" target="_blank"><img src="https://github.com/levi-martins.png"
-          width="125" height="125" style="margin-right: 10px;"></a>
-    </td>
-    <td style="text-align: center;">
-      <a href="https://github.com/junior-rod" target="_blank"><img src="https://github.com/junior-rod.png" width="125"
-          height="125" style="margin-right: 10px;"></a>
-    </td>
-    <td style="text-align: center;">
-      <a href="https://github.com/cardealdani" target="_blank"><img src="https://github.com/cardealdani.png" width="125"
-          height="125" style="margin-right: 10px;"></a>
+    <td>
+      <p><b>Bianka Costa</b><br>≻<i> Designer</i><br> ≻<i>Arquiteta da informação</i>
+      </p>
     </td>
   </tr>
+  <tr>
+  </tr>
+  <td style="text-align: center;">
+    <a href="https://github.com/levi-martins" target="_blank"><img src="https://github.com/levi-martins.png" width="165"
+        height="165" style="margin-right: 10px;"></a>
+  </td>
+  <td>
+    <p><b>Levi Martins</b><br>≻<i> Programador</i></p>
+  </td>
+  <td style="text-align: center;">
+    <a href="https://github.com/junior-rod" target="_blank"><img src="https://github.com/junior-rod.png" width="165"
+        height="165" style="margin-right: 10px;"></a>
+  </td>
+  <td>
+    <p><b>Will Júnior</b><br>≻<i> Programador</i></p>
+  </td>
+  <td style="text-align: center;">
+    <a href="https://github.com/cardealdani" target="_blank"><img src="https://github.com/cardealdani.png" width="165"
+        height="165" style="margin-right: 10px;"></a>
+  </td>
+  <td>
+    <p><b>Daniel Cardeal</b><br>≻<i> Programador </i><br> ≻<i> Coordenador de Testes</i></p>
+  </td>
+  </tr>
 </table>
-
-<br>
-
-
-- **Deborah Harrop:**
-<br> ≻<i> Líder</i><br>≻ <i> Atendimento</i>
-- **Carolina Furtado:**
-</i></b><br>≻<i> Designer</i><br>≻<i> Conteudista</i><br>≻<i> Revisora</i>
-- **Bianka Costa:**
-</i></b><br>≻<i> Designer</i><br>≻<i>Arquiteta da informação</i>
-- **Levi Martins:**
-</i></b><br>≻<i> Programador</i>
-- **Will Júnior:**
-</i></b><br>≻<i> Programador</i>
-- **Daniel Cardeal:**
-</i></b><br>≻<i> Programador</i><br>≻<i>Coordenador de Testes</i>
 
 
  <br>
