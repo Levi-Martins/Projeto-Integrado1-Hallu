@@ -4,6 +4,16 @@
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=fff&font=Comfortaa&duration=3700&size=35&center=true&vCenter=true&width=1000&lines=Projeto+Integrado+I+-+2023.1;+Equipe+Hallu+(ޙައްލު);+Sistemas+e+Mídias+Digitais+-+UFC;+Seja+Bem+vindo(a)!+😉)](https://git.io/typing-svg)
 
+<a name="ancora"></a>
+# Os 5 Granges Kages
+- [Sobre o projeto](#ancora1)
+- [Integrantes da equipe](#ancora2)
+
+
+<br>
+
+
+<a id="ancora1"></a>
 # 👀 Sobre o projeto
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <br>
@@ -12,7 +22,7 @@
 
  <br>
   
-
+<a id="ancora2"></a>
 # 👩‍✈️🕵️‍♀️👩‍🎨👨‍💻👨‍💻👨‍💻 Integrantes da Equipe
 
 <br>
