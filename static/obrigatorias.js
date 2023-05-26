@@ -1,18 +1,54 @@
 
 
-let disciplinas_feitas = []
-const total = 2880
-let horas = 0
-let qtd_cadeiras = 0
+async function request() {
+    localStorage.clear()
+    const loading = document.getElementById("loading")
+    const obg = document.getElementById("obrigatorias")
+    loading.style.display = 'block'
+    obg.style.display = 'none'
+    // if (!localStorage.getItem('arquivosArmazenados')) {
+    console.log("Fazendo requisição")
+    await fetch('http://127.0.0.1:8000/obrigatorias')
+        .then(res => res.json()).then(data => {
+            sessionStorage.setItem('obrigatorias', JSON.stringify(data))
+        })
+    console.log("Obrigatorias")
 
-let progresso = 0
-fetch('http://127.0.0.1:8000/eletivas')
-.then(res => res.json()).then(data => {
-    sessionStorage.setItem('eletivas',JSON.stringify(data))
-})
+    await fetch('http://127.0.0.1:8000/eletivas')
+        .then(res => res.json()).then(data => {
+            sessionStorage.setItem('eletivas', JSON.stringify(data))
+        })
+    console.log("Eletivas")
+
+    await fetch('http://127.0.0.1:8000/optativas')
+        .then(res => res.json()).then(data => {
+            sessionStorage.setItem('optativas', JSON.stringify(data))
+        })
+    console.log("Optativas")
+    console.log("Requisição concluída")
+    // localStorage.setItem('arquivosArmazenados', true)
+    // }else{
+    //     console.log("Arquivos já em localStorage")
+    // }
+    loading.style.display = 'none'
+    obg.style.display = 'block'
+    cadeiras()
 
 
-async function cadeiras() {
+}
+
+
+
+
+
+
+function cadeiras() {
+    let disciplinas_feitas = []
+    const total = 2880
+    let horas = 0
+    let qtd_cadeiras = 0
+    let progresso = 0
+
     cadeira = JSON.parse(sessionStorage.getItem('obrigatorias'))
 
     const semestre1 = document.getElementById('semestre1')
@@ -38,9 +74,9 @@ async function cadeiras() {
             const info = document.createElement('div')
             var lbl = document.createTextNode('+')
             var lbl2 = document.createTextNode('-')
-            bt.appendChild(lbl)         
+            bt.appendChild(lbl)
             bt2.appendChild(lbl2)
-            info.innerText='!'
+            info.innerText = '!'
             const msg = document.createElement('p')
 
 
@@ -52,11 +88,11 @@ async function cadeiras() {
                 msg.innerText = cadeira[i][j][2]
                 info.classList.toggle('info_ativo')
                 if (info.classList.contains('info_ativo')) {
-                    info.innerText=''
+                    info.innerText = ''
                     info.appendChild(msg)
                 }
                 else {
-                    info.innerText= '!'
+                    info.innerText = '!'
                 }
 
             })
@@ -70,7 +106,7 @@ async function cadeiras() {
             bt.addEventListener('click', (function (horas, cad) {
                 return function (event) {
                     event.stopPropagation()
-                    progresso += parseInt(horas) 
+                    progresso += parseInt(horas)
                     qtd_cadeiras++
                     console.log(horas)
                     console.log(`Adicionado ${horas}`)
@@ -100,7 +136,7 @@ async function cadeiras() {
                     bt2.classList.add('activePlus')
                     bt.classList.remove('activeMinus')
                     barra.style.width = (progresso / total) * 100 + '%'
-                    disciplinas_feitas = disciplinas_feitas.filter(disciplina => disciplina !== cad); 
+                    disciplinas_feitas = disciplinas_feitas.filter(disciplina => disciplina !== cad);
                     console.log(disciplinas_feitas)
                 }
             })(horas, cadeira[i][j][0]))
@@ -131,7 +167,7 @@ async function cadeiras() {
     continuar.addEventListener('click', () => {
         sessionStorage.setItem('progresso', progresso)
         sessionStorage.setItem('disciplinas', disciplinas_feitas)
-        sessionStorage.setItem('qtd_cadeiras',qtd_cadeiras)
+        sessionStorage.setItem('qtd_cadeiras', qtd_cadeiras)
 
 
     })
@@ -139,9 +175,9 @@ async function cadeiras() {
 }
 
 
-function app() {
-    console.log('App iniciado!')
-    cadeiras()
 
+function app() {
+    request()
+    console.log('App iniciado!')
 }
 app()

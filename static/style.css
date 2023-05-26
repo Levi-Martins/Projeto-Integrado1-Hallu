@@ -4,6 +4,12 @@ body{
     font-size: 1.2em;
 
 }
+
+#loading{
+    margin-top: 20%;
+    margin-left: 50%;
+}
+
 #obrigatorias{
     background-color: hwb(0 17% 35%);
     padding: 15px;

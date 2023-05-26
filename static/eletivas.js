@@ -1,7 +1,4 @@
-fetch('http://127.0.0.1:8000/optativas')
-.then(res => res.json()).then(data => {
-    sessionStorage.setItem('optativas',JSON.stringify(data))
-})
+
 
 
 
