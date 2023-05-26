@@ -6,7 +6,6 @@ from fastapi.staticfiles import StaticFiles
 import banco
 import envio_de_email
 
-
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")

@@ -15,7 +15,6 @@ const barra = document.getElementById('progresso')
 barra.style.width = (progresso / total) * 100 + '%'
 
 
-
 const lista = document.getElementById('lista')
 
 for (let i in cadeira) {

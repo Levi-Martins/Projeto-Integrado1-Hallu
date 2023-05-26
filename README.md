@@ -125,4 +125,22 @@
 - <h2>Banco de Dados</h2>
 <h3> Google Sheets:</h3><p> Escolhemos o Google Sheets pois é uma ferramenta que serve como banco de dados e como nós não vamos ter um sistema de cadastro de usuário e nem um cadastro de dados da parte do utilizador da aplicação, preferimos utilizar ele para se comunicar com o back-end que por sua vez se comunica com o front. Outro motivo foi para o fácil acesso e modificação da aplicação vindo da parte do administrador..</p>
 
+# ⚙ CONFIGURAÇÕES
+Primeiro, quem utilizar o código, precisa ter esses elementos instalados:
+
+- `PYTHON 3`: Instalar o Python 3 na sua máquina.(Pode ser a extensão do VS Code ou pelo link: https://www.python.org/downloads/)
+- `FASTAPI`: Dentro do VS Code, instalar a biblioteca FastApi no terminal com o seguinte código: ```pip install fastApi[all]```
+- `UVICORN`: Geralmente ela vem dentro do FastApi, porém, tem casos que não. Basta instalar no terminal assim: ```pip install uvicorn```
+- `GSPREAD`: Gspread é a biblioteca do python para leitura de tabelas do google sheets. Instalar assim no terminal: ```pip install gspread```
+- `LIVE SERVER`: Para abrir a página HTML, recomendo usar a extesão Live Server
+
+
+# 🛠️ COMO RODAR?
+
+Para rodar o código, precisa ter todas as configurações ajustadas.
+ - 1- Inicie o servidor com o Uvicorn chamando o arquivo 'back' e o 'app': ```uvicorn back:app --reload```
+ - 2- Espere o servidor iniciar com a mensagem : ```INFO:     Application startup complete. ```
+ - 3- Abra o arquivo 'iniciar.html', que está dentro da pasta 'static/', com a extensão live server.
+
+
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=30,12&height=180&section=footer&text=Projeto+Integrado+1+-+Hallu+(ޙައްލު)&fontAlignY=70&fontSize=40&fontColor=fff&animation=twinkling&fontAlaigny=35"/>

@@ -11,6 +11,7 @@ excel_obrigatorias = sheet.worksheet(caminho)
 excel_eletivas = sheet.worksheet(caminho_eletivas)
 excel_optativas = sheet.worksheet(caminho_optativas)
 
+
 len_semestre1 = len(excel_obrigatorias.col_values(2))
 len_semestre2 = len(excel_obrigatorias.col_values(5))
 len_semestre3 = len(excel_obrigatorias.col_values(8))

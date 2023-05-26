@@ -1,4 +1,4 @@
-fetch('https://deployprojeto.herokuapp.com/optativas')
+fetch('http://127.0.0.1:8000/optativas')
 .then(res => res.json()).then(data => {
     sessionStorage.setItem('optativas',JSON.stringify(data))
 })
@@ -8,7 +8,6 @@ fetch('https://deployprojeto.herokuapp.com/optativas')
 let disciplinas_feitas = sessionStorage.getItem('disciplinas').split(",")
 let progresso = parseInt(sessionStorage.getItem('progresso'))
 let qtd_cadeiras = sessionStorage.getItem('qtd_cadeiras')
-
 
 const total = 2880
 let horas = 0

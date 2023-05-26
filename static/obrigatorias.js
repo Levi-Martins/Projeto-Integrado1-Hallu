@@ -6,11 +6,10 @@ let horas = 0
 let qtd_cadeiras = 0
 
 let progresso = 0
-fetch('https://deployprojeto.herokuapp.com/eletivas')
+fetch('http://127.0.0.1:8000/eletivas')
 .then(res => res.json()).then(data => {
     sessionStorage.setItem('eletivas',JSON.stringify(data))
 })
-
 
 
 async function cadeiras() {
