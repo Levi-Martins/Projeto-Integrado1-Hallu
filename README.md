@@ -5,9 +5,12 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=fff&font=Comfortaa&duration=3700&size=35&center=true&vCenter=true&width=1000&lines=Projeto+Integrado+I+-+2023.1;+Equipe+Hallu+(ޙައްލު);+Sistemas+e+Mídias+Digitais+-+UFC;+Seja+Bem+vindo(a)!+😉)](https://git.io/typing-svg)
 
 <a name="ancora"></a>
-# Os 5 Granges Kages
+# Índice
 - [Sobre o projeto](#ancora1)
 - [Integrantes da equipe](#ancora2)
+- [Linguagens de programação utilizadas](#ancora3)
+- [Configurações](#ancora4)
+- [Como rodar](#ancora5)
 
 
 <br>
@@ -100,7 +103,7 @@
 
  <br>
    -->
-  
+<a id="ancora3"></a>
 # 🖥Linguagens de programação utilizadas
 
 <br>
@@ -135,6 +138,7 @@
 - <h2>Banco de Dados</h2>
 <h3> Google Sheets:</h3><p> Escolhemos o Google Sheets pois é uma ferramenta que serve como banco de dados e como nós não vamos ter um sistema de cadastro de usuário e nem um cadastro de dados da parte do utilizador da aplicação, preferimos utilizar ele para se comunicar com o back-end que por sua vez se comunica com o front. Outro motivo foi para o fácil acesso e modificação da aplicação vindo da parte do administrador..</p>
 
+<a id="ancora4"></a>
 # ⚙ CONFIGURAÇÕES
 Primeiro, quem utilizar o código, precisa ter esses elementos instalados:
 
@@ -144,7 +148,7 @@ Primeiro, quem utilizar o código, precisa ter esses elementos instalados:
 - `GSPREAD`: Gspread é a biblioteca do python para leitura de tabelas do google sheets. Instalar assim no terminal: ```pip install gspread```
 - `LIVE SERVER`: Para abrir a página HTML, recomendo usar a extesão Live Server
 
-
+<a id="ancora5"></a>
 # 🛠️ COMO RODAR?
 
 Para rodar o código, precisa ter todas as configurações ajustadas.
