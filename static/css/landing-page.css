@@ -1,0 +1,137 @@
+header{
+    padding: 50px 145px 227px 150px;
+    font-family: var(--font);
+
+}
+
+#logo{
+    display: flex;
+    column-gap: 16px;
+    padding-bottom: 110px;
+}
+
+#logo h3{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#content-header h1{
+    font-size: 100px;
+    font-weight: 700;
+    max-width: 581px;
+    line-height: 99px;
+    text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.363);
+}
+
+#content-header .description{
+    font-size: 20px;
+    max-width: 750px;
+
+    padding: 40px 0;
+}
+
+#content-header button{
+    font-size: 40px;
+    font-weight: 700;
+
+    background-color: blue;
+    color: white;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.456);
+
+    padding: 25px 50px;
+    border-radius: 34px;
+    border: none;
+}
+
+#content-header p {
+    padding-top: 30px;
+}
+
+#content-header p a{
+    font-size: 22px;
+    color: black;
+}
+
+#content-header p a img{
+    padding-left: 10px;
+}
+
+#video-category{
+    padding: 50px 0px 50px 150px;
+    font-family: var(--font);
+}
+
+#video-category h2{
+    font-size: 55px;
+    font-weight: 700;
+    max-width: 900px;
+}
+
+#video-category #catecategories-video{
+    padding: 40px 0;
+    display: flex;
+    column-gap: 35px;
+}
+
+#catecategories-video .catecategories-video-content{
+    background-color: gray;
+    font-size: 22px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+#grade-curricular{
+    padding: 150px 0 140px 150px;
+    font-family: var(--font);
+
+    display: flex;
+    column-gap: 20px;
+}
+
+#grade-curricular-content h3{
+    font-size: 55px;
+    font-weight: 700;
+    max-width: 335px;
+}
+
+#grade-curricular-content p{
+    font-size: 22px;
+    max-width: 335px;
+}
+
+#nav-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+#nav-btn button{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background-color: gray;
+}
+
+#nav-btn button i{
+    font-size: 33px;
+}
+
+/* .owl-carousel .item{
+    background-color: gray;
+    padding: 50px 20px 25px 20px;
+    border-radius: 20px;
+    height: 410px;
+}
+
+.owl-carousel .item h4{
+    font-size: 33px;
+    font-weight: 700;
+}
+
+.owl-carousel .item p{
+    font-size: 20px;
+    padding-top: 15px;
+} */

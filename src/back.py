@@ -1,14 +1,15 @@
 from fastapi import FastAPI, UploadFile, File, Form
 
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+# from fastapi.staticfiles import StaticFiles
+
 
 import banco
 import envio_de_email
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 
 app.add_middleware(
@@ -19,6 +20,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.get('/static/landing-page')
+def landingPage():
+    return {"Mensagem:":"Teste Levi"}
 
 
 @app.get('/obrigatorias')
