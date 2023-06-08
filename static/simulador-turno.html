@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="assets/icon/icone-vmf.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/global.css">
 
-    <script src="script/simulador.js" defer></script>
+    <script src="script/simulador-turno.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
     <title>Vou Me Formar? - SMD</title>
@@ -19,35 +19,21 @@
     <div id="loading">
         <img src="assets/img/loading.gif" alt="loading">
     </div>
-    <div id="turno">
-        <h1>Selecione o turno</h1>
+    <div id="display-turno">
 
-        <label><input type="radio" name="turno">Diurno</label>
-        <label><input type="radio" name="turno">Noturno</label>
-        <a href="simulador.html"><button>Continuar</button></a>
-        <div id="conexao"></div>
+        <label>
+            <input type="radio" name="turno" value="diurno" checked> Diurno
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="turno" value="noturno"> Noturno
+        </label>
+        <br>
+        <a href="simulador-obrigatorias.html"><button id="btn-prosseguir">Prosseguir</button></a>
+
 
     </div>
-    <script>
-        var conexaoDiv = document.getElementById("conexao");
 
-        if (navigator.connection) {
-            var conexao = navigator.connection.effectiveType;
-            var larguraBanda = navigator.connection.downlink;
-
-            if (conexao === "slow" || larguraBanda < 1.5) {
-                conexaoDiv.textContent = "Sua conexão de internet é fraca.";
-            } else {
-                var imgElement = document.createElement("img");
-                imgElement.src = "static/assets/img/loading.gif";
-                imgElement.alt ="Conexão boa"
-                // Adicione o código SVG para exibição aqui
-                conexaoDiv.appendChild(imgElement);
-            }
-        } else {
-            conexaoDiv.textContent = "Não foi possível verificar a conexão de internet.";
-        }
-    </script>
 </body>
 
 </html>

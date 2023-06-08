@@ -1,0 +1,23 @@
+#header{
+    width: 100vw;
+    height: 10vh;
+    background-color: #d4d1d1;
+}
+
+#main-obrigatorias{
+    background-color: aquamarine;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#obrigatorias{
+    background-color: bisque;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
