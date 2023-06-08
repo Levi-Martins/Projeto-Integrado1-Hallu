@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 header{
     padding: 50px 145px 227px 150px;
     font-family: var(--font);
@@ -41,6 +44,7 @@ header{
     padding: 25px 50px;
     border-radius: 34px;
     border: none;
+    cursor: pointer;
 }
 
 #content-header p {
@@ -86,6 +90,7 @@ header{
 
     display: flex;
     column-gap: 20px;
+    width: 100%;
 }
 
 #grade-curricular-content h3{
@@ -97,6 +102,7 @@ header{
 #grade-curricular-content p{
     font-size: 22px;
     max-width: 335px;
+    width: 335px;
 }
 
 #nav-btn{
@@ -105,6 +111,7 @@ header{
     align-items: center;
     justify-content: center;
     row-gap: 10px;
+    cursor: pointer;
 }
 
 #nav-btn button{
@@ -113,12 +120,12 @@ header{
     border-radius: 50%;
     border: none;
     background-color: gray;
+    cursor: pointer;
 }
 
 #nav-btn button i{
     font-size: 33px;
 }
-
 /* .owl-carousel .item{
     background-color: gray;
     padding: 50px 20px 25px 20px;
@@ -135,3 +142,57 @@ header{
     font-size: 20px;
     padding-top: 15px;
 } */
+
+#attention{
+    padding: 100px 0 120px 160px;
+    font-family: var(--default-font);
+}
+
+#attention p{
+    padding-top: 30px;
+    max-width: 438px;
+    width: 438px;
+    font-size: 20px;
+}
+
+#VMF{
+    padding: 108px 0 108px 150px;
+    background-color: #BABABA;
+}
+
+#VMF p{
+    font-family: var(--default-font);
+    font-size: 22px;
+  
+}
+
+#VMF h1{
+    font-family: var(--font);
+    font-size: 75px;
+    font-weight: bolder;
+    max-width: 751px;
+    width: 751px;
+}
+
+#VMF button{
+    font-family: var(--font);
+    font-size: 40px;
+    font-weight: bolder;
+
+    width: 410px;
+    height: 92px;
+    border-radius: 34px;
+    border: none;
+    
+    margin-top: 60px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.411);
+    cursor: pointer;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+

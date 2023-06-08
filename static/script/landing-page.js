@@ -4,22 +4,10 @@ $(document).ready(function(){
     owl.owlCarousel({
       loop:true,
       margin:10,
-      nav:true,
-      responsive:{
-          0:{
-              items:1
-          },
-          600:{
-              items:1
-          },
-          1440:{
-              items:4
-          },
-          1920:{
-            items:5
-        }
-
-      }
+      dots:false,
+      nav:false,
+      autoWidth:true,
+      items:6
     });
 
     $(".btn-prev").on('click', ()=>{

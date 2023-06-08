@@ -1,0 +1,100 @@
+@import url(global.css);
+#background-turnos{
+    height: 100vh;
+    background-color: var(--current-background);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    align-items: center;
+    justify-content: center;
+
+    transition: background .2s linear;
+
+    font-family: var(--font);
+    font-weight: bold;
+    color: var(--current-font-color);
+}
+
+#background-turnos h1{
+    font-size: 95px;
+}
+
+#background-turnos #turnos{
+    font-size: 50px;
+
+    background-color: rgb(86, 91, 91);
+    width: 822px;
+    height: 116px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 26px 65px;
+}
+
+#background-turnos #check{
+    position: absolute;
+    opacity: 0;
+}
+
+#background-turnos .shift-change{
+    background-color: var(--current-color);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 220px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 50px;
+
+    position: relative;
+}
+
+#background-turnos .shift-change .ball{
+    background-color: white;
+
+    position: absolute;
+    left: 0px;
+
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    transition: transform .2s linear;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#background-turnos #check:checked + .shift-change .ball{
+    transform: translateX(150px);
+}
+
+#background-turnos #btn-turnos{
+    font-size: 40px;
+    background-color: var(--btn-color);
+    padding: 25px 50px;
+    border-radius: 20px;
+    border: none;
+
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 40px;
+    color: var(--current-font-color);
+    cursor: pointer;
+}
+
+#background-turnos .fa-moon{
+    font-size: 40px;    
+    color: #f1c40f;
+}
+
+#background-turnos .fa-sun{
+    font-size: 40px;
+    color: #f39c12;
+}

@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter&display=swap');
 @import url(landing-page.css);
+@import url(turnos.css);
 
 *{
     margin: 0;
@@ -9,4 +10,29 @@
 
 :root{
     --font:'DM Sans', sans-serif;
+    --default-font:'Inter', sans-serif;
+
+    --current-color: #FACC20;
+    --secundary-color: #93B7C7;
+    
+    --current-background:#FACC20;
+    --secundary-background:#232c35;
+
+    --current-font-color: black;
+    --secundary-font-color: white;
+
+    --btn-color:#f39c12;
+}
+
+.dark{
+    --current-color: #93B7C7;
+    --secundary-color: #FACC20;
+
+    --current-background:#232c35;
+    --secundary-background:#fafafa;
+
+    --current-font-color: white;
+    --secundary-font-color: black;
+
+    --btn-color:#93B7C7;
 }
