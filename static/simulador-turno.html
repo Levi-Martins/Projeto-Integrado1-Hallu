@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/icon/icone-vmf.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/global.css">
+
+    <script src="script/simulador.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <title>Vou Me Formar? - SMD</title>
+</head>
+
+<body>
+    <div id="loading">
+        <img src="assets/img/loading.gif" alt="loading">
+    </div>
+    <div id="turno">
+        <h1>Selecione o turno</h1>
+
+        <label><input type="radio" name="turno">Diurno</label>
+        <label><input type="radio" name="turno">Noturno</label>
+        <a href="simulador.html"><button>Continuar</button></a>
+        <div id="conexao"></div>
+
+    </div>
+    <script>
+        var conexaoDiv = document.getElementById("conexao");
+
+        if (navigator.connection) {
+            var conexao = navigator.connection.effectiveType;
+            var larguraBanda = navigator.connection.downlink;
+
+            if (conexao === "slow" || larguraBanda < 1.5) {
+                conexaoDiv.textContent = "Sua conexão de internet é fraca.";
+            } else {
+                var imgElement = document.createElement("img");
+                imgElement.src = "static/assets/img/loading.gif";
+                imgElement.alt ="Conexão boa"
+                // Adicione o código SVG para exibição aqui
+                conexaoDiv.appendChild(imgElement);
+            }
+        } else {
+            conexaoDiv.textContent = "Não foi possível verificar a conexão de internet.";
+        }
+    </script>
+</body>
+
+</html>
