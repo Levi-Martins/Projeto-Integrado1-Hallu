@@ -1,32 +1,32 @@
 
-function obrigatorias(){
+function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
     // console.log(cadeiras)
     const semestres = document.getElementsByClassName("cadeiras-semestre")
-
     for (let i in cadeira) {
-        console.log(`Semestre ${parseInt(i)+1}`)    
+        console.log(`Semestre ${parseInt(i) + 1}`)
         for (let j in cadeira[i]) {
             console.log(cadeira[i][j][0])
-            // console.log(j)
-    
-            // console.log(cadeira[i][j][0])
-            if(cadeira[i][j][0] == "-"){
-                console.log(semestres[j])
+
+            // // console.log(cadeira[i][j][0])
+            if (cadeira[i][j][0] == "-") {
+                console.log(semestres[i])
+                semestres[i].innerText = "Não existem cadeiras obrigatórias para esse semestre"
+
             }
+            // console.log(semestres[j])
+
         }
         console.log(" ")
     }
-
-
-
 
 }
 
 
 
 
-function simulador(){
+
+function simulador() {
     console.log("Seleção de obrigatórias")
     obrigatorias()
 }

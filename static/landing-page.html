@@ -1,105 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="shortcut icon" href="assets/icon/icone-vmf.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/global.css">
 
     <!-- carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="script/landing-page.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
     <title>Vou Me Formar? - SMD</title>
 </head>
+
 <body>
 
-        <header>
-            <div id="logo">
-                <img src="assets/icon/icone-vmf.svg" alt="logo-vmf">
-                <h3>VMF</h3>
-            </div>
-            <div id="content-header">
-                <h1>
-                    Será que eu posso me formar?
-                </h1>
-                <p class="description">
-                    Com nossa aplicação, feita exclusivamente para alunos do curso de Sistemas e Mídias Digitais (SMD), você pode simular o seu progresso no curso, obter informações sobre a grade curricular e saber tudo o que falta para você poder se formar!
-                </p>
-                <a href="turnos.html"><button>Simule agora</button></a>
-                
-                <p><a href="#video-category">Saiba mais sobre como funciona a grade curricular do SMD<img src="assets/icon/arrow-up-right.svg" alt=""></a></p>
-            </div>
-        </header>
-        <main>
-            <div id="video-category">
-                <h2>Como funciona a grade curricular do SMD?</h2>
-                <div id="catecategories-video">
-                    <div class="catecategories-video-content">
-                        <p>Tipos de disciplinas</p>
-                    </div>
-                    <div class="catecategories-video-content">
-                        <p>Créditos e horas </p>
-                    </div>
-                    <div class="catecategories-video-content">
-                        <p>Diferença entre turnos</p>
-                    </div>
-                </div>
-            </div>
-            <div id="grade-curricular">
-                <div id="grade-curricular-content">
-                    <h3>Nossa grade curricular</h3>
-                    <p>Passando pro lado, você vai descobrir um pouquinho mais sobre cada componente da grade curricular do SMD :)</p>
-                </div>
-                <div id="nav-btn">
-                    <button class="btn-prev"><i class="fa-solid fa-arrow-left"></i></button>
-                    <button class="btn-next"><i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-                <div class="owl-carousel owl-theme ">
-                    <div class="item" style="width: 335px;">
-                      <img src="assets/img/Obrigatórias.png" alt="">
-                    </div>
-                    <div class="item" style="width: 335px;">
-                        <img src="assets/img/Eletivas.png" alt="" >
-                    </div>
-                    <div class="item" style="width: 335px;">
-                        <img src="assets/img/Optativas.png" alt="">
-                    </div>
-                    <div class="item" style="width: 335px;">
-                        <img src="assets/img/tcc.png" alt="" >
-                    </div>
-                    <div class="item" style="width: 335px;">
-                        <img src="assets/img/horas-complementares.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div id="attention">
-                <img src="assets/img/Atenção.png" alt="">
-                <p>Esse é um erro muito comum no SMD! Para se formar, você precisa fazer no mínimo 4 cadeiras eletivas do quarto semestre e 3 cadeiras eletivas do quinto, exatamente nessa quantidade! Caso faça, por exemplo, cinco do quarto e duas do quinto, ainda faltarão cadeiras - uma do quinto.</p>
-            </div>
-            <div id="VMF">
-                <p>Depois de tudo isso...</p>
-                <h1>E aí? Quer saber seu progresso no curso e o que falta pra você se formar? </h1>
-                <a href="turnos.html"><button>Vamos Começar</button></a>
-            </div>
-        </main>
-        <footer>
-            <img src="assets/icon/Desenvolvido por Hallu.png" alt="">
-            <img src="assets/icon/Logo.png" alt="">
-            <img src="assets/icon/UFC e SMD.png" alt="">
-        </footer>
+    <header>
+        <div id="logo">
+            <img src="assets/icon/icone-vmf.svg" alt="logo-vmf">
+            <h3>VMF</h3>
+        </div>
+        <div id="content-header">
+            <h1>
+                Será que eu posso me formar?
+            </h1>
+            <p class="description">
+                Com nossa aplicação, feita exclusivamente para alunos do curso de Sistemas e Mídias Digitais (SMD), você
+                pode simular o seu progresso no curso, obter informações sobre a grade curricular e saber tudo o que
+                falta para você poder se formar!
+            </p>
+            <a href="simulador-turnos.html"><button>Simule agora</button></a>
 
-        <!-- JQuery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!-- Carousel -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!-- Icones -->
-        <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
+            <p><a href="#video-category">Saiba mais sobre como funciona a grade curricular do SMD<img
+                        src="assets/icon/arrow-up-right.svg" alt=""></a></p>
+        </div>
+    </header>
+    <main>
+        <div id="video-category">
+            <h2>Como funciona a grade curricular do SMD?</h2>
+            <div id="catecategories-video">
+                <div class="catecategories-video-content">
+                    <p>Tipos de disciplinas</p>
+                </div>
+                <div class="catecategories-video-content">
+                    <p>Créditos e horas </p>
+                </div>
+                <div class="catecategories-video-content">
+                    <p>Diferença entre turnos</p>
+                </div>
+            </div>
+        </div>
+        <div id="grade-curricular">
+            <div id="grade-curricular-content">
+                <h3>Nossa grade curricular</h3>
+                <p>Passando pro lado, você vai descobrir um pouquinho mais sobre cada componente da grade curricular do
+                    SMD :)</p>
+            </div>
+            <div id="nav-btn">
+                <button class="btn-prev"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn-next"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="owl-carousel owl-theme ">
+                <div class="item" style="width: 335px;">
+                    <img src="assets/img/Obrigatórias.png" alt="">
+                </div>
+                <div class="item" style="width: 335px;">
+                    <img src="assets/img/Eletivas.png" alt="">
+                </div>
+                <div class="item" style="width: 335px;">
+                    <img src="assets/img/Optativas.png" alt="">
+                </div>
+                <div class="item" style="width: 335px;">
+                    <img src="assets/img/tcc.png" alt="">
+                </div>
+                <div class="item" style="width: 335px;">
+                    <img src="assets/img/horas-complementares.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="attention">
+            <img src="assets/img/Atenção.png" alt="">
+            <p>Esse é um erro muito comum no SMD! Para se formar, você precisa fazer no mínimo <u>4</u> cadeiras
+                eletivas do quarto semestre e <u>3</u> cadeiras eletivas do quinto, exatamente nessa quantidade! Caso
+                faça, por exemplo, cinco do quarto e duas do quinto, ainda faltarão cadeiras - uma do quinto.</p>
+        </div>
+        <div id="VMF">
+            <p>Depois de tudo isso...</p>
+            <h1>E aí? Quer saber seu progresso no curso e o que falta pra você se formar? </h1>
+            <a href="simulador-turnos.html"><button>Vamos Começar</button></a>
+        </div>
+    </main>
+    <footer>
+        <img src="assets/icon/Desenvolvido por Hallu.png" alt="">
+        <img src="assets/icon/Logo.png" alt="">
+        <img src="assets/icon/UFC e SMD.png" alt="">
+    </footer>
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Icones -->
+    <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

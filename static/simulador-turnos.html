@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/turnos.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+   
+    <title>Vou Me Formar? - SMD</title>
+</head>
+<body>
+    <body>
+        <div id="loading">
+            <img src="assets/img/loading.gif" alt="loading">
+        </div>
+        <div id="background-turnos">
+            <h1>Escolha seu turno</h1>
+            <div id="turnos">
+                <p>Diurno</p>
+                <div class="diurno-noturno">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="shift-change">
+                        <div class="ball"><i class="fas fa-sun"></i></div>
+                    </label>
+                </div>
+                <p>Noturno</p>
+            </div>
+            <a href="simulador-obrigatorias.html"><button id="btn-turnos">Prosseguir</button></a>
+        </div>
+        <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
+        <script src="script/simulador-turno.js"></script>
+</body>
+</html>

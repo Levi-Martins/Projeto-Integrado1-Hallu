@@ -1,8 +1,8 @@
 
 async function request() {
-    localStorage.clear()
+    // localStorage.clear()
     const loading = document.getElementById("loading")
-    const turno = document.getElementById("display-turno")
+    const turno = document.getElementById("background-turnos")
     if (!localStorage.getItem('arquivosArmazenados')) {
         turno.style.display = "none"
         console.log("Carregando dados")
@@ -28,24 +28,35 @@ async function request() {
 
 }
 
-function escolhaTurno() {
-    const btn = document.getElementById("btn-prosseguir")
-    let turnoSelecionado = "diurno"
-    btn.addEventListener("click", (e) => {
-        e.preventDefault
-        const radios = document.getElementsByName("turno")
-        for (let i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                turnoSelecionado = radios[i].value
-                sessionStorage.setItem("turno", turnoSelecionado)
-                break
-            }
-        }
 
+function escolhaTurno() {
+    const chk = document.getElementById('check')
+    const i = document.getElementsByTagName('i')
+    let turno_escolhido = "Diurno"
+    const btn_prosseguir = document.getElementById("btn-turnos")
+    chk.addEventListener('click', () => {
+        document.body.classList.toggle('dark')
+
+        const check = document.getElementById('check')
+        if (check.checked) {
+            console.log('aaaa')
+            turno_escolhido = "Noturno"
+
+            i[0].classList.replace('fa-sun', 'fa-moon');
+        } else {
+            console.log('bbbb')
+            turno_escolhido = "Diurno"
+            i[0].classList.replace('fa-moon', 'fa-sun');
+        }
     })
+    btn_prosseguir.addEventListener("click", () =>{
+        sessionStorage.setItem("turno",turno_escolhido)
+    })
+    
 
 
 }
+
 
 function app() {
     console.log("Simulação Iniciado")
