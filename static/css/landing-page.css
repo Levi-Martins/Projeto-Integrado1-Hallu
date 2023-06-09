@@ -51,6 +51,18 @@ header{
     padding-top: 30px;
 }
 
+#botaoSimule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+a{
+    text-decoration: none;
+
+}
+
+
 #content-header p a{
     font-size: 22px;
     color: black;

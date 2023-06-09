@@ -59,7 +59,7 @@ function escolhaTurno() {
 
 function app() {
     console.log("Simulação Iniciado")
-    request()
+    // request()
     escolhaTurno()
 
 }

@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 
   async function request() {
-    // localStorage.clear()
+    localStorage.clear()
     // sessionStorage.clear()
     const loading = document.getElementById("loading")
     if (!localStorage.getItem('arquivosArmazenados')) {
