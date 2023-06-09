@@ -1,6 +1,7 @@
 
 async function request() {
     // localStorage.clear()
+    // sessionStorage.clear()
     const loading = document.getElementById("loading")
     const turno = document.getElementById("background-turnos")
     if (!localStorage.getItem('arquivosArmazenados')) {
@@ -28,31 +29,57 @@ async function request() {
 
 }
 
-
 function escolhaTurno() {
     const chk = document.getElementById('check')
     const i = document.getElementsByTagName('i')
-    let turno_escolhido = "Diurno"
+    if (!sessionStorage.getItem("bool_turno")) {
+        sessionStorage.setItem("turno", "Diurno")
+        sessionStorage.setItem("bool_turno", true)
+    }
+
     const btn_prosseguir = document.getElementById("btn-turnos")
+    let turno_escolhido = sessionStorage.getItem("turno");
+
+    if (turno_escolhido === "Noturno") {
+        chk.checked = true;
+        document.body.classList.add('dark')
+
+        i[0].classList.replace('fa-sun', 'fa-moon');
+    } else {
+        chk.checked = false;
+        document.body.classList.remove('dark')
+
+        i[0].classList.replace('fa-moon', 'fa-sun');
+    }
+
     chk.addEventListener('click', () => {
-        document.body.classList.toggle('dark')
 
         const check = document.getElementById('check')
+        console.log(check)
         if (check.checked) {
-            console.log('aaaa')
             turno_escolhido = "Noturno"
+            console.log(turno_escolhido)
+            document.body.classList.add('dark')
+
 
             i[0].classList.replace('fa-sun', 'fa-moon');
         } else {
-            console.log('bbbb')
             turno_escolhido = "Diurno"
+            console.log(turno_escolhido)
+            document.body.classList.remove('dark')
+
+
             i[0].classList.replace('fa-moon', 'fa-sun');
         }
     })
-    btn_prosseguir.addEventListener("click", () =>{
-        sessionStorage.setItem("turno",turno_escolhido)
+
+
+    btn_prosseguir.addEventListener("click", () => {
+        sessionStorage.setItem("turno", turno_escolhido)
     })
-    
+
+
+
 
 
 }
