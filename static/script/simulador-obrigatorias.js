@@ -1,11 +1,9 @@
 
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
-    // console.log(cadeira)
     const semestres = document.getElementsByClassName("cadeiras-semestre")
     for (let i in cadeira) {
 
-        // console.log(`Semestre ${parseInt(i) + 1}`)
 
         const selecionar_todas = document.createElement("input")
         const label_todas = document.createElement("label")
@@ -15,17 +13,17 @@ function obrigatorias() {
         label_todas.append("Adicionar Todas")
         semestres[i].appendChild(label_todas)
 
+
         selecionar_todas.addEventListener("click", () => {
-            const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]');
+            const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
+            console.log(checkboxes)
             for (let j = 0; j < checkboxes.length; j++) {
-                checkboxes[j].checked = selecionar_todas.checked;
+                checkboxes[j].checked = selecionar_todas.checked
             }
-        });
+        })
 
         for (let j in cadeira[i]) {
             // console.log(cadeira[i][j][0])
-
-
 
             const input = document.createElement("input")
             const label = document.createElement("label")
@@ -42,23 +40,18 @@ function obrigatorias() {
                 // console.log(semestres[i])
                 semestres[i].innerText = "Não existem cadeiras obrigatórias para esse semestre"
             }
-
-
-
-
         }
-        // console.log(" ")
     }
 
 }
 
 function armazenarCadeiras() {
-    const checkboxes = document.getElementsByName("obrigatorias");
+    const checkboxes = document.getElementsByName("obrigatorias")
     let cadeirasSelecionadas = [];
 
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-            cadeirasSelecionadas.push(checkboxes[i].value);
+            cadeirasSelecionadas.push(checkboxes[i].value)
         }
     }
 
@@ -66,16 +59,14 @@ function armazenarCadeiras() {
 }
 
 function atualizarCheckboxes() {
-    const checkboxes = document.getElementsByName("obrigatorias");
-    let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("obrigatorias_selecionadas"));
-
+    const checkboxes = document.getElementsByName("obrigatorias")
+    let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("obrigatorias_selecionadas"))
     if (cadeirasSelecionadas) {
         for (let i = 0; i < checkboxes.length; i++) {
-            checkboxes[i].checked = cadeirasSelecionadas.includes(checkboxes[i].value);
+            checkboxes[i].checked = cadeirasSelecionadas.includes(checkboxes[i].value)
         }
     }
 }
-
 
 
 function simulador() {
