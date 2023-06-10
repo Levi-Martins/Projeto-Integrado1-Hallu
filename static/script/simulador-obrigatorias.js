@@ -1,9 +1,12 @@
 
+
+let horas = 0
+let horas_cadeira;
+
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
     const semestres = document.getElementsByClassName("cadeiras-semestre")
     for (let i in cadeira) {
-
 
         const selecionar_todas = document.createElement("input")
         const label_todas = document.createElement("label")
@@ -15,38 +18,78 @@ function obrigatorias() {
         semestres[i].appendChild(label_todas)
 
         selecionar_todas.addEventListener("click", () => {
-        const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
+            const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
             // console.log(checkboxes)
             for (let j = 0; j < checkboxes.length; j++) {
                 checkboxes[j].checked = selecionar_todas.checked
+                if (checkboxes[j].checked === true) {
+                    console.log(checkboxes[j].value)
+                    horas += parseInt(checkboxes[j].value)
+                }
+                else{
+                    horas-= parseInt(checkboxes[j].value)
+                }
+
             }
         })
 
         for (let j in cadeira[i]) {
             const input = document.createElement("input")
             const label = document.createElement("label")
-
             input.setAttribute("type", "checkbox")
             input.setAttribute("name", "obrigatorias")
-            input.setAttribute("value", cadeira[i][j][0])
+            input.setAttribute("value", cadeira[i][j][1])
             label.appendChild(input)
-
             label.append(cadeira[i][j][0])
             semestres[i].appendChild(label)
+            horas_cadeira = parseInt(cadeira[i][j][1])
+
+
             if (cadeira[i][j][0] == "-") {
                 semestres[i].innerText = "Não existem cadeiras obrigatórias para esse semestre"
             }
 
-            input.addEventListener("click",()=>{
-                console.log(selecionar_todas)
-                //colocar pra quando eu selecionar todas as cadeiras e 
-                // desmarcar alguma, desmarcar selecionar todas
+            input.addEventListener("click", (function (hora_cad) {
+                return () => {
 
-            })
+                    if (input.checked == true) {
+                        horas += parseInt(hora_cad)
+                    }
+                    else {
+                        horas -= parseInt(hora_cad)
+
+                    }
+
+
+                    if (selecionar_todas.checked == true) {
+                        selecionar_todas.checked = false
+                    }
+
+                    const semestre_input = semestres[i].querySelectorAll("input[name='obrigatorias']")
+                    let len = 0;
+                    let ele = 0;
+                    semestre_input.forEach(element => {
+                        ele++
+                        if (element.checked == true) {
+                            len++
+                        }
+
+                    })
+                    console.log(len)
+                    console.log(ele)
+                    if (len == ele) {
+                        selecionar_todas.checked = true
+                    }
+                    console.log(horas)
+
+                }
+
+            })(horas_cadeira))
 
         }
-    }
 
+
+    }
 }
 
 function armazenarCadeiras() {
@@ -72,7 +115,7 @@ function armazenarCadeiras() {
             }
         }
     }
-    sessionStorage.setItem("checkTodas", JSON.stringify(checkTodas))
+    sessionStorage.setItem("check_obrigatorias", JSON.stringify(checkTodas))
 
 
 
@@ -88,14 +131,11 @@ function atualizarCheckboxes() {
     }
 
     const selecionar_todas = document.getElementsByName('todas')
-    let checkTodas = JSON.parse(sessionStorage.getItem("checkTodas"))
+    let checkTodas = JSON.parse(sessionStorage.getItem("check_obrigatorias"))
     if (checkTodas) {
         for (let i = 0; i < selecionar_todas.length; i++) {
             selecionar_todas[i].checked = checkTodas.includes(selecionar_todas[i].value)
         }
-
-
-
     }
 }
 

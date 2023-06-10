@@ -23,7 +23,6 @@ async function request() {
 
     } else {
         loading.style.display = "none"
-
         console.log("Arquivos já em localStorage")
     }
 }
