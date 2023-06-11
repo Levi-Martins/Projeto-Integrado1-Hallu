@@ -1,7 +1,7 @@
 
 async function request() {
     // localStorage.clear()
-    sessionStorage.clear()
+    // sessionStorage.clear()
     const loading = document.getElementById("loading")
     if (!localStorage.getItem('arquivosArmazenados')) {
 

@@ -1,4 +1,5 @@
 
+// sessionStorage.setItem("horas",horas)
 
 let horas = 0
 let horas_cadeira;
@@ -19,11 +20,15 @@ function obrigatorias() {
 
         selecionar_todas.addEventListener("click", () => {
             const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
-            // console.log(checkboxes)
+            console.log(checkboxes)
             for (let j = 0; j < checkboxes.length; j++) {
                 checkboxes[j].checked = selecionar_todas.checked
+                console.log(selecionar_todas.checked)
+                
+                
+                
                 if (checkboxes[j].checked === true) {
-                    console.log(checkboxes[j].value)
+                    // console.log(checkboxes[j].value)
                     horas += parseInt(checkboxes[j].value)
                 }
                 else{
@@ -38,7 +43,7 @@ function obrigatorias() {
             const label = document.createElement("label")
             input.setAttribute("type", "checkbox")
             input.setAttribute("name", "obrigatorias")
-            input.setAttribute("value", cadeira[i][j][1])
+            input.setAttribute("value", cadeira[i][j][0])
             label.appendChild(input)
             label.append(cadeira[i][j][0])
             semestres[i].appendChild(label)
@@ -75,12 +80,12 @@ function obrigatorias() {
                         }
 
                     })
-                    console.log(len)
-                    console.log(ele)
+                    // console.log(len)
+                    // console.log(ele)
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    console.log(horas)
+                    // console.log(horas)
 
                 }
 
