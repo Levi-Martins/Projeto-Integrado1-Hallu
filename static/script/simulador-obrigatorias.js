@@ -18,25 +18,57 @@ function obrigatorias() {
         label_todas.append("Adicionar Todas")
         semestres[i].appendChild(label_todas)
 
-        selecionar_todas.addEventListener("click", () => {
-            const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
-            console.log(checkboxes)
-            for (let j = 0; j < checkboxes.length; j++) {
-                checkboxes[j].checked = selecionar_todas.checked
-                console.log(selecionar_todas.checked)
-                
-                
-                
-                if (checkboxes[j].checked === true) {
-                    // console.log(checkboxes[j].value)
-                    horas += parseInt(checkboxes[j].value)
-                }
-                else{
-                    horas-= parseInt(checkboxes[j].value)
+        selecionar_todas.addEventListener("click", function (horas_cad) {
+            return () => {
+                const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
+                // console.log(checkboxes)
+
+                for (let j = 0; j < checkboxes.length; j++) {
+                    checkboxes[j].checked = selecionar_todas.checked
+
+                    if (i == 0) {
+                        horas_cad = cadeira[i][0][1]
+                    }
+                    if (checkboxes[j].checked === true) {
+                        somada = true
+                    }
+                    else{
+                        somada = false
+                    }
+                   
+                   
+                   
+                   
+                   
+                    if (somada) {
+                        horas += parseInt(horas_cad)
+                        console.log(`Horas Somadas ${horas}`)
+                        let somada = true
+                        if (somada) {
+                            horas_cad = 0
+                            console.log(somada)
+                        }
+
+
+                    }
+                    else {
+                        somada = false
+                        if (!somada) {
+                            console.log(somada)
+
+                            horas -= parseInt(horas_cad)
+                            console.log(`Horas diminuidas ${horas}`)
+                        }
+
+                    }
+
                 }
 
+                console.log(horas)
+
+
             }
-        })
+        }(horas_cadeira))
 
         for (let j in cadeira[i]) {
             const input = document.createElement("input")
@@ -62,8 +94,8 @@ function obrigatorias() {
                     }
                     else {
                         horas -= parseInt(hora_cad)
-
                     }
+                    if (horas <= 0) horas = 0
 
 
                     if (selecionar_todas.checked == true) {
@@ -85,7 +117,7 @@ function obrigatorias() {
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    // console.log(horas)
+                    console.log(horas)
 
                 }
 
