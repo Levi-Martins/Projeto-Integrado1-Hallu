@@ -58,12 +58,12 @@
 
 #obrigatorias{
     background-color:#ccc;
-    width: 1389px;
-    height: 934px;
+    max-width: 1389px;
     display: flex;
     flex-direction: column;
     gap: 40px 0;
     border-radius: 20px;
+    padding: 30px;
 }
 
 #obrigatorias h1{
@@ -71,31 +71,55 @@
     font-family: var(--font);
     font-size: 50px;
     font-weight: bold;
-    margin-top: 30px;
-
 }
 
 #cadeiras-obrigatorias{
     display: flex;
     flex-wrap: wrap;
-
+    gap: 35px;
+    justify-content: center;
 }
 
 .semestres{
     width: 306px;
     height: 284px;
     background-color: #737373;
-    border-radius: 20px 20px 0 0;
-    margin-bottom: 35px;
-    margin-left: 35px;
+    border-radius: 20px 20px 20px 20px;
 
 }
 
 .cadeiras-semestre{
     display: flex;
     flex-direction: column;
+}
+
+.numero-semestre{
+    text-align: center;
+    background-color: aqua;
+    border-radius: 20px 20px 0 0;
+    padding: 15px;
+    font-size: 22px;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
+.cadeiras-semestre{
+    font-size: 18px;
+    font-family: var(--font);
+    padding: 10px 20px;
+}
+
+.cadeiras-semestre input{
+    margin-right: 15px;
 
 }
+
+.cadeiras-semestre label{
+    padding: 5px 0 5px 0;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
 
 
 
