@@ -1,12 +1,13 @@
 
 // sessionStorage.setItem("horas",horas)
 
-let horas = 0
-let horas_cadeira;
+let horas = parseInt(sessionStorage.getItem("horas"))
 
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
     const semestres = document.getElementsByClassName("cadeiras-semestre")
+    let horas_cadeira
+
     for (let i in cadeira) {
 
         const selecionar_todas = document.createElement("input")
@@ -21,12 +22,29 @@ function obrigatorias() {
         selecionar_todas.addEventListener("click", () => {
 
             const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
-            // console.log(checkboxes)
 
             for (let j = 0; j < checkboxes.length; j++) {
-                checkboxes[j].checked = selecionar_todas.checked
+                horas_cadeira = parseInt(cadeira[i][i][1])
 
-            }
+                if (selecionar_todas.checked == true) {
+                    if (checkboxes[j].checked == false) {
+                        checkboxes[j].checked = selecionar_todas.checked
+                        horas += horas_cadeira
+                        console.log(checkboxes[j])
+                        console.log(`Somando horas: ${horas}`)
+                    }
+                }
+                else {
+                    if (checkboxes[j].checked == true) {
+                        checkboxes[j].checked = selecionar_todas.checked
+                        horas -= horas_cadeira
+                        console.log(`Diminuindo horas: ${horas}`)
+
+                    }
+                }
+
+            }   
+
         })
 
         for (let j in cadeira[i]) {
@@ -112,7 +130,7 @@ function armazenarCadeiras() {
         }
     }
     sessionStorage.setItem("check_obrigatorias", JSON.stringify(checkTodas))
-
+    sessionStorage.setItem("horas", horas)
 
 
 }

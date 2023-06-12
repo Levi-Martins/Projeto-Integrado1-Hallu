@@ -1,0 +1,103 @@
+@import url(global.css);
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 150px 50px 150px;
+    font-family: var(--font);
+    font-weight: bold;
+}
+
+#header img{
+    width: 155px;
+    height: 63px;
+}
+
+#categorias{
+    display: flex;
+    gap: 0 100px;
+}
+
+#categorias button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.valor-categorias{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.valor-categorias p{
+    margin-top: 15px;
+}
+
+#main-obrigatorias{
+    display: flex;
+    align-items: center;
+    margin: 13px 150px 57px 150px;
+    gap: 0 55px;
+}
+.arrows{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+#obrigatorias{
+    background-color:#ccc;
+    width: 1389px;
+    height: 934px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px 0;
+    border-radius: 20px;
+}
+
+#obrigatorias h1{
+    text-align: center;
+    font-family: var(--font);
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 30px;
+
+}
+
+#cadeiras-obrigatorias{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.semestres{
+    width: 306px;
+    height: 284px;
+    background-color: #737373;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 35px;
+    margin-left: 35px;
+
+}
+
+.cadeiras-semestre{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+

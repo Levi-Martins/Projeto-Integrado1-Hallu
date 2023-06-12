@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/simulador.css">
-
+    <link rel="stylesheet" href="css/simulador-obrigatorias.css">
     <title>Vou Me Formar? - SMD</title>
     <script src="script/simulador-obrigatorias.js" defer></script>
 
@@ -16,64 +14,104 @@
 <body>
     <main>
         <div id="header">
-            Cabeçalho ( Colocar alguma coisa aqui!)
+            <img src="assets/icon/Logo.png" alt="">
+            <div id="categorias">
+                <div id="obrigatorias-categorias" class="valor-categorias">
+                    <button>1</button>
+                    <p>Obrigatórias</p>
+                </div>
+                <div id="eletivas-categorias" class="valor-categorias">
+                    <button>2</button>
+                    <p>Eletivas</p>
+                </div>
+                <div id="optativas-categorias" class="valor-categorias">
+                    <button>3</button>
+                    <p>Optativas</p>
+                </div>
+                <div id="tcc-categorias" class="valor-categorias">
+                    <button>4</button>
+                    <p>Tcc e Horas</p>
+                </div>
+                <div id="resultado-categorias" class="valor-categorias">
+                    <button>5</button>
+                    <p>Resultado</p>
+                </div>
+            </div>
         </div>
         <div id="main-obrigatorias">
+            <button class="arrows"><img src="assets/icon/arrow-left_svgrepo.com.png"></button>
             <div id="obrigatorias">
                 <div id="h1-obrigatorias">
                     <h1>Obrigatórias</h1>
                 </div>
                 <div id="cadeiras-obrigatorias">
                     <div class="semestres">
-                        <h3>Semestre 1</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 1</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 2</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 2</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 3</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 3</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 4</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 4</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 5</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 5</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 6</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 6</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 7</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 7</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                     <div class="semestres">
-                        <h3>Semestre 8</h3>
+                        <div class="numero-semestre">
+                            <h3>Semestre 8</h3>
+                        </div>
                         <form class="cadeiras-semestre">
 
                         </form>
                     </div>
                 </div>
             </div>
+            <button class="arrows"><img src="assets/icon/arrow-right_svgrepo.com.png"></button>
         </div>
         <a href="simulador-turnos.html"><button onclick="armazenarCadeiras()">Voltar</button></a>
         <a href="simulador-eletivas.html"><button onclick="armazenarCadeiras()">Continuar</button></a>

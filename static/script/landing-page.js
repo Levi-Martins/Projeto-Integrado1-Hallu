@@ -17,6 +17,6 @@ $(document).ready(function(){
       owl.trigger('next.owl.carousel');
     })
   });
-
-
+sessionStorage.clear()
+sessionStorage.setItem("horas",0)
   

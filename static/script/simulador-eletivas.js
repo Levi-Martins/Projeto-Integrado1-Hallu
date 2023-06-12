@@ -1,10 +1,13 @@
 
+let horas = parseInt(sessionStorage.getItem("horas"))
+
 function eletivas() {
     let cadeira = JSON.parse(localStorage.getItem("eletivas"))
-    // console.log(cadeira)
+    let horas_cadeira
+
     const semestres = document.getElementsByClassName("cadeiras-semestre")
     for (let i in cadeira) {
-        
+
         const selecionar_todas = document.createElement("input")
         const label_todas = document.createElement("label")
         selecionar_todas.setAttribute("type", "checkbox")
@@ -16,11 +19,30 @@ function eletivas() {
 
         selecionar_todas.addEventListener("click", () => {
             const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
-            // console.log(checkboxes)
+
             for (let j = 0; j < checkboxes.length; j++) {
-                checkboxes[j].checked = selecionar_todas.checked
+
+                horas_cadeira = parseInt(cadeira[i][i][1])
+
+                if (selecionar_todas.checked == true) {
+                    if (checkboxes[j].checked == false) {
+                        checkboxes[j].checked = selecionar_todas.checked
+                        horas += horas_cadeira
+                        console.log(`Somando horas: ${horas}`)
+                    }
+                }
+                else {
+                    if (checkboxes[j].checked == true) {
+                        checkboxes[j].checked = selecionar_todas.checked
+                        horas -= horas_cadeira
+                        console.log(`Diminuindo horas: ${horas}`)
+
+                    }
+                }
+
             }
         })
+
 
         for (let j in cadeira[i]) {
             const input = document.createElement("input")
@@ -31,40 +53,51 @@ function eletivas() {
             label.appendChild(input)
             label.append(cadeira[i][j][0])
             semestres[i].appendChild(label)
+            horas_cadeira = parseInt(cadeira[i][j][1])
+            // console.log(horas_cadeira)
+
 
             // if (cadeira[i][j][0] == "-") {
             //     semestres[i].innerText = "Não existem cadeiras obrigatórias para esse semestre"
             // }
 
-            input.addEventListener("click", () => {
-                // console.log(selecionar_todas)
-                if (selecionar_todas.checked == true) {
-                    selecionar_todas.checked = false
-                }
-                
-                const semestre_input = semestres[i].querySelectorAll("input[name='eletivas']")
-                let len = 0;
-                let ele = 0;
-                semestre_input.forEach(element => {
-                    ele++
-                    if(element.checked == true){
-                        len++
+            input.addEventListener("click", function (hora_cad) {
+                return () => {
+
+
+                    if (input.checked == true) {
+                        horas += parseInt(hora_cad)
                     }
-                })
-                console.log(len)
-                console.log(ele)
-                if(len==ele){
-                    selecionar_todas.checked = true
+                    else {
+                        horas -= parseInt(hora_cad)
+                    }
+                    if (horas <= 0) horas = 0
+
+
+                    // console.log(selecionar_todas)
+                    if (selecionar_todas.checked == true) {
+                        selecionar_todas.checked = false
+                    }
+
+                    const semestre_input = semestres[i].querySelectorAll("input[name='eletivas']")
+                    let len = 0;
+                    let ele = 0;
+                    semestre_input.forEach(element => {
+                        ele++
+                        if (element.checked == true) {
+                            len++
+                        }
+                    })
+                    if (len == ele) {
+                        selecionar_todas.checked = true
+                    }
+                    console.log(horas)
+
                 }
-                })
 
-            
-
-
+            }(horas_cadeira))
         }
-        console.log(" ")
     }
-
 }
 
 function armazenarCadeiras() {
