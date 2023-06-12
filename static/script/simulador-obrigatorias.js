@@ -18,57 +18,16 @@ function obrigatorias() {
         label_todas.append("Adicionar Todas")
         semestres[i].appendChild(label_todas)
 
-        selecionar_todas.addEventListener("click", function (horas_cad) {
-            return () => {
-                const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
-                // console.log(checkboxes)
+        selecionar_todas.addEventListener("click", () => {
 
-                for (let j = 0; j < checkboxes.length; j++) {
-                    checkboxes[j].checked = selecionar_todas.checked
+            const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
+            // console.log(checkboxes)
 
-                    if (i == 0) {
-                        horas_cad = cadeira[i][0][1]
-                    }
-                    if (checkboxes[j].checked === true) {
-                        somada = true
-                    }
-                    else{
-                        somada = false
-                    }
-                   
-                   
-                   
-                   
-                   
-                    if (somada) {
-                        horas += parseInt(horas_cad)
-                        console.log(`Horas Somadas ${horas}`)
-                        let somada = true
-                        if (somada) {
-                            horas_cad = 0
-                            console.log(somada)
-                        }
-
-
-                    }
-                    else {
-                        somada = false
-                        if (!somada) {
-                            console.log(somada)
-
-                            horas -= parseInt(horas_cad)
-                            console.log(`Horas diminuidas ${horas}`)
-                        }
-
-                    }
-
-                }
-
-                console.log(horas)
-
+            for (let j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].checked = selecionar_todas.checked
 
             }
-        }(horas_cadeira))
+        })
 
         for (let j in cadeira[i]) {
             const input = document.createElement("input")
