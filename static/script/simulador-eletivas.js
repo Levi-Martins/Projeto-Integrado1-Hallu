@@ -22,7 +22,7 @@ function eletivas() {
 
             for (let j = 0; j < checkboxes.length; j++) {
 
-                horas_cadeira = parseInt(cadeira[i][i][1])
+                horas_cadeira = parseInt(cadeira[i][j][1])
 
                 if (selecionar_todas.checked == true) {
                     if (checkboxes[j].checked == false) {
