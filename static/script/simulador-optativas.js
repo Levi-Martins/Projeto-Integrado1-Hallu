@@ -6,43 +6,9 @@ function optativas() {
     console.log(horas)
 
     const form = document.getElementById("form-cadeiras")
-    const selecionar_todas = document.createElement("input")
-    const label_todas = document.createElement("label")
-    selecionar_todas.setAttribute("type", "checkbox")
-    selecionar_todas.setAttribute("name", "todas")
-    selecionar_todas.setAttribute("value", `semestreOptativa`)
-    label_todas.appendChild(selecionar_todas)
-    label_todas.append("Adicionar Todas")
-    form.appendChild(label_todas)
+    const optativas_escolhidas = document.getElementById("form-optativas-escolhidas")
 
     for (i in cadeira) {
-
-        selecionar_todas.addEventListener("click", () => {
-
-            const checkboxes = form.querySelectorAll('input[name="optativas"]')
-
-            for (let j = 0; j < checkboxes.length; j++) {
-                horas_cadeira = parseInt(cadeira[i][1])
-
-                if (selecionar_todas.checked == true) {
-                    if (checkboxes[j].checked == false) {
-                        checkboxes[j].checked = selecionar_todas.checked
-                        horas += horas_cadeira
-                        console.log(checkboxes[j])
-                    }
-                }
-                else {
-                    if (checkboxes[j].checked == true) {
-                        checkboxes[j].checked = selecionar_todas.checked
-                        horas -= horas_cadeira
-
-                    }
-                }
-
-            }
-            console.log(horas)
-        })
-
 
         const input = document.createElement("input")
         const label = document.createElement("label")
@@ -60,6 +26,17 @@ function optativas() {
                 if (input.checked == true) {
                     horas += parseInt(hora_cad)
                     console.log(`Somando horas: ${horas}`)
+                    const div = document.createElement("div")
+                    div.classList.add("optativaEscolhida")
+                    
+                    const botao = document.createElement("button")
+                    botao.innerText = "x"
+                    const label_escolhidas = document.createElement("label")
+                    label_escolhidas.innerText = input.value
+                    
+                    div.appendChild(botao)
+                    div.appendChild(label_escolhidas)
+                    optativas_escolhidas.appendChild(div)
                 }
                 else {
                     horas -= parseInt(hora_cad)
@@ -69,9 +46,6 @@ function optativas() {
                 if (horas <= 0) horas = 0
 
 
-                if (selecionar_todas.checked == true) {
-                    selecionar_todas.checked = false
-                }
 
                 const semestre_input = form.querySelectorAll("input[name='optativas']")
                 let len = 0;
@@ -94,11 +68,15 @@ function optativas() {
 
         })(horas_cadeira))
 
+
+
     }
 
 
 
 }
+
+
 
 
 function app() {
