@@ -16,30 +16,30 @@
         <div id="header">
             <img src="assets/icon/Logo.png" alt="">
             <div id="categorias">
-                <div id="obrigatorias-categorias" class="valor-categorias">
-                    <button>1</button>
-                    <p>Obrigatórias</p>
-                </div>
-                <div id="eletivas-categorias" class="valor-categorias">
-                    <button>2</button>
-                    <p>Eletivas</p>
-                </div>
-                <div id="optativas-categorias" class="valor-categorias">
-                    <button>3</button>
-                    <p>Optativas</p>
-                </div>
-                <div id="tcc-categorias" class="valor-categorias">
-                    <button>4</button>
-                    <p>Tcc e Horas</p>
-                </div>
-                <div id="resultado-categorias" class="valor-categorias">
-                    <button>5</button>
-                    <p>Resultado</p>
-                </div>
+                    <div id="obrigatorias-categorias" class="valor-categorias">
+                        <button>1</button>
+                        <p>Obrigatórias</p>
+                    </div>
+                    <div id="eletivas-categorias" class="valor-categorias">
+                        <button>2</button>
+                        <p>Eletivas</p>
+                    </div>
+                    <div id="optativas-categorias" class="valor-categorias">
+                        <button>3</button>
+                        <p>Optativas</p>
+                    </div>
+                    <div id="tcc-categorias" class="valor-categorias">
+                        <button>4</button>
+                        <p>Tcc e Horas</p>
+                    </div>
+                    <div id="resultado-categorias" class="valor-categorias">
+                        <button>5</button>
+                        <p>Resultado</p>
+                    </div>
             </div>
         </div>
         <div id="main-obrigatorias">
-            <button class="arrows"><img src="assets/icon/arrow-left_svgrepo.com.png"></button>
+            <a href="simulador-turnos.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-left_svgrepo.com.png"></button></a>
             <div id="obrigatorias">
                 <div id="h1-obrigatorias">
                     <h1>Obrigatórias</h1>
@@ -110,12 +110,13 @@
                         </form>
                     </div>
                 </div>
+                <button class="redefinir">Redefinir</button>
+                <div class="descricao-obrigatorias">
+                    <p>Aqui, você vai adicionar as suas cadeiras obrigatórias já feitas. Caso queira voltar e mudar o turno, ou avançar para a próxima etapa, é só clicar nos botões ao lado ;)</p>
+                </div>
             </div>
-            <button class="arrows"><img src="assets/icon/arrow-right_svgrepo.com.png"></button>
+            <a href="simulador-eletivas.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-right_svgrepo.com.png"></button></a>
         </div>
-        <a href="simulador-turnos.html"><button onclick="armazenarCadeiras()">Voltar</button></a>
-        <a href="simulador-eletivas.html"><button onclick="armazenarCadeiras()">Continuar</button></a>
-
     </main>
 
 </body>

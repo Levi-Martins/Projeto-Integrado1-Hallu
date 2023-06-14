@@ -17,6 +17,18 @@
 #categorias{
     display: flex;
     gap: 0 100px;
+    position: relative;
+}
+
+#categorias::before{
+    content: '';
+    height: 4px;
+    width: 85.3%;
+    background-color: black;
+    position: absolute;
+    left: 8%;
+    top: 18%;
+    z-index: -1;
 }
 
 #categorias button{
@@ -48,7 +60,9 @@
     gap: 0 55px;
 }
 .arrows{
+    max-width: 60px;
     width: 60px;
+    max-height: 60px;
     height: 60px;
     border-radius: 50%;
     border: none;
@@ -82,7 +96,7 @@
 
 .semestres{
     width: 306px;
-    height: 284px;
+    min-height: 284px;
     background-color: #737373;
     border-radius: 20px 20px 20px 20px;
 
@@ -111,7 +125,9 @@
 
 .cadeiras-semestre input{
     margin-right: 15px;
-
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
 }
 
 .cadeiras-semestre label{
@@ -120,6 +136,33 @@
     font-weight: bold;
 }
 
+.redefinir{
+    width: 152px;
+    height: 49px;
+    border-radius: 15px;
+    border: none;
+
+    font-size: 25px;
+    font-family: var(--font);
+    font-weight: bold;
+
+    margin-left: auto;
+
+    cursor: pointer;
+}
+
+.descricao-obrigatorias{
+    background-color: #737373;
+    padding: 18px 22px;
+    border-radius: 20px;
+}
+
+.descricao-obrigatorias p{
+    max-width: 1284px;
+    font-size: 22px;
+    font-family: var(--font);
+    text-align: center;
+}
 
 
 
