@@ -15,32 +15,50 @@ function optativas() {
         input.setAttribute("type", "checkbox")
         input.setAttribute("name", "optativas")
         input.setAttribute("value", cadeira[i][0])
+        label.classList.add('c')
         label.appendChild(input)
         label.append(cadeira[i][0])
         form.appendChild(label)
         horas_cadeira = parseInt(cadeira[i][1])
+        let divCriada   
 
         input.addEventListener("click", (function (hora_cad) {
             return () => {
 
+                const div = document.createElement("div")
+                div.classList.add("optativaEscolhida")
+                const botao = document.createElement("button")
+                botao.innerText = "x"
+                const label_escolhidas = document.createElement("label")
+                label_escolhidas.innerText = input.value
+                div.appendChild(botao)
+                div.appendChild(label_escolhidas)
+
                 if (input.checked == true) {
                     horas += parseInt(hora_cad)
+                    divCriada = div
+
                     console.log(`Somando horas: ${horas}`)
-                    const div = document.createElement("div")
-                    div.classList.add("optativaEscolhida")
-                    
-                    const botao = document.createElement("button")
-                    botao.innerText = "x"
-                    const label_escolhidas = document.createElement("label")
-                    label_escolhidas.innerText = input.value
-                    
-                    div.appendChild(botao)
-                    div.appendChild(label_escolhidas)
                     optativas_escolhidas.appendChild(div)
+                    botao.addEventListener("click", (e) => {
+                        e.preventDefault()
+                        input.checked = false
+                        div.parentNode.removeChild(div)
+                        horas -= parseInt(hora_cad)
+                        console.log(`Horas: ${horas}`)
+                        if (horas <= 0) horas = 0
+
+                    })
                 }
                 else {
                     horas -= parseInt(hora_cad)
                     console.log(`Diminuindo horas: ${horas}`)
+                    if (divCriada && divCriada.parentNode) {
+                        console.log(divCriada)
+                        divCriada.parentNode.removeChild(divCriada)
+                        divCriada = null
+                        
+                    }
 
                 }
                 if (horas <= 0) horas = 0
@@ -76,6 +94,21 @@ function optativas() {
 
 }
 
+function pesquisar() {
+    let input = document.getElementById('busca').value
+    input = input.toLowerCase();
+    let c = document.getElementsByClassName('c');
+
+    for (i = 0; i < c.length; i++) {
+        if (c[i].innerHTML.toLowerCase().includes(input)) {
+            c[i].style.display = "list-item";
+        }
+        else {
+            c[i].style.display = "none";
+        }
+
+    }
+}
 
 
 
