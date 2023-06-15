@@ -19,4 +19,4 @@ $(document).ready(function(){
   });
 sessionStorage.clear()
 sessionStorage.setItem("horas",0)
-  
+sessionStorage.setItem("horas_obrigatorias",0)  

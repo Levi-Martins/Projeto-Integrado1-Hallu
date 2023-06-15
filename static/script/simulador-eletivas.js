@@ -123,6 +123,8 @@ function armazenarCadeiras() {
         }
     }
     sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
+    sessionStorage.setItem("horas", horas)
+
 
 
 }

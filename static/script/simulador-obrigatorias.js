@@ -2,6 +2,7 @@
 // sessionStorage.setItem("horas",horas)
 
 let horas = parseInt(sessionStorage.getItem("horas"))
+let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
@@ -29,16 +30,16 @@ function obrigatorias() {
                 if (selecionar_todas.checked == true) {
                     if (checkboxes[j].checked == false) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas += horas_cadeira
+                        horas_obrigatorias += horas_cadeira
                         console.log(checkboxes[j])
-                        console.log(`Somando horas: ${horas}`)
+                        console.log(`Somando horas: ${horas_obrigatorias}`)
                     }
                 }
                 else {
                     if (checkboxes[j].checked == true) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas -= horas_cadeira
-                        console.log(`Diminuindo horas: ${horas}`)
+                        horas_obrigatorias -= horas_cadeira
+                        console.log(`Diminuindo horas: ${horas_obrigatorias}`)
 
                     }
                 }
@@ -67,12 +68,12 @@ function obrigatorias() {
                 return () => {
 
                     if (input.checked == true) {
-                        horas += parseInt(hora_cad)
+                        horas_obrigatorias += parseInt(hora_cad)
                     }
                     else {
-                        horas -= parseInt(hora_cad)
+                        horas_obrigatorias -= parseInt(hora_cad)
                     }
-                    if (horas <= 0) horas = 0
+                    if (horas_obrigatorias <= 0) horas_obrigatorias = 0
 
 
                     if (selecionar_todas.checked == true) {
@@ -94,11 +95,21 @@ function obrigatorias() {
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    console.log(horas)
+                    console.log(horas_obrigatorias)
 
                 }
 
             })(horas_cadeira))
+            const redefinir = document.getElementById("limpar")
+            redefinir.addEventListener("click",()=>{
+                input.checked = false
+                selecionar_todas.checked = false
+                horas-=horas_obrigatorias
+                console.log(`horas obrigatorias: ${horas_obrigatorias}`)
+                console.log(horas)
+                if(horas<=0) horas =0
+                horas_obrigatorias = 0
+            })
 
         }
 
@@ -130,7 +141,9 @@ function armazenarCadeiras() {
         }
     }
     sessionStorage.setItem("check_obrigatorias", JSON.stringify(checkTodas))
+    horas+=horas_obrigatorias
     sessionStorage.setItem("horas", horas)
+    sessionStorage.setItem("horas_obrigatorias",horas_obrigatorias)
 
 
 }
