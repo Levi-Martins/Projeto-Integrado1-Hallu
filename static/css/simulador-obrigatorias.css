@@ -53,8 +53,9 @@
     margin-top: 15px;
 }
 
-#main-obrigatorias{
+#main   {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin: 13px 150px 57px 150px;
     gap: 0 55px;
@@ -70,9 +71,10 @@
     cursor: pointer;
 }
 
-#obrigatorias{
+#disciplina{
     background-color:#ccc;
     max-width: 1389px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px 0;
@@ -80,14 +82,14 @@
     padding: 30px;
 }
 
-#obrigatorias h1{
+#disciplina h1{
     text-align: center;
     font-family: var(--font);
     font-size: 50px;
     font-weight: bold;
 }
 
-#cadeiras-obrigatorias{
+#cadeiras{
     display: flex;
     flex-wrap: wrap;
     gap: 35px;
@@ -121,6 +123,33 @@
     font-size: 18px;
     font-family: var(--font);
     padding: 10px 20px;
+    max-width: 306px;
+    max-height: 284px;
+    height: 100%;
+}
+
+.scroll-cadeira{
+    overflow-y: scroll;
+}
+
+.scroll-cadeira::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    height: 10px; /* Altura da barra de rolagem */
+  }
+  
+.scroll-cadeira::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 5px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 100px solid #ccc;
+}
+
+.scroll-cadeira::-webkit-scrollbar-track {
+  background-color: #ccc; /* Cor da trilha */
+  border-radius: 5px; /* Raio de borda da trilha */
+
+
 }
 
 .cadeiras-semestre input{
@@ -151,13 +180,13 @@
     cursor: pointer;
 }
 
-.descricao-obrigatorias{
+.descricao-disciplina{
     background-color: #737373;
     padding: 18px 22px;
     border-radius: 20px;
 }
 
-.descricao-obrigatorias p{
+.descricao-disciplina p{
     max-width: 1284px;
     font-size: 22px;
     font-family: var(--font);
