@@ -1,4 +1,5 @@
 let horas = parseInt(sessionStorage.getItem("horas"))
+let horas_optativas = parseInt(sessionStorage.getItem("horas_optativas"))
 
 function optativas() {
     let cadeira = JSON.parse(localStorage.getItem("optativas"))
@@ -35,24 +36,24 @@ function optativas() {
                 div.appendChild(label_escolhidas)
 
                 if (input.checked == true) {
-                    horas += parseInt(hora_cad)
+                    horas_optativas += parseInt(hora_cad)
                     divCriada = div
 
-                    console.log(`Somando horas: ${horas}`)
+                    console.log(`Somando horas: ${horas_optativas}`)
                     optativas_escolhidas.appendChild(div)
                     botao.addEventListener("click", (e) => {
                         e.preventDefault()
                         input.checked = false
                         div.parentNode.removeChild(div)
-                        horas -= parseInt(hora_cad)
-                        console.log(`Horas: ${horas}`)
-                        if (horas <= 0) horas = 0
+                        horas_optativas -= parseInt(hora_cad)
+                        console.log(`Horas: ${horas_optativas}`)
+                        if (horas_optativas <= 0) horas_optativas = 0
 
                     })
                 }
                 else {
-                    horas -= parseInt(hora_cad)
-                    console.log(`Diminuindo horas: ${horas}`)
+                    horas_optativas -= parseInt(hora_cad)
+                    console.log(`Diminuindo horas: ${horas_optativas}`)
                     if (divCriada && divCriada.parentNode) {
                         console.log(divCriada)
                         divCriada.parentNode.removeChild(divCriada)
@@ -61,7 +62,7 @@ function optativas() {
                     }
 
                 }
-                if (horas <= 0) horas = 0
+                if (horas_optativas <= 0) horas_optativas = 0
 
 
 
@@ -80,7 +81,7 @@ function optativas() {
                 }
                 console.log(`Horas da cadeira: ${hora_cad}`)
 
-                console.log(`Horas: ${horas}`)
+                console.log(`Horas: ${horas_optativas}`)
 
             }
 
@@ -110,10 +111,51 @@ function pesquisar() {
     }
 }
 
+function armazenarCadeiras() {
+    const checkboxes = document.getElementsByName("optativas")
+    let cadeirasSelecionadas = [];
 
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            cadeirasSelecionadas.push(checkboxes[i].value)
+        }
+    }
+
+    sessionStorage.setItem("optativas_selecionadas", JSON.stringify(cadeirasSelecionadas))
+
+
+    const selecionar_todas = document.getElementsByName('todas')
+    let checkTodas = []
+
+    for (let i = 0; i < selecionar_todas.length; i++) {
+        if (selecionar_todas[i]) {
+            if (selecionar_todas[i].checked == true) {
+                checkTodas.push(selecionar_todas[i].value)
+            }
+        }
+    }
+    horas+=horas_optativas
+    sessionStorage.setItem("horas", horas)
+    sessionStorage.setItem("horas_optativas",horas_optativas)
+
+
+}
+
+function atualizarCheckboxes() {
+    const checkboxes = document.getElementsByName("optativas")
+    let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("optativas_selecionadas"))
+    if (cadeirasSelecionadas) {
+        for (let i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = cadeirasSelecionadas.includes(checkboxes[i].value)
+        }
+    }
+    // aqui eu vou atualizar tambem as escolhidas               
+    
+}
 
 function app() {
     console.log("Seleção de Eletivas")
     optativas()
+    atualizarCheckboxes()
 }
 app()
