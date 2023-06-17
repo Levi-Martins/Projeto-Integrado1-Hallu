@@ -21,7 +21,7 @@ function optativas() {
         label.append(cadeira[i][0])
         form.appendChild(label)
         horas_cadeira = parseInt(cadeira[i][1])
-        let divCriada   
+        let divCriada
 
         input.addEventListener("click", (function (hora_cad) {
             return () => {
@@ -58,7 +58,7 @@ function optativas() {
                         console.log(divCriada)
                         divCriada.parentNode.removeChild(divCriada)
                         divCriada = null
-                        
+
                     }
 
                 }
@@ -134,23 +134,48 @@ function armazenarCadeiras() {
             }
         }
     }
-    horas+=horas_optativas
-    sessionStorage.setItem("horas", horas)
-    sessionStorage.setItem("horas_optativas",horas_optativas)
+
+    sessionStorage.setItem("horas_optativas", horas_optativas)
 
 
 }
 
 function atualizarCheckboxes() {
     const checkboxes = document.getElementsByName("optativas")
+    const optativas_escolhidas = document.getElementById("form-optativas-escolhidas")
+
     let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("optativas_selecionadas"))
     if (cadeirasSelecionadas) {
         for (let i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = cadeirasSelecionadas.includes(checkboxes[i].value)
+
+
+            if (checkboxes[i].checked) {
+
+                const div = document.createElement("div")
+                div.classList.add("optativaEscolhida")
+                const botao = document.createElement("button")
+                botao.innerText = "x"
+                const label_escolhidas = document.createElement("label")
+                label_escolhidas.innerText = checkboxes[i].value
+                div.appendChild(botao)
+                div.appendChild(label_escolhidas)
+                optativas_escolhidas.appendChild(div)
+
+                checkboxes[i].addEventListener("click", () => {
+                    div.parentNode.removeChild(div)
+                })
+                botao.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    checkboxes[i].checked = false
+                    div.parentNode.removeChild(div)
+                    horas_optativas-=64
+                    if(horas_optativas <=0) horas_optativas =0
+                })
+            }
         }
     }
-    // aqui eu vou atualizar tambem as escolhidas               
-    
+
 }
 
 function app() {

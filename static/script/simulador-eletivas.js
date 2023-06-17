@@ -1,5 +1,5 @@
 
-let horas = parseInt(sessionStorage.getItem("horas"))
+let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 
 function eletivas() {
     let cadeira = JSON.parse(localStorage.getItem("eletivas"))
@@ -27,15 +27,15 @@ function eletivas() {
                 if (selecionar_todas.checked == true) {
                     if (checkboxes[j].checked == false) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas += horas_cadeira
-                        console.log(`Somando horas: ${horas}`)
+                        horas_eletivas += horas_cadeira
+                        console.log(`Somando horas: ${horas_eletivas}`)
                     }
                 }
                 else {
                     if (checkboxes[j].checked == true) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas -= horas_cadeira
-                        console.log(`Diminuindo horas: ${horas}`)
+                        horas_eletivas -= horas_cadeira
+                        console.log(`Diminuindo horas: ${horas_eletivas}`)
 
                     }
                 }
@@ -66,12 +66,12 @@ function eletivas() {
 
 
                     if (input.checked == true) {
-                        horas += parseInt(hora_cad)
+                        horas_eletivas += parseInt(hora_cad)
                     }
                     else {
-                        horas -= parseInt(hora_cad)
+                        horas_eletivas -= parseInt(hora_cad)
                     }
-                    if (horas <= 0) horas = 0
+                    if (horas_eletivas <= 0) horas_eletivas = 0
 
 
                     // console.log(selecionar_todas)
@@ -91,11 +91,21 @@ function eletivas() {
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    console.log(horas)
+                    console.log(horas_eletivas)
 
                 }
 
             }(horas_cadeira))
+
+            const redefinir = document.getElementById("limpar")
+            redefinir.addEventListener("click", () => {
+                input.checked = false
+                selecionar_todas.checked = false
+                horas_eletivas =0
+                console.log(`horas obrigatorias: ${horas_eletivas}`)
+                console.log(horas_eletivas)
+                
+            })
         }
     }
 }
@@ -123,7 +133,7 @@ function armazenarCadeiras() {
         }
     }
     sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
-    sessionStorage.setItem("horas", horas)
+    sessionStorage.setItem("horas_eletivas", horas_eletivas)
 
 
 

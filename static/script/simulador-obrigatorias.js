@@ -1,7 +1,6 @@
 
 // sessionStorage.setItem("horas",horas)
 
-let horas = parseInt(sessionStorage.getItem("horas"))
 let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 
 function obrigatorias() {
@@ -44,7 +43,7 @@ function obrigatorias() {
                     }
                 }
 
-            }   
+            }
 
         })
 
@@ -69,9 +68,12 @@ function obrigatorias() {
 
                     if (input.checked == true) {
                         horas_obrigatorias += parseInt(hora_cad)
+
                     }
                     else {
                         horas_obrigatorias -= parseInt(hora_cad)
+
+
                     }
                     if (horas_obrigatorias <= 0) horas_obrigatorias = 0
 
@@ -95,20 +97,21 @@ function obrigatorias() {
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    console.log(horas_obrigatorias)
+
+                    console.log(`Horas da cadeira: ${horas_obrigatorias }`)
+
 
                 }
 
             })(horas_cadeira))
             const redefinir = document.getElementById("limpar")
-            redefinir.addEventListener("click",()=>{
+            redefinir.addEventListener("click", () => {
                 input.checked = false
                 selecionar_todas.checked = false
-                horas-=horas_obrigatorias
+                horas_obrigatorias =0
                 console.log(`horas obrigatorias: ${horas_obrigatorias}`)
-                console.log(horas)
-                if(horas<=0) horas =0
-                horas_obrigatorias = 0
+                console.log(horas_obrigatorias)
+                
             })
 
         }
@@ -141,9 +144,7 @@ function armazenarCadeiras() {
         }
     }
     sessionStorage.setItem("check_obrigatorias", JSON.stringify(checkTodas))
-    horas+=horas_obrigatorias
-    sessionStorage.setItem("horas", horas)
-    sessionStorage.setItem("horas_obrigatorias",horas_obrigatorias)
+    sessionStorage.setItem("horas_obrigatorias", horas_obrigatorias)
 
 
 }
