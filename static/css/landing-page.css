@@ -17,8 +17,12 @@ header{
 }
 
 #logo h3{
-    font-size: 40px;
     font-weight: 600;
+    color: white;
+    width: 92px;
+    font-size: 23px;
+    font-family: var(--default-font);
+    line-height: 1;
 }
 
 #content-header h1{
@@ -26,11 +30,12 @@ header{
     font-weight: 700;
     max-width: 581px;
     line-height: 99px;
-    text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.363);
+    color: white;
 }
 
 #content-header .description{
     font-size: 20px;
+    color: white;
     max-width: 750px;
 
     padding: 40px 0;
@@ -39,10 +44,11 @@ header{
 #content-header button{
     font-size: 40px;
     font-weight: 700;
+    font-family: var(--font);
 
-    background-color: blue;
+    background-color: #0085FF;
     color: white;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.456);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 
     padding: 25px 50px;
     border-radius: 34px;
@@ -68,7 +74,8 @@ a{
 
 #content-header p a{
     font-size: 22px;
-    color: black;
+    color: white;
+    text-decoration: underline;
 }
 
 #content-header p a img{
@@ -76,28 +83,36 @@ a{
 }
 
 #video-category{
-    padding: 50px 0px 50px 150px;
+    padding: 50px 140px 50px 150px;
     font-family: var(--font);
 }
 
 #video-category h2{
-    font-size: 55px;
+    font-size: 90px;
     font-weight: 700;
-    max-width: 900px;
-}
+    max-width: 747px;
+    color: #5836AC;
+    padding-bottom: 40px;
 
-#video-category #catecategories-video{
-    padding: 40px 0;
+}
+.topicos-video{
     display: flex;
-    column-gap: 35px;
+    flex-direction: column;
+    gap: 20px 0;
+}
+#subtitulo-video{
+    font-family: var(--font);
+    font-size: 25px;
 }
 
-#catecategories-video .catecategories-video-content{
-    background-color: gray;
+.subtopicos-video{
+    font-family: var(--font);
     font-size: 22px;
-    padding: 10px 15px;
-    border-radius: 10px;
 }
+.subtopicos-video img{
+    margin-right: 10px;
+}
+
 
 #grade-curricular{
     padding: 150px 0 140px 150px;
@@ -112,12 +127,22 @@ a{
     font-size: 55px;
     font-weight: 700;
     max-width: 335px;
+    padding-bottom: 30px;
+}
+
+.grade{
+    background-color: #FFE361;
+}
+
+.curricular{
+    background-color: #33FFF3;
 }
 
 #grade-curricular-content p{
     font-size: 22px;
     max-width: 335px;
     width: 335px;
+    font-family: var(--default-font);
 }
 
 #nav-btn{
@@ -134,12 +159,15 @@ a{
     height: 55px;
     border-radius: 50%;
     border: none;
-    background-color: gray;
+    background-color: #5096FF;
     cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 #nav-btn button i{
     font-size: 33px;
+    color: white;
+
 }
 /* .owl-carousel .item{
     background-color: gray;
