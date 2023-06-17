@@ -4,8 +4,11 @@ body{
 header{
     padding: 50px 145px 227px 150px;
     font-family: var(--font);
-
+    background-image: url(../assets/img/lp-onda-fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 #logo{
     display: flex;
