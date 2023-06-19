@@ -1,10 +1,11 @@
 body{
     overflow-x: hidden;
+
 }
 header{
     padding: 50px 145px 227px 150px;
     font-family: var(--font);
-    background-image: url(../assets/img/lp-onda-fundo.png);
+    background-image: url(../assets/img/lp-onda-fundo-1920.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -187,21 +188,56 @@ a{
 } */
 
 #attention{
-    padding: 100px 0 120px 160px;
-    font-family: var(--default-font);
+    margin: 100px 0 120px 160px;
+    background: linear-gradient(89.98deg, #FFE25F 0.01%, #FF5C00 104.68%);
+    border-radius: 20px;
+    max-width: 1414px;
+    width: 100%;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 56px 0;
 }
 
-#attention p{
-    padding-top: 30px;
-    max-width: 438px;
-    width: 438px;
-    font-size: 20px;
+.content-attention{
+    font-family: var(--font);
+}
+
+.content-attention h1{
+    font-size: 55px;
+}
+
+.content-attention p{
+    font-size: 25px;
+    font-weight: 500px;
+}
+
+.description-attention{
+
+
+    display: flex;
+    gap: 0 56px;
+}
+
+.description-attention p{
+    font-family: var(--default-font);
+    font-size: 22px;
+    max-width: 529px;
+}
+
+.background-footer{
+    background-image: url(../assets/img/fundo-dobra05-1920.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 #VMF{
     padding: 108px 0 108px 150px;
-    background-color: #BABABA;
+    color: white;
 }
+
 
 #VMF p{
     font-family: var(--default-font);
@@ -221,6 +257,8 @@ a{
     font-family: var(--font);
     font-size: 40px;
     font-weight: bolder;
+    background-color: #0084FF;
+    color: white;
 
     width: 410px;
     height: 92px;
@@ -228,14 +266,17 @@ a{
     border: none;
     
     margin-top: 60px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.411);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
 
 footer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
+    padding-top: 180px;
+    height: 250px;
 }
 
+.footer-imgs{
+    display: flex;
+    align-items: end;
+    gap: 0 170px;
+}
