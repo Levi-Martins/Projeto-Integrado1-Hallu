@@ -198,6 +198,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 56px 0;
+    position: relative;
 }
 
 .content-attention{
@@ -214,8 +215,6 @@ a{
 }
 
 .description-attention{
-
-
     display: flex;
     gap: 0 56px;
 }
@@ -226,10 +225,21 @@ a{
     max-width: 529px;
 }
 
+.simbolo-atencao{
+    width: 555px;
+    height: 525px;
+    position: absolute;
+    top: 0;
+    left: 80%;
+}
+
 .background-footer{
     background-image: url(../assets/img/fundo-dobra05-1920.png);
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    row-gap: 70px;
 
 }
 
@@ -271,12 +281,36 @@ a{
 }
 
 footer{
-    padding-top: 180px;
-    height: 250px;
+    padding: 46px 120px 46px 150px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.logo-footer{
+    width: 258px;
+    height: 88px;
 }
 
 .footer-imgs{
     display: flex;
-    align-items: end;
-    gap: 0 170px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-imgs p{
+    font-family: var(--default-font);
+    font-size: 25px;
+    color: white;
+}
+
+@media (max-width: 1850px){
+    #attention{
+        margin: 100px 0 120px 120px;
+    }
+
+    .simbolo-atencao{
+        width: 520px;
+        height: 490px;
+    }
 }
