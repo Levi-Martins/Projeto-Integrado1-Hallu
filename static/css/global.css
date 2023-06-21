@@ -13,6 +13,8 @@
     --font:'DM Sans', sans-serif;
     --default-font:'Inter', sans-serif;
 
+    --background-turno:url(../assets/img/fundo-turnos-diurno.png);
+
     --current-color: #FACC20;
     --secundary-color: #93B7C7;
     
@@ -22,10 +24,16 @@
     --current-font-color: black;
     --secundary-font-color: white;
 
+    --ball-color:#FE8B01;
     --btn-color:#f39c12;
+
+
+    
 }
 
 .dark{
+    --background-turno:url(../assets/img/fundo-turnos-noturno.png);
+
     --current-color: #93B7C7;
     --secundary-color: #FACC20;
 
@@ -35,5 +43,6 @@
     --current-font-color: white;
     --secundary-font-color: black;
 
+    --ball-color:#8E04FB;
     --btn-color:#93B7C7;
 }

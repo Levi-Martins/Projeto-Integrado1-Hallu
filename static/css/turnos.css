@@ -1,7 +1,7 @@
 @import url(global.css);
 #background-turnos{
     height: 100vh;
-    background-color: var(--current-background);
+    background-image:var(--background-turno) ;
 
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
 
     font-family: var(--font);
     font-weight: bold;
-    color: var(--current-font-color);
+    color: white;
 }
 
 #background-turnos h1{
@@ -22,16 +22,12 @@
 
 #background-turnos #turnos{
     font-size: 50px;
-
-    background-color: rgb(86, 91, 91);
-    width: 822px;
-    height: 116px;
-
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    gap: 0 55px;
     align-items: center;
-    border-radius: 10px;
-    padding: 26px 65px;
+
 }
 
 #background-turnos #check{
@@ -40,15 +36,15 @@
 }
 
 #background-turnos .shift-change{
-    background-color: var(--current-color);
+    background-color: white;
     cursor: pointer;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    width: 220px;
-    height: 70px;
+    width: 200px;
+    height: 50px;
     padding: 10px;
     border-radius: 50px;
 
@@ -56,7 +52,7 @@
 }
 
 #background-turnos .shift-change .ball{
-    background-color: white;
+    background-color: var(--ball-color)  ;
 
     position: absolute;
     left: 0px;
@@ -75,17 +71,26 @@
     transform: translateX(150px);
 }
 
+.div-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 #background-turnos #btn-turnos{
     font-size: 40px;
-    background-color: var(--btn-color);
-    padding: 25px 50px;
+    background-color: #408CFF;
+    width: 282px;
+    height: 89px;
     border-radius: 20px;
     border: none;
 
     font-family: var(--font);
     font-weight: bold;
     font-size: 40px;
-    color: var(--current-font-color);
+  
+    color: white;
     cursor: pointer;
 }
 
@@ -96,5 +101,5 @@
 
 #background-turnos .fa-sun{
     font-size: 40px;
-    color: #f39c12;
+    color: rgb(255, 255, 255);
 }
