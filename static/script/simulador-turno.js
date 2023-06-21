@@ -81,7 +81,8 @@ function escolhaTurno() {
 
             i[0].classList.replace('fa-moon', 'fa-sun');
         }
-    })
+    }})
+    
 
 
     btn_prosseguir.addEventListener("click", () => {
