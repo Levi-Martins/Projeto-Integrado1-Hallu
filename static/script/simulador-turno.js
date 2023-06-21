@@ -18,7 +18,7 @@ async function request() {
         localStorage.setItem('arquivosArmazenados', true)
         console.log("Dados Carregados")
         loading.style.display = "none"
-    
+
 
 
     } else {
@@ -56,16 +56,53 @@ function escolhaTurno() {
 
         if (simuladorIniciado == "true") {
             chk.checked = (chk.checked == true) ? false : true
-            alert("Vai perder tudo, Maluco")
-            sessionStorage.clear()
-            sessionStorage.setItem("horas", 0)
-            sessionStorage.setItem("horas_obrigatorias", 0)
-            sessionStorage.setItem("horas_eletivas", 0)
-            sessionStorage.setItem("horas_optativas", 0)
-            sessionStorage.setItem("simuladorIniciado", false)
+            const popupWrappep = document.querySelector('.popup-wrappep')
+            // alert("Vai perder tudo, Maluco")
+            popupWrappep.style.display = 'flex'
+            const btn_mudar = document.getElementById("btn-mudar")
+            const btn_manter = document.getElementById("btn-nao-mudar")
+            btn_mudar.addEventListener("click", () => {
+                sessionStorage.clear()
+                sessionStorage.setItem("horas", 0)
+                sessionStorage.setItem("horas_obrigatorias", 0)
+                sessionStorage.setItem("horas_eletivas", 0)
+                sessionStorage.setItem("horas_optativas", 0)
+                sessionStorage.setItem("simuladorIniciado", false)
+                sessionStorage.setItem("bool_turno", true)
+                if (chk.checked == true) {
+                    chk.checked = false
+                }
+                else {
+                    chk.checked = true
+                }
+                if (chk.checked) {
+                    turno_escolhido = "Noturno"
+                    console.log(turno_escolhido)
+                    document.body.classList.add('dark')
+        
+        
+                    i[0].classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    turno_escolhido = "Diurno"
+                    console.log(turno_escolhido)
+                    document.body.classList.remove('dark')
+        
+        
+                    i[0].classList.replace('fa-moon', 'fa-sun');
+                }
+                
+                console.log(chk.checked)
 
+                popupWrappep.style.display = 'none'
+            })
+
+            btn_manter.addEventListener("click", () => {
+                popupWrappep.style.display = 'none'
+
+            })
+
+        }
         const check = document.getElementById('check')
-        console.log(check)
         if (check.checked) {
             turno_escolhido = "Noturno"
             console.log(turno_escolhido)
@@ -81,8 +118,8 @@ function escolhaTurno() {
 
             i[0].classList.replace('fa-moon', 'fa-sun');
         }
-    }})
-    
+    })
+
 
 
     btn_prosseguir.addEventListener("click", () => {
