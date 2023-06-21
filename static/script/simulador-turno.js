@@ -62,6 +62,10 @@ function escolhaTurno() {
             chk.checked = (chk.checked == true) ? false : true
             alert("Vai perder tudo, Maluco")
             sessionStorage.clear()
+            sessionStorage.setItem("horas", 0)
+            sessionStorage.setItem("horas_obrigatorias", 0)
+            sessionStorage.setItem("horas_eletivas", 0)
+            sessionStorage.setItem("horas_optativas", 0)
             sessionStorage.setItem("simuladorIniciado", false)
 
         }

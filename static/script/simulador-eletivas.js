@@ -6,8 +6,11 @@ function eletivas() {
     let horas_cadeira
 
     const semestres = document.getElementsByClassName("cadeiras-semestre")
-    for (let i in cadeira) {
+    let eletivasOptativas = []
 
+
+    for (let i in cadeira) {
+        let qtd = 0
         const selecionar_todas = document.createElement("input")
         const label_todas = document.createElement("label")
         selecionar_todas.setAttribute("type", "checkbox")
@@ -67,9 +70,29 @@ function eletivas() {
 
                     if (input.checked == true) {
                         horas_eletivas += parseInt(hora_cad)
+                        qtd++
+                        if (i == 0) {
+                            if (qtd > 4) {
+                                eletivasOptativas.push(input.value)
+
+
+                            }
+                        }
+                        if (i == 1) {
+                            if (qtd > 3) {
+                                eletivasOptativas.push(input.value)
+                                console.log(input)
+                            }
+                        }
                     }
                     else {
                         horas_eletivas -= parseInt(hora_cad)
+                        qtd--
+                        let indice = eletivasOptativas.indexOf(input.value)
+                        if (indice !== -1) {
+                            eletivasOptativas.splice(indice, 1);
+                        }
+
                     }
                     if (horas_eletivas <= 0) horas_eletivas = 0
 
@@ -91,8 +114,8 @@ function eletivas() {
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    console.log(horas_eletivas)
-
+                    // console.log(horas_eletivas)
+                    console.log(eletivasOptativas)
                 }
 
             }(horas_cadeira))
@@ -101,10 +124,10 @@ function eletivas() {
             redefinir.addEventListener("click", () => {
                 input.checked = false
                 selecionar_todas.checked = false
-                horas_eletivas =0
+                horas_eletivas = 0
                 console.log(`horas obrigatorias: ${horas_eletivas}`)
                 console.log(horas_eletivas)
-                
+
             })
         }
     }

@@ -1,3 +1,7 @@
+*{
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
 body{
     overflow-x: hidden;
 
@@ -69,6 +73,7 @@ header{
 }
 a{
     text-decoration: none;
+    
 
 }
 
