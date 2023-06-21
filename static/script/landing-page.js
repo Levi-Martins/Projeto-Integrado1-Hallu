@@ -22,3 +22,5 @@ sessionStorage.setItem("horas",0)
 sessionStorage.setItem("horas_obrigatorias",0)  
 sessionStorage.setItem("horas_eletivas",0)  
 sessionStorage.setItem("horas_optativas",0)  
+
+

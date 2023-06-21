@@ -18,7 +18,7 @@ async function request() {
         localStorage.setItem('arquivosArmazenados', true)
         console.log("Dados Carregados")
         loading.style.display = "none"
-
+    
 
 
     } else {
@@ -28,7 +28,6 @@ async function request() {
 }
 
 function escolhaTurno() {
-
     const chk = document.getElementById('check')
     const i = document.getElementsByTagName('i')
     if (!sessionStorage.getItem("bool_turno")) {
@@ -51,39 +50,24 @@ function escolhaTurno() {
         i[0].classList.replace('fa-moon', 'fa-sun');
     }
 
-
-
-
     chk.addEventListener('click', () => {
-        const simuladorIniciado = sessionStorage.getItem("simuladorIniciado")
-        console.log(simuladorIniciado)
 
-        if (simuladorIniciado == "true") {
-            chk.checked = (chk.checked == true) ? false : true
-            alert("Vai perder tudo, Maluco")
-            sessionStorage.clear()
-            sessionStorage.setItem("simuladorIniciado", false)
-
-        }
-        if (simuladorIniciado == "false") {
-            console.log("Opa")
-            const check = document.getElementById('check')
-            console.log(check)
-            if (check.checked) {
-                turno_escolhido = "Noturno"
-                console.log(turno_escolhido)
-                document.body.classList.add('dark')
+        const check = document.getElementById('check')
+        console.log(check)
+        if (check.checked) {
+            turno_escolhido = "Noturno"
+            console.log(turno_escolhido)
+            document.body.classList.add('dark')
 
 
-                i[0].classList.replace('fa-sun', 'fa-moon');
-            } else {
-                turno_escolhido = "Diurno"
-                console.log(turno_escolhido)
-                document.body.classList.remove('dark')
+            i[0].classList.replace('fa-sun', 'fa-moon');
+        } else {
+            turno_escolhido = "Diurno"
+            console.log(turno_escolhido)
+            document.body.classList.remove('dark')
 
 
-                i[0].classList.replace('fa-moon', 'fa-sun');
-            }
+            i[0].classList.replace('fa-moon', 'fa-sun');
         }
     })
 

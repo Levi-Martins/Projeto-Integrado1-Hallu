@@ -1,26 +1,35 @@
 @import url(global.css);
-#background-turnos{
-    height: 100vh;
+#background-turnos{ 
     background-image:var(--background-turno) ;
+    transition: background .2s linear;
+}
 
+.logo-turnos{
+    position: absolute;
+    left: 150px;
+    top: 50px;
+    width: 155px;
+    height: 62px;
+}
+
+.body-turnos{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     row-gap: 50px;
     align-items: center;
     justify-content: center;
 
-    transition: background .2s linear;
-
     font-family: var(--font);
     font-weight: bold;
     color: white;
 }
 
-#background-turnos h1{
+.body-turnos h1{
     font-size: 95px;
 }
 
-#background-turnos #turnos{
+.body-turnos #turnos{
     font-size: 50px;
     display: flex;
     justify-content: center;
@@ -30,12 +39,12 @@
 
 }
 
-#background-turnos #check{
+.body-turnos #check{
     position: absolute;
     opacity: 0;
 }
 
-#background-turnos .shift-change{
+.body-turnos .shift-change{
     background-color: white;
     cursor: pointer;
 
@@ -51,7 +60,7 @@
     position: relative;
 }
 
-#background-turnos .shift-change .ball{
+.body-turnos .shift-change .ball{
     background-color: var(--ball-color)  ;
 
     position: absolute;
@@ -67,7 +76,7 @@
     justify-content: center;
 }
 
-#background-turnos #check:checked + .shift-change .ball{
+.body-turnos #check:checked + .shift-change .ball{
     transform: translateX(150px);
 }
 
@@ -78,13 +87,14 @@
     width: 100%;
 }
 
-#background-turnos #btn-turnos{
+.body-turnos #btn-turnos{
     font-size: 40px;
     background-color: #408CFF;
     width: 282px;
     height: 89px;
     border-radius: 20px;
     border: none;
+    margin-right: 30px;
 
     font-family: var(--font);
     font-weight: bold;
@@ -94,12 +104,76 @@
     cursor: pointer;
 }
 
-#background-turnos .fa-moon{
+.body-turnos .fa-moon{
     font-size: 40px;    
     color: #f1c40f;
 }
 
-#background-turnos .fa-sun{
+.body-turnos .fa-sun{
     font-size: 40px;
     color: rgb(255, 255, 255);
+}
+
+.popup-wrappep{
+    display: none; 
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 100%;
+    max-width: 666px;
+    max-height: 349px;
+    margin:auto;
+    background: linear-gradient(180deg, #553FDC 0%, #4328E8 100%);
+    border-radius: 20px;
+}
+
+.popup-content{
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px 0;
+}
+
+.popup-content h2{
+    max-width: 576px;
+    color: white;
+    font-family: var(--font);
+    font-size: 40px;
+}
+
+.popup-content p{
+    max-width: 606px;
+    color: white;
+    font-family: var(--default-font);
+    font-size: 23px;
+}
+
+.popup-btns{
+    display: flex;
+}
+
+.popup-btns button{
+  width: 332px;
+  height: 87px;
+  border: none;
+  font-family: var(--font);
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-mudar{
+    border-radius: 0  0 0px 20px;
+}
+
+.btn-nao-mudar{
+    border-radius: 0  0 20px 0px;
 }
