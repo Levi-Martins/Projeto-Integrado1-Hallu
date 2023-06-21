@@ -1,6 +1,6 @@
 
 // sessionStorage.setItem("horas",horas)
-
+sessionStorage.setItem("simuladorIniciado",true)
 let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 
 function obrigatorias() {
