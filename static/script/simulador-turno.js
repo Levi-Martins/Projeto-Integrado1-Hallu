@@ -51,6 +51,18 @@ function escolhaTurno() {
     }
 
     chk.addEventListener('click', () => {
+        const simuladorIniciado = sessionStorage.getItem("simuladorIniciado")
+        console.log(simuladorIniciado)
+
+        if (simuladorIniciado == "true") {
+            chk.checked = (chk.checked == true) ? false : true
+            alert("Vai perder tudo, Maluco")
+            sessionStorage.clear()
+            sessionStorage.setItem("horas", 0)
+            sessionStorage.setItem("horas_obrigatorias", 0)
+            sessionStorage.setItem("horas_eletivas", 0)
+            sessionStorage.setItem("horas_optativas", 0)
+            sessionStorage.setItem("simuladorIniciado", false)
 
         const check = document.getElementById('check')
         console.log(check)
