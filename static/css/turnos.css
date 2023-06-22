@@ -131,7 +131,7 @@
     max-width: 666px;
     max-height: 349px;
     margin:auto;
-    background: linear-gradient(180deg, #553FDC 0%, #4328E8 100%);
+    background: var( --popup-diurno-noturno);
     border-radius: 20px;
 }
 
@@ -161,19 +161,23 @@
 }
 
 .popup-btns button{
-  width: 332px;
+  width: 333px;
   height: 87px;
-  border: none;
   font-family: var(--font);
   font-size: 35px;
   font-weight: bold;
   cursor: pointer;
+
 }
 
 .btn-mudar{
-    border-radius: 0  0 0px 20px;
+    border-radius: 0 0 0 20px;
+    border: none;
+    border-right: 1px solid black;
 }
 
 .btn-nao-mudar{
-    border-radius: 0  0 20px 0px;
+    border-radius: 0 0 20px 0;
+    border: none;
+    border-left: 1px solid black;
 }

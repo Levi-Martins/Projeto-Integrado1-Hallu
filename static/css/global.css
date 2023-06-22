@@ -27,7 +27,7 @@
     --ball-color:#FE8B01;
     --btn-color:#f39c12;
 
-
+    --popup-diurno-noturno:linear-gradient(180deg, #553FDC 0%, #4328E8 100%);
     
 }
 
@@ -45,4 +45,8 @@
 
     --ball-color:#8E04FB;
     --btn-color:#93B7C7;
+
+    --popup-diurno-noturno: linear-gradient(180deg, #070042 0%, #24006F 100%);
+
+
 }
