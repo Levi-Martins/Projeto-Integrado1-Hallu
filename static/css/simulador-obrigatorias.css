@@ -1,6 +1,6 @@
 @import url(global.css);
 
-#header{
+#header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,18 +9,18 @@
     font-weight: bold;
 }
 
-#header img{
+#header img {
     width: 155px;
     height: 63px;
 }
 
-#categorias{
+#categorias {
     display: flex;
     gap: 0 100px;
     position: relative;
 }
 
-#categorias::before{
+#categorias::before {
     content: '';
     height: 4px;
     width: 85.3%;
@@ -31,7 +31,7 @@
     z-index: -1;
 }
 
-#categorias button{
+#categorias button {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -42,25 +42,27 @@
     cursor: pointer;
 }
 
-.valor-categorias{
+.valor-categorias {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 18px;
 }
-.valor-categorias p{
+
+.valor-categorias p {
     margin-top: 15px;
 }
 
-#main   {
+#main {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 13px 150px 57px 150px;
     gap: 0 55px;
 }
-.arrows{
+
+.arrows {
     max-width: 60px;
     width: 60px;
     max-height: 60px;
@@ -71,8 +73,8 @@
     cursor: pointer;
 }
 
-#disciplina{
-    background-color:#ccc;
+#disciplina {
+    background-color: #ccc;
     max-width: 1389px;
     width: 100%;
     display: flex;
@@ -82,21 +84,21 @@
     padding: 30px;
 }
 
-#disciplina h1{
+#disciplina h1 {
     text-align: center;
     font-family: var(--font);
     font-size: 50px;
     font-weight: bold;
 }
 
-#cadeiras{
+#cadeiras {
     display: flex;
     flex-wrap: wrap;
     gap: 35px;
     justify-content: center;
 }
 
-.semestres{
+.semestres {
     width: 306px;
     min-height: 284px;
     background-color: #737373;
@@ -104,16 +106,16 @@
 
 }
 
-.cadeiras-semestre{
+.cadeiras-semestre {
     display: flex;
     flex-direction: column;
 }
 
-.div-form{
+.div-form {
     padding-right: 10px;
 }
 
-.numero-semestre{
+.numero-semestre {
     text-align: center;
     background-color: aqua;
     border-radius: 15px 15px 0 0;
@@ -123,7 +125,7 @@
     font-weight: bold;
 }
 
-.cadeiras-semestre{
+.cadeiras-semestre {
     font-size: 18px;
     font-family: var(--font);
     padding: 10px 20px;
@@ -132,20 +134,21 @@
     height: 100%;
 }
 
-.cadeiras-semestre label{
+.cadeiras-semestre label {
     display: flex;
     align-items: center;
 }
 
-.scroll-cadeira{
+.scroll-cadeira {
     overflow-y: scroll;
 }
 
 .scroll-cadeira::-webkit-scrollbar {
-    width: 8px; /* Largura da barra de rolagem */
-  }
-  
-.scroll-cadeira::-webkit-scrollbar-thumb{
+    width: 8px;
+    /* Largura da barra de rolagem */
+}
+
+.scroll-cadeira::-webkit-scrollbar-thumb {
     background-color: white;
     border-radius: 5px;
     border-left: 3px solid #737373;
@@ -155,9 +158,11 @@
 }
 
 .scroll-cadeira::-webkit-scrollbar-track {
-  background-color: #737373; /* Cor da trilha */
-  border-radius: 10px; /* Raio de borda da trilha */
-  border-bottom: 15px solid #737373;
+    background-color: #737373;
+    /* Cor da trilha */
+    border-radius: 10px;
+    /* Raio de borda da trilha */
+    border-bottom: 15px solid #737373;
 
 }
 
@@ -172,19 +177,19 @@ input[type="checkbox"] {
     border-radius: 5px;
     background-color: white;
     margin-right: 15px;
-  }
-  
-  input[type="checkbox"]:checked {
-    background-color: blue;
-  }
+}
 
-.cadeiras-semestre label{
+input[type="checkbox"]:checked {
+    background-color: blue;
+}
+
+.cadeiras-semestre label {
     padding: 5px 0 5px 0;
     font-family: var(--font);
     font-weight: bold;
 }
 
-.redefinir{
+.redefinir {
     width: 152px;
     height: 49px;
     border-radius: 15px;
@@ -199,20 +204,22 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-.descricao-disciplina{
+.descricao-disciplina {
     background-color: #737373;
     padding: 18px 22px;
     border-radius: 20px;
 }
 
-.descricao-disciplina p{
+.descricao-disciplina p {
     max-width: 1284px;
     font-size: 22px;
     font-family: var(--font);
     text-align: center;
 }
 
-
-
-
-
+.botaoInfo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+}

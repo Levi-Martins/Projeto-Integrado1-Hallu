@@ -29,14 +29,14 @@ def landingPage():
 @app.get('/obrigatorias')
 def obrigatorias():
     obrig = []
-    s1 = banco.excel_obrigatorias.get(f'B3:D{banco.len_semestre1}')
-    s2 = banco.excel_obrigatorias.get(f'E3:G{banco.len_semestre2}')
-    s3 = banco.excel_obrigatorias.get(f'H3:J{banco.len_semestre3}')
-    s4 = banco.excel_obrigatorias.get(f'K3:M{banco.len_semestre4}')
-    s5 = banco.excel_obrigatorias.get(f'N3:P{banco.len_semestre6}')
-    s6 = banco.excel_obrigatorias.get(f'Q3:S{banco.len_semestre6}')
-    s7 = banco.excel_obrigatorias.get(f'T3:V{banco.len_semestre7}')
-    s8 = banco.excel_obrigatorias.get(f'W3:Y{banco.len_semestre8}')
+    s1 = banco.excel_obrigatorias.get(f'B3:E{banco.len_semestre1}')
+    s2 = banco.excel_obrigatorias.get(f'G3:J{banco.len_semestre2}')
+    s3 = banco.excel_obrigatorias.get(f'L3:O{banco.len_semestre3}')
+    s4 = banco.excel_obrigatorias.get(f'Q3:T{banco.len_semestre4}')
+    s5 = banco.excel_obrigatorias.get(f'V3:Y{banco.len_semestre6}')
+    s6 = banco.excel_obrigatorias.get(f'AA3:AD{banco.len_semestre6}')
+    s7 = banco.excel_obrigatorias.get(f'AF3:AI{banco.len_semestre7}')
+    s8 = banco.excel_obrigatorias.get(f'AK3:AN{banco.len_semestre8}')
     obrig.extend((s1, s2, s3, s4,s5, s6, s7, s8))
 
     return obrig
