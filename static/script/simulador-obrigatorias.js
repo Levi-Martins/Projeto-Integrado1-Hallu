@@ -48,13 +48,23 @@ function obrigatorias() {
         })
 
         for (let j in cadeira[i]) {
+
             const input = document.createElement("input")
             const label = document.createElement("label")
+            const botaoInfo = document.createElement("button")
+            botaoInfo.classList.add("botaoInfo")
+            botaoInfo.innerText = "i"
             input.setAttribute("type", "checkbox")
             input.setAttribute("name", "obrigatorias")
             input.setAttribute("value", cadeira[i][j][0])
             label.appendChild(input)
             label.append(cadeira[i][j][0])
+            label.append(botaoInfo)
+            botaoInfo.addEventListener("click",(e)=>{
+                e.preventDefault()
+                console.log(`Objetivo da cadeira : ${cadeira[i][j][2]}`) // objetivo da cadeira
+                console.log(`Pré-Requisito : ${cadeira[i][j][3]}`) // pre requisitos
+            })
             semestres[i].appendChild(label)
             horas_cadeira = parseInt(cadeira[i][j][1])
 

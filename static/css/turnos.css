@@ -1,6 +1,8 @@
 @import url(global.css);
 #background-turnos{ 
     background-image:var(--background-turno) ;
+    background-repeat: no-repeat;
+    background-size: cover;
     transition: background .2s linear;
 }
 
