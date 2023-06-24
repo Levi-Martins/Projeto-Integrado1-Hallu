@@ -1,6 +1,6 @@
 
 // sessionStorage.setItem("horas",horas)
-sessionStorage.setItem("simuladorIniciado",true)
+sessionStorage.setItem("simuladorIniciado", true)
 let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 
 function obrigatorias() {
@@ -60,10 +60,34 @@ function obrigatorias() {
             label.appendChild(input)
             label.append(cadeira[i][j][0])
             label.append(botaoInfo)
-            botaoInfo.addEventListener("click",(e)=>{
+            botaoInfo.addEventListener("click", (e) => {
                 e.preventDefault()
-                console.log(`Objetivo da cadeira : ${cadeira[i][j][2]}`) // objetivo da cadeira
-                console.log(`Pré-Requisito : ${cadeira[i][j][3]}`) // pre requisitos
+                const popup = document.getElementById("popup-wrappep")
+                popup.style.display = "flex"
+                const nome_cadeira = document.getElementById("nome_cadeira")
+                nome_cadeira.append(cadeira[i][j][0])
+              
+
+
+
+
+                const pre_requisito = document.getElementById("pre-requisito")
+                pre_requisito.innerHTML =`<b>Pré-requesito: </b>${cadeira[i][j][3]}`
+                const qtd_horas = document.getElementById("qtd_horas")
+                qtd_horas.innerHTML =`<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
+                const objetivo = document.getElementById("objetivo")
+                objetivo.innerHTML=`<b>Objetivo: </b>${cadeira[i][j][2]}`
+                const btn_close_popup = document.getElementById("btn_close_popup")
+
+                btn_close_popup.addEventListener("click", () => {
+
+                    popup.style.display = "none"
+                    nome_cadeira.innerHTML = ""
+                    qtd_horas.innerHTML = ""
+                    pre_requisito.innerHTML = ""
+                    objetivo.innerHTML = ""
+                })
+
             })
             semestres[i].appendChild(label)
             horas_cadeira = parseInt(cadeira[i][j][1])
@@ -108,7 +132,7 @@ function obrigatorias() {
                         selecionar_todas.checked = true
                     }
 
-                    console.log(`Horas da cadeira: ${horas_obrigatorias }`)
+                    console.log(`Horas da cadeira: ${horas_obrigatorias}`)
 
 
                 }
@@ -118,10 +142,10 @@ function obrigatorias() {
             redefinir.addEventListener("click", () => {
                 input.checked = false
                 selecionar_todas.checked = false
-                horas_obrigatorias =0
+                horas_obrigatorias = 0
                 console.log(`horas obrigatorias: ${horas_obrigatorias}`)
                 console.log(horas_obrigatorias)
-                
+
             })
 
         }
