@@ -170,7 +170,7 @@ function atualizarCheckboxes() {
                     checkboxes[i].checked = false
                     div.parentNode.removeChild(div)
                     horas_optativas-=64
-                    if(horas_optativas <=0) horas_optativas =0
+                    if(horas_optativas <=0) horas_optativas = 0
                 })
             }
         }

@@ -8,6 +8,7 @@ function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
     const semestres = document.getElementsByClassName("cadeiras-semestre")
     let horas_cadeira
+    let cadeira_turno = [cadeira[6][1][0], cadeira[6][1][1], cadeira[6][1][2], cadeira[6][1][3]]
 
     for (let i in cadeira) {
 
@@ -69,10 +70,6 @@ function obrigatorias() {
                 const nome_cadeira = document.getElementById("nome_cadeira")
                 nome_cadeira.append(cadeira[i][j][0])
 
-
-
-
-
                 const pre_requisito = document.getElementById("pre-requisito")
                 pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira[i][j][3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
@@ -91,7 +88,65 @@ function obrigatorias() {
                 })
 
             })
-            semestres[i].appendChild(label)
+
+            const input2 = document.createElement("input")
+            const label2 = document.createElement("label")
+            input2.setAttribute("type", "checkbox")
+            input2.setAttribute("name", "obrigatorias")
+            input2.setAttribute("value", cadeira_turno[0])
+            const botaoInfo2 = document.createElement("button")
+            botaoInfo2.innerText = "i"
+
+            if (i == 7 && turno_escolhido == "Noturno" && j == j.length) {
+                input2.setAttribute("value", cadeira_turno[0])
+                label2.appendChild(input2)
+                label2.append(cadeira_turno[0])
+                label2.append(botaoInfo2)
+
+                botaoInfo2.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    const popup = document.getElementById("popup-wrappep")
+                    popup.style.display = "flex"
+                    const nome_cadeira = document.getElementById("nome_cadeira")
+                    nome_cadeira.append(cadeira_turno[0])
+
+                    const pre_requisito = document.getElementById("pre-requisito")
+                    pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira_turno[3]}`
+                    const qtd_horas = document.getElementById("qtd_horas")
+                    qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira_turno[1]}`
+                    const objetivo = document.getElementById("objetivo")
+                    objetivo.innerHTML = `<b>Objetivo: </b>${cadeira_turno[2]}`
+                    const btn_close_popup = document.getElementById("btn_close_popup")
+
+                    btn_close_popup.addEventListener("click", () => {
+
+                        popup.style.display = "none"
+                        nome_cadeira.innerHTML = ""
+                        qtd_horas.innerHTML = ""
+                        pre_requisito.innerHTML = ""
+                        objetivo.innerHTML = ""
+                    })
+
+                })
+            }
+
+            if (cadeira[i][j][0] == "Projeto de Trabalho Final") {
+                if (turno_escolhido == "Noturno") {
+                    continue
+                }
+                else {
+                    semestres[i].appendChild(label)
+                }
+            }
+
+            else {
+                semestres[i].appendChild(label)
+                semestres[i].append(label2)
+            }
+
+
+
+
             horas_cadeira = parseInt(cadeira[i][j][1])
 
 
@@ -151,10 +206,13 @@ function obrigatorias() {
             })
 
         }
-
-
     }
 }
+
+
+
+
+
 
 function armazenarCadeiras() {
     const checkboxes = document.getElementsByName("obrigatorias")
