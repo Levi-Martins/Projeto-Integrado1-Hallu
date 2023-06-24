@@ -27,7 +27,11 @@
     --ball-color:#FE8B01;
     --btn-color:#f39c12;
 
-    --popup-diurno-noturno:linear-gradient(180deg, #553FDC 0%, #4328E8 100%);
+    --popup-diurno-noturno:linear-gradient(133deg, #00C7D0 0%, #77B547 100%);
+
+
+    /* SIMULADOR */
+    --background-simulador-1920:url(../assets/img/simulador/simulador-fundo-diurno-1920.png)
     
 }
 
@@ -46,7 +50,15 @@
     --ball-color:#8E04FB;
     --btn-color:#93B7C7;
 
-    --popup-diurno-noturno: linear-gradient(180deg, #070042 0%, #24006F 100%);
+    --popup-diurno-noturno: linear-gradient(133deg, #860257 0%, #FD7A38 100%);
+
+    /* SIMULADOR */
+
+    --background-simulador-1920:url(../assets/img/simulador/simulador-fundo-noturno-1920.png);
+    --background-disciplina: #FFE4D0;
+    --simulador-h1: #42035A;
+    --background-header-semestre: #F76536;
+    --color-label: #42035A;
 
 
 }

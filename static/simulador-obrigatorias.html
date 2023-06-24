@@ -11,10 +11,19 @@
 
 </head>
 
-<body>
+<body class="dark">
     <main>
         <div id="header">
-            <img src="assets/icon/Logo.png" alt="">
+            <div class="logo-turno-simulador">
+                <img src="assets/icon/Logo.png" alt="">
+                <a href="simulador-turnos.html">
+                    <div class="turno-simulador">
+                        <i class="fas fa-sun"></i>
+                        <p>Noturno</p>
+                    </div>
+                </a>
+
+            </div>
             <div id="categorias">
                     <div id="obrigatorias-categorias" class="valor-categorias">
                         <button>1</button>
@@ -110,15 +119,22 @@
                         </form>
                     </div>
                 </div>
+
                 <button id="limpar" class="redefinir">Limpar</button>
-                <div class="descricao-disciplina">
-                    <p>Aqui, você vai adicionar as suas cadeiras obrigatórias já feitas. Caso queira voltar e mudar o turno, ou avançar para a próxima etapa, é só clicar nos botões ao lado ;)</p>
+                
+                <div class="div-descricao-disciplina">
+                    <div class="div-balao-de-fala">
+                        <img src="assets/icon/balao-de-fala-simulador.svg" alt="">
+                    </div>
+                    <div class="descricao-disciplina">
+                        <p>Aqui, você vai adicionar as suas cadeiras obrigatórias já feitas. Caso queira voltar e mudar o turno, ou avançar para a próxima etapa, é só clicar nos botões ao lado ;)</p>
+                    </div>
                 </div>
             </div>
             <a href="simulador-eletivas.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-right_svgrepo.com.png"></button></a>
         </div>
     </main>
-
+    <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,5 +1,9 @@
 @import url(global.css);
-
+body{
+    background-image: var(--background-simulador-1920);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 #header {
     display: flex;
     justify-content: space-between;
@@ -7,6 +11,37 @@
     margin: 50px 150px 50px 150px;
     font-family: var(--font);
     font-weight: bold;
+}
+
+.logo-turno-simulador{
+    display: flex;
+    gap: 0 70px;
+    align-items: center;
+}
+
+.logo-turno-simulador a{
+    color: black;
+}
+
+.turno-simulador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 0 15px;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 129px;
+    max-height: 40px;
+    cursor: pointer;
+}
+
+.turno-simulador i{
+    font-size: 20px;
+}
+
+.turno-simulador p{
+    font-size: 18.5px;
 }
 
 #header img {
@@ -74,7 +109,7 @@
 }
 
 #disciplina {
-    background-color: #ccc;
+    background-color: var(--background-disciplina);
     max-width: 1389px;
     width: 100%;
     display: flex;
@@ -89,6 +124,7 @@
     font-family: var(--font);
     font-size: 50px;
     font-weight: bold;
+    color: var(--simulador-h1);
 }
 
 #cadeiras {
@@ -101,7 +137,7 @@
 .semestres {
     width: 306px;
     min-height: 284px;
-    background-color: #737373;
+    background-color: white;
     border-radius: 15px;
 
 }
@@ -117,17 +153,18 @@
 
 .numero-semestre {
     text-align: center;
-    background-color: aqua;
+    background-color: var(--background-header-semestre);
     border-radius: 15px 15px 0 0;
     padding: 15px;
     font-size: 22px;
     font-family: var(--font);
     font-weight: bold;
+    color: white;
 }
 
 .cadeiras-semestre {
     font-size: 18px;
-    font-family: var(--font);
+    font-family: var(--default-font);
     padding: 10px 20px;
     max-width: 306px;
     max-height: 284px;
@@ -137,6 +174,27 @@
 .cadeiras-semestre label {
     display: flex;
     align-items: center;
+    padding: 5px 0 5px 0;
+    color: var(--color-label);
+}
+
+.botaoInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    max-width: 22px;
+    width: 100%;
+    max-height: 22px;
+    height: 100%;
+    background-color: white;
+    border: 2px solid var(--color-label);
+    color: var(--color-label);
+}
+
+.cadeiras-semestre label:first-child{
+    font-weight: bold;
 }
 
 .scroll-cadeira {
@@ -170,7 +228,7 @@ input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
+    border: 2px solid var(--color-label);
     max-width: 24px;
     width: 100%;
     height: 24px;
@@ -180,13 +238,11 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background-color: blue;
+    background-color: var(--color-label);
 }
 
-.cadeiras-semestre label {
-    padding: 5px 0 5px 0;
-    font-family: var(--font);
-    font-weight: bold;
+input[ name="todas"] {
+    border-radius: 50%;
 }
 
 .redefinir {
@@ -194,6 +250,9 @@ input[type="checkbox"]:checked {
     height: 49px;
     border-radius: 15px;
     border: none;
+    background-color: #408CFF;
+    color: white;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
     font-size: 25px;
     font-family: var(--font);
@@ -204,10 +263,25 @@ input[type="checkbox"]:checked {
     cursor: pointer;
 }
 
+.div-descricao-disciplina{
+    display: flex;
+    align-items: center;
+}
+
 .descricao-disciplina {
-    background-color: #737373;
+    display: flex;
+    align-items: center;
+    background-color: white;
     padding: 18px 22px;
-    border-radius: 20px;
+    border-radius: 0px 20px 20px 0px;
+    max-height: 79px;
+}
+
+.div-balao-de-fala{
+    background-color: #408CFF;
+    border-radius: 20px 0px 0px 20px;
+    padding: 21px 22px;
+    max-height: 79px;
 }
 
 .descricao-disciplina p {
@@ -215,11 +289,4 @@ input[type="checkbox"]:checked {
     font-size: 22px;
     font-family: var(--font);
     text-align: center;
-}
-
-.botaoInfo {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-left: 10px;
 }
