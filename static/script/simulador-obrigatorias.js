@@ -2,6 +2,7 @@
 // sessionStorage.setItem("horas",horas)
 sessionStorage.setItem("simuladorIniciado", true)
 let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
+let turno_escolhido = sessionStorage.getItem("turno")
 
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
@@ -17,6 +18,7 @@ function obrigatorias() {
         selecionar_todas.setAttribute("value", `semestre${i}`)
         label_todas.appendChild(selecionar_todas)
         label_todas.append("Adicionar Todas")
+        label_todas.classList.add("label_todas")
         semestres[i].appendChild(label_todas)
 
         selecionar_todas.addEventListener("click", () => {
@@ -66,17 +68,17 @@ function obrigatorias() {
                 popup.style.display = "flex"
                 const nome_cadeira = document.getElementById("nome_cadeira")
                 nome_cadeira.append(cadeira[i][j][0])
-              
+
 
 
 
 
                 const pre_requisito = document.getElementById("pre-requisito")
-                pre_requisito.innerHTML =`<b>Pré-requesito: </b>${cadeira[i][j][3]}`
+                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira[i][j][3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
-                qtd_horas.innerHTML =`<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
+                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
                 const objetivo = document.getElementById("objetivo")
-                objetivo.innerHTML=`<b>Objetivo: </b>${cadeira[i][j][2]}`
+                objetivo.innerHTML = `<b>Objetivo: </b>${cadeira[i][j][2]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
 
                 btn_close_popup.addEventListener("click", () => {
@@ -201,11 +203,31 @@ function atualizarCheckboxes() {
     }
 }
 
+function mudarTurno() {
+
+    const i_turno = document.getElementById("i_turno")
+    const nome_turno = document.getElementById("nome_turno")
+    if (turno_escolhido == "Diurno") {
+        i_turno.classList.add('fa-sun', 'fa-moon')
+        i_turno.classList.remove('fa-moon')
+
+        nome_turno.innerText = "Diurno"
+    }
+    else {
+        i_turno.classList.add('fa-moon')
+        i_turno.classList.remove('fa-sun')
+
+        nome_turno.innerText = "Noturno"
+    }
+
+
+}
 
 function simulador() {
     console.log("Seleção de obrigatórias")
     obrigatorias()
     atualizarCheckboxes()
+    mudarTurno()
 }
 
 simulador()

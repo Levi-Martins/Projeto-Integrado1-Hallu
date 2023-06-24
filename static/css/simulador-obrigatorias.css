@@ -243,6 +243,12 @@ input[type="checkbox"]:checked {
 
 input[ name="todas"] {
     border-radius: 50%;
+    
+}
+
+input[ name="todas"]:checked{
+    background-color:#8b61ee;
+
 }
 
 .redefinir {
