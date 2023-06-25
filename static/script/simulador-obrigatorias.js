@@ -25,23 +25,30 @@ function obrigatorias() {
         selecionar_todas.addEventListener("click", () => {
 
             const checkboxes = semestres[i].querySelectorAll('input[name="obrigatorias"]')
+            console.log(checkboxes)
 
             for (let j = 0; j < checkboxes.length; j++) {
-                horas_cadeira = parseInt(cadeira[i][j][1])
+                if (checkboxes[j].value != cadeira_turno[0]) {
+                    horas_cadeira = parseInt(cadeira[i][j][1])
+                    console.log(cadeira[i][j][1])
+                }
+                else {
+                    horas_cadeira = parseInt(cadeira_turno[1])
+                }
+
 
                 if (selecionar_todas.checked == true) {
                     if (checkboxes[j].checked == false) {
                         checkboxes[j].checked = selecionar_todas.checked
                         horas_obrigatorias += horas_cadeira
-                        console.log(checkboxes[j])
-                        console.log(`Somando horas: ${horas_obrigatorias}`)
+
                     }
                 }
                 else {
                     if (checkboxes[j].checked == true) {
                         checkboxes[j].checked = selecionar_todas.checked
                         horas_obrigatorias -= horas_cadeira
-                        console.log(`Diminuindo horas: ${horas_obrigatorias}`)
+
 
                     }
                 }
@@ -96,6 +103,8 @@ function obrigatorias() {
             input2.setAttribute("value", cadeira_turno[0])
             const botaoInfo2 = document.createElement("button")
             botaoInfo2.innerText = "i"
+            botaoInfo2.classList.add("botaoInfo")
+
 
             if (i == 7 && turno_escolhido == "Noturno" && j == j.length) {
                 input2.setAttribute("value", cadeira_turno[0])
@@ -128,6 +137,45 @@ function obrigatorias() {
                     })
 
                 })
+
+                input2.addEventListener("click", () => {
+                    if (input2.checked == true) {
+                        horas_obrigatorias += parseInt(cadeira_turno[1])
+
+                    }
+                    else {
+                        horas_obrigatorias -= parseInt(cadeira_turno[1])
+
+
+                    }
+                    if (horas_obrigatorias <= 0) horas_obrigatorias = 0
+
+
+                    if (selecionar_todas.checked == true) {
+                        selecionar_todas.checked = false
+                    }
+
+                    const semestre_input = semestres[i].querySelectorAll("input[name='obrigatorias']")
+                    let len = 0;
+                    let ele = 0;
+                    semestre_input.forEach(element => {
+                        ele++
+                        if (element.checked == true) {
+                            len++
+                        }
+
+                    })
+                    // console.log(len)
+                    // console.log(ele)
+                    if (len == ele) {
+                        selecionar_todas.checked = true
+                    }
+
+                    console.log(`Horas da cadeira: ${horas_obrigatorias}`)
+
+                })
+
+
             }
 
             if (cadeira[i][j][0] == "Projeto de Trabalho Final") {
@@ -141,7 +189,9 @@ function obrigatorias() {
 
             else {
                 semestres[i].appendChild(label)
-                semestres[i].append(label2)
+                if (i == 7 && turno_escolhido == "Noturno" && j == j.length) {
+                    semestres[i].append(label2)
+                }
             }
 
 
@@ -198,10 +248,10 @@ function obrigatorias() {
             const redefinir = document.getElementById("limpar")
             redefinir.addEventListener("click", () => {
                 input.checked = false
+                input2.checked = false
                 selecionar_todas.checked = false
                 horas_obrigatorias = 0
-                console.log(`horas obrigatorias: ${horas_obrigatorias}`)
-                console.log(horas_obrigatorias)
+                
 
             })
 
