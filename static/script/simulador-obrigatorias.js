@@ -4,12 +4,25 @@ sessionStorage.setItem("simuladorIniciado", true)
 let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 let turno_escolhido = sessionStorage.getItem("turno")
 
+
+function temaTurno() {
+    if (turno_escolhido == "Noturno") {
+     document.body.classList.add("dark")
+       
+    }
+    else {
+            document.body.classList.remove("dark")
+
+    }
+}
+
+
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
     const semestres = document.getElementsByClassName("cadeiras-semestre")
     let horas_cadeira
     let cadeira_turno = [cadeira[6][1][0], cadeira[6][1][1], cadeira[6][1][2], cadeira[6][1][3]]
-
+    console.log(cadeira_turno)
     for (let i in cadeira) {
 
         const selecionar_todas = document.createElement("input")
@@ -74,8 +87,13 @@ function obrigatorias() {
                 e.preventDefault()
                 const popup = document.getElementById("popup-wrappep")
                 popup.style.display = "flex"
+
+
+
                 const nome_cadeira = document.getElementById("nome_cadeira")
                 nome_cadeira.append(cadeira[i][j][0])
+                
+
 
                 const pre_requisito = document.getElementById("pre-requisito")
                 pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira[i][j][3]}`
@@ -84,6 +102,7 @@ function obrigatorias() {
                 const objetivo = document.getElementById("objetivo")
                 objetivo.innerHTML = `<b>Objetivo: </b>${cadeira[i][j][2]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
+
 
                 btn_close_popup.addEventListener("click", () => {
 
@@ -260,10 +279,6 @@ function obrigatorias() {
 }
 
 
-
-
-
-
 function armazenarCadeiras() {
     const checkboxes = document.getElementsByName("obrigatorias")
     let cadeirasSelecionadas = [];
@@ -333,6 +348,7 @@ function mudarTurno() {
 
 function simulador() {
     console.log("Seleção de obrigatórias")
+    temaTurno()
     obrigatorias()
     atualizarCheckboxes()
     mudarTurno()

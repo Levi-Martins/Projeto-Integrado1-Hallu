@@ -1,6 +1,27 @@
 
 let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 
+let turno_escolhido = sessionStorage.getItem("turno")
+function temaTurno() {
+  if (turno_escolhido == "Noturno") {
+    document.body.classList.add("dark")
+  } else {
+    document.body.classList.remove("dark")
+  }
+}
+
+
+function temaTurno() {
+    if (turno_escolhido == "Noturno") {
+     document.body.classList.add("dark")
+       
+    }
+    else {
+            document.body.classList.remove("dark")
+
+    }
+}
+
 function eletivas() {
     let cadeira = JSON.parse(localStorage.getItem("eletivas"))
     let horas_cadeira
@@ -184,6 +205,7 @@ function atualizarCheckboxes() {
 
 function simulador() {
     console.log("Seleção de Eletivas")
+    temaTurno()
     eletivas()
     atualizarCheckboxes()
 }
