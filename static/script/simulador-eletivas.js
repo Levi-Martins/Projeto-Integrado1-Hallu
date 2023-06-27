@@ -3,21 +3,21 @@ let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 
 let turno_escolhido = sessionStorage.getItem("turno")
 function temaTurno() {
-  if (turno_escolhido == "Noturno") {
-    document.body.classList.add("dark")
-  } else {
-    document.body.classList.remove("dark")
-  }
+    if (turno_escolhido == "Noturno") {
+        document.body.classList.add("dark")
+    } else {
+        document.body.classList.remove("dark")
+    }
 }
 
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
-     document.body.classList.add("dark")
-       
+        document.body.classList.add("dark")
+
     }
     else {
-            document.body.classList.remove("dark")
+        document.body.classList.remove("dark")
 
     }
 }
@@ -31,7 +31,6 @@ function eletivas() {
 
 
     for (let i in cadeira) {
-        let qtd = 0
         const selecionar_todas = document.createElement("input")
         const label_todas = document.createElement("label")
         selecionar_todas.setAttribute("type", "checkbox")
@@ -91,28 +90,21 @@ function eletivas() {
 
                     if (input.checked == true) {
                         horas_eletivas += parseInt(hora_cad)
-                        qtd++
+
                         if (i == 0) {
-                            if (qtd > 4) {
-                                eletivasOptativas.push(input.value)
 
-
-                            }
                         }
                         if (i == 1) {
-                            if (qtd > 3) {
-                                eletivasOptativas.push(input.value)
-                                console.log(input)
-                            }
+
                         }
                     }
                     else {
                         horas_eletivas -= parseInt(hora_cad)
-                        qtd--
-                        let indice = eletivasOptativas.indexOf(input.value)
-                        if (indice !== -1) {
-                            eletivasOptativas.splice(indice, 1);
-                        }
+
+                        // let indice = eletivasOptativas.indexOf(input.value)
+                        // if (indice !== -1) {
+                        //     eletivasOptativas.splice(indice, 1);
+                        // }
 
                     }
                     if (horas_eletivas <= 0) horas_eletivas = 0
@@ -155,29 +147,70 @@ function eletivas() {
 }
 
 function armazenarCadeiras() {
-    const checkboxes = document.getElementsByName("eletivas");
-    let cadeirasSelecionadas = [];
+    const forms = document.getElementsByClassName("cadeiras-semestre")
 
-    for (let i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-            cadeirasSelecionadas.push(checkboxes[i].value);
+    // sessionStorage.clear()
+    for (let f = 0; f < forms.length; f++) {
+
+        const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
+
+        let x = 0
+        for (let c = 0; c < checkboxes.length; c++) {
+            if (checkboxes[c].checked == true) {
+                x++
+            }
+
+
+
         }
-    }
 
-    sessionStorage.setItem("eletivas_selecionadas", JSON.stringify(cadeirasSelecionadas))
-
-    const selecionar_todas = document.getElementsByName('todas')
-    let checkTodas = []
-
-    for (let i = 0; i < selecionar_todas.length; i++) {
-        if (selecionar_todas[i]) {
-            if (selecionar_todas[i].checked == true) {
-                checkTodas.push(selecionar_todas[i].value)
+        if (f == 0) {
+            if (x > 4) {
+                console.log("passou de 4")
+            }
+            else {
+                console.log("x menor que 4")
             }
         }
+
+        if (f == 1) {
+            if (x > 3) {
+                console.log("passou de 3")
+            }
+            else {
+                console.log("x menor que 3")
+            }
+        }
+
+
+
     }
-    sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
-    sessionStorage.setItem("horas_eletivas", horas_eletivas)
+
+    // let cadeirasSelecionadas = [];
+
+    // for (let i = 0; i < checkboxes.length; i++) {
+    //     if (checkboxes[i].checked) {
+    //         console.log(checkboxes[i].checked)
+    //         cadeirasSelecionadas.push(checkboxes[i].value);
+    //     }
+    // }
+
+    // sessionStorage.setItem("eletivas_selecionadas", JSON.stringify(cadeirasSelecionadas))
+
+    // const selecionar_todas = document.getElementsByName('todas')
+    // let checkTodas = []
+
+    // for (let i = 0; i < selecionar_todas.length; i++) {
+    //     if (selecionar_todas[i]) {
+    //         if (selecionar_todas[i].checked == true) {
+    //             checkTodas.push(selecionar_todas[i].value)
+    //         }
+    //     }
+
+
+    // }
+    // sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
+    // sessionStorage.setItem("horas_eletivas", horas_eletivas)
 
 
 
@@ -200,6 +233,7 @@ function atualizarCheckboxes() {
         }
     }
 }
+
 
 
 
