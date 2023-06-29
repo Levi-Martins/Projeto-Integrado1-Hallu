@@ -1,6 +1,7 @@
 let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
-
 let turno_escolhido = sessionStorage.getItem("turno")
+let cadeira = JSON.parse(localStorage.getItem("eletivas"))
+
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
         document.body.classList.add("dark")
@@ -22,7 +23,6 @@ function temaTurno() {
 }
 
 function eletivas() {
-    let cadeira = JSON.parse(localStorage.getItem("eletivas"))
     let horas_cadeira
 
     const semestres = document.getElementsByClassName("cadeiras-semestre")
@@ -185,53 +185,36 @@ function armazenarCadeiras() {
     const forms = document.getElementsByClassName("cadeiras-semestre")
 
     // sessionStorage.clear()
-                let eletivas_optativas = []
-
+    let eletivas_optativas = []
+    let x = 0
     for (let f = 0; f < forms.length; f++) {
 
         const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
 
-        let x = 0
-        for (let c = 0; c < checkboxes.length; c++) {
-            if (checkboxes[c].checked) {
-                x++
-            }
-            else{
-                console.log(checkboxes[c])
-            }
-            
-        }
-
         if (f == 0) {
-            if (x > 4) {
-                let eletivas = []
 
-                for (let k = 4; k < checkboxes.length; k++) {
-                    if (checkboxes[k].checked) {
-                        if (x < 6 && (checkboxes[0].checked == false || checkboxes[1].checked == false || checkboxes[2].checked == false || checkboxes[3].checked == false)) {
-                            eletivas_optativas.push(checkboxes[k + 1].value)
-
-                            break
-                        }
-                        else {
-                            eletivas_optativas.push(checkboxes[k].value)
-                        }
-                    }
+            for (let k = 0; k < checkboxes.length; k++) {
+                if (checkboxes[k].checked) {
+                    x++
+                }
+                if (checkboxes[k].checked == false && x > 4) {
+                    console.log(checkboxes[k])
                 }
 
-                sessionStorage.setItem("eletivas_optativas4", JSON.stringify(eletivas))
 
-
+                let lista = [checkboxes[k].value, cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3]]
+                eletivas_optativas.push(lista)
             }
+
         }
+
 
         if (f == 1) {
-            if (x > 3) {
-                for (let k = 3; k < checkboxes.length; k++) {
-                    if (checkboxes[k].checked) {
-                        eletivas_optativas.push(checkboxes[k].value)
-                    }
-                }
+
+            for (let k = 3; k < checkboxes.length; k++) {
+                let lista = [checkboxes[k].value, cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3]]
+                eletivas_optativas.push(lista)
+
             }
         }
     }
