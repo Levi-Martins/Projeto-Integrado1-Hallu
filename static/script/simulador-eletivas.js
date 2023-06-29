@@ -185,9 +185,11 @@ function armazenarCadeiras() {
     const forms = document.getElementsByClassName("cadeiras-semestre")
 
     // sessionStorage.clear()
-    let eletivas_optativas = []
-    let x = 0
+    let cadeiras_eletivas = []
     for (let f = 0; f < forms.length; f++) {
+        let eletivas_semestre = []
+        
+        let eletivas_como_optativas = []
 
         const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
 
@@ -195,16 +197,23 @@ function armazenarCadeiras() {
 
             for (let k = 0; k < checkboxes.length; k++) {
                 if (checkboxes[k].checked) {
-                    x++
+                    eletivas_semestre.push(checkboxes[k])
                 }
-                if (checkboxes[k].checked == false && x > 4) {
+                if (!checkboxes[k].checked) {
+                    eletivas_como_optativas.push(checkboxes[k])
                     console.log(checkboxes[k])
                 }
 
 
                 let lista = [checkboxes[k].value, cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3]]
-                eletivas_optativas.push(lista)
+
             }
+
+            if (eletivas_semestre.length <= 4) {
+                
+            }
+            cadeiras_eletivas.push(eletivas_semestre)
+
 
         }
 
@@ -213,13 +222,16 @@ function armazenarCadeiras() {
 
             for (let k = 3; k < checkboxes.length; k++) {
                 let lista = [checkboxes[k].value, cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3]]
-                eletivas_optativas.push(lista)
+
 
             }
         }
-    }
 
-    sessionStorage.setItem("eletivas_optativas", JSON.stringify(eletivas_optativas))
+    }
+    console.log(cadeiras_eletivas)
+
+
+    // sessionStorage.setItem("eletivas_optativas", JSON.stringify(eletivas_optativas))
 
 
     let cadeirasSelecionadas = [];

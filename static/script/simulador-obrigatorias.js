@@ -86,6 +86,7 @@ function obrigatorias() {
             label.append(botaoInfo)
             botaoInfo.addEventListener("click", (e) => {
                 e.preventDefault()
+                
                 const popup = document.getElementById("popup-wrappep")
                 popup.style.display = "flex"
 
