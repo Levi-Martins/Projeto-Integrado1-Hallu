@@ -200,10 +200,8 @@ function armazenarCadeiras() {
 
         if (f == 0) {
             if (x > 4) {
-<<<<<<< Updated upstream
                 let eletivas = []
-=======
->>>>>>> Stashed changes
+
                 for (let k = 4; k < checkboxes.length; k++) {
                     if (checkboxes[k].checked) {
                         if (x < 6 && (checkboxes[0].checked == false || checkboxes[1].checked == false || checkboxes[2].checked == false || checkboxes[3].checked == false)) {
@@ -217,10 +215,8 @@ function armazenarCadeiras() {
                     }
                 }
 
-<<<<<<< Updated upstream
                 sessionStorage.setItem("eletivas_optativas4", JSON.stringify(eletivas))
-=======
->>>>>>> Stashed changes
+
 
             }
         }
