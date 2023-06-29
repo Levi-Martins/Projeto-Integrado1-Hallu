@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter&display=swap');
 @import url(landing-page.css);
-@import url(turnos.css);
+/* @import url(turnos.css); */
 /* @import url(simulador-obrigatorias.css); */
 
 *{
@@ -31,7 +31,14 @@
 
 
     /* SIMULADOR */
-    --background-simulador-1920:url(../assets/img/simulador/simulador-fundo-diurno-1920.png)
+    --background-simulador-1920:url(../assets/img/simulador/simulador-fundo-diurno-1920.png);
+    --cor-botao-categoria-padrao:#FE679F;
+    --cor-turno: #FF9629;
+    --background-disciplina: #FFF5D0;
+    --simulador-h1: #FF6D72;
+    --background-header-semestre: #FF71A6;
+    --color-label: #7A5F2A;
+    --cor-popup:#FF9629;
     
 }
 
@@ -55,10 +62,11 @@
     /* SIMULADOR */
 
     --background-simulador-1920:url(../assets/img/simulador/simulador-fundo-noturno-1920.png);
+    --cor-botao-categoria-padrao:#4F0269;
+    --cor-turno:black;
     --background-disciplina: #FFE4D0;
     --simulador-h1: #42035A;
     --background-header-semestre: #F76536;
     --color-label: #42035A;
-
-
+    --cor-popup:#910D55;
 }

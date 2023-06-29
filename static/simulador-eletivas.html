@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/simulador-obrigatorias.css">
+    <link rel="stylesheet" href="css/simulador-eletivas.css">
 
     <title>Vou Me Formar? - SMD</title>
     <script src="script/simulador-eletivas.js" defer></script>
@@ -16,7 +16,15 @@
 <body>
     <main>
         <div id="header">
-            <img src="assets/icon/Logo.png" alt="">
+            <div class="logo-turno-simulador">
+                <img src="assets/icon/logo-white-vmf.png" alt="">
+                <a href="simulador-turnos.html">
+                    <div class="turno-simulador">
+                        <i id ="i_turno" class="fas"></i>
+                        <p id="nome_turno"></p>
+                    </div>
+                </a>
+            </div>
             <div id="categorias">
                 <div id="obrigatorias-categorias" class="valor-categorias">
                     <a href="simulador-obrigatorias.html"><button onclick="armazenarCadeiras()">1</button></a>
@@ -41,8 +49,7 @@
             </div>
         </div>
         <div id="main">
-            <a href="#"><button class="arrows" onclick="armazenarCadeiras()"><img
-                        src="assets/icon/arrow-left_svgrepo.com.png"></button></a>
+            <a href="simulador-obrigatorias.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-left.png"></button></a>
             <div id="disciplina">
                 <div id="h1-eletivas">
                     <h1>Eletivas</h1>
@@ -68,15 +75,19 @@
                     </div>
                 </div>
                 <button id="limpar" class="redefinir">Limpar</button>
-                <div class="descricao-disciplina">
-                    <p>Lembre-se: é necessário fazer no mínimo quatro eletivas do quarto semestre, e três do quinto.
-                        Cadeiras feitas acima do mínimo irão ser automaticamente contabilizadas como optativas.</p>
+                <div class="div-descricao-disciplina">
+                    <div class="div-balao-de-fala">
+                        <img src="assets/icon/balao-de-fala-simulador.svg" alt="">
+                    </div>
+                    <div class="descricao-disciplina">
+                        <p>Lembre-se: é necessário fazer <strong>no mínimo</strong> quatro eletivas do quarto semestre, e três do quinto. Cadeiras eletivas feitas acima do mínimo irão ser automaticamente contabilizadas como optativas.</p>
+                    </div>
                 </div>
             </div>
-            <a href="simulador-optativas.html"><button class="arrows" onclick="armazenarCadeiras()"><img
-                        src="assets/icon/arrow-right_svgrepo.com.png"></button></a>
+            <a href="simulador-optativas.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-right.png"></button></a>
         </div>
     </main>
+    <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
 
 </body>
 

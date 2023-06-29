@@ -234,14 +234,33 @@ function atualizarCheckboxes() {
     }
 }
 
+function mudarTurno() {
+    const i_turno = document.getElementById("i_turno")
+    const nome_turno = document.getElementById("nome_turno")
+    if (turno_escolhido == "Diurno") {
+        i_turno.classList.add('fa-sun', 'fa-moon')
+        i_turno.classList.remove('fa-moon')
+
+        nome_turno.innerText = "Diurno"
+    }
+    else {
+        i_turno.classList.add('fa-moon')
+        i_turno.classList.remove('fa-sun')
+
+        nome_turno.innerText = "Noturno"
+    }
+}
+
 
 
 
 function simulador() {
     console.log("Seleção de Eletivas")
     temaTurno()
+    mudarTurno()
     eletivas()
     atualizarCheckboxes()
+    
 }
 
 simulador()

@@ -82,6 +82,7 @@ function obrigatorias() {
             input.setAttribute("value", cadeira[i][j][0])
             label.appendChild(input)
             label.append(cadeira[i][j][0])
+            label.classList.add('texto-label')
             label.append(botaoInfo)
             botaoInfo.addEventListener("click", (e) => {
                 e.preventDefault()
@@ -130,6 +131,7 @@ function obrigatorias() {
                 label2.appendChild(input2)
                 label2.append(cadeira_turno[0])
                 label2.append(botaoInfo2)
+                label2.classList.add('texto-label')
 
                 botaoInfo2.addEventListener("click", (e) => {
                     e.preventDefault()
@@ -211,6 +213,11 @@ function obrigatorias() {
                 if (i == 7 && turno_escolhido == "Noturno" && j == j.length) {
                     semestres[i].append(label2)
                 }
+            }
+            //espaçamento do botão em labeis que possuem quebra de linha
+            if(label.clientHeight > 35 || label2.clientHeight > 35){
+                botaoInfo.style.marginRight = '30px'
+                botaoInfo2.style.marginRight = '20px'
             }
 
 
@@ -327,7 +334,6 @@ function atualizarCheckboxes() {
 }
 
 function mudarTurno() {
-
     const i_turno = document.getElementById("i_turno")
     const nome_turno = document.getElementById("nome_turno")
     if (turno_escolhido == "Diurno") {
@@ -342,8 +348,6 @@ function mudarTurno() {
 
         nome_turno.innerText = "Noturno"
     }
-
-
 }
 
 function simulador() {
