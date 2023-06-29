@@ -1,10 +1,11 @@
 let horas = parseInt(sessionStorage.getItem("horas"))
 let horas_optativas = parseInt(sessionStorage.getItem("horas_optativas"))
+let eletivas_optativas = JSON.parse(sessionStorage.getItem("eletivas_optativas"))
+
 
 function optativas() {
     let cadeira = JSON.parse(localStorage.getItem("optativas"))
     let horas_cadeira
-    console.log(horas)
 
     const form = document.getElementById("form-cadeiras")
     const optativas_escolhidas = document.getElementById("form-optativas-escolhidas")
@@ -144,12 +145,26 @@ function atualizarCheckboxes() {
     const checkboxes = document.getElementsByName("optativas")
     const optativas_escolhidas = document.getElementById("form-optativas-escolhidas")
 
-    let eletivas_optativas = []
-    eletivas_optativas.push(JSON.parse(sessionStorage.getItem("eletivas_optativas4")),(JSON.parse(sessionStorage.getItem("eletivas_optativas5"))))
-    console.log(eletivas_optativas)
 
-    for(let e in eletivas_optativas){
-        
+    for (let e in eletivas_optativas) {
+        const div = document.createElement("div")
+        div.classList.add("optativaEscolhida")
+        const botao = document.createElement("button")
+        botao.innerText = "x"
+        const label_escolhidas = document.createElement("label")
+        label_escolhidas.innerText = eletivas_optativas[e]
+        div.appendChild(botao)
+        div.appendChild(label_escolhidas)
+        optativas_escolhidas.appendChild(div)
+
+
+        botao.addEventListener("click", (e) => {
+            e.preventDefault()
+            checkboxes[i].checked = false
+            div.parentNode.removeChild(div)
+            horas_optativas -= 64
+            if (horas_optativas <= 0) horas_optativas = 0
+        })
     }
 
 
@@ -180,8 +195,8 @@ function atualizarCheckboxes() {
                     e.preventDefault()
                     checkboxes[i].checked = false
                     div.parentNode.removeChild(div)
-                    horas_optativas-=64
-                    if(horas_optativas <=0) horas_optativas = 0
+                    horas_optativas -= 64
+                    if (horas_optativas <= 0) horas_optativas = 0
                 })
             }
         }
