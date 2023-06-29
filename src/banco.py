@@ -23,6 +23,6 @@ len_semestre8 = len(excel_obrigatorias.col_values(37))
 
 
 len_semestre4_eletivas = len(excel_eletivas.col_values(2))
-len_semestre5_eletivas = len(excel_eletivas.col_values(5))
+len_semestre5_eletivas = len(excel_eletivas.col_values(7))
 
 len_optativas = len(excel_optativas.col_values(2))

@@ -45,8 +45,8 @@ def obrigatorias():
 @app.get('/eletivas')
 def eletivas():
     elet = []
-    s_e_4 = banco.excel_eletivas.get(f'B3:D{banco.len_semestre4_eletivas}')
-    s_e_5 = banco.excel_eletivas.get(f'E3:G{banco.len_semestre5_eletivas}')
+    s_e_4 = banco.excel_eletivas.get(f'B3:E{banco.len_semestre4_eletivas}')
+    s_e_5 = banco.excel_eletivas.get(f'G3:J{banco.len_semestre5_eletivas}')
     elet.extend((s_e_4, s_e_5))
     return elet
 

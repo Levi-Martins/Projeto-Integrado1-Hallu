@@ -144,6 +144,17 @@ function atualizarCheckboxes() {
     const checkboxes = document.getElementsByName("optativas")
     const optativas_escolhidas = document.getElementById("form-optativas-escolhidas")
 
+    let eletivas_optativas = []
+    eletivas_optativas.push(JSON.parse(sessionStorage.getItem("eletivas_optativas4")),(JSON.parse(sessionStorage.getItem("eletivas_optativas5"))))
+    console.log(eletivas_optativas)
+
+    for(let e in eletivas_optativas){
+        
+    }
+
+
+
+
     let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("optativas_selecionadas"))
     if (cadeirasSelecionadas) {
         for (let i = 0; i < checkboxes.length; i++) {

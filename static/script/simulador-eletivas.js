@@ -42,7 +42,6 @@ function eletivas() {
 
         selecionar_todas.addEventListener("click", () => {
             const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
-
             for (let j = 0; j < checkboxes.length; j++) {
 
                 horas_cadeira = parseInt(cadeira[i][j][1])
@@ -70,19 +69,56 @@ function eletivas() {
         for (let j in cadeira[i]) {
             const input = document.createElement("input")
             const label = document.createElement("label")
+            const botaoInfo = document.createElement("button")
+            botaoInfo.classList.add("botaoInfo")
+            botaoInfo.innerText = "i"
             input.setAttribute("type", "checkbox")
             input.setAttribute("name", "eletivas")
             input.setAttribute("value", cadeira[i][j][0])
             label.appendChild(input)
             label.append(cadeira[i][j][0])
+            label.classList.add('texto-label')
+            label.append(botaoInfo)
+            botaoInfo.addEventListener("click", (e) => {
+                e.preventDefault()
+                const popup = document.getElementById("popup-wrappep")
+                popup.style.display = "flex"
+
+
+                const nome_cadeira = document.getElementById("nome_cadeira")
+                nome_cadeira.append(cadeira[i][j][0])
+
+
+                const pre_requisito = document.getElementById("pre-requisito")
+                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira[i][j][3]}`
+                const qtd_horas = document.getElementById("qtd_horas")
+                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
+                const objetivo = document.getElementById("objetivo")
+                objetivo.innerHTML = `<b>Objetivo: </b>${cadeira[i][j][2]}`
+                const btn_close_popup = document.getElementById("btn_close_popup")
+
+
+                btn_close_popup.addEventListener("click", () => {
+
+                    popup.style.display = "none"
+                    nome_cadeira.innerHTML = ""
+                    qtd_horas.innerHTML = ""
+                    pre_requisito.innerHTML = ""
+                    objetivo.innerHTML = ""
+                })
+
+            })
+
+            //espaçamento do botão em labeis que possuem quebra de linha
+
+
             semestres[i].appendChild(label)
             horas_cadeira = parseInt(cadeira[i][j][1])
-            // console.log(horas_cadeira)
 
+            if (label.clientHeight > 35) {
+                botaoInfo.style.marginRight = '30px'
+            }
 
-            // if (cadeira[i][j][0] == "-") {
-            //     semestres[i].innerText = "Não existem cadeiras obrigatórias para esse semestre"
-            // }
 
             input.addEventListener("click", function (hora_cad) {
                 return () => {
@@ -159,58 +195,68 @@ function armazenarCadeiras() {
             if (checkboxes[c].checked == true) {
                 x++
             }
-
-
-
         }
 
         if (f == 0) {
             if (x > 4) {
-                console.log("passou de 4")
-            }
-            else {
-                console.log("x menor que 4")
+                let eletivas4 = []
+                let uma = false
+                for (let k = 4; k < checkboxes.length; k++) {
+                    if (checkboxes[k].checked) {
+                        if (x < 6 && (checkboxes[0].checked == false || checkboxes[1].checked == false || checkboxes[2].checked == false || checkboxes[3].checked == false)) {
+                            sessionStorage.setItem("eletivas_optativas4", JSON.stringify(checkboxes[k + 1].value))
+                            uma = true
+                            break
+                        }
+                        else {
+                            eletivas4.push(checkboxes[k].value)
+                        }
+                    }
+                }
+                if (!uma) {
+                    sessionStorage.setItem("eletivas_optativas4", JSON.stringify(eletivas4))
+                }
             }
         }
 
         if (f == 1) {
             if (x > 3) {
-                console.log("passou de 3")
+                for (let k = 3; k < checkboxes.length; k++) {
+                    if (checkboxes[k].checked) {
+                        sessionStorage.setItem("eletivas_optativas5", JSON.stringify(checkboxes[k].value))
+                    }
+                }
             }
-            else {
-                console.log("x menor que 3")
+        }
+    }
+
+
+    let cadeirasSelecionadas = [];
+    const checkboxes = document.getElementsByName("eletivas")
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            console.log(checkboxes[i].checked)
+            cadeirasSelecionadas.push(checkboxes[i].value);
+        }
+    }
+
+    sessionStorage.setItem("eletivas_selecionadas", JSON.stringify(cadeirasSelecionadas))
+
+    const selecionar_todas = document.getElementsByName('todas')
+    let checkTodas = []
+
+    for (let i = 0; i < selecionar_todas.length; i++) {
+        if (selecionar_todas[i]) {
+            if (selecionar_todas[i].checked == true) {
+                checkTodas.push(selecionar_todas[i].value)
             }
         }
 
 
-
     }
-
-    // let cadeirasSelecionadas = [];
-
-    // for (let i = 0; i < checkboxes.length; i++) {
-    //     if (checkboxes[i].checked) {
-    //         console.log(checkboxes[i].checked)
-    //         cadeirasSelecionadas.push(checkboxes[i].value);
-    //     }
-    // }
-
-    // sessionStorage.setItem("eletivas_selecionadas", JSON.stringify(cadeirasSelecionadas))
-
-    // const selecionar_todas = document.getElementsByName('todas')
-    // let checkTodas = []
-
-    // for (let i = 0; i < selecionar_todas.length; i++) {
-    //     if (selecionar_todas[i]) {
-    //         if (selecionar_todas[i].checked == true) {
-    //             checkTodas.push(selecionar_todas[i].value)
-    //         }
-    //     }
-
-
-    // }
-    // sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
-    // sessionStorage.setItem("horas_eletivas", horas_eletivas)
+    sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
+    sessionStorage.setItem("horas_eletivas", horas_eletivas)
 
 
 
@@ -260,7 +306,7 @@ function simulador() {
     mudarTurno()
     eletivas()
     atualizarCheckboxes()
-    
+
 }
 
 simulador()

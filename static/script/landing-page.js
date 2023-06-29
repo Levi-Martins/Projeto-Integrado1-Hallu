@@ -25,6 +25,7 @@ if (!sessionStorage.getItem("simuladorIniciado")) {
   sessionStorage.setItem("horas_optativas", 0)
   sessionStorage.setItem("simuladorIniciado", false)
 }
+// sessionStorage.clear()
 
 
 

@@ -20,7 +20,7 @@
                 <img src="assets/icon/logo-white-vmf.png" alt="">
                 <a href="simulador-turnos.html">
                     <div class="turno-simulador">
-                        <i id ="i_turno" class="fas"></i>
+                        <i id="i_turno" class="fas"></i>
                         <p id="nome_turno"></p>
                     </div>
                 </a>
@@ -49,7 +49,8 @@
             </div>
         </div>
         <div id="main">
-            <a href="simulador-obrigatorias.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-left.png"></button></a>
+            <a href="simulador-obrigatorias.html"><button class="arrows" onclick="armazenarCadeiras()"><img
+                        src="assets/icon/arrow-left.png"></button></a>
             <div id="disciplina">
                 <div id="h1-eletivas">
                     <h1>Eletivas</h1>
@@ -80,11 +81,29 @@
                         <img src="assets/icon/balao-de-fala-simulador.svg" alt="">
                     </div>
                     <div class="descricao-disciplina">
-                        <p>Lembre-se: é necessário fazer <strong>no mínimo</strong> quatro eletivas do quarto semestre, e três do quinto. Cadeiras eletivas feitas acima do mínimo irão ser automaticamente contabilizadas como optativas.</p>
+                        <p>Lembre-se: é necessário fazer <strong>no mínimo</strong> quatro eletivas do quarto semestre,
+                            e três do quinto. Cadeiras eletivas feitas acima do mínimo irão ser automaticamente
+                            contabilizadas como optativas.</p>
                     </div>
                 </div>
             </div>
-            <a href="simulador-optativas.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-right.png"></button></a>
+            <div id="popup-wrappep" class="popup-wrappep">
+                <div class="popup">
+                    <div class="popup-content">
+                        <button id="btn_close_popup">x</button>
+                        <h2 id="nome_cadeira"></h2>
+                        <hr>
+                        <h4> <b>Tipo:</b> Eletivas</h4>
+                        <h4 id="pre-requisito"></h4>
+                        <h4 id="qtd_horas"></h4>
+                    </div>
+                    <div class="popup-info">
+                        <h4 id="objetivo"></h4>
+                    </div>
+                </div>
+            </div>
+            <a href="simulador-optativas.html"><button class="arrows" onclick="armazenarCadeiras()"><img
+                        src="assets/icon/arrow-right.png"></button></a>
         </div>
     </main>
     <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
