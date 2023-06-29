@@ -193,9 +193,13 @@ function armazenarCadeiras() {
 
         let x = 0
         for (let c = 0; c < checkboxes.length; c++) {
-            if (checkboxes[c].checked == true) {
+            if (checkboxes[c].checked) {
                 x++
             }
+            else{
+                console.log(checkboxes[c])
+            }
+            
         }
 
         if (f == 0) {
@@ -240,7 +244,6 @@ function armazenarCadeiras() {
 
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-            console.log(checkboxes[i].checked)
             cadeirasSelecionadas.push(checkboxes[i].value);
         }
     }

@@ -353,9 +353,9 @@ function mudarTurno() {
 function simulador() {
     console.log("Seleção de obrigatórias")
     temaTurno()
+    mudarTurno()
     obrigatorias()
     atualizarCheckboxes()
-    mudarTurno()
 }
 
 simulador()
