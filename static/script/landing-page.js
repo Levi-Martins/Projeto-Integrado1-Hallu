@@ -26,6 +26,6 @@ if (!sessionStorage.getItem("simuladorIniciado")) {
   sessionStorage.setItem("simuladorIniciado", false)
 }
 // sessionStorage.clear()
-
+// localStorage.clear()
 
 

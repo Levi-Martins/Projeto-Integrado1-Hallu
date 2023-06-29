@@ -1,4 +1,3 @@
-
 let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 
 let turno_escolhido = sessionStorage.getItem("turno")
@@ -199,23 +198,22 @@ function armazenarCadeiras() {
 
         if (f == 0) {
             if (x > 4) {
-                let eletivas4 = []
-                let uma = false
+                let eletivas = []
                 for (let k = 4; k < checkboxes.length; k++) {
                     if (checkboxes[k].checked) {
                         if (x < 6 && (checkboxes[0].checked == false || checkboxes[1].checked == false || checkboxes[2].checked == false || checkboxes[3].checked == false)) {
-                            sessionStorage.setItem("eletivas_optativas4", JSON.stringify(checkboxes[k + 1].value))
-                            uma = true
+                            eletivas_optativas.push(checkboxes[k + 1].value)
+
                             break
                         }
                         else {
-                            eletivas4.push(checkboxes[k].value)
+                            eletivas_optativas.push(checkboxes[k].value)
                         }
                     }
                 }
-                if (!uma) {
-                    sessionStorage.setItem("eletivas_optativas4", JSON.stringify(eletivas4))
-                }
+
+                sessionStorage.setItem("eletivas_optativas4", JSON.stringify(eletivas))
+
             }
         }
 
