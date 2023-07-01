@@ -31,7 +31,9 @@ function eletivas() {
     let quarto = 0
     let cadeiras4 = []
     let cadeiras5 = []
-    let go_opt = false
+    let go_opt4 = false
+    let go_opt5 = false
+
 
     for (let i in cadeira) {
         const selecionar_todas = document.createElement("input")
@@ -136,54 +138,62 @@ function eletivas() {
                             quarto++
 
                             if (quarto == 4) {
-                                cadeiras4.push([cadeira[i][j][0], cadeira[i][j][1], cadeira[i][j][2], cadeira[i][j][3]])
-                                go_opt = true
-                                const forms = document.getElementsByClassName("cadeiras-semestre")
-                                for (let f = 0; f < forms.length; f++) {
-                                    const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
-                                    if (f == 0) {
-                                        for (let k = 0; k < checkboxes.length; k++) {
-                                            if (go_opt && !checkboxes[k].checked) {
-                                                console.log(checkboxes[k])
-                                            }
-                                        }
+                                go_opt4 = true
+
+
+                                const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
+
+                                for (let k = 0; k < checkboxes.length; k++) {
+                                    if (go_opt4 && !checkboxes[k].checked) {
+                                        console.log(checkboxes[k])
                                     }
                                 }
-                                console.log(go_opt)
+
+
                             }
                         }
                         else {
-                            if (quinto > 3) {
-                                console.log(input.value)
-                                quinto++
-                            } else {
-                                quinto++
+                            quinto++
+                            if (quinto == 3) {
+                                go_opt5 = true
+
+                                const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
+
+                                for (let k = 0; k < checkboxes.length; k++) {
+                                    if (go_opt5 && !checkboxes[k].checked) {
+                                        console.log(checkboxes[k])
+                                    }
+                                }
+
 
                             }
                         }
 
                     }
-                    else {
+
+
+                    
+                    else if (input.checked == false) {
+                        
                         horas_eletivas -= parseInt(hora_cad)
-                        if (semestrex = 4) {
+                        if (semestrex == 4) {
 
                             quarto--
-                            if (quarto < 4) {
-                                go_opt = false
+                            if (quarto < 3) {
+                                go_opt4 = false
                             }
                         }
                         else {
                             quinto--
+                            if (quinto < 3) {
+                                go_opt5 = false
+                            }
                         }
-                        // let indice = eletivasOptativas.indexOf(input.value)
-                        // if (indice !== -1) {
-                        //     eletivasOptativas.splice(indice, 1);
-                        // }
 
                     }
-                    if (horas_eletivas <= 0) horas_eletivas = 0
 
-                    // console.log(selecionar_todas)
+
+                    if (horas_eletivas <= 0) horas_eletivas = 0
                     if (selecionar_todas.checked == true) {
                         selecionar_todas.checked = false
                     }
@@ -203,9 +213,6 @@ function eletivas() {
                     if (quarto <= 0) quarto = 0
                     if (quinto <= 0) quinto = 0
 
-
-                    console.log(`Quarto semestre: ${quarto}`)
-                    console.log(`Quinto semestre: ${quinto}`)
 
                 }
 
@@ -230,33 +237,7 @@ function eletivas() {
 
 
 function armazenarCadeiras() {
-    const forms = document.getElementsByClassName("cadeiras-semestre")
 
-    // sessionStorage.clear()
-    for (let f = 0; f < forms.length; f++) {
-        const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
-        let x = 0
-
-        if (f == 0) {
-            for (let k = 0; k < checkboxes.length; k++) {
-
-                // let lista = [checkboxes[k].value, cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3]]
-
-            }
-
-
-        }
-
-
-        if (f == 1) {
-
-            for (let k = 3; k < checkboxes.length; k++) {
-                let lista = [checkboxes[k].value, cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3]]
-
-            }
-        }
-        console.log(x)
-    }
 
 
     let cadeirasSelecionadas = [];
@@ -323,8 +304,6 @@ function mudarTurno() {
         nome_turno.innerText = "Noturno"
     }
 }
-
-
 
 
 function simulador() {
