@@ -1,23 +1,185 @@
-#optativas {
-    width: 700px;
-    height: 500px;
-    background-color: bisque;
+@import url(global.css);
+
+body{
+    background-image: var(--background-simulador-1920);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#header {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 150px 50px 150px;
+    font-family: var(--font);
+    font-weight: bold;
+    gap: 0 396px;
 }
 
-#cadeiras-optativas {
-    width: 50%;
-    height: 100%;
-    background-color: rgb(216, 226, 226);
-    border-radius: 2%;
+.logo-turno-simulador{
+    display: flex;
+    gap: 0 70px;
+    align-items: center;
+}
+
+.logo-turno-simulador a{
+    color: var(--cor-turno);
+}
+
+.turno-simulador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 0 15px;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 129px;
+    max-height: 40px;
+    cursor: pointer;
+}
+
+.turno-simulador i{
+    font-size: 20px;
+}
+
+.turno-simulador p{
+    font-size: 18.5px;
+}
+
+#header img {
+    width: 155px;
+    height: 63px;
+}
+
+#categorias {
+    display: flex;
+    gap: 0 100px;
+    position: relative;
+}
+
+#categorias::before {
+    content: '';
+    height: 4px;
+    width: 85.3%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
+    position: absolute;
+    left: 8%;
+    top: 25%;
+    z-index: -1;
+}
+
+#categorias button {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: 3px solid #FFF;
+    background-color: var( --cor-botao-categoria-padrao);
+    color: #fff;
+    cursor: pointer;
+}
+
+#categorias #optativas-categorias button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: 3px solid #FFF;
+    background-color: #FF9128;
+    color: #fff;
+    cursor: pointer;
+}
+
+.valor-categorias {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.valor-categorias p {
+    margin-top: 15px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 13px 150px 57px 150px;
+    gap: 0 55px;
+}
+
+.arrows {
+    max-width: 60px;
+    width: 60px;
+    max-height: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #408CFF;
+    cursor: pointer;
+}
+
+#disciplina {
+    background-color: var(--background-disciplina);
+    max-width: 1389px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px 0;
+    border-radius: 20px;
+    padding: 30px 65px;
+}
+
+#h1-optativas h1 {
+    text-align: center;
+    font-family: var(--font);
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--simulador-h1);
+}
+
+#content-optativas{
+    display: flex;
+    gap: 0 35px;
+}
+
+#optativas {
+    display: flex;
+}
+
+#cadeiras-optativas{
+    max-height: 424px;
+    max-width: 420px;
+    width: 420px;
+}
+
+.header-cadeiras-optativas{
+    background-color: var(--header-optativas);
+    padding: 10px 26px 9px 26px;
+    border-radius: 20px 0px 0px 0px;
+    text-align: center;
+}
+
+.header-cadeiras-optativas input{
+    font-size: 18px;
+    font-family: var(--default-font);
+    width: 332px;
+    padding: 10px 0px 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #CACACA;
+    background: #FAFAFA;
 
 }
 
-#optativas-escolhidas {
-    width: 50%;
-    height: 100%;
-    background-color: bisque;
+.scroll-optativas{
+    padding: 9px 27px 18px 27px;
+    background-color: #FFF;
 }
 
 #form-cadeiras {
@@ -25,13 +187,35 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: 90%;
+    max-height: 328px;
+}
+
+#form-cadeiras .c {
+    font-size: 18px;
+    font-family: var(--default-font);
+    color: var(--color-label);
+}
+
+#form-cadeiras::-webkit-scrollbar {
+    width: 7px;
+} 
+
+#form-cadeiras::-webkit-scrollbar-thumb {
+    background-color:var(--scroll-optativas);
+    border-radius: 5px;
+}
+
+#form-cadeiras::-webkit-scrollbar-track {
+    background-color: var(--fundo-scroll-optativas); 
+     border-radius: 10px; 
+     border-right: 1px solid #fff; 
+     border-left: 1px solid #fff; 
 }
 
 #form-optativas-escolhidas {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    height: 90%;
+
+}
+
+#optativas-escolhidas {
+
 }

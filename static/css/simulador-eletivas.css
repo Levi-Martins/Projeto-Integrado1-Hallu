@@ -132,7 +132,7 @@ body{
     flex-direction: column;
     gap: 25px 0;
     border-radius: 20px;
-    padding: 30px;
+    padding: 40px;
 }
 
 #disciplina h1 {
@@ -163,10 +163,6 @@ body{
     flex-direction: column;
 }
 
-.div-form {
-    padding-right: 10px;
-}
-
 .numero-semestre {
     text-align: center;
     background-color: var(--background-header-semestre);
@@ -179,12 +175,12 @@ body{
 }
 
 .cadeiras-semestre {
+    display: flex;
+    flex-direction: column;
     font-size: 18px;
     font-family: var(--default-font);
-    padding: 10px 20px;
+    padding: 20px;
     max-width: 306px;
-    max-height: 284px;
-    height: 100%;
 }
 
 .cadeiras-semestre label {
@@ -326,8 +322,9 @@ input[ name="todas"]:checked{
 }
 
 .popup{
+    position: relative;
     text-align: left;
-    padding: 30px;
+    padding: 40px;
     width: 100%;
     max-width: 720px;
     max-height: 503px;
@@ -352,8 +349,10 @@ input[ name="todas"]:checked{
     text-align: center;
     font-size: 24px;
     font-weight: bolder;
-    margin-left: auto;
     cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 20px;
 }
 
 .popup-content h2{

@@ -39,6 +39,13 @@
     --background-header-semestre: #FF71A6;
     --color-label: #7A5F2A;
     --cor-popup:#FF9629;
+
+    --header-optativas:#FF7E35;
+    --scroll-optativas:#FF71A6;
+    --fundo-scroll-optativas:#7A5F2A;
+
+
+
     
 }
 
@@ -69,4 +76,8 @@
     --background-header-semestre: #F76536;
     --color-label: #42035A;
     --cor-popup:#910D55;
+
+    --header-optativas:#F76536;
+    --scroll-optativas:#FF6D3E;
+    --fundo-scroll-optativas:#823A9D;
 }

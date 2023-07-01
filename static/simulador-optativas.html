@@ -6,29 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/simulador-optativas.css">
     <script src="script/simulador-optativas.js" defer></script>
-
-    <title>Document</title>
+    <title>Vou Me Formar? - SMD</title>
 </head>
 
 <body>
-    <div id="optativas">
-        <div id="cadeiras-optativas">
-            <input type="text" name="busca" id="busca" oninput="pesquisar()">
-            <form id="form-cadeiras">
-
-            </form>
+    <div id="header">
+        <div class="logo-turno-simulador">
+            <a href="landing-page.html"><img src="assets/icon/logo-white-vmf.png" alt=""></a>
+            <a href="simulador-turnos.html">
+                <div class="turno-simulador">
+                    <i id="i_turno" class="fas"></i>
+                    <p id="nome_turno"></p>
+                </div>
+            </a>
         </div>
-        <div id="optativas-escolhidas">
-            <h3>Adicionadas</h3>
-            <form id="form-optativas-escolhidas">
-
-            </form>
+        <div id="categorias">
+            <div id="obrigatorias-categorias" class="valor-categorias">
+                <a href="simulador-obrigatorias.html"><button onclick="armazenarCadeiras()">1</button></a>
+                <p>Obrigatórias</p>
+            </div>
+            <div id="eletivas-categorias" class="valor-categorias">
+                <button>2</button>
+                <p>Eletivas</p>
+            </div>
+            <div id="optativas-categorias" class="valor-categorias">
+                <a href="simulador-optativas.html"><button onclick="armazenarCadeiras()">3</button></a>
+                <p>Optativas</p>
+            </div>
+            <div id="tcc-categorias" class="valor-categorias">
+                <a href="#"><button onclick="armazenarCadeiras()">4</button></a>
+                <p>Tcc e Horas</p>
+            </div>
+            <div id="resultado-categorias" class="valor-categorias">
+                <a href="#"><button onclick="armazenarCadeiras()">5</button></a>
+                <p>Resultado</p>
+            </div>
         </div>
     </div>
-    <a href="simulador-eletivas.html"><button class="arrows" onclick="armazenarCadeiras()"><img
-                src="assets/icon/arrow-left_svgrepo.com.png"></button></a>
-    <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
-                src="assets/icon/arrow-right_svgrepo.com.png"></button></a>
+    <div id="main">
+        <a href="simulador-eletivas.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-left.png"></button></a>
+        <div id="disciplina">
+            <div id="h1-optativas">
+                <h1>Optativas</h1>
+            </div>
+            <div id="content-optativas">
+                <div id="optativas">
+                    <div id="cadeiras-optativas">
+                        <div class="header-cadeiras-optativas">
+                            <input type="text" name="busca" id="busca" oninput="pesquisar()" placeholder="Pesquise por optativas do SMD">
+                        </div>
+                        <div class="scroll-optativas">
+                            <form id="form-cadeiras">
+                            </form>
+                        </div>
+                    </div>
+                    <div id="optativas-escolhidas">
+                        <h3>Adicionadas</h3>
+                        <form id="form-optativas-escolhidas">
+                        </form>
+                    </div>
+                </div>
+               
+                <div id="optativas-livres">
+                    <h1>Optativas Livres</h1>
+                    <input type="number" id="" placeholder="Insira a sua quantidade de horas optativas livres ">
+                    <p>Saiba aqui como descobrir suas horas de optativas livres, caso tenha feito!</p>
+                </div>
+
+            </div>
+        </div>
+        <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-right.png"></button></a>
+    </div>
 </body>
 
 </html>
