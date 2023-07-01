@@ -31,6 +31,7 @@ function eletivas() {
     let quarto = 0
     let cadeiras4 = []
     let cadeiras5 = []
+    let go_opt = false
 
     for (let i in cadeira) {
         const selecionar_todas = document.createElement("input")
@@ -134,9 +135,21 @@ function eletivas() {
                         if (semestrex == 4) {
                             quarto++
 
-                            if (quarto > 4) {
+                            if (quarto == 4) {
                                 cadeiras4.push([cadeira[i][j][0], cadeira[i][j][1], cadeira[i][j][2], cadeira[i][j][3]])
-                                console.log(cadeiras4)
+                                go_opt = true
+                                const forms = document.getElementsByClassName("cadeiras-semestre")
+                                for (let f = 0; f < forms.length; f++) {
+                                    const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
+                                    if (f == 0) {
+                                        for (let k = 0; k < checkboxes.length; k++) {
+                                            if (go_opt && !checkboxes[k].checked) {
+                                                console.log(checkboxes[k])
+                                            }
+                                        }
+                                    }
+                                }
+                                console.log(go_opt)
                             }
                         }
                         else {
@@ -154,57 +167,48 @@ function eletivas() {
                         horas_eletivas -= parseInt(hora_cad)
                         if (semestrex = 4) {
 
-
-                            if (quarto > 4) {
-                                for (let c in cadeiras4) {
-                                    let indice = cadeiras4[c][0].indexOf(input.value)
-                                    console.log(indice)
-                                    if (indice !== -1) {
-                                        cadeiras4[c].splice(indice, 1);
-                                    }
-                                    // console.log(cadeiras4[c][0])
-
-                                }
-                                quarto--
-
+                            quarto--
+                            if (quarto < 4) {
+                                go_opt = false
                             }
-                            else {
-                                quinto--
-                            }
-                            // let indice = eletivasOptativas.indexOf(input.value)
-                            // if (indice !== -1) {
-                            //     eletivasOptativas.splice(indice, 1);
-                            // }
-
                         }
-                        if (horas_eletivas <= 0) horas_eletivas = 0
-
-                        // console.log(selecionar_todas)
-                        if (selecionar_todas.checked == true) {
-                            selecionar_todas.checked = false
+                        else {
+                            quinto--
                         }
-
-                        const semestre_input = semestres[i].querySelectorAll("input[name='eletivas']")
-                        let len = 0;
-                        let ele = 0;
-                        semestre_input.forEach(element => {
-                            ele++
-                            if (element.checked == true) {
-                                len++
-                            }
-                        })
-                        if (len == ele) {
-                            selecionar_todas.checked = true
-                        }
-                        if (quarto <= 0) quarto = 0
-                        if (quinto <= 0) quinto = 0
-
-
-                        console.log(`Quarto semestre: ${quarto}`)
-                        console.log(`Quinto semestre: ${quinto}`)
+                        // let indice = eletivasOptativas.indexOf(input.value)
+                        // if (indice !== -1) {
+                        //     eletivasOptativas.splice(indice, 1);
+                        // }
 
                     }
+                    if (horas_eletivas <= 0) horas_eletivas = 0
+
+                    // console.log(selecionar_todas)
+                    if (selecionar_todas.checked == true) {
+                        selecionar_todas.checked = false
+                    }
+
+                    const semestre_input = semestres[i].querySelectorAll("input[name='eletivas']")
+                    let len = 0;
+                    let ele = 0;
+                    semestre_input.forEach(element => {
+                        ele++
+                        if (element.checked == true) {
+                            len++
+                        }
+                    })
+                    if (len == ele) {
+                        selecionar_todas.checked = true
+                    }
+                    if (quarto <= 0) quarto = 0
+                    if (quinto <= 0) quinto = 0
+
+
+                    console.log(`Quarto semestre: ${quarto}`)
+                    console.log(`Quinto semestre: ${quinto}`)
+
                 }
+
             }(horas_cadeira))
 
             const redefinir = document.getElementById("limpar")
@@ -217,8 +221,13 @@ function eletivas() {
 
             })
         }
+
     }
+    console.log("Fim ")
+
 }
+
+
 
 function armazenarCadeiras() {
     const forms = document.getElementsByClassName("cadeiras-semestre")
