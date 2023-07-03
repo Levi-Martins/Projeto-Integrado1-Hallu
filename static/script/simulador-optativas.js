@@ -154,9 +154,8 @@ function optativas() {
 
         })(horas_cadeira))
 
-
-
     }
+    
 
 
 

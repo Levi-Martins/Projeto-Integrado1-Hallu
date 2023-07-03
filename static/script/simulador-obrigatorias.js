@@ -7,11 +7,11 @@ let turno_escolhido = sessionStorage.getItem("turno")
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
-     document.body.classList.add("dark")
-       
+        document.body.classList.add("dark")
+
     }
     else {
-            document.body.classList.remove("dark")
+        document.body.classList.remove("dark")
 
     }
 }
@@ -86,7 +86,7 @@ function obrigatorias() {
             label.append(botaoInfo)
             botaoInfo.addEventListener("click", (e) => {
                 e.preventDefault()
-                
+
                 const popup = document.getElementById("popup-wrappep")
                 popup.style.display = "flex"
 
@@ -94,7 +94,7 @@ function obrigatorias() {
 
                 const nome_cadeira = document.getElementById("nome_cadeira")
                 nome_cadeira.append(cadeira[i][j][0])
-                
+
 
 
                 const pre_requisito = document.getElementById("pre-requisito")
@@ -216,7 +216,7 @@ function obrigatorias() {
                 }
             }
             //espaçamento do botão em labeis que possuem quebra de linha
-            if(label.clientHeight > 35 || label2.clientHeight > 35){
+            if (label.clientHeight > 35 || label2.clientHeight > 35) {
                 botaoInfo.style.marginRight = '30px'
                 botaoInfo2.style.marginRight = '20px'
             }
@@ -272,28 +272,35 @@ function obrigatorias() {
                 }
 
             })(horas_cadeira))
-            const redefinir = document.getElementById("limpar")
-            redefinir.addEventListener("click", () => {
-                const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
-                aparecerPopupLimpar.style.display = "flex"
-                const limparCadeiras = document.querySelector("#btn-limpar")
-                const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
-                limparCadeiras.addEventListener('click',()=>{
-                    input.checked = false
-                    input2.checked = false
-                    selecionar_todas.checked = false
-                    horas_obrigatorias = 0
-                    aparecerPopupLimpar.style.display = "none"
-                } )
-                fecharPopupLimpar.addEventListener("click", ()=>{
-                    aparecerPopupLimpar.style.display = "none"
-                })
-                
-    
-            })
+
 
         }
     }
+    const redefinir = document.getElementById("limpar")
+    redefinir.addEventListener("click", () => {
+
+        const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
+        aparecerPopupLimpar.style.display = "flex"
+        const limparCadeiras = document.querySelector("#btn-limpar")
+        const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
+        limparCadeiras.addEventListener('click', () => {
+            const checkboxes = document.getElementsByName("obrigatorias")
+            for(let c in checkboxes){
+                checkboxes[c].checked = false
+            }
+            const todas = document.getElementsByName("todas")
+            for(let t in todas){
+                todas[t].checked = false
+            }
+            horas_obrigatorias = 0
+            aparecerPopupLimpar.style.display = "none"
+        })
+        fecharPopupLimpar.addEventListener("click", () => {
+            aparecerPopupLimpar.style.display = "none"
+        })
+
+
+    })
 }
 
 

@@ -115,7 +115,7 @@ function eletivas() {
 
             input.addEventListener("click", function (hora_cad) {
                 return () => {
-                  clique = true
+                    clique = true
                     if (input.checked == true) {
                         horas_eletivas += parseInt(hora_cad)
 
@@ -155,19 +155,37 @@ function eletivas() {
 
             }(horas_cadeira))
 
-            const redefinir = document.getElementById("limpar")
-            redefinir.addEventListener("click", () => {
-                input.checked = false
-                selecionar_todas.checked = false
-                horas_eletivas = 0
-                console.log(`horas obrigatorias: ${horas_eletivas}`)
-                console.log(horas_eletivas)
 
-            })
         }
 
     }
-    console.log("Fim ")
+    const redefinir = document.getElementById("limpar")
+    redefinir.addEventListener("click", () => {
+
+        const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
+        aparecerPopupLimpar.style.display = "flex"
+        const limparCadeiras = document.querySelector("#btn-limpar")
+        const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
+        limparCadeiras.addEventListener('click', () => {
+            const checkboxes = document.getElementsByName("eletivas")
+            for (let c in checkboxes) {
+                checkboxes[c].checked = false
+            }
+            const todas = document.getElementsByName("todas")
+            for (let t in todas) {
+                todas[t].checked = false
+            }
+            q = 0
+            horas_eletivas = 0
+            sessionStorage.removeItem("eletivas_optativas")
+            aparecerPopupLimpar.style.display = "none"
+        })
+        fecharPopupLimpar.addEventListener("click", () => {
+            aparecerPopupLimpar.style.display = "none"
+        })
+
+
+    })
 
 }
 
@@ -244,7 +262,7 @@ function armazenarCadeiras() {
 
     }
 
-    sessionStorage.setItem("clique",clique)
+    sessionStorage.setItem("clique", clique)
 
 
 
