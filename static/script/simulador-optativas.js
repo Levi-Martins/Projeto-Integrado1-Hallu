@@ -424,6 +424,33 @@ function onInput() {
 
 }
 
+function limpar(){
+
+    const redefinir = document.getElementById("limpar")
+    redefinir.addEventListener("click", () => {
+
+        const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
+        aparecerPopupLimpar.style.display = "flex"
+        const limparCadeiras = document.querySelector("#btn-limpar")
+        const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
+        limparCadeiras.addEventListener('click', () => {
+            const checkboxes = document.getElementsByName("optativas")
+            for (let c in checkboxes) {
+                checkboxes[c].checked = false
+            }
+
+            horas_optativas = 0
+            aparecerPopupLimpar.style.display = "none"
+        })
+        fecharPopupLimpar.addEventListener("click", () => {
+            aparecerPopupLimpar.style.display = "none"
+        })
+
+
+    })
+
+}
+
 function app() {
     console.log("Seleção de Eletivas")
     temaTurno()
