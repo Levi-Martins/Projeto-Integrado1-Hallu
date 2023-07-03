@@ -60,7 +60,7 @@ function optativas() {
                 nome_cadeira.append(cad[0])
 
                 const pre_requisito = document.getElementById("pre-requisito")
-                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cad[3]}`
+                pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cad[3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
                 qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cad[1]}`
                 const objetivo = document.getElementById("objetivo")

@@ -32,6 +32,7 @@ function eletivas() {
         semestres[i].appendChild(label_todas)
 
         selecionar_todas.addEventListener("click", () => {
+            clique = true
             const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
             for (let j = 0; j < checkboxes.length; j++) {
 
@@ -81,7 +82,7 @@ function eletivas() {
 
 
                 const pre_requisito = document.getElementById("pre-requisito")
-                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira[i][j][3]}`
+                pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cadeira[i][j][3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
                 qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
                 const objetivo = document.getElementById("objetivo")

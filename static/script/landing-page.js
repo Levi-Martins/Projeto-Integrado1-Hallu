@@ -18,6 +18,8 @@ $(document).ready(function () {
   })
 });
 
+// sessionStorage.clear()
+
 if (!sessionStorage.getItem("simuladorIniciado")) {
   sessionStorage.setItem("horas", 0)
   sessionStorage.setItem("horas_obrigatorias", 0)

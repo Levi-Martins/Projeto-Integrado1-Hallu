@@ -98,7 +98,7 @@ function obrigatorias() {
 
 
                 const pre_requisito = document.getElementById("pre-requisito")
-                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira[i][j][3]}`
+                pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cadeira[i][j][3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
                 qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
                 const objetivo = document.getElementById("objetivo")
@@ -331,7 +331,9 @@ function atualizarCheckboxes() {
     let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("obrigatorias_selecionadas"))
     if (cadeirasSelecionadas) {
         for (let i = 0; i < checkboxes.length; i++) {
+
             checkboxes[i].checked = cadeirasSelecionadas.includes(checkboxes[i].value)
+
         }
     }
 
