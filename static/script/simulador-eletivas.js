@@ -1,6 +1,10 @@
+
+
 let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 let turno_escolhido = sessionStorage.getItem("turno")
 let cadeira = JSON.parse(localStorage.getItem("eletivas"))
+let eletivas_optativas = JSON.parse(sessionStorage.getItem("eletivas_optativas"))
+let clique = false
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
@@ -10,17 +14,11 @@ function temaTurno() {
     }
 }
 
+
 function eletivas() {
     let horas_cadeira
 
     const semestres = document.getElementsByClassName("cadeiras-semestre")
-    let eletivasOptativas = []
-    let quinto = 0
-    let quarto = 0
-    let cadeiras4 = []
-    let cadeiras5 = []
-    let go_opt4 = false
-    let go_opt5 = false
 
 
     for (let i in cadeira) {
@@ -116,67 +114,18 @@ function eletivas() {
 
             input.addEventListener("click", function (hora_cad) {
                 return () => {
-                    let semestrex = 4
-                    if (i == 1) {
-                        semestrex = 5
-                    }
+                  clique = true
                     if (input.checked == true) {
                         horas_eletivas += parseInt(hora_cad)
-                        if (semestrex == 4) {
-                            quarto++
-
-                            if (quarto == 4) {
-                                go_opt4 = true
-
-
-                                const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
-
-                                for (let k = 0; k < checkboxes.length; k++) {
-                                    if (go_opt4 && !checkboxes[k].checked) {
-                                        console.log(checkboxes[k])
-                                    }
-                                }
-
-
-                            }
-                        }
-                        else {
-                            quinto++
-                            if (quinto == 3) {
-                                go_opt5 = true
-
-                                const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
-
-                                for (let k = 0; k < checkboxes.length; k++) {
-                                    if (go_opt5 && !checkboxes[k].checked) {
-                                        console.log(checkboxes[k])
-                                    }
-                                }
-
-
-                            }
-                        }
 
                     }
 
 
-                    
-                    else if (input.checked == false) {
-                        
-                        horas_eletivas -= parseInt(hora_cad)
-                        if (semestrex == 4) {
 
-                            quarto--
-                            if (quarto < 3) {
-                                go_opt4 = false
-                            }
-                        }
-                        else {
-                            quinto--
-                            if (quinto < 3) {
-                                go_opt5 = false
-                            }
-                        }
+                    else if (input.checked == false) {
+
+                        horas_eletivas -= parseInt(hora_cad)
+
 
                     }
 
@@ -198,8 +147,7 @@ function eletivas() {
                     if (len == ele) {
                         selecionar_todas.checked = true
                     }
-                    if (quarto <= 0) quarto = 0
-                    if (quinto <= 0) quinto = 0
+
 
 
                 }
@@ -208,23 +156,12 @@ function eletivas() {
 
             const redefinir = document.getElementById("limpar")
             redefinir.addEventListener("click", () => {
-                const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
-                aparecerPopupLimpar.style.display = "flex"
-                const limparCadeiras = document.querySelector("#btn-limpar")
-                const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
-                limparCadeiras.addEventListener('click',()=>{
-                    input.checked = false
-                    selecionar_todas.checked = false
-                    horas_eletivas = 0
-                    console.log(`horas obrigatorias: ${horas_eletivas}`)
-                    console.log(horas_eletivas)
-                    aparecerPopupLimpar.style.display = "none"
-                } )
-                fecharPopupLimpar.addEventListener("click", ()=>{
-                    aparecerPopupLimpar.style.display = "none"
-                })
-                
-    
+                input.checked = false
+                selecionar_todas.checked = false
+                horas_eletivas = 0
+                console.log(`horas obrigatorias: ${horas_eletivas}`)
+                console.log(horas_eletivas)
+
             })
         }
 
@@ -236,6 +173,79 @@ function eletivas() {
 
 
 function armazenarCadeiras() {
+
+    const forms = document.getElementsByClassName("cadeiras-semestre")
+
+    let lista = []
+    let q = 0
+    for (let e in eletivas_optativas) {
+        if (eletivas_optativas[e][4] == 1) {
+            q++
+        }
+    }
+    if (q == 0 || clique) {
+        for (let f = 0; f < forms.length; f++) {
+            const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
+            let x = 0
+            let nocheckbox = []
+            let yescheckbox = []
+
+
+            for (let k = 0; k < checkboxes.length; k++) {
+                if (checkboxes[k].checked) {
+                    x++
+                    if (f == 0 && x > 4) {
+                        yescheckbox.push(k)
+                    }
+                    else if (f == 1 && x > 3) {
+                        yescheckbox.push(k)
+
+                    }
+
+                }
+                if (!checkboxes[k].checked) {
+                    nocheckbox.push(k)
+                }
+
+            }
+
+
+            if (f == 0) {
+                if (x >= 4) {
+                    for (let k of nocheckbox) {
+                        lista.push([cadeira[0][k][0], cadeira[0][k][1], cadeira[0][k][2], cadeira[0][k][3], 0])
+                    }
+                    for (let x of yescheckbox) {
+                        lista.push([cadeira[0][x][0], cadeira[0][x][1], cadeira[0][x][2], cadeira[0][x][3], 1])
+                    }
+                }
+
+            }
+            else {
+
+                if (x >= 3) {
+                    for (let k of nocheckbox) {
+                        lista.push([cadeira[1][k][0], cadeira[1][k][1], cadeira[1][k][2], cadeira[1][k][3], 0])
+                    }
+                    for (let x of yescheckbox) {
+                        lista.push([cadeira[1][x][0], cadeira[1][x][1], cadeira[1][x][2], cadeira[1][x][3], 1])
+                    }
+                }
+            }
+
+
+        }
+        sessionStorage.setItem("eletivas_optativas", JSON.stringify(lista))
+
+    }
+    else {
+        sessionStorage.setItem("eletivas_optativas", JSON.stringify(eletivas_optativas))
+
+    }
+
+    sessionStorage.setItem("clique",clique)
+
+
 
 
 
@@ -267,10 +277,13 @@ function armazenarCadeiras() {
 
 
 
+
 }
 
 function atualizarCheckboxes() {
     const checkboxes = document.getElementsByName("eletivas");
+
+
     let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("eletivas_selecionadas"))
 
     if (cadeirasSelecionadas) {
@@ -278,12 +291,57 @@ function atualizarCheckboxes() {
             checkboxes[i].checked = cadeirasSelecionadas.includes(checkboxes[i].value)
         }
     }
+
+
+    if (eletivas_optativas) {
+        for (let e in eletivas_optativas) {
+
+            if (eletivas_optativas[e][4] == 1) {
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].value == eletivas_optativas[e][0]) {
+                        checkboxes[i].checked = true
+                    }
+                }
+            }
+            else {
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].value == eletivas_optativas[e][0]) {
+                        checkboxes[i].checked = false
+
+                    }
+                }
+            }
+        }
+    }
+
     const selecionar_todas = document.getElementsByName('todas')
     let checkTodas = JSON.parse(sessionStorage.getItem("check_eletivas"))
     if (checkTodas) {
         for (let i = 0; i < selecionar_todas.length; i++) {
             selecionar_todas[i].checked = checkTodas.includes(selecionar_todas[i].value)
         }
+    }
+
+    const forms = document.getElementsByClassName("cadeiras-semestre")
+
+    for (let f = 0; f < forms.length; f++) {
+        const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
+        let x = 0
+        for (let k = 0; k < checkboxes.length; k++) {
+            if (checkboxes[k].checked) {
+                x++
+            }
+        }
+
+        console.log(x)
+        console.log(checkboxes.length)
+        if (x >= checkboxes.length) {
+            selecionar_todas[f].checked = true
+        }
+        else {
+            selecionar_todas[f].checked = false
+        }
+
     }
 }
 

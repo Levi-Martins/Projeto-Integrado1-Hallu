@@ -163,6 +163,8 @@ function armazenarCadeiras() {
     }
 
     sessionStorage.setItem("horas_optativas", horas_optativas)
+    sessionStorage.setItem("eletivas_optativas", JSON.stringify(eletivas_optativas))
+
 
 
 }
@@ -171,7 +173,7 @@ function atualizarCheckboxes() {
     const checkboxes = document.getElementsByName("optativas")
     const form = document.getElementById("form-cadeiras")
     const optativas_escolhidas = document.getElementById("form-optativas-escolhidas")
-    
+
 
 
     for (let e in eletivas_optativas) {
@@ -184,28 +186,36 @@ function atualizarCheckboxes() {
         input.setAttribute("value", eletivas_optativas[e][0])
         label.classList.add('c')
         label.appendChild(input)
-        label.append(eletivas_optativas[e][0])
+        label.append(`${eletivas_optativas[e][0]}*`)
         form.prepend(label)
 
         horas_cadeira = parseInt(eletivas_optativas[e][1])
 
         let divCriada
 
-        
+        if (eletivas_optativas[e][4] == 1) {
+            input.checked = true
+        }
+        else {
+            input.checked = false
+        }
+        console.log(input.checked)
+
 
         input.addEventListener("click", (function (hora_cad) {
             return () => {
 
-                const div = document.createElement("div")
-                div.classList.add("eletiva_optativaEscolhida")
-                const botao = document.createElement("button")
-                botao.innerText = "x"
-                const label_escolhidas = document.createElement("label")
-                label_escolhidas.innerText = input.value
-                div.appendChild(botao)
-                div.appendChild(label_escolhidas)
-
                 if (input.checked == true) {
+                    eletivas_optativas[e][4] = 1
+
+                    const div = document.createElement("div")
+                    div.classList.add("eletiva_optativaEscolhida")
+                    const botao = document.createElement("button")
+                    botao.innerText = "x"
+                    const label_escolhidas = document.createElement("label")
+                    label_escolhidas.innerText = `${input.value}*`
+                    div.appendChild(botao)
+                    div.appendChild(label_escolhidas)
                     horas_optativas += parseInt(hora_cad)
                     divCriada = div
 
@@ -222,12 +232,22 @@ function atualizarCheckboxes() {
                 }
                 else {
                     horas_optativas -= parseInt(hora_cad)
+                    const div = Array.from(document.getElementsByClassName("eletiva_optativaEscolhida"))
+                    for (let d in div) {
+                        if (div[d].innerHTML.includes(input.value)) {
+                            div[d].parentNode.removeChild(div[d])
+                            console.log(eletivas_optativas[e][4])
+                            eletivas_optativas[e][4] = 0
+                        }
+
+                    }
+
+
                     console.log(`Diminuindo horas: ${horas_optativas}`)
                     if (divCriada && divCriada.parentNode) {
                         console.log(divCriada)
                         divCriada.parentNode.removeChild(divCriada)
                         divCriada = null
-
                     }
 
                 }
@@ -236,44 +256,38 @@ function atualizarCheckboxes() {
 
             }
 
+
         })(horas_cadeira))
 
 
 
 
 
+        if (eletivas_optativas[e][4] == 1) {
 
 
+            const div = document.createElement("div")
+            div.classList.add("eletiva_optativaEscolhida")
+            const botao = document.createElement("button")
+            botao.innerText = "x"
+            const label_escolhidas = document.createElement("label")
+            label_escolhidas.innerText = `${eletivas_optativas[e][0]}*`
+            div.appendChild(botao)
+            div.appendChild(label_escolhidas)
+            optativas_escolhidas.appendChild(div)
 
 
+            botao.addEventListener("click", (event) => {
+                event.preventDefault()
+                input.checked = false
+                eletivas_optativas[e][4] = 0
+                div.parentNode.removeChild(div)
+                horas_optativas -= 64
+                if (horas_optativas <= 0) horas_optativas = 0
+            })
 
+        }
 
-
-
-
-
-
-        const div = document.createElement("div")
-        div.classList.add("eletiva_optativaEscolhida")
-        const botao = document.createElement("button")
-        botao.innerText = "x"
-        const label_escolhidas = document.createElement("label")
-        label_escolhidas.innerText = eletivas_optativas[e][0]
-        div.appendChild(botao)
-        div.appendChild(label_escolhidas)
-        optativas_escolhidas.appendChild(div)
-
-
-
-
-
-        botao.addEventListener("click", (e) => {
-            e.preventDefault()
-            checkboxes[i].checked = false
-            div.parentNode.removeChild(div)
-            horas_optativas -= 64
-            if (horas_optativas <= 0) horas_optativas = 0
-        })
 
     }
 
@@ -314,12 +328,36 @@ function atualizarCheckboxes() {
 
 }
 
+function onInput() {
+    const horas_livres = document.getElementById("horas_livres")
+
+
+    horas_livres.addEventListener("keydown", (e) => {
+
+        for (let n = 48; n <= 57; n++) {
+            if (e.keyCode == n) {
+                horas_livres.style.backgroundColor = "#bac2b8"
+            }
+        }
+    })
+
+    horas_livres.addEventListener("keyup", () => {
+        horas_livres.style.backgroundColor = "#baf5ab"
+
+    })
+
+
+
+
+}
+
 function app() {
     console.log("Seleção de Eletivas")
     temaTurno()
     mudarTurno()
     optativas()
     atualizarCheckboxes()
-    
+    onInput()
+
 }
 app()
