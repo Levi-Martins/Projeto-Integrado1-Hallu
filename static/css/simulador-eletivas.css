@@ -158,11 +158,6 @@ body{
 
 }
 
-.cadeiras-semestre {
-    display: flex;
-    flex-direction: column;
-}
-
 .numero-semestre {
     text-align: center;
     background-color: var(--background-header-semestre);
@@ -179,7 +174,7 @@ body{
     flex-direction: column;
     font-size: 18px;
     font-family: var(--default-font);
-    padding: 20px;
+    padding: 11px 20px;
     max-width: 306px;
 }
 

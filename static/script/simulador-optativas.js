@@ -1,6 +1,32 @@
 let horas = parseInt(sessionStorage.getItem("horas"))
+let turno_escolhido = sessionStorage.getItem("turno")
 let horas_optativas = parseInt(sessionStorage.getItem("horas_optativas"))
 let eletivas_optativas = JSON.parse(sessionStorage.getItem("eletivas_optativas"))
+
+function temaTurno() {
+    if (turno_escolhido == "Noturno") {
+        document.body.classList.add("dark")
+    } else {
+        document.body.classList.remove("dark")
+    }
+}
+
+function mudarTurno() {
+    const i_turno = document.getElementById("i_turno")
+    const nome_turno = document.getElementById("nome_turno")
+    if (turno_escolhido == "Diurno") {
+        i_turno.classList.add('fa-sun', 'fa-moon')
+        i_turno.classList.remove('fa-moon')
+
+        nome_turno.innerText = "Diurno"
+    }
+    else {
+        i_turno.classList.add('fa-moon')
+        i_turno.classList.remove('fa-sun')
+
+        nome_turno.innerText = "Noturno"
+    }
+}
 
 
 function optativas() {
@@ -290,7 +316,10 @@ function atualizarCheckboxes() {
 
 function app() {
     console.log("Seleção de Eletivas")
+    temaTurno()
+    mudarTurno()
     optativas()
     atualizarCheckboxes()
+    
 }
 app()

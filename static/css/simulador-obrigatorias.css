@@ -174,7 +174,7 @@ body{
     flex-direction: column;
     font-size: 18px;
     font-family: var(--default-font);
-    padding: 20px;
+    padding: 11px 20px;
     max-width: 306px;
 }
 

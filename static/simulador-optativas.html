@@ -53,6 +53,9 @@
                 <div id="optativas">
                     <div id="cadeiras-optativas">
                         <div class="header-cadeiras-optativas">
+                            <div class="div-glass">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
                             <input type="text" name="busca" id="busca" oninput="pesquisar()" placeholder="Pesquise por optativas do SMD">
                         </div>
                         <div class="scroll-optativas">
@@ -61,22 +64,38 @@
                         </div>
                     </div>
                     <div id="optativas-escolhidas">
-                        <h3>Adicionadas</h3>
-                        <form id="form-optativas-escolhidas">
-                        </form>
+                        <div class="header-optativas-escolhidas">
+                            <h3>Adicionadas</h3>
+                        </div>
+                        <div class="fundo-optativas-escolhidas">
+                            <form id="form-optativas-escolhidas">
+                            </form>
+                            <p>*Eletivas cursadas a mais</p>
+                        </div>
                     </div>
                 </div>
                
                 <div id="optativas-livres">
                     <h1>Optativas Livres</h1>
                     <input type="number" id="" placeholder="Insira a sua quantidade de horas optativas livres ">
-                    <p>Saiba aqui como descobrir suas horas de optativas livres, caso tenha feito!</p>
+                    <a href="">
+                        <p>Saiba aqui como descobrir suas horas de optativas livres, caso tenha feito!</p>
+                    </a>
                 </div>
-
+            </div>
+            <button id="limpar" class="redefinir">Limpar</button>
+            <div class="div-descricao-disciplina">
+                <div class="div-balao-de-fala">
+                    <img src="assets/icon/balao-de-fala-simulador.svg" alt="">
+                </div>
+                <div class="descricao-disciplina">
+                    <p>Você pode fazer mais de 80 optativas dentro do SMD! Mas caso tenha feito algum(as) optativa(s) livre(s) dentro da UFC, é só colocar o números de horas correspondente à ela(s) na caixa ali em cima.</p>
+                </div>
             </div>
         </div>
         <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-right.png"></button></a>
     </div>
+    <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

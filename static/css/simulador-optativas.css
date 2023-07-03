@@ -164,6 +164,31 @@ body{
     padding: 10px 26px 9px 26px;
     border-radius: 20px 0px 0px 0px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-height: 75px;
+    height: 100%;
+}
+
+.div-glass{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFF;
+
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 45px;
+    top: 13px;
+}
+
+.div-glass i{
+    font-size: 26px;
+    color: var(--lupa-color);
+    position: absolute;
+    top: 11px;
 }
 
 .header-cadeiras-optativas input{
@@ -174,6 +199,7 @@ body{
     border-radius: 10px;
     border: 2px solid #CACACA;
     background: #FAFAFA;
+    max-height: 39px;
 
 }
 
@@ -194,6 +220,26 @@ body{
     font-size: 18px;
     font-family: var(--default-font);
     color: var(--color-label);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#form-cadeiras .c input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid var(--color-label);
+    max-width: 24px;
+    width: 100%;
+    height: 24px;
+    border-radius: 5px;
+    background-color: white;
+    margin-right: 15px;
+}
+
+#form-cadeiras .c input[type="checkbox"]:checked {
+    background-color: var(--color-label);
 }
 
 #form-cadeiras::-webkit-scrollbar {
@@ -211,11 +257,152 @@ body{
      border-right: 1px solid #fff; 
      border-left: 1px solid #fff; 
 }
-
-#form-optativas-escolhidas {
-
+.fundo-optativas-escolhidas{
+    background-color: #FEF6D9;
+    height: 355px;
+    padding: 10px 25px;
+    max-width: 370px;
+    position: relative;
 }
 
-#optativas-escolhidas {
+.header-optativas-escolhidas{
+    background-color: var(--header-optativas);
+    border-radius: 0px 20px 0px 0px;
+    width: 370px;
+    text-align: center;
+    padding: 24px 0;
+    max-height: 75px;
+}
 
+.header-optativas-escolhidas h3{
+    font-size: 25px;
+    font-family: var(--font);
+    color: #FFF;
+    font-weight: 500;
+}
+
+#form-optativas-escolhidas{
+    overflow-y: scroll;
+    max-height: 283px;
+}
+
+#form-optativas-escolhidas::-webkit-scrollbar {
+    width: 7px;
+} 
+
+#form-optativas-escolhidas::-webkit-scrollbar-thumb {
+    background-color:var(--scroll-optativas);
+    border-radius: 5px;
+}
+
+#form-optativas-escolhidas::-webkit-scrollbar-track {
+    background-color: var(--fundo-scroll-optativas); 
+     border-radius: 10px; 
+     border-right: 1px solid #fff; 
+     border-left: 1px solid #fff; 
+}
+
+.optativaEscolhida{
+    display: flex;
+}
+
+#form-optativas-escolhidas label{
+    font-size: 18px;
+    font-family: var(--default-font);
+    color: var(--color-label);
+    margin-bottom: 10px;
+}
+
+#form-optativas-escolhidas button{
+    max-width: 18px;
+    max-height: 18px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #7A5F2A;
+    margin-right: 10px;
+}
+
+.fundo-optativas-escolhidas p{
+    font-family: var(--default-font);
+    color: var(--color-label);
+    position: absolute;
+    bottom: 0;
+}
+
+#optativas-livres{
+    display: flex;
+    flex-direction: column;
+    gap: 22px 0;
+}
+
+#optativas-livres h1{
+    font-family: var(--font);
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--simulador-h1);
+}
+
+#optativas-livres input{
+    width: 432px;
+    height: 43px;
+    padding: 12px 11px;
+    border-radius: 10px;
+    border: 2px solid #D0CFCF;
+    background: #ECECEC;
+    font-size: 18px;
+    font-family: var(--default-font);
+}
+
+#optativas-livres p{
+    font-size: 18px;
+    color: var(--color-label);
+    font-family: var(--default-font);
+    text-decoration: underline;
+}
+
+.redefinir {
+    width: 152px;
+    height: 49px;
+    border-radius: 15px;
+    border: none;
+    background-color: #408CFF;
+    color: white;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    font-size: 25px;
+    font-family: var(--font);
+    font-weight: bold;
+
+    margin-left: auto;
+
+    cursor: pointer;
+}
+.div-descricao-disciplina{
+    display: flex;
+    align-items: center;
+}
+
+.descricao-disciplina {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 18px 22px;
+    border-radius: 0px 20px 20px 0px;
+    max-height: 79px;
+}
+
+.div-balao-de-fala{
+    background-color: var(--background-header-semestre);
+    border-radius: 20px 0px 0px 20px;
+    padding: 21px 22px;
+    max-height: 79px;
+}
+
+.descricao-disciplina p {
+    max-width: 1284px;
+    font-size: 22px;
+    font-family: var(--font);
+    text-align: left;
 }

@@ -10,18 +10,6 @@ function temaTurno() {
     }
 }
 
-
-function temaTurno() {
-    if (turno_escolhido == "Noturno") {
-        document.body.classList.add("dark")
-
-    }
-    else {
-        document.body.classList.remove("dark")
-
-    }
-}
-
 function eletivas() {
     let horas_cadeira
 
