@@ -40,14 +40,53 @@ function optativas() {
 
         const input = document.createElement("input")
         const label = document.createElement("label")
+        const botaoInfo = document.createElement("button")
+        botaoInfo.classList.add("botaoInfo")
+        botaoInfo.innerText = "i"
         input.setAttribute("type", "checkbox")
         input.setAttribute("name", "optativas")
         input.setAttribute("value", cadeira[i][0])
         label.classList.add('c')
         label.appendChild(input)
         label.append(cadeira[i][0])
+        label.append(botaoInfo)
+
+        botaoInfo.addEventListener("click", function (cad) {
+            return (e) => {
+                e.preventDefault()
+                const popup = document.getElementById("popup-wrappep")
+                popup.style.display = "flex"
+                const nome_cadeira = document.getElementById("nome_cadeira")
+                nome_cadeira.append(cad[0])
+
+                const pre_requisito = document.getElementById("pre-requisito")
+                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cad[3]}`
+                const qtd_horas = document.getElementById("qtd_horas")
+                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cad[1]}`
+                const objetivo = document.getElementById("objetivo")
+                objetivo.innerHTML = `<b>Objetivo: </b>${cad[2]}`
+                const btn_close_popup = document.getElementById("btn_close_popup")
+
+
+                btn_close_popup.addEventListener("click", () => {
+
+                    popup.style.display = "none"
+                    nome_cadeira.innerHTML = ""
+                    qtd_horas.innerHTML = ""
+                    pre_requisito.innerHTML = ""
+                    objetivo.innerHTML = ""
+                })
+            }
+        }(cadeira[i]))
+        
+
         form.appendChild(label)
         horas_cadeira = parseInt(cadeira[i][1])
+
+        if (label.clientHeight > 35) {
+            botaoInfo.style.marginRight = '30px'
+        }
+
         let divCriada
 
         input.addEventListener("click", (function (hora_cad) {
@@ -59,6 +98,7 @@ function optativas() {
                 botao.innerText = "x"
                 const label_escolhidas = document.createElement("label")
                 label_escolhidas.innerText = input.value
+
                 div.appendChild(botao)
                 div.appendChild(label_escolhidas)
 
@@ -181,12 +221,46 @@ function atualizarCheckboxes() {
 
         const input = document.createElement("input")
         const label = document.createElement("label")
+        const botaoInfo = document.createElement("button")
+        botaoInfo.classList.add("botaoInfo")
+        botaoInfo.innerText = "i"
+        
         input.setAttribute("type", "checkbox")
         input.setAttribute("name", "eletiva_optativas")
         input.setAttribute("value", eletivas_optativas[e][0])
         label.classList.add('c')
         label.appendChild(input)
         label.append(`${eletivas_optativas[e][0]}*`)
+        label.append(botaoInfo)
+        botaoInfo.addEventListener("click", function (cad) {
+            return (e) => {
+                e.preventDefault()
+                const popup = document.getElementById("popup-wrappep")
+                popup.style.display = "flex"
+                const nome_cadeira = document.getElementById("nome_cadeira")
+                nome_cadeira.append(cad[0])
+
+                const pre_requisito = document.getElementById("pre-requisito")
+                pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cad[3]}`
+                const qtd_horas = document.getElementById("qtd_horas")
+                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cad[1]}`
+                const objetivo = document.getElementById("objetivo")
+                objetivo.innerHTML = `<b>Objetivo: </b>${cad[2]}`
+                const btn_close_popup = document.getElementById("btn_close_popup")
+
+
+                btn_close_popup.addEventListener("click", () => {
+
+                    popup.style.display = "none"
+                    nome_cadeira.innerHTML = ""
+                    qtd_horas.innerHTML = ""
+                    pre_requisito.innerHTML = ""
+                    objetivo.innerHTML = ""
+                })
+            }
+        }(eletivas_optativas[e]))
+
+
         form.prepend(label)
 
         horas_cadeira = parseInt(eletivas_optativas[e][1])
