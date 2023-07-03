@@ -236,6 +236,7 @@ body{
     border-radius: 5px;
     background-color: white;
     margin-right: 15px;
+    cursor: pointer;
 }
 
 #form-cadeiras .c input[type="checkbox"]:checked {
@@ -322,6 +323,7 @@ body{
     background-color: transparent;
     border: 1px solid #7A5F2A;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .fundo-optativas-escolhidas p{
@@ -347,7 +349,7 @@ body{
 #optativas-livres input{
     width: 432px;
     height: 43px;
-    padding: 12px 11px;
+    padding: 12px 2px;
     border-radius: 10px;
     border: 2px solid #D0CFCF;
     background: #ECECEC;

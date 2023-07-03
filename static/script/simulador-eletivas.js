@@ -208,12 +208,23 @@ function eletivas() {
 
             const redefinir = document.getElementById("limpar")
             redefinir.addEventListener("click", () => {
-                input.checked = false
-                selecionar_todas.checked = false
-                horas_eletivas = 0
-                console.log(`horas obrigatorias: ${horas_eletivas}`)
-                console.log(horas_eletivas)
-
+                const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
+                aparecerPopupLimpar.style.display = "flex"
+                const limparCadeiras = document.querySelector("#btn-limpar")
+                const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
+                limparCadeiras.addEventListener('click',()=>{
+                    input.checked = false
+                    selecionar_todas.checked = false
+                    horas_eletivas = 0
+                    console.log(`horas obrigatorias: ${horas_eletivas}`)
+                    console.log(horas_eletivas)
+                    aparecerPopupLimpar.style.display = "none"
+                } )
+                fecharPopupLimpar.addEventListener("click", ()=>{
+                    aparecerPopupLimpar.style.display = "none"
+                })
+                
+    
             })
         }
 

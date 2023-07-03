@@ -274,12 +274,22 @@ function obrigatorias() {
             })(horas_cadeira))
             const redefinir = document.getElementById("limpar")
             redefinir.addEventListener("click", () => {
-                input.checked = false
-                input2.checked = false
-                selecionar_todas.checked = false
-                horas_obrigatorias = 0
+                const aparecerPopupLimpar = document.querySelector(".popup-wrappep-limpar")
+                aparecerPopupLimpar.style.display = "flex"
+                const limparCadeiras = document.querySelector("#btn-limpar")
+                const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
+                limparCadeiras.addEventListener('click',()=>{
+                    input.checked = false
+                    input2.checked = false
+                    selecionar_todas.checked = false
+                    horas_obrigatorias = 0
+                    aparecerPopupLimpar.style.display = "none"
+                } )
+                fecharPopupLimpar.addEventListener("click", ()=>{
+                    aparecerPopupLimpar.style.display = "none"
+                })
                 
-
+    
             })
 
         }
