@@ -1,31 +1,45 @@
 
 async function request() {
     // localStorage.clear()
-    // sessionStorage.clear()
-    const loading = document.getElementById("loading")
     if (!localStorage.getItem('arquivosArmazenados')) {
+      console.log("Carregando dados")
+      const totalRequests = 3
+      let progress = 0
+  
+      const updateProgress = () => {
+        progress++
+        const percentage = Math.round((progress * 100) / totalRequests)
+        console.log(`Progresso: ${percentage}%`)
 
-        console.log("Carregando dados")
-        await axios.all([
-            axios.get("http://127.0.0.1:8000/obrigatorias"),
-            axios.get("http://127.0.0.1:8000/eletivas"),
-            axios.get("http://127.0.0.1:8000/optativas")
-        ]).then(axios.spread((ob, ele, opt) => {
-            localStorage.setItem("obrigatorias", JSON.stringify(ob.data))
-            localStorage.setItem("eletivas", JSON.stringify(ele.data))
-            localStorage.setItem("optativas", JSON.stringify(opt.data))
-        }))
-        localStorage.setItem('arquivosArmazenados', true)
-        console.log("Dados Carregados")
-        loading.style.display = "none"
-
-
-
+      }
+  
+      // Requisição 1
+      await axios.get("http://127.0.0.1:8000/obrigatorias")
+        .then(response => {
+          localStorage.setItem("obrigatorias", JSON.stringify(response.data))
+          updateProgress()
+        })
+  
+      // Requisição 2
+      await axios.get("http://127.0.0.1:8000/eletivas")
+        .then(response => {
+          localStorage.setItem("eletivas", JSON.stringify(response.data))
+          updateProgress()
+        })
+  
+      // Requisição 3
+      await axios.get("http://127.0.0.1:8000/optativas")
+        .then(response => {
+          localStorage.setItem("optativas", JSON.stringify(response.data))
+          updateProgress()
+        })
+  
+      localStorage.setItem('arquivosArmazenados', true)
+      console.log("Dados Carregados")
     } else {
-        loading.style.display = "none"
-        console.log("Arquivos já em localStorage")
+      console.log("Arquivos já em localStorage")
     }
-}
+  }
 
 function escolhaTurno() {
     const chk = document.getElementById('check')
@@ -36,7 +50,7 @@ function escolhaTurno() {
     }
 
     const btn_prosseguir = document.getElementById("btn-turnos")
-    let turno_escolhido = sessionStorage.getItem("turno");
+    let turno_escolhido = sessionStorage.getItem("turno")
 
     if (turno_escolhido === "Noturno") {
         chk.checked = true;
