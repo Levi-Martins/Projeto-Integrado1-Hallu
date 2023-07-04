@@ -45,7 +45,9 @@
     --fundo-scroll-optativas:#7A5F2A;
     --lupa-color:#FF71A6;
 
-
+    --informativos-horas-fundo:linear-gradient(180deg, #FF7BAB 0%, #FF699F 100%);
+    --informativo-horas-h2:#fff;
+    --tcc-horas-h1:#FF5894;
 
     
 }
@@ -82,4 +84,9 @@
     --scroll-optativas:#FF6D3E;
     --fundo-scroll-optativas:#823A9D;
     --lupa-color:#3E0354;
+
+    --informativos-horas-fundo:linear-gradient(180deg, #FFC79F 0%, #FFA769 100%);
+    --informativo-horas-h2:#2D013E;
+    --tcc-horas-h1:#42035A;
+
 }

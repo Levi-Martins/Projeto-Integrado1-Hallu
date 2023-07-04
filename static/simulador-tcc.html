@@ -3,9 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/simulador-tcc.css">
+    <title>Vou Me Formar? - SMD</title>
 </head>
 <body>
-    OPA
+    <div id="header">
+        <div class="logo-turno-simulador">
+            <a href="landing-page.html"><img src="assets/icon/logo-white-vmf.png" alt=""></a>
+            <a href="simulador-turnos.html">
+                <div class="turno-simulador">
+                    <i id="i_turno" class="fas"></i>
+                    <p id="nome_turno"></p>
+                </div>
+            </a>
+        </div>
+        <div id="categorias">
+            <div id="obrigatorias-categorias" class="valor-categorias">
+                <a href="simulador-obrigatorias.html"><button onclick="armazenarCadeiras()">1</button></a>
+                <p>Obrigatórias</p>
+            </div>
+            <div id="eletivas-categorias" class="valor-categorias">
+                <button>2</button>
+                <p>Eletivas</p>
+            </div>
+            <div id="optativas-categorias" class="valor-categorias">
+                <a href="simulador-optativas.html"><button onclick="armazenarCadeiras()">3</button></a>
+                <p>Optativas</p>
+            </div>
+            <div id="tcc-categorias" class="valor-categorias">
+                <a href="#"><button onclick="armazenarCadeiras()">4</button></a>
+                <p>Tcc e Horas</p>
+            </div>
+            <div id="resultado-categorias" class="valor-categorias">
+                <a href="#"><button onclick="armazenarCadeiras()">5</button></a>
+                <p>Resultado</p>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <a href="simulador-optativas.html"><button class="arrows" onclick="armazenarCadeiras()"><img src="assets/icon/arrow-left.png"></button></a>
+        
+        <div id="disciplina"> 
+            <div class="div-content-tcc">
+                <div class="informativo-horas">
+                    <div class="scroll-content-tcc">
+                        <h2>Não sabe sua quantidade de horas complementares? Se liga aqui!</h2>
+                        <h3>Tutorial:</h3>
+                        <ul>
+                            <li>1. Abra o SIGAA e entre com seu login e senha.</li>
+                            <li>2. Acesse o Portal do Discente</li>
+                            <li>3. No menu horizontal, acesse Ensino > Consultas do Discente > Pendências da Conclusão</li>
+                            <li>4. Na nova página, desça a tela até encontrar 'Limites da Estrutura Curricular'</li>
+                            <li>5. Na seção de Atividades Complementares, veja a 'Computável'</li>
+                            <li>6. Pronto! :)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tcc-horas">
+                    <div class="tcc-content">
+                        <h1>TCC</h1>
+                        <div class="input-tcc">
+                            <input type="checkbox" id="consolidado">
+                            <label for="consolidado"> Com nota consolidada</label>
+                        </div>
+                        <div class="input-tcc">
+                            <input type="checkbox" id="nao-consolidado">
+                            <label for="nao-consolidado">Sem nota consolidada/Não feito.</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="horas-content">
+                        <h1>Horas Complementares</h1>
+                        <input type="number" placeholder="Insira a sua quantidade de horas optativas livres ">
+                    </div>
+                </div>
+            </div>
+            <div class="div-descricao-disciplina">
+                <div class="div-balao-de-fala">
+                    <img src="assets/icon/balao-de-fala-simulador.svg" alt="">
+                </div>
+                <div class="descricao-disciplina">
+                    <p>Aqui é informado se o TCC está com nota consolidada ou não (ou não feito) e a sua quantidade de horas complementares! Caso não saiba quantas tem, te ensinamos como achar as contabilizadas no SIGAA.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="popup-wrappep" class="popup-wrappep">
+            <div class="popup">
+                <div class="popup-content">
+                    <button id="btn_close_popup">x</button>
+                    <h2 id="nome_cadeira"></h2>
+                    <hr>
+                    <h4> <b>Tipo:</b> Optativas</h4>
+                    <h4 id="pre-requisito"></h4>
+                    <h4 id="qtd_horas"></h4>
+                </div>
+                <div class="popup-info">
+                    <h4 id="objetivo"></h4>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <button id="btn-finalizar">Finalizar</button>
+    <script src="https://kit.fontawesome.com/031d3efb46.js" crossorigin="anonymous"></script>
 </body>
 </html>

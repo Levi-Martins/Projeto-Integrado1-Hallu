@@ -1,0 +1,297 @@
+@import url(global.css);
+body{
+    background-image: var(--background-simulador-1920);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 150px 50px 150px;
+    font-family: var(--font);
+    font-weight: bold;
+    gap: 0 396px;
+}
+
+.logo-turno-simulador{
+    display: flex;
+    gap: 0 70px;
+    align-items: center;
+}
+
+.logo-turno-simulador a{
+    color: var(--cor-turno);
+}
+
+.turno-simulador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 0 15px;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 129px;
+    max-height: 40px;
+    cursor: pointer;
+}
+
+.turno-simulador i{
+    font-size: 20px;
+}
+
+.turno-simulador p{
+    font-size: 18.5px;
+}
+
+#header img {
+    width: 155px;
+    height: 63px;
+}
+
+#categorias {
+    display: flex;
+    gap: 0 100px;
+    position: relative;
+}
+
+#categorias::before {
+    content: '';
+    height: 4px;
+    width: 85.3%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
+    position: absolute;
+    left: 8%;
+    top: 25%;
+    z-index: -1;
+}
+
+#categorias button {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: 3px solid #FFF;
+    background-color: var( --cor-botao-categoria-padrao);
+    color: #fff;
+    cursor: pointer;
+}
+
+#categorias #tcc-categorias button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    border: 3px solid #FFF;
+    background-color: #FF9128;
+    color: #fff;
+    cursor: pointer;
+}
+
+.valor-categorias {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.valor-categorias p {
+    margin-top: 15px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 13px 150px 25px 150px;
+    gap: 0 55px;
+}
+
+.arrows {
+    max-width: 60px;
+    width: 60px;
+    max-height: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #408CFF;
+    cursor: pointer;
+}
+
+#disciplina {
+    background-color: var(--background-disciplina);
+    max-width: 1389px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px 0;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+
+.div-content-tcc{
+    display: flex;
+    gap: 0 45px;
+}
+
+.informativo-horas{
+    max-width: 839px;
+    width: 839px;
+    max-height: 472px;
+    border-radius: 15px;
+    background: var(--informativos-horas-fundo);
+    padding: 20px 39px 20px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+}
+
+.scroll-content-tcc{
+    overflow-y: scroll;
+}
+
+.scroll-content-tcc::-webkit-scrollbar {
+    width: 7px;
+} 
+
+.scroll-content-tcc::-webkit-scrollbar-thumb {
+    background-color:var(--scroll-optativas);
+    border-radius: 5px;
+}
+
+.scroll-content-tcc::-webkit-scrollbar-track {
+    background-color: #fff; 
+     border-radius: 10px; 
+     border-right: 1px solid #fff; 
+     border-left: 1px solid #fff; 
+}
+
+.informativo-horas h2{
+    color: var(--informativo-horas-h2);
+    font-size: 35px;
+    font-family: var(--font);
+}
+
+.informativo-horas h3{
+    color: var(--informativo-horas-h2);
+    font-size: 22px;
+    font-family: var(--font);
+}
+
+.informativo-horas ul{
+    color: #FFF;
+    font-size: 18px;
+    font-family: var(--default-font);
+    list-style: none;
+    font-weight: 400;
+}
+
+.tcc-horas h1{
+    color: var(--tcc-horas-h1);
+    font-family: var(--font);
+    font-size: 50px;
+    line-height: 1;
+}
+
+.tcc-horas hr{
+    height: 2px;
+    background-color: black;
+    border: none;
+    margin: 30px 0;
+}
+
+.input-tcc{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.input-tcc label{
+    font-family: var(--default-font);
+    font-size: 25px;
+}
+
+.input-tcc input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid black;
+    max-width: 30px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.input-tcc input[type="checkbox"]:checked {
+    background-color: var(--color-label);
+}
+
+.horas-content input{
+    width: 432px;
+    height: 42px;
+    text-align: center;
+    font-size: 18px;
+    font-family: var(--default-font);
+    border-radius: 10px;
+    border: 2px solid #D0CFCF;
+    background: #ECECEC;
+    margin-top: 19px;
+}
+
+#btn-finalizar{
+    position: relative;
+    left: 81.7%;
+    width: 185px;
+    height: 70px;
+    margin-bottom: 40px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #4FB200 0%, #5ACD00 99.99%, #4FB200 100%);
+    color: white;
+
+    font-size: 30px;
+    font-family: var(--font);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+.div-descricao-disciplina{
+    display: flex;
+    align-items: center;
+}
+
+.descricao-disciplina {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 18px 22px;
+    border-radius: 0px 20px 20px 0px;
+    max-height: 79px;
+}
+
+.div-balao-de-fala{
+    background-color: var(--background-header-semestre);
+    border-radius: 20px 0px 0px 20px;
+    padding: 21px 22px;
+    max-height: 79px;
+}
+
+.descricao-disciplina p {
+    max-width: 1284px;
+    font-size: 22px;
+    font-family: var(--font);
+    text-align: center;
+}
