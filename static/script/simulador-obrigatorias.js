@@ -3,7 +3,7 @@
 sessionStorage.setItem("simuladorIniciado", true)
 let horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 let turno_escolhido = sessionStorage.getItem("turno")
-
+tcc = []
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
@@ -71,7 +71,10 @@ function obrigatorias() {
         })
 
         for (let j in cadeira[i]) {
-
+            if(cadeira[i][j][0] == "TCC"){
+                tcc.push([cadeira[i][j][0],cadeira[i][j][1],cadeira[i][j][2],cadeira[i][j][3]])
+                continue
+            }
             const input = document.createElement("input")
             const label = document.createElement("label")
             const botaoInfo = document.createElement("button")
@@ -329,6 +332,7 @@ function armazenarCadeiras() {
     }
     sessionStorage.setItem("check_obrigatorias", JSON.stringify(checkTodas))
     sessionStorage.setItem("horas_obrigatorias", horas_obrigatorias)
+    sessionStorage.setItem("tcc",JSON.stringify(tcc))
 
 
 }

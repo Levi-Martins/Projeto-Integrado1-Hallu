@@ -1,9 +1,11 @@
 @import url(global.css);
-body{
+
+body {
     background-image: var(--background-simulador-1920);
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 #header {
     display: flex;
     justify-content: space-between;
@@ -14,17 +16,17 @@ body{
     gap: 0 396px;
 }
 
-.logo-turno-simulador{
+.logo-turno-simulador {
     display: flex;
     gap: 0 70px;
     align-items: center;
 }
 
-.logo-turno-simulador a{
+.logo-turno-simulador a {
     color: var(--cor-turno);
 }
 
-.turno-simulador{
+.turno-simulador {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,11 +39,11 @@ body{
     cursor: pointer;
 }
 
-.turno-simulador i{
+.turno-simulador i {
     font-size: 20px;
 }
 
-.turno-simulador p{
+.turno-simulador p {
     font-size: 18.5px;
 }
 
@@ -74,12 +76,12 @@ body{
     text-align: center;
     font-size: 18px;
     border: 3px solid #FFF;
-    background-color: var( --cor-botao-categoria-padrao);
+    background-color: var(--cor-botao-categoria-padrao);
     color: #fff;
     cursor: pointer;
 }
 
-#categorias #tcc-categorias button{
+#categorias #tcc-categorias button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -136,12 +138,12 @@ body{
 }
 
 
-.div-content-tcc{
+.div-content-tcc {
     display: flex;
     gap: 0 45px;
 }
 
-.informativo-horas{
+.informativo-horas {
     max-width: 839px;
     width: 839px;
     max-height: 472px;
@@ -153,39 +155,39 @@ body{
     gap: 20px 0;
 }
 
-.scroll-content-tcc{
+.scroll-content-tcc {
     overflow-y: scroll;
 }
 
 .scroll-content-tcc::-webkit-scrollbar {
     width: 7px;
-} 
+}
 
 .scroll-content-tcc::-webkit-scrollbar-thumb {
-    background-color:var(--scroll-optativas);
+    background-color: var(--scroll-optativas);
     border-radius: 5px;
 }
 
 .scroll-content-tcc::-webkit-scrollbar-track {
-    background-color: #fff; 
-     border-radius: 10px; 
-     border-right: 1px solid #fff; 
-     border-left: 1px solid #fff; 
+    background-color: #fff;
+    border-radius: 10px;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
 }
 
-.informativo-horas h2{
+.informativo-horas h2 {
     color: var(--informativo-horas-h2);
     font-size: 35px;
     font-family: var(--font);
 }
 
-.informativo-horas h3{
+.informativo-horas h3 {
     color: var(--informativo-horas-h2);
     font-size: 22px;
     font-family: var(--font);
 }
 
-.informativo-horas ul{
+.informativo-horas ul {
     color: #FFF;
     font-size: 18px;
     font-family: var(--default-font);
@@ -193,32 +195,32 @@ body{
     font-weight: 400;
 }
 
-.tcc-horas h1{
+.tcc-horas h1 {
     color: var(--tcc-horas-h1);
     font-family: var(--font);
     font-size: 50px;
     line-height: 1;
 }
 
-.tcc-horas hr{
+.tcc-horas hr {
     height: 2px;
     background-color: black;
     border: none;
     margin: 30px 0;
 }
 
-.input-tcc{
+.input-tcc {
     display: flex;
     align-items: center;
     padding: 10px 0;
 }
 
-.input-tcc label{
+.input-tcc label {
     font-family: var(--default-font);
     font-size: 25px;
 }
 
-.input-tcc input[type="checkbox"]{
+.input-tcc input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -236,7 +238,7 @@ body{
     background-color: var(--color-label);
 }
 
-.horas-content input{
+.horas-content input {
     width: 432px;
     height: 42px;
     text-align: center;
@@ -248,7 +250,7 @@ body{
     margin-top: 19px;
 }
 
-#btn-finalizar{
+#btn-finalizar {
     position: relative;
     left: 81.7%;
     width: 185px;
@@ -268,7 +270,7 @@ body{
 
 
 
-.div-descricao-disciplina{
+.div-descricao-disciplina {
     display: flex;
     align-items: center;
 }
@@ -282,7 +284,7 @@ body{
     max-height: 79px;
 }
 
-.div-balao-de-fala{
+.div-balao-de-fala {
     background-color: var(--background-header-semestre);
     border-radius: 20px 0px 0px 20px;
     padding: 21px 22px;
@@ -294,4 +296,103 @@ body{
     font-size: 22px;
     font-family: var(--font);
     text-align: center;
+}
+
+
+.popup-wrappep {
+    display: none;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    position: relative;
+    text-align: left;
+    padding: 40px;
+    width: 100%;
+    max-width: 720px;
+    max-height: 503px;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.popup-content {
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 22px;
+}
+
+#btn_close_popup {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+
+.popup-content h2 {
+    max-width: 576px;
+    color: var(--cor-popup);
+    font-family: var(--font);
+    font-size: 40px;
+}
+
+.popup-content hr {
+    background-color: black;
+    border: none;
+    height: 1px;
+    margin-bottom: 15px;
+}
+
+.popup-content h4 {
+    font-size: 22px;
+    font-family: var(--default-font);
+    font-weight: 500;
+}
+
+.popup-content b {
+    color: var(--cor-popup);
+}
+
+.popup-info h4 {
+    font-size: 22px;
+    font-family: var(--default-font);
+    font-weight: 500;
+}
+
+.popup-info b {
+    color: var(--cor-popup);
+}
+
+.botaoInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    max-width: 18px;
+    width: 100%;
+    height: 18px;
+    background-color: white;
+    border: 2px solid var(--color-label);
+    color: var(--color-label);
+    cursor: pointer;
+}
+#nome_tcc{
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
