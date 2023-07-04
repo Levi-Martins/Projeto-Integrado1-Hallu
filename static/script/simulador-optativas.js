@@ -78,7 +78,7 @@ function optativas() {
                 })
             }
         }(cadeira[i]))
-        
+
 
         form.appendChild(label)
         horas_cadeira = parseInt(cadeira[i][1])
@@ -155,7 +155,7 @@ function optativas() {
         })(horas_cadeira))
 
     }
-    
+
 
 
 
@@ -223,9 +223,9 @@ function atualizarCheckboxes() {
         const botaoInfo = document.createElement("button")
         botaoInfo.classList.add("botaoInfo")
         botaoInfo.innerText = "i"
-        
+
         input.setAttribute("type", "checkbox")
-        input.setAttribute("name", "eletiva_optativas")
+        input.setAttribute("name", "eletivas_optativas")
         input.setAttribute("value", eletivas_optativas[e][0])
         label.classList.add('c')
         label.appendChild(input)
@@ -424,7 +424,7 @@ function onInput() {
 
 }
 
-function limpar(){
+function limpar() {
 
     const redefinir = document.getElementById("limpar")
     redefinir.addEventListener("click", () => {
@@ -437,6 +437,18 @@ function limpar(){
             const checkboxes = document.getElementsByName("optativas")
             for (let c in checkboxes) {
                 checkboxes[c].checked = false
+            }
+            const checkeletivas = document.getElementsByName("eletivas_optativas")
+            for (let c in checkeletivas) {
+                checkeletivas[c].checked = false
+            }
+            const form = document.getElementById("form-optativas-escolhidas")
+            const div = document.getElementsByClassName("eletiva_optativaEscolhida")
+            for (let d in div) {
+                form.remove(div[d])
+            }
+            for (let e in eletivas_optativas) {
+                eletivas_optativas[e][4] = 0
             }
 
             horas_optativas = 0
