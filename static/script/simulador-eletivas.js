@@ -197,6 +197,7 @@ function armazenarCadeiras() {
 
     let lista = []
     let q = 0
+
     for (let e in eletivas_optativas) {
         if (eletivas_optativas[e][4] == 1) {
             q++
@@ -205,6 +206,7 @@ function armazenarCadeiras() {
     if (q == 0 || clique) {
         for (let f = 0; f < forms.length; f++) {
             const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
+             
             let x = 0
             let nocheckbox = []
             let yescheckbox = []
