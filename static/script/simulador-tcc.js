@@ -60,6 +60,7 @@ function infoTcc() {
             objetivo.innerHTML = ""
         })
 
+        
     })
 
 
