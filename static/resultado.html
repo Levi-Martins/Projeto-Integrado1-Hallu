@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/resultado.css">
+    <script src="script/resultado.js" defer></script>
+    <title>Vou Me Formar? - SMD</title>
 </head>
+
 <body>
-    
+
+    <div id="header">
+        <div class="logo-turno-simulador">
+            <a href="landing-page.html"><img src="assets/icon/logo-white-vmf.png" alt=""></a>
+            <a href="simulador-turnos.html">
+                <div class="turno-simulador">
+                    <i id="i_turno" class="fas"></i>
+                    <p id="nome_turno"></p>
+                </div>
+            </a>
+        </div>
+        <div id="categorias">
+            <div id="obrigatorias-categorias" class="valor-categorias">
+                <a href="simulador-obrigatorias.html"><button onclick="armazenarCadeiras()">1</button></a>
+                <p>Obrigatórias</p>
+            </div>
+            <div id="eletivas-categorias" class="valor-categorias">
+                <button>2</button>
+                <p>Eletivas</p>
+            </div>
+            <div id="optativas-categorias" class="valor-categorias">
+                <a href="simulador-optativas.html"><button onclick="armazenarCadeiras()">3</button></a>
+                <p>Optativas</p>
+            </div>
+            <div id="tcc-categorias" class="valor-categorias">
+                <a href="#"><button onclick="armazenarCadeiras()">4</button></a>
+                <p>Tcc e Horas</p>
+            </div>
+            <div id="resultado-categorias" class="valor-categorias">
+                <a href="#"><button onclick="armazenarCadeiras()">5</button></a>
+                <p>Resultado</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div id="resultado">
+            <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
+                        src="assets/icon/arrow-left.png"></button></a>
+            <div id="texto-resultado">
+                <h1>Quase lá!</h1>
+                <h2>Você ainda não está apto a se formar.</h2>
+            </div>
+            <div id="card-resultado">
+                <div id="header-card">
+                    <h3>Resultados</h3>
+                </div>
+                <div id="body-resultado">
+                    <div id="cards">
+                        <div id="obrigatorias">
+                            <h3>Obrigatórias</h3>
+                            <h3 id="qtd_obrigatoria">0/22</h3>
+                        </div>
+                        <div id="eletivas">
+                            <h3>Eletivas</h3>
+                            <h3 id="qtd_eletiva">0/7</h3>
+                        </div>
+                        <div id="optativas">
+                            <h3>Optativas</h3>
+                            <h3 id="qtd_optativa">0/12</h3>
+                        </div>
+                        <div id="horas_livres">
+                            <h3>Horas de Optativas Livres</h3>
+                            <h3 id="qtd_optativa_livre">0h</h3>
+                        </div>
+                        <div id="horas_complementares">
+                            <h3>Horas Complementares</h3>
+                            <h3 id="qtd_complementares"></h3>
+                        </div>
+                        <div id="tcc">
+                            <h3 id="tcc_consolidado">TCC sem nota consolidada</h3>
+                        </div>
+                    </div>
+                    <label for="detalhes">Ver Detalhes</label>
+                    <button name="detalhes">+</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
 </body>
+
 </html>
