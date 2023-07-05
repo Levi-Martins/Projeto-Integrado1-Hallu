@@ -71,10 +71,8 @@ function obrigatorias() {
         })
 
         for (let j in cadeira[i]) {
-            if(cadeira[i][j][0] == "TCC"){
-                tcc.push([cadeira[i][j][0],cadeira[i][j][1],cadeira[i][j][2],cadeira[i][j][3]])
-                continue
-            }
+
+
             const input = document.createElement("input")
             const label = document.createElement("label")
             const botaoInfo = document.createElement("button")
@@ -208,12 +206,16 @@ function obrigatorias() {
                     continue
                 }
                 else {
+
                     semestres[i].appendChild(label)
                 }
             }
 
             else {
-                semestres[i].appendChild(label)
+                if (cadeira[i][j][0] == "TCC") {
+                    tcc.push([cadeira[i][j][0], cadeira[i][j][1], cadeira[i][j][2], cadeira[i][j][3]])
+                }
+                else { semestres[i].appendChild(label) }
                 if (i == 7 && turno_escolhido == "Noturno" && j == j.length) {
                     semestres[i].append(label2)
                 }
@@ -288,11 +290,11 @@ function obrigatorias() {
         const fecharPopupLimpar = document.querySelector("#btn-nao-limpar")
         limparCadeiras.addEventListener('click', () => {
             const checkboxes = document.getElementsByName("obrigatorias")
-            for(let c in checkboxes){
+            for (let c in checkboxes) {
                 checkboxes[c].checked = false
             }
             const todas = document.getElementsByName("todas")
-            for(let t in todas){
+            for (let t in todas) {
                 todas[t].checked = false
             }
             horas_obrigatorias = 0
@@ -332,7 +334,7 @@ function armazenarCadeiras() {
     }
     sessionStorage.setItem("check_obrigatorias", JSON.stringify(checkTodas))
     sessionStorage.setItem("horas_obrigatorias", horas_obrigatorias)
-    sessionStorage.setItem("tcc",JSON.stringify(tcc))
+    sessionStorage.setItem("tcc", JSON.stringify(tcc))
 
 
 }
