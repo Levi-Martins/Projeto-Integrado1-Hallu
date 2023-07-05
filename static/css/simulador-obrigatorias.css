@@ -99,6 +99,11 @@ body{
     font-size: 18px;
 }
 
+/* #obrigatorias-categorias p{
+    margin-top: 0px;
+} */
+
+
 .valor-categorias p {
     margin-top: 15px;
     color: #fff;
@@ -126,13 +131,13 @@ body{
 
 #disciplina {
     background-color: var(--background-disciplina);
-    max-width: 1389px;
-    width: 100%;
+    width: 1390px;
+    min-height: 935px;
     display: flex;
     flex-direction: column;
     gap: 25px 0;
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
 }
 
 #disciplina h1 {

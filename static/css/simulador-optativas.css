@@ -127,8 +127,9 @@ body{
 
 #disciplina {
     background-color: var(--background-disciplina);
-    max-width: 1389px;
-    width: 100%;
+    width: 1390px;
+    max-height: 756px;
+    height: 756px;
     display: flex;
     flex-direction: column;
     gap: 25px 0;
