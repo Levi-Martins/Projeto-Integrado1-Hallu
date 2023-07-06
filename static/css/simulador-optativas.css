@@ -215,6 +215,9 @@ body{
 .scroll-optativas{
     padding: 9px 27px 18px 27px;
     background-color: #FFF;
+    
+    
+
 }
 
 #form-cadeiras {
@@ -316,6 +319,10 @@ body{
     display: flex;
 }
 
+.eletiva_optativaEscolhida{
+    display: flex;
+}
+
 #form-optativas-escolhidas label{
     font-size: 18px;
     font-family: var(--default-font);
@@ -333,6 +340,9 @@ body{
     border: 1px solid #7A5F2A;
     margin-right: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fundo-optativas-escolhidas p{
@@ -374,6 +384,9 @@ body{
 #optativas-livres input[type=number] { 
    -moz-appearance: textfield;
    appearance: textfield;
+   
+
+
 }
 
 #optativas-livres p{
@@ -588,3 +601,4 @@ body{
     border: none;
     border-left: 1px solid black;
 }
+

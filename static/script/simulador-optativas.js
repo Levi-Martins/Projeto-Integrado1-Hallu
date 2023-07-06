@@ -168,7 +168,7 @@ function pesquisar() {
 
     for (i = 0; i < c.length; i++) {
         if (c[i].innerHTML.toLowerCase().includes(input)) {
-            c[i].style.display = "list-item";
+            c[i].style.display = "flex";
         }
         else {
             c[i].style.display = "none";
@@ -204,7 +204,8 @@ function armazenarCadeiras() {
     sessionStorage.setItem("horas_optativas", horas_optativas)
     sessionStorage.setItem("eletivas_optativas", JSON.stringify(eletivas_optativas))
 
-
+    const horas_livres = (document.getElementById("horas_livres")).value
+    sessionStorage.setItem("horas_livres", horas_livres)
 
 }
 
@@ -399,10 +400,48 @@ function atualizarCheckboxes() {
         }
     }
 
+    const horas_livres = document.getElementById("horas_livres")
+    const horaslivres = parseInt(sessionStorage.getItem("horas_livres"))
+    horas_livres.value = horaslivres
+
+    if ((horas_livres.value).length > 0) {
+        horas_livres.style.backgroundColor = "#baf5ab"
+
+    }
+
 }
 
 function onInput() {
     const horas_livres = document.getElementById("horas_livres")
+    let nada = false
+
+
+    horas_livres.addEventListener("keyup", () => {
+        if ((horas_livres.value).length > 3) {
+            let nova = (horas_livres.value).split("")
+            console.log(nova)
+            nova.pop()
+            horas_livres.value = nova.join('')
+        }
+       
+        setInterval(() => {
+            if ((horas_livres.value).length <= 0 || horas_livres.value == '') {
+                nada = true
+            }
+            else {
+                nada = false
+            }
+            if (!nada) {
+                horas_livres.style.backgroundColor = "#baf5ab"
+            }
+            else {
+                horas_livres.style.backgroundColor = "#ECECEC"
+            }
+        }, 1000);
+
+
+
+    })
 
 
     horas_livres.addEventListener("keydown", (e) => {
@@ -411,14 +450,12 @@ function onInput() {
             if (e.keyCode == n) {
                 horas_livres.style.backgroundColor = "#bac2b8"
             }
+
+        }
+        if (!nada && e.keyCode == 8) {
+            horas_livres.style.backgroundColor = "#bac2b8"
         }
     })
-
-    horas_livres.addEventListener("keyup", () => {
-        horas_livres.style.backgroundColor = "#baf5ab"
-
-    })
-
 
 
 

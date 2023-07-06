@@ -1,19 +1,19 @@
 
 async function request() {
-  // localStorage.clear()
+  localStorage.clear()
 
   if (!localStorage.getItem('arquivosArmazenados')) {
     console.log("Carregando dados")
-    const loading = document.getElementById("loading")
-    const text_loading = document.getElementById("text_loading")
+    // const loading = document.getElementById("loading")
+    // const text_loading = document.getElementById("text_loading")
     const totalRequests = 3
     let progress = 0
-    text_loading.innerText = `Carregando: 0`
+    // text_loading.innerText = `Carregando: 0`
 
     const updateProgress = () => {
       progress++
       const percentage = Math.round((progress * 100) / totalRequests)
-      text_loading.innerText = `Carregando: ${percentage}%`
+      // text_loading.innerText = `Carregando: ${percentage}%`
 
 
     }
@@ -42,9 +42,9 @@ async function request() {
 
     localStorage.setItem('arquivosArmazenados', true)
     console.log("Dados Carregados")
-    loading.style.display = "none"
+    // loading.style.display = "none"
   } else {
-    loading.style.display = "none"
+    // loading.style.display = "none"
 
     console.log("Arquivos já em localStorage")
   }

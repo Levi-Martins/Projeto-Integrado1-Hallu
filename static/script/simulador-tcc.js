@@ -60,10 +60,117 @@ function infoTcc() {
             objetivo.innerHTML = ""
         })
 
-        
+
     })
 
 
+}
+
+function inputTcc() {
+    checkbox = document.getElementsByClassName("check-tcc")
+    for (let checkboxItem of checkbox) {
+        checkboxItem.addEventListener("click", () => {
+            let currentIndex = Array.from(checkbox).indexOf(checkboxItem)
+            if (checkbox[currentIndex].value == 'consolidado') {
+                checkbox[currentIndex + 1].checked = false
+            }
+            if (checkbox[currentIndex].value == 'nao-consolidado') {
+                checkbox[currentIndex - 1].checked = false
+            }
+        })
+    }
+}
+
+
+function armazenarCadeiras() {
+    checkbox = document.getElementsByClassName("check-tcc")
+    let tcc = []
+    for (let c in checkbox) {
+        if (checkbox[c].checked) {
+            tcc.push(checkbox[c].value)
+        }
+    }
+    sessionStorage.setItem("tcc", JSON.stringify(tcc))
+
+    const horas_complementares = (document.getElementById("horas_complementares")).value
+    sessionStorage.setItem("horas_complementares", horas_complementares)
+
+
+}
+
+function atualizarCadeiras() {
+    tcc = JSON.parse(sessionStorage.getItem("tcc"))
+    checkbox = document.getElementsByClassName("check-tcc")
+    for (let c in checkbox) {
+        checkbox[c].checked = tcc.includes(checkbox[c].value)
+
+    }
+    const horas_complementares = document.getElementById("horas_complementares")
+    const horascomplementares = parseInt(sessionStorage.getItem("horas_complementares"))
+    horas_complementares.value = horascomplementares
+
+    if ((horas_complementares.value).length > 0) {
+        horas_complementares.style.backgroundColor = "#baf5ab"
+    }
+    else {
+        horas_complementares.style.backgroundColor = "#ECECEC"
+
+    }
+}
+
+function onInput() {
+    const horas_complementares = document.getElementById("horas_complementares")
+    let nada = false
+
+
+    horas_complementares.addEventListener("keyup", () => {
+        if ((horas_complementares.value).length > 3) {
+            let nova = (horas_complementares.value).split("")
+            console.log(nova)
+            nova.pop()
+            horas_complementares.value = nova.join('')
+        }
+        else if ((horas_complementares.value).length <= 0) {
+            nada = true
+            horas_complementares.style.backgroundColor = "#ECECEC"
+        }
+        if ((horas_complementares.value).length > 0) {
+            nada = false
+        }
+
+        if (!nada) {
+            setInterval(() => {
+                horas_complementares.style.backgroundColor = "#baf5ab"
+            }, 1000);
+        }
+
+    })
+
+
+    horas_complementares.addEventListener("keydown", (e) => {
+
+
+
+        for (let n = 48; n <= 57; n++) {
+            if (e.keyCode == n) {
+                horas_complementares.style.backgroundColor = "#bac2b8"
+            }
+
+        }
+        if (!nada && e.keyCode == 8) {
+            horas_complementares.style.backgroundColor = "#bac2b8"
+        }
+    })
+
+
+
+}
+
+
+
+
+function finalizar() {
+    window.location.href = "resultado.html"
 }
 
 
@@ -73,5 +180,8 @@ function app() {
     temaTurno()
     mudarTurno()
     infoTcc()
+    inputTcc()
+    atualizarCadeiras()
+    onInput()
 }
 app()
