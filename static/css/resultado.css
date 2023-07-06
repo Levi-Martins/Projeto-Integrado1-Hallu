@@ -108,3 +108,163 @@ body {
     white-space: nowrap;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 55px;
+    padding-top: 90px;
+}
+
+#resultado {
+    display: flex;
+    align-items: center;
+    width: 1505px;
+    height: 494px;
+    gap: 103px;
+}
+
+#texto-resultado {
+    width: 541px;
+    height: 356px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#texto-resultado h1 {
+    font-family: var(--font);
+    font-size: 120px;
+
+}
+
+#texto-resultado h2 {
+    font-family: var(--font);
+    font-size: 70px;
+    font-weight: bold;
+}
+
+#card-resultado {
+    width: 861px;
+    height: 394px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+#header-card {
+    width: 860px;
+    height: 100px;
+    background-color: #FF71A6;
+    display: flex;
+    align-items: center;
+    padding: 43px;
+    border-radius: 20px 20px 0 0 ;
+}
+
+#header-card h3 {
+    font-family: var(--font);
+    font-size: 45px;
+    font-weight: medium; 
+    color: #fff;
+}
+#body-resultado{
+    background-color: #fff;
+    width: 861px;
+    height: 389px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-radius: 0 0 20px 20px;
+}
+#cards{
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    justify-content: center;
+}
+#card-top{
+    display: flex;
+    gap: 29px;
+}
+#card-bottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 29px;
+}
+.card-width{
+    width: 240px;
+    height: 112px;
+    font-size: 30px;
+    
+}
+.propriedade-card{
+    background-color: #FFA133;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.column_card{
+    width: 375px;
+    height: 47px;
+    background-color: #FFA133;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 33px;
+}
+
+#horas_livres{
+    width: 377px;
+    height: 104px;
+}
+
+#horas_tcc{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+#detalhes{
+    width: 100%;
+    font-family: var(--font);
+    font-size: 30px;
+    font-weight: medium; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+#detalhes button{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-color:#fff;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:3px solid;
+}
+.card{
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}

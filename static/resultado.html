@@ -46,9 +46,9 @@
         </div>
     </div>
     <main>
+        <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
+                    src="assets/icon/arrow-left.png"></button></a>
         <div id="resultado">
-            <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
-                        src="assets/icon/arrow-left.png"></button></a>
             <div id="texto-resultado">
                 <h1>Quase lá!</h1>
                 <h2>Você ainda não está apto a se formar.</h2>
@@ -59,32 +59,40 @@
                 </div>
                 <div id="body-resultado">
                     <div id="cards">
-                        <div id="obrigatorias">
-                            <h3>Obrigatórias</h3>
-                            <h3 id="qtd_obrigatoria">0/22</h3>
+                        <div id="card-top">
+                            <div class="card card-width propriedade-card" id="obrigatorias">
+                                <h3>Obrigatórias</h3>
+                                <h3 id="qtd_obrigatoria">0/21</h3>
+                            </div>
+                            <div class="card card-width propriedade-card" id="eletivas">
+                                <h3>Eletivas</h3>
+                                <h3 id="qtd_eletiva">0/7</h3>
+                            </div>
+                            <div class="card card-width propriedade-card" id="optativas">
+                                <h3>Optativas</h3>
+                                <h3 id="qtd_optativa">0/12</h3>
+                            </div>
                         </div>
-                        <div id="eletivas">
-                            <h3>Eletivas</h3>
-                            <h3 id="qtd_eletiva">0/7</h3>
-                        </div>
-                        <div id="optativas">
-                            <h3>Optativas</h3>
-                            <h3 id="qtd_optativa">0/12</h3>
-                        </div>
-                        <div id="horas_livres">
-                            <h3>Horas de Optativas Livres</h3>
-                            <h3 id="qtd_optativa_livre">0h</h3>
-                        </div>
-                        <div id="horas_complementares">
-                            <h3>Horas Complementares</h3>
-                            <h3 id="qtd_complementares"></h3>
-                        </div>
-                        <div id="tcc">
-                            <h3 id="tcc_consolidado">TCC sem nota consolidada</h3>
+                        <div id="card-bottom">
+                            <div class="card propriedade-card" id="horas_livres">
+                                <h3 id="qtd_optativa_livre">Horas de Optativas Livres 0h</h3>
+                            </div>
+                            <div id="horas_tcc">
+                                <div class="card  column_card" id="horas_complementares">
+                                    <h3 id="qtd_complementares">Horas Complementares 0h</h3>
+                                </div>
+                                <div class="card  column_card" id="tcc">
+                                    <h3 id="tcc_consolidado">TCC sem nota consolidada</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <label for="detalhes">Ver Detalhes</label>
-                    <button name="detalhes">+</button>
+                    <div id="detalhes">
+                        <label for="detalhes">
+                            <h3>Ver Detalhes</h3>
+                        </label>
+                        <button name="detalhes">+</button>
+                    </div>
                 </div>
             </div>
         </div>
