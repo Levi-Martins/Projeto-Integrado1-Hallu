@@ -1,27 +1,30 @@
-*{
+* {
     scroll-behavior: smooth;
     scrollbar-width: thin;
 }
-body{
+
+body {
     overflow-x: hidden;
 
 }
-header{
+
+header {
     padding: 50px 145px 227px 150px;
     font-family: var(--font);
     background-image: url(../assets/img/lp-onda-fundo-1920.png);
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 
-#logo{
+#logo {
     display: flex;
     column-gap: 16px;
     padding-bottom: 110px;
 }
 
-#logo h3{
+#logo h3 {
     font-weight: 600;
     color: white;
     width: 92px;
@@ -30,7 +33,7 @@ header{
     line-height: 1;
 }
 
-#content-header h1{
+#content-header h1 {
     font-size: 100px;
     font-weight: 700;
     max-width: 581px;
@@ -38,7 +41,7 @@ header{
     color: white;
 }
 
-#content-header .description{
+#content-header .description {
     font-size: 20px;
     color: white;
     max-width: 750px;
@@ -46,7 +49,7 @@ header{
     padding: 40px 0;
 }
 
-#content-header button{
+#content-header button {
     font-size: 40px;
     font-weight: 700;
     font-family: var(--font);
@@ -65,35 +68,36 @@ header{
     padding-top: 30px;
 }
 
-#botaoSimule{
+#botaoSimule {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-a{
+
+a {
     text-decoration: none;
-    
+
 
 }
 
 
-#content-header p a{
+#content-header p a {
     font-size: 22px;
     color: white;
     text-decoration: underline;
 }
 
-#content-header p a img{
+#content-header p a img {
     padding-left: 10px;
 }
 
-#video-category{
+#video-category {
     padding: 50px 140px 50px 150px;
     font-family: var(--font);
 }
 
-#video-category h2{
+#video-category h2 {
     font-size: 90px;
     font-weight: 700;
     max-width: 747px;
@@ -101,26 +105,52 @@ a{
     padding-bottom: 40px;
 
 }
-.topicos-video{
+
+#video-descricao {
     display: flex;
     flex-direction: column;
     gap: 20px 0;
 }
-#subtitulo-video{
+
+
+.topicos-video {
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+
+#video-mp4 {
+    width: "560";
+    height: "315px";
+    display: flex;
+    gap: 30px;
+    /* background-color: #0084FF; */
+}
+
+.div-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+}
+
+
+#subtitulo-video {
     font-family: var(--font);
     font-size: 25px;
 }
 
-.subtopicos-video{
+.subtopicos-video {
     font-family: var(--font);
     font-size: 22px;
 }
-.subtopicos-video img{
+
+.subtopicos-video img {
     margin-right: 10px;
 }
 
 
-#grade-curricular{
+#grade-curricular {
     padding: 150px 0 140px 150px;
     font-family: var(--font);
 
@@ -129,29 +159,29 @@ a{
     width: 100%;
 }
 
-#grade-curricular-content h3{
+#grade-curricular-content h3 {
     font-size: 55px;
     font-weight: 700;
     max-width: 335px;
     padding-bottom: 30px;
 }
 
-.grade{
+.grade {
     background-color: #FFE361;
 }
 
-.curricular{
+.curricular {
     background-color: #33FFF3;
 }
 
-#grade-curricular-content p{
+#grade-curricular-content p {
     font-size: 22px;
     max-width: 335px;
     width: 335px;
     font-family: var(--default-font);
 }
 
-#nav-btn{
+#nav-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,7 +190,7 @@ a{
     cursor: pointer;
 }
 
-#nav-btn button{
+#nav-btn button {
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -170,11 +200,12 @@ a{
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-#nav-btn button i{
+#nav-btn button i {
     font-size: 33px;
     color: white;
 
 }
+
 /* .owl-carousel .item{
     background-color: gray;
     padding: 50px 20px 25px 20px;
@@ -192,7 +223,7 @@ a{
     padding-top: 15px;
 } */
 
-#attention{
+#attention {
     margin: 100px 0 120px 160px;
     background: linear-gradient(89.98deg, #FFE25F 0.01%, #FF5C00 104.68%);
     border-radius: 20px;
@@ -206,31 +237,31 @@ a{
     position: relative;
 }
 
-.content-attention{
+.content-attention {
     font-family: var(--font);
 }
 
-.content-attention h1{
+.content-attention h1 {
     font-size: 55px;
 }
 
-.content-attention p{
+.content-attention p {
     font-size: 25px;
     font-weight: 500px;
 }
 
-.description-attention{
+.description-attention {
     display: flex;
     gap: 0 56px;
 }
 
-.description-attention p{
+.description-attention p {
     font-family: var(--default-font);
     font-size: 22px;
     max-width: 529px;
 }
 
-.simbolo-atencao{
+.simbolo-atencao {
     width: 555px;
     height: 525px;
     position: absolute;
@@ -238,7 +269,7 @@ a{
     left: 80%;
 }
 
-.background-footer{
+.background-footer {
     background-image: url(../assets/img/fundo-dobra05-1920.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -248,19 +279,19 @@ a{
 
 }
 
-#VMF{
+#VMF {
     padding: 108px 0 108px 150px;
     color: white;
 }
 
 
-#VMF p{
+#VMF p {
     font-family: var(--default-font);
     font-size: 22px;
-  
+
 }
 
-#VMF h1{
+#VMF h1 {
     font-family: var(--font);
     font-size: 75px;
     font-weight: bolder;
@@ -268,7 +299,7 @@ a{
     width: 751px;
 }
 
-#VMF button{
+#VMF button {
     font-family: var(--font);
     font-size: 40px;
     font-weight: bolder;
@@ -279,42 +310,42 @@ a{
     height: 92px;
     border-radius: 34px;
     border: none;
-    
+
     margin-top: 60px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
 
-footer{
+footer {
     padding: 46px 120px 46px 150px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.logo-footer{
+.logo-footer {
     width: 258px;
     height: 88px;
 }
 
-.footer-imgs{
+.footer-imgs {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.footer-imgs p{
+.footer-imgs p {
     font-family: var(--default-font);
     font-size: 25px;
     color: white;
 }
 
-@media (max-width: 1850px){
-    #attention{
+@media (max-width: 1850px) {
+    #attention {
         margin: 100px 0 120px 120px;
     }
 
-    .simbolo-atencao{
+    .simbolo-atencao {
         width: 520px;
         height: 490px;
     }

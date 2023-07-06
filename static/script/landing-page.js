@@ -18,7 +18,7 @@ $(document).ready(function () {
   })
 });
 
-// sessionStorage.clear()
+sessionStorage.clear()
 
 if (!sessionStorage.getItem("simuladorIniciado")) {
   sessionStorage.setItem("horas", 0)
