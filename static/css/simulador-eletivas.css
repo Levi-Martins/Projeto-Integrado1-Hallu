@@ -63,7 +63,7 @@ body{
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
     position: absolute;
     left: 8%;
-    top: 25%;
+    top: 28px;
     z-index: -1;
 }
 
@@ -80,8 +80,8 @@ body{
 }
 
 #categorias #eletivas-categorias button{
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     text-align: center;
     font-size: 18px;
@@ -97,6 +97,14 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 18px;
+    padding-top: 15px;
+}
+#eletivas-categorias{
+    padding-top: 9px;
+}
+
+#eletivas-categorias p{
+    margin-top: 9px;
 }
 
 .valor-categorias p {
@@ -104,6 +112,7 @@ body{
     color: #fff;
     white-space: nowrap;
 }
+
 
 #main {
     display: flex;
@@ -263,7 +272,7 @@ input[ name="todas"]:checked{
 
 .redefinir {
     width: 152px;
-    height: 49px;
+    min-height: 49px;
     border-radius: 15px;
     border: none;
     background-color: #408CFF;
@@ -294,7 +303,7 @@ input[ name="todas"]:checked{
 }
 
 .div-balao-de-fala{
-    background-color: var(--background-header-semestre);
+    background-color: var(--fundo-balao-de-fala);
     border-radius: 20px 0px 0px 20px;
     padding: 21px 22px;
     max-height: 79px;
@@ -304,7 +313,6 @@ input[ name="todas"]:checked{
     max-width: 1284px;
     font-size: 22px;
     font-family: var(--font);
-    text-align: center;
 }
 
 .popup-wrappep{

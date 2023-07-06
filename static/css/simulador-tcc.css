@@ -1,11 +1,9 @@
 @import url(global.css);
-
-body {
+body{
     background-image: var(--background-simulador-1920);
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 #header {
     display: flex;
     justify-content: space-between;
@@ -16,17 +14,17 @@ body {
     gap: 0 396px;
 }
 
-.logo-turno-simulador {
+.logo-turno-simulador{
     display: flex;
     gap: 0 70px;
     align-items: center;
 }
 
-.logo-turno-simulador a {
+.logo-turno-simulador a{
     color: var(--cor-turno);
 }
 
-.turno-simulador {
+.turno-simulador{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,11 +37,11 @@ body {
     cursor: pointer;
 }
 
-.turno-simulador i {
+.turno-simulador i{
     font-size: 20px;
 }
 
-.turno-simulador p {
+.turno-simulador p{
     font-size: 18.5px;
 }
 
@@ -65,7 +63,7 @@ body {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
     position: absolute;
     left: 8%;
-    top: 25%;
+    top: 28px;
     z-index: -1;
 }
 
@@ -76,14 +74,14 @@ body {
     text-align: center;
     font-size: 18px;
     border: 3px solid #FFF;
-    background-color: var(--cor-botao-categoria-padrao);
+    background-color: var( --cor-botao-categoria-padrao);
     color: #fff;
     cursor: pointer;
 }
 
-#categorias #tcc-categorias button {
-    width: 50px;
-    height: 50px;
+#categorias #tcc-categorias button{
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     text-align: center;
     font-size: 18px;
@@ -99,6 +97,14 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 18px;
+    padding-top: 15px;
+}
+#tcc-categorias{
+    padding-top: 9px;
+}
+
+#tcc-categorias p{
+    margin-top: 9px;
 }
 
 .valor-categorias p {
@@ -106,6 +112,7 @@ body {
     color: #fff;
     white-space: nowrap;
 }
+
 
 #main {
     display: flex;
@@ -157,6 +164,9 @@ body {
 
 .scroll-content-tcc {
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
 }
 
 .scroll-content-tcc::-webkit-scrollbar {
@@ -173,6 +183,12 @@ body {
     border-radius: 10px;
     border-right: 1px solid #fff;
     border-left: 1px solid #fff;
+}
+
+.div-gif-horas{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .informativo-horas h2 {
@@ -239,15 +255,23 @@ body {
 }
 
 .horas-content input {
-    width: 432px;
+    padding: 12px 11px;
+    width: 435px;
     height: 42px;
-    text-align: center;
     font-size: 18px;
     font-family: var(--default-font);
     border-radius: 10px;
     border: 2px solid #D0CFCF;
     background: #ECECEC;
     margin-top: 19px;
+}
+.horas-content input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;  
+}
+
+.horas-content input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
 }
 
 #btn-finalizar {
@@ -285,7 +309,7 @@ body {
 }
 
 .div-balao-de-fala {
-    background-color: var(--background-header-semestre);
+    background-color: var(--fundo-balao-de-fala);
     border-radius: 20px 0px 0px 20px;
     padding: 21px 22px;
     max-height: 79px;
@@ -295,7 +319,6 @@ body {
     max-width: 1284px;
     font-size: 22px;
     font-family: var(--font);
-    text-align: center;
 }
 
 

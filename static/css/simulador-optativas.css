@@ -1,5 +1,4 @@
 @import url(global.css);
-
 body{
     background-image: var(--background-simulador-1920);
     background-size: cover;
@@ -64,7 +63,7 @@ body{
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
     position: absolute;
     left: 8%;
-    top: 25%;
+    top: 28px;
     z-index: -1;
 }
 
@@ -81,8 +80,8 @@ body{
 }
 
 #categorias #optativas-categorias button{
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     text-align: center;
     font-size: 18px;
@@ -98,6 +97,14 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 18px;
+    padding-top: 15px;
+}
+#optativas-categorias{
+    padding-top: 9px;
+}
+
+#optativas-categorias p{
+    margin-top: 9px;
 }
 
 .valor-categorias p {
@@ -134,7 +141,7 @@ body{
     flex-direction: column;
     gap: 25px 0;
     border-radius: 20px;
-    padding: 30px 65px;
+    padding: 30px;
 }
 
 #h1-optativas h1 {
@@ -152,6 +159,7 @@ body{
 
 #optativas {
     display: flex;
+    padding-left: 34px;
 }
 
 #cadeiras-optativas{
@@ -338,6 +346,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 22px 0;
+    padding-right: 34px;
 }
 
 #optativas-livres h1{
@@ -348,14 +357,23 @@ body{
 }
 
 #optativas-livres input{
-    width: 432px;
+    width: 435px;
     height: 43px;
-    padding: 12px 2px;
+    padding: 12px 11px;
     border-radius: 10px;
     border: 2px solid #D0CFCF;
     background: #ECECEC;
     font-size: 18px;
     font-family: var(--default-font);
+}
+
+#optativas-livres input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;  
+}
+
+#optativas-livres input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
 }
 
 #optativas-livres p{
@@ -367,7 +385,7 @@ body{
 
 .redefinir {
     width: 152px;
-    height: 49px;
+    min-height: 49px;
     border-radius: 15px;
     border: none;
     background-color: #408CFF;
@@ -397,7 +415,7 @@ body{
 }
 
 .div-balao-de-fala{
-    background-color: var(--background-header-semestre);
+    background-color: var(--fundo-balao-de-fala);
     border-radius: 20px 0px 0px 20px;
     padding: 21px 22px;
     max-height: 79px;
@@ -407,7 +425,6 @@ body{
     max-width: 1284px;
     font-size: 22px;
     font-family: var(--font);
-    text-align: left;
 }
 
 

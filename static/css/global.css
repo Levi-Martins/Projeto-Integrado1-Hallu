@@ -39,6 +39,8 @@
     --background-header-semestre: #FF71A6;
     --color-label: #7A5F2A;
     --cor-popup:#FF9629;
+    --fundo-balao-de-fala:#FF7E35;
+
 
     --header-optativas:#FF7E35;
     --scroll-optativas:#FF71A6;
@@ -48,8 +50,7 @@
     --informativos-horas-fundo:linear-gradient(180deg, #FF7BAB 0%, #FF699F 100%);
     --informativo-horas-h2:#fff;
     --tcc-horas-h1:#FF5894;
-
-    
+    --scroll-optativas:#9C7A37;
 }
 
 .dark{
@@ -79,6 +80,8 @@
     --background-header-semestre: #F76536;
     --color-label: #42035A;
     --cor-popup:#910D55;
+    --fundo-balao-de-fala:#F76536;
+
 
     --header-optativas:#F76536;
     --scroll-optativas:#FF6D3E;
@@ -88,5 +91,7 @@
     --informativos-horas-fundo:linear-gradient(180deg, #FFC79F 0%, #FFA769 100%);
     --informativo-horas-h2:#2D013E;
     --tcc-horas-h1:#42035A;
+    --scroll-optativas:#F76536;
+
 
 }
