@@ -1,6 +1,6 @@
 let turno_escolhido = sessionStorage.getItem("turno")
 let tcc = JSON.parse(sessionStorage.getItem("tcc"))
-
+let telafinal = true
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
@@ -68,8 +68,20 @@ function infoTcc() {
 
 function inputTcc() {
     checkbox = document.getElementsByClassName("check-tcc")
+
+
+
     for (let checkboxItem of checkbox) {
         checkboxItem.addEventListener("click", () => {
+            if (!telafinal) {
+                telafinal = true
+                const div = document.getElementsByClassName("input-tcc")
+                for (let d in div) {
+                    div[d].style.color = "#000"
+                    checkbox[d].style.border = "2px solid black"
+                }
+            }
+
             let currentIndex = Array.from(checkbox).indexOf(checkboxItem)
             if (checkbox[currentIndex].value == 'consolidado') {
                 checkbox[currentIndex + 1].checked = false
@@ -120,7 +132,6 @@ function atualizarCadeiras() {
 
 function onInput() {
     const horas_complementares = document.getElementById("horas_complementares")
-    let nada = false
 
 
     horas_complementares.addEventListener("keyup", () => {
@@ -130,49 +141,59 @@ function onInput() {
             nova.pop()
             horas_complementares.value = nova.join('')
         }
-        else if ((horas_complementares.value).length <= 0) {
-            nada = true
-            horas_complementares.style.backgroundColor = "#ECECEC"
-        }
-        if ((horas_complementares.value).length > 0) {
-            nada = false
-        }
 
-        if (!nada) {
-            setInterval(() => {
+        setInterval(() => {
+            if ((horas_complementares.value).length <= 0 || horas_complementares.value == '') {
+                horas_complementares.style.backgroundColor = "#ECECEC"
+            }
+            else {
                 horas_complementares.style.backgroundColor = "#baf5ab"
-            }, 1000);
-        }
 
-    })
-
-
-    horas_complementares.addEventListener("keydown", (e) => {
-
-
-
-        for (let n = 48; n <= 57; n++) {
-            if (e.keyCode == n) {
-                horas_complementares.style.backgroundColor = "#bac2b8"
             }
 
-        }
-        if (!nada && e.keyCode == 8) {
-            horas_complementares.style.backgroundColor = "#bac2b8"
-        }
+        }, 1000);
+
+    })
+
+    horas_complementares.addEventListener("keydown", () => {
+        horas_complementares.style.backgroundColor = "#bac2b8"
+
     })
 
 
 
 }
 
-
-
-
 function finalizar() {
-    window.location.href = "resultado.html"
-}
+    const checkbox = document.getElementsByClassName("check-tcc")
+    lista = []
+    for (let i in checkbox) {
+        if (telafinal) {
+            if (checkbox[i].checked == true) {
+                lista.push(checkbox[i].value)
+            }
+        }
 
+    }
+
+    if (lista.length > 0) {
+        window.location.href = "resultado.html"
+        armazenarCadeiras()
+    }
+    else {
+        alert("É obrigatório marcar o TCC")
+
+        const div = document.getElementsByClassName("input-tcc")
+        for (let d in div) {
+            div[d].style.color = "#f00"
+            checkbox[d].style.border = "3px solid red"
+            telafinal = false
+
+        }
+
+
+    }
+}
 
 
 

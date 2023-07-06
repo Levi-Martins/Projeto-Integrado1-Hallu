@@ -1,6 +1,6 @@
 
 async function request() {
-  localStorage.clear()
+  // localStorage.clear()
 
   if (!localStorage.getItem('arquivosArmazenados')) {
     console.log("Carregando dados")

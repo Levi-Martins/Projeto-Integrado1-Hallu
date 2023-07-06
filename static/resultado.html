@@ -24,79 +24,89 @@
         </div>
         <div id="categorias">
             <div id="obrigatorias-categorias" class="valor-categorias">
-                <a href="simulador-obrigatorias.html"><button onclick="armazenarCadeiras()">1</button></a>
+                <a href="simulador-obrigatorias.html"><button>1</button></a>
                 <p>Obrigatórias</p>
             </div>
             <div id="eletivas-categorias" class="valor-categorias">
-                <button>2</button>
+                <a href="simulador-eletivas.html"><button>2</button></a>
                 <p>Eletivas</p>
             </div>
             <div id="optativas-categorias" class="valor-categorias">
-                <a href="simulador-optativas.html"><button onclick="armazenarCadeiras()">3</button></a>
+                <a href="simulador-optativas.html"><button>3</button></a>
                 <p>Optativas</p>
             </div>
             <div id="tcc-categorias" class="valor-categorias">
-                <a href="#"><button onclick="armazenarCadeiras()">4</button></a>
+                <a href="simulador-tcc.html"><button>4</button></a>
                 <p>Tcc e Horas</p>
             </div>
             <div id="resultado-categorias" class="valor-categorias">
-                <a href="#"><button onclick="armazenarCadeiras()">5</button></a>
+                <a href="#"><button>5</button></a>
                 <p>Resultado</p>
             </div>
         </div>
     </div>
-    <main>
-        <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
-                    src="assets/icon/arrow-left.png"></button></a>
-        <div id="resultado">
-            <div id="texto-resultado">
-                <h1>Quase lá!</h1>
-                <h2>Você ainda não está apto a se formar.</h2>
+    <div id="corpo">
+        <main>
+            <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
+                        src="assets/icon/arrow-left.png"></button></a>
+            <div id="resultado">
+                <div id="texto-resultado">
+                    <h1 id="h1-texto">Quase lá!</h1>
+                    <h2 id="h2-texto">Você ainda não está apto a se formar.</h2>
+                </div>
+                <div id="card-resultado">
+                    <div id="header-card">
+                        <h3>Resultados</h3>
+                    </div>
+                    <div id="body-resultado">
+                        <div id="cards">
+                            <div id="card-top">
+                                <div class="card card-width propriedade-card" id="obrigatorias">
+                                    <h4>Obrigatórias</h3>
+                                        <h4 id="qtd_obrigatoria">0/21</h3>
+                                </div>
+                                <div class="card card-width propriedade-card" id="eletivas">
+                                    <h4>Eletivas</h3>
+                                        <h4 id="qtd_eletiva">0/7</h3>
+                                </div>
+                                <div class="card card-width propriedade-card" id="optativas">
+                                    <h4>Optativas</h3>
+                                        <h4 id="qtd_optativa">0/12</h3>
+                                </div>
+                            </div>
+                            <div id="card-bottom">
+                                <div class="card propriedade-card" id="horas_livres">
+                                    <h4 id="qtd_optativa_livre">Horas de Optativas Livres 0h</h3>
+                                </div>
+                                <div id="horas_tcc">
+                                    <div class="card  column_card" id="horas_complementares">
+                                        <h4 id="qtd_complementares">Horas Complementares 0h</h3>
+                                    </div>
+                                    <div class="card  column_card" id="tcc">
+                                        <h4 id="tcc_consolidado">TCC sem nota consolidada</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="detalhes">
+                            <label for="detalhes">
+                                <h3>Ver Detalhes</h3>
+                            </label>
+                            <button name="detalhes">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="card-resultado">
-                <div id="header-card">
-                    <h3>Resultados</h3>
-                </div>
-                <div id="body-resultado">
-                    <div id="cards">
-                        <div id="card-top">
-                            <div class="card card-width propriedade-card" id="obrigatorias">
-                                <h3>Obrigatórias</h3>
-                                <h3 id="qtd_obrigatoria">0/21</h3>
-                            </div>
-                            <div class="card card-width propriedade-card" id="eletivas">
-                                <h3>Eletivas</h3>
-                                <h3 id="qtd_eletiva">0/7</h3>
-                            </div>
-                            <div class="card card-width propriedade-card" id="optativas">
-                                <h3>Optativas</h3>
-                                <h3 id="qtd_optativa">0/12</h3>
-                            </div>
-                        </div>
-                        <div id="card-bottom">
-                            <div class="card propriedade-card" id="horas_livres">
-                                <h3 id="qtd_optativa_livre">Horas de Optativas Livres 0h</h3>
-                            </div>
-                            <div id="horas_tcc">
-                                <div class="card  column_card" id="horas_complementares">
-                                    <h3 id="qtd_complementares">Horas Complementares 0h</h3>
-                                </div>
-                                <div class="card  column_card" id="tcc">
-                                    <h3 id="tcc_consolidado">TCC sem nota consolidada</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="detalhes">
-                        <label for="detalhes">
-                            <h3>Ver Detalhes</h3>
-                        </label>
-                        <button name="detalhes">+</button>
-                    </div>
-                </div>
+        </main>
+        <div id="exportar">
+            <div class="exportar" id="pdf">
+                <h4>Baixar Pdf de resultados</h4>
+            </div>
+            <div class="exportar" id="email">
+                <h4>Enviar resultados por e-mail</h4>
             </div>
         </div>
-    </main>
+    </div>
 
 </body>
 

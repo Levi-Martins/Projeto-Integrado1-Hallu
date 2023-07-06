@@ -108,6 +108,28 @@ body {
     white-space: nowrap;
 }
 
+.arrows {
+    max-width: 60px;
+    width: 60px;
+    max-height: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #408CFF;
+    cursor: pointer;
+}
+
+
+#corpo {
+    height: 731px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+
+
 main {
     display: flex;
     justify-content: center;
@@ -151,7 +173,11 @@ main {
     height: 394px;
     display: flex;
     flex-direction: column;
-    
+}
+
+#card-resultado h3 {
+    font-weight: 100;
+
 
 }
 
@@ -162,16 +188,16 @@ main {
     display: flex;
     align-items: center;
     padding: 43px;
-    border-radius: 20px 20px 0 0 ;
+    border-radius: 20px 20px 0 0;
 }
 
 #header-card h3 {
     font-family: var(--font);
     font-size: 45px;
-    font-weight: medium; 
     color: #fff;
 }
-#body-resultado{
+
+#body-resultado {
     background-color: #fff;
     width: 861px;
     height: 389px;
@@ -182,30 +208,37 @@ main {
     align-items: center;
     gap: 50px;
     border-radius: 0 0 20px 20px;
+
+
 }
-#cards{
+
+#cards {
     display: flex;
     flex-direction: column;
     gap: 29px;
     justify-content: center;
 }
-#card-top{
+
+#card-top {
     display: flex;
     gap: 29px;
 }
-#card-bottom{
+
+#card-bottom {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 29px;
 }
-.card-width{
+
+.card-width {
     width: 240px;
     height: 112px;
     font-size: 30px;
-    
+
 }
-.propriedade-card{
+
+.propriedade-card {
     background-color: #FFA133;
     color: #fff;
     display: flex;
@@ -216,7 +249,20 @@ main {
     padding: 30px 20px;
 }
 
-.column_card{
+#horas_livres {
+    font-size: 30px;
+}
+
+#horas_complementares {
+    font-size: 22px;
+}
+
+#tcc {
+    font-size: 22px;
+}
+
+
+.column_card {
     width: 375px;
     height: 47px;
     background-color: #FFA133;
@@ -229,42 +275,77 @@ main {
     padding: 12px 33px;
 }
 
-#horas_livres{
+#horas_livres {
     width: 377px;
     height: 104px;
 }
 
-#horas_tcc{
-    
+#horas_tcc {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
-#detalhes{
+
+#detalhes {
     width: 100%;
     font-family: var(--font);
     font-size: 30px;
-    font-weight: medium; 
+    font-weight: medium;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
 }
-#detalhes button{
+
+#detalhes button {
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    background-color:#fff;
+    background-color: #fff;
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:3px solid;
+    border: 3px solid;
 }
-.card{
+
+.card {
     border-radius: 20px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
+}
+
+.card h4 {
+    font-family: var(--font);
+    font-weight: 100;
+}
+
+#exportar {
+    position: relative;
+    left: 570px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 43px;
+    text-align: center;
+    font-weight: 100;
+
+
+}
+
+.exportar {
+    width: 204px;
+    height: 62px;
+    background-color: #408CFF;
+    color: #fff;
+    font-family: var(--font);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 45px;
 }

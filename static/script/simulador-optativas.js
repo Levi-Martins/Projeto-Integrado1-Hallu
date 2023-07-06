@@ -413,7 +413,7 @@ function atualizarCheckboxes() {
 
 function onInput() {
     const horas_livres = document.getElementById("horas_livres")
-    let nada = false
+
 
 
     horas_livres.addEventListener("keyup", () => {
@@ -423,20 +423,17 @@ function onInput() {
             nova.pop()
             horas_livres.value = nova.join('')
         }
-       
+
         setInterval(() => {
             if ((horas_livres.value).length <= 0 || horas_livres.value == '') {
-                nada = true
-            }
-            else {
-                nada = false
-            }
-            if (!nada) {
-                horas_livres.style.backgroundColor = "#baf5ab"
-            }
-            else {
                 horas_livres.style.backgroundColor = "#ECECEC"
+
             }
+            else {
+                horas_livres.style.backgroundColor = "#baf5ab"
+
+            }
+
         }, 1000);
 
 
@@ -444,17 +441,9 @@ function onInput() {
     })
 
 
-    horas_livres.addEventListener("keydown", (e) => {
+    horas_livres.addEventListener("keydown", () => {
+        horas_livres.style.backgroundColor = "#bac2b8"
 
-        for (let n = 48; n <= 57; n++) {
-            if (e.keyCode == n) {
-                horas_livres.style.backgroundColor = "#bac2b8"
-            }
-
-        }
-        if (!nada && e.keyCode == 8) {
-            horas_livres.style.backgroundColor = "#bac2b8"
-        }
     })
 
 
