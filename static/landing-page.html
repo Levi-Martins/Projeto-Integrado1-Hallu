@@ -19,123 +19,134 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="script/landing-page.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"
+        integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <title>Vou Me Formar? - SMD</title>
 </head>
 
 <body>
+    <div id="content">
+        <header>
+            <div id="logo">
+                <img src="assets/icon/icone-vmf-white.svg" alt="logo-vmf">
+                <h3>Vou Me Formar?</h3>
+            </div>
+            <div id="content-header">
+                <h1>
+                    Será que eu posso me formar?
+                </h1>
+                <p class="description">
+                    Com nossa aplicação, feita exclusivamente para alunos do curso de Sistemas e Mídias Digitais (SMD),
+                    você
+                    pode simular o seu progresso no curso, obter informações sobre a grade curricular e saber tudo o que
+                    falta para você poder se formar!
+                </p>
+                <a href="simulador-turnos.html"><button id="botaoSimule">Simule agora</button></a>
 
-    <header>
-        <div id="logo">
-            <img src="assets/icon/icone-vmf-white.svg" alt="logo-vmf">
-            <h3>Vou Me Formar?</h3>
-        </div>
-        <div id="content-header">
-            <h1>
-                Será que eu posso me formar?
-            </h1>
-            <p class="description">
-                Com nossa aplicação, feita exclusivamente para alunos do curso de Sistemas e Mídias Digitais (SMD), você
-                pode simular o seu progresso no curso, obter informações sobre a grade curricular e saber tudo o que
-                falta para você poder se formar!
-            </p>
-            <a href="simulador-turnos.html"><button id="botaoSimule">Simule agora</button></a>
-
-            <p><a id="saiba-mais" href="#video-category">Saiba mais sobre como funciona a grade curricular do SMD<img
-                        src="assets/icon/arrow-up-right_svgrepo.com.svg"></a></p>
-        </div>
-    </header>
-    <main>
-        <div id="video-category">
-            <h2>Como funciona a grade curricular do SMD?</h2>
-            <div class="topicos-video">
-                <div id="video-descricao">
-                    <p id="subtitulo-video">No vídeo você confere sobre:</p>
-                    <p class="subtopicos-video"><img src="assets/icon/books_svgrepo.com.svg">Tipos de disciplinas</p>
-                    <p class="subtopicos-video"><img src="assets/icon/star-coin_svgrepo.com.svg">Créditos e horas </p>
-                    <p class="subtopicos-video"><img
-                            src="assets/icon/day-night-sun-moon-cycle_svgrepo.com.svg">Diferenças entre turnos</p>
-                </div>
-                <div id="video-mp4">
-                    <div class="div-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EBuztlAS09c"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                        <h4>Diurno</h4>
-
-
+                <p><a id="saiba-mais" href="#video-category">Saiba mais sobre como funciona a grade curricular do
+                        SMD<img src="assets/icon/arrow-up-right_svgrepo.com.svg"></a></p>
+            </div>
+        </header>
+        <main>
+            <div id="video-category">
+                <h2>Como funciona a grade curricular do SMD?</h2>
+                <div class="topicos-video">
+                    <div id="video-descricao">
+                        <p id="subtitulo-video">No vídeo você confere sobre:</p>
+                        <p class="subtopicos-video"><img src="assets/icon/books_svgrepo.com.svg">Tipos de disciplinas
+                        </p>
+                        <p class="subtopicos-video"><img src="assets/icon/star-coin_svgrepo.com.svg">Créditos e horas
+                        </p>
+                        <p class="subtopicos-video"><img
+                                src="assets/icon/day-night-sun-moon-cycle_svgrepo.com.svg">Diferenças entre turnos</p>
                     </div>
-                    <div class="div-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/M_J-Aa001Mc"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                        <h4>Noturno</h4>
+                    <div id="video-mp4">
+                        <div class="div-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/EBuztlAS09c"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                            <h4>Diurno</h4>
+
+
+                        </div>
+                        <div class="div-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/M_J-Aa001Mc"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                            <h4>Noturno</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="grade-curricular">
+                <div id="grade-curricular-content">
+                    <h3>Nossa <span class="grade">grade</span> <span class="curricular">curricular</span></h3>
+                    <p>Passando pro lado, você vai descobrir um pouquinho mais sobre cada componente da grade curricular
+                        do
+                        SMD :)</p>
+                </div>
+                <div id="nav-btn">
+                    <button class="btn-prev"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="btn-next"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="owl-carousel owl-theme ">
+                    <div class="item" style="width: 335px;">
+                        <img src="assets/img/Obrigatórias.png" alt="">
+                    </div>
+                    <div class="item" style="width: 335px;">
+                        <img src="assets/img/Eletivas.png" alt="">
+                    </div>
+                    <div class="item" style="width: 335px;">
+                        <img src="assets/img/Optativas.png" alt="">
+                    </div>
+                    <div class="item" style="width: 335px;">
+                        <img src="assets/img/Tcc.png" alt="">
+                    </div>
+                    <div class="item" style="width: 335px;">
+                        <img src="assets/img/horas-complementares.png" alt="">
                     </div>
                 </div>
+            </div>
+            <div id="attention">
+                <div class="content-attention">
+                    <h1>Cuidado para não cair nessa armadilha!</h1>
+                    <p>Esse é um erro muito comum no SMD! </p>
+                </div>
+                <div class="description-attention">
+                    <p>Para se formar, você precisa fazer no mínimo 4 cadeiras eletivas do quarto semestre e 3 cadeiras
+                        eletivas do quinto, exatamente nessa quantidade! Caso faça, por exemplo, cinco do quarto e duas
+                        do
+                        quinto, ainda faltará uma cadeira - uma do quinto semestre.</p>
+                    <img src="assets/img/atention-image.png" alt="">
+                </div>
+                <img class="simbolo-atencao" src="assets/img/simbolo-atencao.png" alt="">
+            </div>
+            <div class="background-footer">
+                <div id="VMF">
+                    <p>Depois de tudo isso...</p>
+                    <h1>E aí? Quer saber seu progresso no curso e o que falta pra você se formar? </h1>
+                    <a href="simulador-turnos.html"><button>Vamos Começar</button></a>
+                </div>
+                <footer>
+                    <img src="assets/img/logo-VMF-footer.png" class="logo-footer">
+                    <div class="footer-imgs">
+                        <img src="assets/img/f1.png" alt="">
+                        <p>Projeto Integrado 2023.1</p>
+                        <img src="assets/img/f3.png" alt="">
+                        <img src="assets/img/f4.png" alt="">
+                    </div>
+                </footer>
+            </div>
 
-            </div>
-        </div>
-        <div id="grade-curricular">
-            <div id="grade-curricular-content">
-                <h3>Nossa <span class="grade">grade</span> <span class="curricular">curricular</span></h3>
-                <p>Passando pro lado, você vai descobrir um pouquinho mais sobre cada componente da grade curricular do
-                    SMD :)</p>
-            </div>
-            <div id="nav-btn">
-                <button class="btn-prev"><i class="fa-solid fa-arrow-left"></i></button>
-                <button class="btn-next"><i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="owl-carousel owl-theme ">
-                <div class="item" style="width: 335px;">
-                    <img src="assets/img/Obrigatórias.png" alt="">
-                </div>
-                <div class="item" style="width: 335px;">
-                    <img src="assets/img/Eletivas.png" alt="">
-                </div>
-                <div class="item" style="width: 335px;">
-                    <img src="assets/img/Optativas.png" alt="">
-                </div>
-                <div class="item" style="width: 335px;">
-                    <img src="assets/img/Tcc.png" alt="">
-                </div>
-                <div class="item" style="width: 335px;">
-                    <img src="assets/img/horas-complementares.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div id="attention">
-            <div class="content-attention">
-                <h1>Cuidado para não cair nessa armadilha!</h1>
-                <p>Esse é um erro muito comum no SMD! </p>
-            </div>
-            <div class="description-attention">
-                <p>Para se formar, você precisa fazer no mínimo 4 cadeiras eletivas do quarto semestre e 3 cadeiras
-                    eletivas do quinto, exatamente nessa quantidade! Caso faça, por exemplo, cinco do quarto e duas do
-                    quinto, ainda faltará uma cadeira - uma do quinto semestre.</p>
-                <img src="assets/img/atention-image.png" alt="">
-            </div>
-            <img class="simbolo-atencao" src="assets/img/simbolo-atencao.png" alt="">
-        </div>
-        <div class="background-footer">
-            <div id="VMF">
-                <p>Depois de tudo isso...</p>
-                <h1>E aí? Quer saber seu progresso no curso e o que falta pra você se formar? </h1>
-                <a href="simulador-turnos.html"><button>Vamos Começar</button></a>
-            </div>
-            <footer>
-                <img src="assets/img/logo-VMF-footer.png" class="logo-footer">
-                <div class="footer-imgs">
-                    <img src="assets/img/f1.png" alt="">
-                    <p>Projeto Integrado 2023.1</p>
-                    <img src="assets/img/f3.png" alt="">
-                    <img src="assets/img/f4.png" alt="">
-                </div>
-            </footer>
-        </div>
-    </main>
+        </main>
+    </div>
+    <button onclick="gerarPdf()">Gerar Pdf</button>
 
 
     <!-- JQuery -->

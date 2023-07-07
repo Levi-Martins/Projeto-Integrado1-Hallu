@@ -30,4 +30,15 @@ if (!sessionStorage.getItem("simuladorIniciado")) {
 // sessionStorage.clear()
 // localStorage.clear()
 
+function gerarPdf() {
+  const content = document.getElementById("content")
+  const options = {
+    margin: [10, 10, 10, 10],
+    filename: "arquivo.pdf",
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+  }
+  html2pdf().set(options).from(content).save()
+
+}
 
