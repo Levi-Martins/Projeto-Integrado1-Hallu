@@ -1,4 +1,8 @@
 obrigatoria = JSON.parse(sessionStorage.getItem("obrigatorias_selecionadas"))
+obrigatorias_feitas = JSON.parse(sessionStorage.getItem("obrigatorias_feitas_semestre"))
+obrigatorias_nao_feitas = JSON.parse(sessionStorage.getItem("obrigatorias_nao_feitas_semestre"))
+
+
 horas_obrigatorias = parseInt(sessionStorage.getItem("horas_obrigatorias"))
 eletivas = JSON.parse(sessionStorage.getItem("eletivas_selecionadas"))
 horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
@@ -22,7 +26,7 @@ function temaTurno() {
 function mudarTurno() {
     const i_turno = document.getElementById("i_turno")
     const nome_turno = document.getElementById("nome_turno")
-   
+
     if (turno_escolhido == "Diurno") {
         i_turno.classList.add('fa-sun', 'fa-moon')
         i_turno.classList.remove('fa-moon')
@@ -80,34 +84,333 @@ function resultado() {
 
     const h1 = document.getElementById("h1-texto")
     const h2 = document.getElementById("h2-texto'")
-    if (obrigatoria.length >= 21 && eletivas.length >= 7 && optativa.length >= 12 && horas_complementares >= 192 && tcc == '["consolidado"]'){
+    if (obrigatoria.length >= 21 && eletivas.length >= 7 && optativa.length >= 12 && horas_complementares >= 192 && tcc == '["consolidado"]') {
         h1.innerHTML = 'Parabéns!'
         h2.innerHTML = 'Você já está apto a se formar!'
     }
-    else{
+    else {
         h1.innerHTML = 'Quase lá!'
         h2.innerHTML = 'Você ainda não está apto a se formar.'
     }
 
 }
 
-function enviarEmail(){
-    const enviarPorEmail = document.querySelector('#email')
-    enviarPorEmail.addEventListener("click",()=>{
-        const popupWrappep = document.querySelector('.popup-wrappep-enviar-email')
-        const cancelar = document.querySelector('#cancelar')
-        popupWrappep.style.display = 'flex'
-        cancelar.addEventListener('click',()=>{
-            popupWrappep.style.display = 'none'
-        })
+function enviarEmail() {
+
+    const popupWrappep = document.querySelector('.popup-wrappep-enviar-email')
+    const cancelar = document.querySelector('#cancelar')
+    popupWrappep.style.display = 'flex'
+    cancelar.addEventListener('click', () => {
+        popupWrappep.style.display = 'none'
     })
 }
+
+function gerarPdf() {
+    const doc = new jsPDF({
+        format: 'a4',
+        unit: 'mm',
+        putOnlyUsedFonts: true,
+        // lineHeight: 1.5
+    })
+    const date = new Date().toLocaleString()
+
+
+    const img = new Image()
+    img.src = (turno_escolhido == "Diurno") ? 'assets/img/fundo-pdf-diurno.jpg' : 'assets/img/fundo-pdf-noturno.jpg'
+    doc.addImage(img, 'jpg', 0, 0, 210, 297)
+    doc.setFontSize(9)
+    doc.setFont("Helvetica")
+    doc.text(`SIMULAÇÃO ${date}`, 76, 30)
+
+
+    doc.setFontSize(10)
+    doc.setFontStyle('bold')
+    let x = (obrigatoria.length > 0) ? 17.5 : 18
+    doc.text(`Feitas: ${obrigatoria.length}/21`, x, 53.9)
+    doc.setFontStyle('normal')
+    let x1
+    if (horas_obrigatorias > 1000) {
+        x1 = 49
+    }
+    else if (horas_obrigatorias > 0 && horas_obrigatorias < 1000) {
+        x1 = 49.9
+    }
+    else {
+        x1 = 52
+    }
+
+    doc.text(`Horas Obtidas: ${horas_obrigatorias}/1344`, x1, 53.9)
+
+    let x2 = (creditos(horas_obrigatorias) > 0) ? 105 : 105.7
+    doc.text(`Créditos Obtidos: ${creditos(horas_obrigatorias)}/84`, x2, 53.9)
+
+    function creditos(horas) {
+        return horas / 16
+    }
+
+    let lastX
+
+    for (let x = 0; x < 3; x++) {
+        doc.setFontStyle('bold')
+        doc.setFontSize(8.5)
+
+        doc.text(`${x + 1}º semestre (${obrigatorias_feitas[x].length}/5)`, (x * 37) + 16, 60)
+        lastX = (x * 37) + 16
+        if (obrigatorias_feitas[x].length > 0) {
+            doc.setTextColor('#11A020')
+            doc.text("Feitas:", (x * 37) + 16, 65)
+            doc.setFontStyle('normal')
+            doc.setFontSize(7.7)
+            doc.setTextColor('#000000')
+
+            let lastY
+            for (let i in obrigatorias_feitas) {
+                if (obrigatorias_feitas[x][i] == undefined) {
+                    continue
+                }
+                doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[x][i]}`, (x * 37) + 17, 70 + (i * 3))
+                lastY = i * 3
+            }
+            if (obrigatorias_feitas[x].length < 5) {
+                doc.setFontStyle('bold')
+                doc.setFontSize(8.5)
+                doc.setTextColor('#ED1010')
+                doc.text("Não Feitas:", (x * 37) + 16, 75 + lastY)
+                console.log(lastY)
+                doc.setFontStyle('normal')
+                doc.setFontSize(7.7)
+                doc.setTextColor('#000000')
+                for (let i in obrigatorias_nao_feitas) {
+                    if (obrigatorias_nao_feitas[x][i] == undefined) {
+                        continue
+                    }
+                    doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[x][i]}`, (x * 37) + 17, 80 + lastY + (i * 3))
+                }
+
+            }
+        }
+        else {
+            doc.setTextColor('#ED1010')
+            doc.text("Não Feitas:", (x * 37) + 16, 65)
+            doc.setFontStyle('normal')
+            doc.setFontSize(7.7)
+            doc.setTextColor('#000000')
+            for (let i in obrigatorias_nao_feitas) {
+                if (obrigatorias_nao_feitas[x][i] == undefined) {
+                    continue
+                }
+                doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[x][i]}`, (x * 37) + 17, 70 + (i * 3))
+            }
+        }
+    }
+    doc.setFontStyle('bold')
+    doc.setFontSize(8.5)
+    let lastY
+
+    doc.text(`4º semestre (${obrigatorias_feitas[3].length}/1)`, lastX + 37, 60)
+    if (obrigatorias_feitas[3].length > 0) {
+        doc.setTextColor('#11A020')
+        doc.text("Feitas:", lastX + 37, 65)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_feitas) {
+            if (obrigatorias_feitas[3][i] == undefined) {
+                continue
+            }
+            doc.text(`${parseInt(i) + 1}. Metodolodia de\nPesquisa Cientifica`, lastX + 38, 70 + (i * 3))
+        }
+        lastY = 70 + (i * 3)
+    }
+    else {
+        doc.setTextColor('#ED1010')
+        doc.text("Não Feitas:", lastX + 37, 65)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_nao_feitas) {
+            if (obrigatorias_nao_feitas[3][i] == undefined) {
+                continue
+            }
+            doc.text(`${parseInt(i) + 1}. Metodolodia de\nPesquisa Cientifica`, lastX + 38, 70 + (i * 3))
+            lastY = 70 + (i * 3)
+        }
+    }
+    lastX += 37
+
+
+    doc.setFontStyle('bold')
+    doc.setFontSize(8.5)
+    doc.text(`6º semestre (${obrigatorias_feitas[4].length}/2)`, lastX, lastY + 10)
+    if (obrigatorias_feitas[4].length > 0) {
+        doc.setTextColor('#11A020')
+        doc.text("Feitas:", lastX, lastY + 15)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_feitas) {
+            if (obrigatorias_feitas[4][i] == undefined) {
+                continue
+            }
+            if (obrigatorias_feitas[4][i] == "Gestão de Projetos Multimídia") {
+                obrigatorias_feitas[4][i] = "Gestão de Projetos\nMultimídia"
+            }
+            doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[4][i]}`, lastX, lastY + 20 + (i * 3))
+            if (i == 1) {
+                lastY = lastY + 20 + (i * 3)
+            }
+
+        }
+        if (obrigatorias_feitas[4].length < 2) {
+            doc.setFontStyle('bold')
+            doc.setFontSize(8.5)
+            doc.setTextColor('#ED1010')
+            doc.text("Não Feitas:", lastX, lastY + 25)
+            doc.setFontStyle('normal')
+            doc.setFontSize(7.7)
+            doc.setTextColor('#000000')
+            for (let i in obrigatorias_nao_feitas) {
+                if (obrigatorias_nao_feitas[4][i] == undefined) {
+                    continue
+                }
+                if (obrigatorias_nao_feitas[4][i] == "Gestão de Projetos Multimídia") {
+                    obrigatorias_nao_feitas[4][i] = "Gestão de Projetos\nMultimídia"
+                }
+                doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[4][i]}`, lastX, lastY + 30 + (i * 3))
+            }
+
+        }
+
+
+    }
+    else {
+        doc.setFontStyle('bold')
+        doc.setFontSize(8.5)
+        doc.setTextColor('#ED1010')
+        doc.text("Não Feitas:", lastX, lastY + 15)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_nao_feitas) {
+            if (obrigatorias_nao_feitas[4][i] == undefined) {
+                continue
+            }
+            if (obrigatorias_nao_feitas[4][i] == "Gestão de Projetos Multimídia") {
+                obrigatorias_nao_feitas[4][i] = "Gestão de Projetos\nMultimídia"
+
+            }
+            doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[4][i]}`, lastX, lastY + 20 + (i * 3))
+        }
+    }
+    lastX += 37
+
+    doc.setFontStyle('bold')
+    doc.setFontSize(8.5)
+    let qtd7 = (turno_escolhido == "Diurno") ? 2 : 1
+
+    doc.text(`7º semestre (${obrigatorias_feitas[5].length}/${qtd7})`, lastX, 60)
+
+    if (obrigatorias_feitas[5].length > 0) {
+        doc.setTextColor('#11A020')
+        doc.text("Feitas:", lastX, 65)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_feitas) {
+            if (obrigatorias_feitas[5][i] == undefined) {
+                continue
+            }
+            doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[5][i]}`, lastX, 70 + (i * 3))
+        }
+
+        if (obrigatorias_feitas[5].length < 2) {
+            doc.setFontStyle('bold')
+            doc.setFontSize(8.5)
+            doc.setTextColor('#ED1010')
+            doc.text("Não Feitas:", lastX, 75)
+            doc.setFontStyle('normal')
+            doc.setFontSize(7.7)
+            doc.setTextColor('#000000')
+            for (let i in obrigatorias_nao_feitas) {
+                if (obrigatorias_nao_feitas[5][i] == undefined) {
+                    continue
+                }
+
+                doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[5][i]}`, lastX, 80 + (i * 3))
+                lastY = 80 + (i * 3)
+
+            }
+
+        }
+
+    }
+    else {
+
+        doc.setFontStyle('bold')
+        doc.setFontSize(8.5)
+        doc.setTextColor('#ED1010')
+        doc.text("Não Feitas:", lastX, 65)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_nao_feitas) {
+            if (obrigatorias_nao_feitas[5][i] == undefined) {
+                continue
+            }
+            doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[5][i]}`, lastX, 70 + (i * 3))
+        }
+
+    }
+
+
+
+
+    doc.setFontStyle('bold')
+    doc.setFontSize(8.5)
+
+    let qtd = (turno_escolhido == "Diurno") ? 1 : 2
+
+
+    doc.text(`8º semestre (${obrigatorias_feitas[6].length}/${qtd})`, lastX, lastY + 10)
+    if (obrigatorias_feitas[6].length > 0) {
+        doc.setTextColor('#11A020')
+        doc.text("Feitas:", lastX, lastY + 15)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_feitas) {
+            if (obrigatorias_feitas[6][i] == undefined) {
+                continue
+            }
+            doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[6][i]}`, lastX, lastY + 20 + (i * 3))
+        }
+    }
+    else {
+        doc.setFontStyle('bold')
+        doc.setFontSize(8.5)
+        doc.setTextColor('#ED1010')
+        doc.text("Não Feitas:", lastX, lastY + 15)
+        doc.setFontStyle('normal')
+        doc.setFontSize(7.7)
+        doc.setTextColor('#000000')
+        for (let i in obrigatorias_nao_feitas) {
+            if (obrigatorias_nao_feitas[6][i] == undefined) {
+                continue
+            }
+            doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[6][i]}`, lastX, lastY + 20 + (i * 3))
+        }
+
+    }
+
+
+    doc.save('Simulação.pdf')
+}
+
 
 
 function app() {
     temaTurno()
     mudarTurno()
-    enviarEmail()
     resultado()
 }
 app()

@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/resultado.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+    integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+    crossorigin="anonymous"></script>
+
     <script src="script/resultado.js" defer></script>
     <title>Vou Me Formar? - SMD</title>
 </head>
@@ -99,12 +104,12 @@
             </div>
         </main>
         <div id="exportar">
-            <div class="exportar" id="pdf">
+            <button onclick="gerarPdf()" class="exportar" id="pdf">
                 <h4>Baixar Pdf de resultados</h4>
-            </div>
-            <div class="exportar" id="email">
+            </button>
+            <button onclick="enviarEmail()" class="exportar" id="email">
                 <h4>Enviar resultados por e-mail</h4>
-            </div>
+            </button>
         </div>
     </div>
     <div class="popup-wrappep-enviar-email">

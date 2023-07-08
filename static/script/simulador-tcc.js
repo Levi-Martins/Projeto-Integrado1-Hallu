@@ -1,5 +1,6 @@
 let turno_escolhido = sessionStorage.getItem("turno")
 let tcc = JSON.parse(sessionStorage.getItem("tcc"))
+console.log(tcc)
 let telafinal = true
 
 function temaTurno() {
@@ -33,7 +34,6 @@ function infoTcc() {
     botaoInfo.classList.add("botaoInfo")
     botaoInfo.innerText = "i"
     id_tcc.append(botaoInfo)
-
     botaoInfo.addEventListener("click", (e) => {
 
         e.preventDefault()
@@ -102,7 +102,7 @@ function armazenarCadeiras() {
             tcc.push(checkbox[c].value)
         }
     }
-    sessionStorage.setItem("tcc", JSON.stringify(tcc))
+    sessionStorage.setItem("checktcc", JSON.stringify(tcc))
 
     const horas_complementares = (document.getElementById("horas_complementares")).value
     sessionStorage.setItem("horas_complementares", horas_complementares)
@@ -111,7 +111,7 @@ function armazenarCadeiras() {
 }
 
 function atualizarCadeiras() {
-    tcc = JSON.parse(sessionStorage.getItem("tcc"))
+    tcc = JSON.parse(sessionStorage.getItem("checktcc"))
     checkbox = document.getElementsByClassName("check-tcc")
     for (let c in checkbox) {
         checkbox[c].checked = tcc.includes(checkbox[c].value)

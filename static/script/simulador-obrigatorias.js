@@ -336,6 +336,37 @@ function armazenarCadeiras() {
     sessionStorage.setItem("horas_obrigatorias", horas_obrigatorias)
     sessionStorage.setItem("tcc", JSON.stringify(tcc))
 
+    let feitas = []
+    let nao_feitas = []
+    const form = document.getElementsByClassName("cadeiras-semestre")
+    const formArray = Array.from(form)
+
+    for (let f in formArray) {
+        if (f == 4) {
+            continue
+        }
+        let feitas_semestre = []
+        let nao_feitas_semestre = []
+
+        const semestre = formArray[f].querySelectorAll('input[name="obrigatorias"]')
+        const semestreArray = Array.from(semestre)
+
+        for (let s in semestreArray) {
+            if (semestreArray[s].checked) {
+                feitas_semestre.push(semestreArray[s].value)
+            }
+            else {
+                nao_feitas_semestre.push(semestreArray[s].value)
+            }
+        }
+        feitas.push(feitas_semestre)
+        nao_feitas.push(nao_feitas_semestre)
+    }
+    sessionStorage.setItem("obrigatorias_feitas_semestre", JSON.stringify(feitas))
+    sessionStorage.setItem("obrigatorias_nao_feitas_semestre", JSON.stringify(nao_feitas))
+
+
+
 
 }
 
