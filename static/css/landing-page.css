@@ -11,10 +11,9 @@ body {
 header {
     padding: 50px 145px 227px 150px;
     font-family: var(--font);
-    background-image: url(../assets/img/lp-onda-fundo-1920.png);
+    background-image: url(../assets/img/landing-page/fundo1-1920.png);
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 
@@ -116,15 +115,15 @@ a {
 .topicos-video {
     display: flex;
     align-items: center;
-    gap: 150px;
+    justify-content: space-between;
+    gap: 0 150px;
 }
 
-#video-mp4 {
+/* #video-mp4 {
     width: "560";
     height: "315px";
     display: flex;
     gap: 30px;
-    /* background-color: #0084FF; */
 }
 
 .div-video {
@@ -132,7 +131,7 @@ a {
     flex-direction: column;
     align-items: center;
     font-size: 40px;
-}
+} */
 
 
 #subtitulo-video {
@@ -147,6 +146,93 @@ a {
 
 .subtopicos-video img {
     margin-right: 10px;
+}
+
+/* CHECKBOX VIDEO */
+#turnos{
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 0 44px;
+    align-items: center;
+
+}
+
+ #check{
+    position: absolute;
+    opacity: 0;
+}
+
+.shift-change{
+    background-color: #DDDDDD;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100px;
+    height: 34px;
+    padding: 10px;
+    border-radius: 50px;
+
+    position: relative;
+}
+
+ .shift-change .ball{
+    background-color: var(--ball-color)  ;
+
+    position: absolute;
+    left: 0px;
+
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: transform .2s linear;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ #check:checked + .shift-change .ball{
+    transform: translateX(60px);
+}
+
+.div-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.body-turnos #btn-turnos{
+    font-size: 40px;
+    background-color: #408CFF;
+    width: 282px;
+    height: 89px;
+    border-radius: 20px;
+    border: none;
+    margin-right: 30px;
+
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 40px;
+  
+    color: white;
+    cursor: pointer;
+}
+
+ .fa-moon{
+    font-size: 25px;    
+    color: #f1c40f;
+}
+
+ .fa-sun{
+    font-size: 25px;
+    color: rgb(255, 255, 255);
 }
 
 
