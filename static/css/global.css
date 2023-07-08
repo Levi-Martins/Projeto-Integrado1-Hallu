@@ -51,6 +51,11 @@
     --informativo-horas-h2:#fff;
     --tcc-horas-h1:#FF5894;
     --scroll-optativas:#9C7A37;
+
+    --background-header-card:linear-gradient(92deg, #FF71A6 0%, #E48364 100%);
+    --background-propriedade-card:#FFA133;
+
+
 }
 
 .dark{
@@ -93,5 +98,6 @@
     --tcc-horas-h1:#42035A;
     --scroll-optativas:#F76536;
 
-
+    --background-header-card:linear-gradient(91deg, #F76536 0%, #884E5F 100%);
+    --background-propriedade-card:#3E0354;;
 }

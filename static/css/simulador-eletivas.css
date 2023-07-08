@@ -4,80 +4,6 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 150px 50px 150px;
-    font-family: var(--font);
-    font-weight: bold;
-    gap: 0 396px;
-}
-
-.logo-turno-simulador{
-    display: flex;
-    gap: 0 70px;
-    align-items: center;
-}
-
-.logo-turno-simulador a{
-    color: var(--cor-turno);
-}
-
-.turno-simulador{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 0 15px;
-    background-color: white;
-    border-radius: 10px;
-    max-width: 129px;
-    max-height: 40px;
-    cursor: pointer;
-}
-
-.turno-simulador i{
-    font-size: 20px;
-}
-
-.turno-simulador p{
-    font-size: 18.5px;
-}
-
-#header img {
-    width: 155px;
-    height: 63px;
-}
-
-#categorias {
-    display: flex;
-    gap: 0 100px;
-    position: relative;
-}
-
-#categorias::before {
-    content: '';
-    height: 4px;
-    width: 85.3%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
-    position: absolute;
-    left: 8%;
-    top: 28px;
-    z-index: -1;
-}
-
-#categorias button {
-    width: 33px;
-    height: 33px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 18px;
-    border: 3px solid #FFF;
-    background-color: var( --cor-botao-categoria-padrao);
-    color: #fff;
-    cursor: pointer;
-}
 
 #categorias #eletivas-categorias button{
     width: 45px;
@@ -91,14 +17,6 @@ body{
     cursor: pointer;
 }
 
-.valor-categorias {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    padding-top: 15px;
-}
 #eletivas-categorias{
     padding-top: 9px;
 }
@@ -106,13 +24,6 @@ body{
 #eletivas-categorias p{
     margin-top: 9px;
 }
-
-.valor-categorias p {
-    margin-top: 15px;
-    color: #fff;
-    white-space: nowrap;
-}
-
 
 #main {
     display: flex;

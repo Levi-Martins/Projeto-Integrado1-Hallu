@@ -1,90 +1,14 @@
 @import url(global.css);
 
 body {
-    background-image: var(--background-simulador-1920);
+    background-image: var(--background-turno);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 150px 50px 150px;
-    font-family: var(--font);
-    font-weight: bold;
-    gap: 0 396px;
-}
-
-.logo-turno-simulador {
-    display: flex;
-    gap: 0 70px;
-    align-items: center;
-}
-
-.logo-turno-simulador a {
-    color: var(--cor-turno);
-}
-
-.turno-simulador {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 0 15px;
-    background-color: white;
-    border-radius: 10px;
-    max-width: 129px;
-    max-height: 40px;
-    cursor: pointer;
-}
-
-.turno-simulador i {
-    font-size: 20px;
-}
-
-.turno-simulador p {
-    font-size: 18.5px;
-}
-
-#header img {
-    width: 155px;
-    height: 63px;
-}
-
-#categorias {
-    display: flex;
-    gap: 0 100px;
-    position: relative;
-}
-
-#categorias::before {
-    content: '';
-    height: 4px;
-    width: 85.3%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white"/></svg>');
-    position: absolute;
-    left: 8%;
-    top: 25%;
-    z-index: -1;
-}
-
-#categorias button {
-    width: 33px;
-    height: 33px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 18px;
-    border: 3px solid #FFF;
-    background-color: var(--cor-botao-categoria-padrao);
-    color: #fff;
-    cursor: pointer;
-}
-
-#categorias #resultado-categorias button {
-
-    width: 50px;
-    height: 50px;
+#categorias #resultado-categorias button{
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     text-align: center;
     font-size: 18px;
@@ -94,18 +18,12 @@ body {
     cursor: pointer;
 }
 
-.valor-categorias {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
+#resultado-categorias{
+    padding-top: 9px;
 }
 
-.valor-categorias p {
-    margin-top: 15px;
-    color: #fff;
-    white-space: nowrap;
+#resultado-categorias p{
+    margin-top: 9px;
 }
 
 .arrows {
@@ -154,6 +72,7 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: #FFF;
 }
 
 #texto-resultado h1 {
@@ -176,15 +95,13 @@ main {
 }
 
 #card-resultado h3 {
-    font-weight: 100;
-
-
+    font-weight: bold;
 }
 
 #header-card {
     width: 860px;
     height: 100px;
-    background-color: #FF71A6;
+    background: var(--background-header-card);
     display: flex;
     align-items: center;
     padding: 43px;
@@ -239,7 +156,7 @@ main {
 }
 
 .propriedade-card {
-    background-color: #FFA133;
+    background-color: var(--background-propriedade-card);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -265,7 +182,7 @@ main {
 .column_card {
     width: 375px;
     height: 47px;
-    background-color: #FFA133;
+    background-color: var(--background-propriedade-card);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -293,23 +210,15 @@ main {
     width: 100%;
     font-family: var(--font);
     font-size: 30px;
-    font-weight: medium;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
 }
 
-#detalhes button {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    background-color: #fff;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid;
+#detalhes img{
+    width: 28px;
+    height: 28px;
 }
 
 .card {
@@ -321,6 +230,7 @@ main {
 .card h4 {
     font-family: var(--font);
     font-weight: 100;
+    line-height: 1.2;
 }
 
 #exportar {
@@ -332,8 +242,7 @@ main {
     gap: 43px;
     text-align: center;
     font-weight: 100;
-
-
+    margin-bottom: 90px;
 }
 
 .exportar {
@@ -348,4 +257,83 @@ main {
     border-radius: 10px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     margin-top: 45px;
+    cursor: pointer;
+}
+
+.popup-wrappep-enviar-email{
+    display: none; 
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup-enviar-email{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    max-width: 666px;
+    max-height: 349px;
+    margin:auto;
+    background: var( --popup-diurno-noturno);
+    border-radius: 20px;
+}
+
+.popup-content-enviar-email{
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px 0;
+}
+
+.popup-content-enviar-email h2{
+    max-width: 576px;
+    color: white;
+    font-family: var(--font);
+    font-size: 40px;
+}
+
+.popup-content-enviar-email input{
+    max-width: 606px;
+    width: 606px;
+    max-height: 45px;
+    font-size: 20px;
+    padding: 12px 11px;
+    border-radius: 10px;
+    border: 2px solid #A9A9A9;
+    background: #F0F0F0
+}
+
+.popup-content-enviar-email p{
+    max-width: 606px;
+    color: white;
+    font-family: var(--default-font);
+    font-size: 23px;
+}
+
+.popup-btns-enviar-email{
+    display: flex;
+}
+
+.popup-btns-enviar-email button{
+  width: 333px;
+  height: 87px;
+  font-family: var(--font);
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+#cancelar{
+    border-radius: 0 0 0 20px;
+    border: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.283);
+}
+
+#enviar{
+    border-radius: 0 0 20px 0;
+    border: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.283);
 }

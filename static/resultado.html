@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/resultado.css">
     <script src="script/resultado.js" defer></script>
     <title>Vou Me Formar? - SMD</title>
@@ -90,9 +91,8 @@
                         </div>
                         <div id="detalhes">
                             <label for="detalhes">
-                                <h3>Ver Detalhes</h3>
+                                <h3>Ver Detalhes <img src="assets/icon/ver-detalhes-icone.svg"></h3>
                             </label>
-                            <button name="detalhes">+</button>
                         </div>
                     </div>
                 </div>
@@ -104,6 +104,24 @@
             </div>
             <div class="exportar" id="email">
                 <h4>Enviar resultados por e-mail</h4>
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrappep-enviar-email">
+        <div class="popup-enviar-email">
+            <div class="popup-content-enviar-email">
+                <div class="seu-nome">
+                    <h2>Seu nome:</h2>
+                    <input type="text" id="nome-usuario" placeholder="nome">
+                </div>
+                <div class="seu-email">
+                    <h2>Seu e-mail:</h2>
+                    <input type="text" id="email-usuario" placeholder="e-mail">
+                </div>
+            </div>
+            <div class="popup-btns-enviar-email">
+                <button id="cancelar">Cancelar</button>
+                <button id="enviar">Enviar</button>
             </div>
         </div>
     </div>

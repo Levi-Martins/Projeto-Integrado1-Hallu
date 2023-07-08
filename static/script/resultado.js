@@ -91,10 +91,23 @@ function resultado() {
 
 }
 
+function enviarEmail(){
+    const enviarPorEmail = document.querySelector('#email')
+    enviarPorEmail.addEventListener("click",()=>{
+        const popupWrappep = document.querySelector('.popup-wrappep-enviar-email')
+        const cancelar = document.querySelector('#cancelar')
+        popupWrappep.style.display = 'flex'
+        cancelar.addEventListener('click',()=>{
+            popupWrappep.style.display = 'none'
+        })
+    })
+}
+
 
 function app() {
     temaTurno()
     mudarTurno()
+    enviarEmail()
     resultado()
 }
 app()
