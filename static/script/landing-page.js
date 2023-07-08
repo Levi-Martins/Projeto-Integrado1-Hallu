@@ -20,25 +20,17 @@ $(document).ready(function () {
 
 sessionStorage.clear()
 
+
 if (!sessionStorage.getItem("simuladorIniciado")) {
   sessionStorage.setItem("horas", 0)
   sessionStorage.setItem("horas_obrigatorias", 0)
   sessionStorage.setItem("horas_eletivas", 0)
   sessionStorage.setItem("horas_optativas", 0)
+  let x = [0, 0]
+  sessionStorage.setItem("valor_x", JSON.stringify(x))
   sessionStorage.setItem("simuladorIniciado", false)
 }
 // sessionStorage.clear()
 // localStorage.clear()
 
-function gerarPdf() {
-  const content = document.getElementById("content")
-  const options = {
-    margin: [10, 10, 10, 10],
-    filename: "arquivo.pdf",
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-  }
-  html2pdf().set(options).from(content).save()
-
-}
 

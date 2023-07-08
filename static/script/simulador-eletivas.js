@@ -40,19 +40,19 @@ function eletivas() {
             const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
             for (let j = 0; j < checkboxes.length; j++) {
 
-                horas_cadeira = parseInt(cadeira[i][j][1])
+               
 
                 if (selecionar_todas.checked == true) {
                     if (checkboxes[j].checked == false) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas_eletivas += horas_cadeira
+                        horas_eletivas = 448
                         console.log(`Somando horas: ${horas_eletivas}`)
                     }
                 }
                 else {
                     if (checkboxes[j].checked == true) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas_eletivas -= horas_cadeira
+                        horas_eletivas = 0
                         console.log(`Diminuindo horas: ${horas_eletivas}`)
 
                     }
@@ -125,12 +125,9 @@ function eletivas() {
 
                     }
 
-
-
                     else if (input.checked == false) {
 
                         horas_eletivas -= parseInt(hora_cad)
-
 
                     }
 
@@ -139,6 +136,7 @@ function eletivas() {
                     if (selecionar_todas.checked == true) {
                         selecionar_todas.checked = false
                     }
+                    if (horas_eletivas > 448) horas_eletivas = 448
 
                     const semestre_input = semestres[i].querySelectorAll("input[name='eletivas']")
                     let len = 0;
@@ -181,6 +179,7 @@ function eletivas() {
             }
             q = 0
             horas_eletivas = 0
+            clique = true
             sessionStorage.removeItem("eletivas_optativas")
             aparecerPopupLimpar.style.display = "none"
         })
@@ -200,7 +199,8 @@ function armazenarCadeiras() {
 
     let lista = []
     let q = 0
-
+    let eletivas_feitas = []
+    let eletivas_nao_feitas = []
     for (let e in eletivas_optativas) {
         if (eletivas_optativas[e][4] == 1) {
             q++
@@ -213,22 +213,32 @@ function armazenarCadeiras() {
             let x = 0
             let nocheckbox = []
             let yescheckbox = []
-
+            let feitas_semestre = []
+            let nao_feitas_semestre = []
 
             for (let k = 0; k < checkboxes.length; k++) {
                 if (checkboxes[k].checked) {
                     x++
+
                     if (f == 0 && x > 4) {
                         yescheckbox.push(k)
                     }
                     else if (f == 1 && x > 3) {
                         yescheckbox.push(k)
-
+                    }
+                    else {
+                        feitas_semestre.push(checkboxes[k].value)
                     }
 
                 }
                 if (!checkboxes[k].checked) {
                     nocheckbox.push(k)
+                    if (f == 0 && x <= 3) {
+                        nao_feitas_semestre.push(checkboxes[k].value)
+                    }
+                    else if (f == 1 && x < 3) {
+                        nao_feitas_semestre.push(checkboxes[k].value)
+                    }
                 }
 
             }
@@ -257,8 +267,13 @@ function armazenarCadeiras() {
                 }
             }
 
-
+            eletivas_feitas.push(feitas_semestre)
+            eletivas_nao_feitas.push(nao_feitas_semestre)
         }
+
+
+        sessionStorage.setItem("eletivas_feitas_semestre", JSON.stringify(eletivas_feitas))
+        sessionStorage.setItem("eletivas_nao_feitas_semestre", JSON.stringify(eletivas_nao_feitas))
         sessionStorage.setItem("eletivas_optativas", JSON.stringify(lista))
 
     }
@@ -268,6 +283,9 @@ function armazenarCadeiras() {
     }
 
     sessionStorage.setItem("clique", clique)
+
+
+
 
 
 

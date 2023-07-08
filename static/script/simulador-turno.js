@@ -92,6 +92,8 @@ function escolhaTurno() {
         sessionStorage.setItem("horas_optativas", 0)
         sessionStorage.setItem("simuladorIniciado", false)
         sessionStorage.setItem("bool_turno", true)
+        let x = [0, 0]
+        sessionStorage.setItem("valor_x", JSON.stringify(x))
         if (chk.checked == true) {
           chk.checked = false
         }
