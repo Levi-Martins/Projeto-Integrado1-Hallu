@@ -80,10 +80,11 @@
 
                 <div id="optativas-livres">
                     <h1>Optativas Livres <i id="question" class="fa-regular fa-circle-question" width="23px"></i></h1>
-                    <input type="number" id="horas_livres" min="0" size="2" maxlength="3"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                        placeholder="Insira a sua quantidade de horas optativas livres ">
-
+                    <div id="div_horas">
+                        <input type="number" id="horas_livres" min="0" size="2" maxlength="3"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                            placeholder="Insira a sua quantidade de horas optativas livres ">
+                    </div>
                     <p id="saiba-mais">Saiba aqui como descobrir suas horas de optativas livres, caso tenha feito!</p>
 
                 </div>
@@ -122,7 +123,7 @@
                 <div class="popup-content-horas">
                     <img id="btn_close_popup-horas" src="assets/icon/close-popup.png">
                     <h2>O que são optativas livres?</h3>
-                    <p id="info-optativas"></p>
+                        <p id="info-optativas"></p>
                 </div>
                 <div class="popup-info-horas">
                     <h3>Não sabe como ver suas horas de optativas livres? Se liga no tutorial aqui!</h3>

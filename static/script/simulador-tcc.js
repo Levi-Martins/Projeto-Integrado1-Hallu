@@ -1,6 +1,5 @@
 let turno_escolhido = sessionStorage.getItem("turno")
-let tcc = JSON.parse(sessionStorage.getItem("tcc"))
-console.log(tcc)
+let tcc_cadeira = JSON.parse(sessionStorage.getItem("tcc"))
 let telafinal = true
 
 function temaTurno() {
@@ -28,7 +27,13 @@ function mudarTurno() {
     }
 }
 
+function credito(horas) {
+    return horas / 16
+}
+
 function infoTcc() {
+    console.log(tcc_cadeira)
+
     const id_tcc = document.getElementById("nome_tcc")
     const botaoInfo = document.createElement("button")
     botaoInfo.classList.add("botaoInfo")
@@ -37,22 +42,23 @@ function infoTcc() {
     botaoInfo.addEventListener("click", (e) => {
 
         e.preventDefault()
+        console.log(tcc_cadeira)
         const popup = document.getElementById("popup-wrappep")
         popup.style.display = "flex"
         const nome_cadeira = document.getElementById("nome_cadeira")
-        nome_cadeira.append(tcc[0][0])
+        nome_cadeira.append(tcc_cadeira[0][0])
 
         const pre_requisito = document.getElementById("pre-requisito")
-        pre_requisito.innerHTML = `<b>Pré-requisito: </b>${tcc[0][3]}`
+        pre_requisito.innerHTML = `<b>Pré-requisito: </b>${tcc_cadeira[0][3]}`
         const qtd_horas = document.getElementById("qtd_horas")
-        qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${tcc[0][1]}`
+        qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${tcc_cadeira[0][1]}h / ${credito(tcc_cadeira[0][1])} créditos`
+
         const objetivo = document.getElementById("objetivo")
-        objetivo.innerHTML = `<b>Objetivo: </b>${tcc[0][2]}`
+        objetivo.innerHTML = `<b>Objetivo: </b>${tcc_cadeira[0][2]}`
         const btn_close_popup = document.getElementById("btn_close_popup")
 
 
         btn_close_popup.addEventListener("click", () => {
-
             popup.style.display = "none"
             nome_cadeira.innerHTML = ""
             qtd_horas.innerHTML = ""
@@ -68,9 +74,6 @@ function infoTcc() {
 
 function inputTcc() {
     checkbox = document.getElementsByClassName("check-tcc")
-
-
-
     for (let checkboxItem of checkbox) {
         checkboxItem.addEventListener("click", () => {
             if (!telafinal) {
@@ -123,18 +126,41 @@ function atualizarCadeiras() {
 
     if ((horas_complementares.value).length > 0) {
         horas_complementares.style.backgroundColor = "#baf5ab"
+        const botao_apagar = document.createElement("button")
+        const div_horas = document.getElementById("div_horas")
+        botao_apagar.classList.add("botao_apagar")
+        botao_apagar.innerText = 'x'
+        botao_apagar.addEventListener("click", () => {
+            horas_complementares.value = ""
+            horas_complementares.style.backgroundColor = "#ECECEC"
+            botao_apagar.remove()
+
+        })
+        div_horas.appendChild(botao_apagar)
+
+
     }
     else {
         horas_complementares.style.backgroundColor = "#ECECEC"
-
     }
 }
 
 function onInput() {
     const horas_complementares = document.getElementById("horas_complementares")
+    const botao_apagar = document.createElement("button")
+    const div_horas = document.getElementById("div_horas")
+    botao_apagar.classList.add("botao_apagar")
+    botao_apagar.innerText = 'x'
+    botao_apagar.addEventListener("click", () => {
+        horas_complementares.value = ""
+        horas_complementares.style.backgroundColor = "#ECECEC"
+        botao_apagar.remove()
+
+    })
 
 
     horas_complementares.addEventListener("keyup", () => {
+
         if ((horas_complementares.value).length > 3) {
             let nova = (horas_complementares.value).split("")
             console.log(nova)
@@ -145,9 +171,12 @@ function onInput() {
         setInterval(() => {
             if ((horas_complementares.value).length <= 0 || horas_complementares.value == '') {
                 horas_complementares.style.backgroundColor = "#ECECEC"
+                botao_apagar.remove()
             }
             else {
                 horas_complementares.style.backgroundColor = "#baf5ab"
+                div_horas.appendChild(botao_apagar)
+
 
             }
 
@@ -200,9 +229,9 @@ function finalizar() {
 function app() {
     temaTurno()
     mudarTurno()
+    atualizarCadeiras()
     infoTcc()
     inputTcc()
-    atualizarCadeiras()
     onInput()
 }
 app()

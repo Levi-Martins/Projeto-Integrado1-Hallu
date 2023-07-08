@@ -16,6 +16,9 @@ function temaTurno() {
     }
 }
 
+function credito(horas){
+    return horas/16
+}
 
 function obrigatorias() {
     let cadeira = JSON.parse(localStorage.getItem("obrigatorias"))
@@ -101,7 +104,7 @@ function obrigatorias() {
                 const pre_requisito = document.getElementById("pre-requisito")
                 pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cadeira[i][j][3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
-                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
+                qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cadeira[i][j][1]}h / ${credito(cadeira[i][j][1])} créditos`
                 const objetivo = document.getElementById("objetivo")
                 objetivo.innerHTML = `<b>Objetivo: </b>${cadeira[i][j][2]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
@@ -145,7 +148,8 @@ function obrigatorias() {
                     const pre_requisito = document.getElementById("pre-requisito")
                     pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cadeira_turno[3]}`
                     const qtd_horas = document.getElementById("qtd_horas")
-                    qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira_turno[1]}`
+                    qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cadeira_turno[1]}h / ${credito(cadeira_turno[1])} créditos`
+
                     const objetivo = document.getElementById("objetivo")
                     objetivo.innerHTML = `<b>Objetivo: </b>${cadeira_turno[2]}`
                     const btn_close_popup = document.getElementById("btn_close_popup")

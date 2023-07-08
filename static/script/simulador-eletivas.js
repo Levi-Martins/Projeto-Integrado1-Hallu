@@ -15,6 +15,10 @@ function temaTurno() {
 }
 
 
+function credito(horas) {
+    return horas / 16
+}
+
 function eletivas() {
     let horas_cadeira
 
@@ -84,7 +88,7 @@ function eletivas() {
                 const pre_requisito = document.getElementById("pre-requisito")
                 pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cadeira[i][j][3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
-                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cadeira[i][j][1]}`
+                qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cadeira[i][j][1]}h / ${credito(cadeira[i][j][1])} créditos`
                 const objetivo = document.getElementById("objetivo")
                 objetivo.innerHTML = `<b>Objetivo: </b>${cadeira[i][j][2]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
@@ -190,7 +194,6 @@ function eletivas() {
 }
 
 
-
 function armazenarCadeiras() {
 
     const forms = document.getElementsByClassName("cadeiras-semestre")
@@ -206,7 +209,7 @@ function armazenarCadeiras() {
     if (q == 0 || clique) {
         for (let f = 0; f < forms.length; f++) {
             const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
-             
+
             let x = 0
             let nocheckbox = []
             let yescheckbox = []

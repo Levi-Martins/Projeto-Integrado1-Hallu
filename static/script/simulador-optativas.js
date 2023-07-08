@@ -28,6 +28,9 @@ function mudarTurno() {
     }
 }
 
+function credito(horas) {
+    return horas / 16
+}
 
 function optativas() {
     let cadeira = JSON.parse(localStorage.getItem("optativas"))
@@ -62,7 +65,8 @@ function optativas() {
                 const pre_requisito = document.getElementById("pre-requisito")
                 pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cad[3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
-                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cad[1]}`
+                qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cad[i]}h / ${credito(cad[i])} créditos`
+
                 const objetivo = document.getElementById("objetivo")
                 objetivo.innerHTML = `<b>Objetivo: </b>${cad[2]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
@@ -243,7 +247,8 @@ function atualizarCheckboxes() {
                 const pre_requisito = document.getElementById("pre-requisito")
                 pre_requisito.innerHTML = `<b>Pré-requesito: </b>${cad[3]}`
                 const qtd_horas = document.getElementById("qtd_horas")
-                qtd_horas.innerHTML = `<b>Quantidade de horas: </b> ${cad[1]}`
+                qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cad[1]}h / ${credito(cad[1])} créditos`
+
                 const objetivo = document.getElementById("objetivo")
                 objetivo.innerHTML = `<b>Objetivo: </b>${cad[2]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
@@ -367,7 +372,6 @@ function atualizarCheckboxes() {
 
 
 
-
     let cadeirasSelecionadas = JSON.parse(sessionStorage.getItem("optativas_selecionadas"))
     if (cadeirasSelecionadas) {
         for (let i = 0; i < checkboxes.length; i++) {
@@ -406,6 +410,20 @@ function atualizarCheckboxes() {
 
     if ((horas_livres.value).length > 0) {
         horas_livres.style.backgroundColor = "#baf5ab"
+        const botao_apagar = document.createElement("button")
+        const div_horas = document.getElementById("div_horas")
+        botao_apagar.classList.add("botao_apagar")
+        botao_apagar.innerText = 'x'
+        botao_apagar.addEventListener("click", () => {
+            horas_livres.value = ""
+            horas_livres.style.backgroundColor = "#ECECEC"
+            botao_apagar.remove()
+
+        })
+        div_horas.appendChild(botao_apagar)
+    }
+    else {
+        horas_livres.style.backgroundColor = "#ECECEC"
 
     }
 
@@ -413,10 +431,20 @@ function atualizarCheckboxes() {
 
 function onInput() {
     const horas_livres = document.getElementById("horas_livres")
+    const botao_apagar = document.createElement("button")
+    const div_horas = document.getElementById("div_horas")
+    botao_apagar.classList.add("botao_apagar")
+    botao_apagar.innerText = 'x'
+    botao_apagar.addEventListener("click", () => {
+        horas_livres.value = ""
+        horas_livres.style.backgroundColor = "#ECECEC"
+        botao_apagar.remove()
 
+    })
 
 
     horas_livres.addEventListener("keyup", () => {
+
         if ((horas_livres.value).length > 3) {
             let nova = (horas_livres.value).split("")
             console.log(nova)
@@ -427,10 +455,13 @@ function onInput() {
         setInterval(() => {
             if ((horas_livres.value).length <= 0 || horas_livres.value == '') {
                 horas_livres.style.backgroundColor = "#ECECEC"
+                horas_livres.style.backgroundColor = "#ECECEC"
+                botao_apagar.remove()
 
             }
             else {
                 horas_livres.style.backgroundColor = "#baf5ab"
+                div_horas.appendChild(botao_apagar)
 
             }
 
@@ -476,6 +507,9 @@ function limpar() {
             for (let e in eletivas_optativas) {
                 eletivas_optativas[e][4] = 0
             }
+            const input_horas = document.getElementById("horas_livres")
+            input_horas.value = ""
+            horas_livres.style.backgroundColor = "#ECECEC"
 
             horas_optativas = 0
             aparecerPopupLimpar.style.display = "none"
@@ -489,29 +523,29 @@ function limpar() {
 
 }
 
-function optativasLivres(){
+function optativasLivres() {
     const question = document.querySelector('#question')
     const saibaMais = document.querySelector('#saiba-mais')
     const closePopup = document.querySelector("#btn_close_popup-horas")
     const popup = document.querySelector('.popup-wrappep-horas')
     const infoOptativas = document.querySelector('#info-optativas')
 
-    question.addEventListener('click', ()=>{
+    question.addEventListener('click', () => {
         popup.style.display = "flex"
         console.log('clicou')
-        if(turno_escolhido == 'Diurno'){
+        if (turno_escolhido == 'Diurno') {
             infoOptativas.innerText = 'Optativas livres são quaisquer cadeiras que você faz dentro da UFC e não fazem parte da oferta padrão do curso. Você pode cursar no máximo 128 horas de optativas livres, que são integralizadas a sua carga horária total de optativas!'
-        }else{
+        } else {
             infoOptativas.innerText = 'Optativas livres são quaisquer cadeiras que você faz dentro da UFC e não fazem parte da oferta padrão do curso. Você pode cursar no máximo 256 horas de optativas livres, que são integralizadas a sua carga horária total de optativas!'
         }
     })
 
-    saibaMais.addEventListener('click', ()=>{
+    saibaMais.addEventListener('click', () => {
         popup.style.display = "flex"
         console.log('clicou')
     })
 
-    closePopup.addEventListener('click',()=>{
+    closePopup.addEventListener('click', () => {
         popup.style.display = "none"
 
     })

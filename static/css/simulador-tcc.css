@@ -174,7 +174,7 @@ body{
 
 .horas-content input {
     padding: 12px 11px;
-    width: 435px;
+    width: 450px;
     height: 42px;
     font-size: 18px;
     font-family: var(--default-font);
@@ -337,4 +337,26 @@ body{
     display: flex;
     justify-items: center;
     align-items: center;
+}
+
+#div_horas{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.botao_apagar{
+    margin-top: 19px;
+    max-width: 20px;
+    max-height: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #7A5F2A;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
