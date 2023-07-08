@@ -79,12 +79,12 @@
                 </div>
 
                 <div id="optativas-livres">
-                    <h1>Optativas Livres</h1>
+                    <h1>Optativas Livres <i id="question" class="fa-regular fa-circle-question" width="23px"></i></h1>
                     <input type="number" id="horas_livres" min="0" size="2" maxlength="3"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                         placeholder="Insira a sua quantidade de horas optativas livres ">
 
-                    <!-- <p>Saiba aqui como descobrir suas horas de optativas livres, caso tenha feito!</p> -->
+                    <p id="saiba-mais">Saiba aqui como descobrir suas horas de optativas livres, caso tenha feito!</p>
 
                 </div>
             </div>
@@ -94,8 +94,8 @@
                     <img src="assets/icon/balao-de-fala-simulador.svg" alt="">
                 </div>
                 <div class="descricao-disciplina">
-                    <p>Você pode fazer mais de 80 optativas dentro do SMD! Mas caso tenha feito algum(as) optativa(s)
-                        livre(s) dentro da UFC, é só colocar o números de horas correspondente à ela(s) na caixa ali em
+                    <p>Você pode fazer mais de 80 optativas dentro do SMD! Mas caso tenha feito alguma(s) optativa(s)
+                        livre(s) dentro da UFC, é só colocar o números de horas correspondente a ela(s) na caixa ali em
                         cima.</p>
                 </div>
             </div>
@@ -104,7 +104,7 @@
         <div id="popup-wrappep" class="popup-wrappep">
             <div class="popup">
                 <div class="popup-content">
-                    <button id="btn_close_popup">x</button>
+                    <img id="btn_close_popup" src="assets/icon/close-popup.png">
                     <h2 id="nome_cadeira"></h2>
                     <hr>
                     <h4> <b>Tipo:</b> Optativas</h4>
@@ -117,13 +117,34 @@
             </div>
         </div>
 
+        <div id="popup-wrappep-horas" class="popup-wrappep-horas">
+            <div class="popup-horas">
+                <div class="popup-content-horas">
+                    <img id="btn_close_popup-horas" src="assets/icon/close-popup.png">
+                    <h2>O que são optativas livres?</h3>
+                    <p id="info-optativas"></p>
+                </div>
+                <div class="popup-info-horas">
+                    <h3>Não sabe como ver suas horas de optativas livres? Se liga no tutorial aqui!</h3>
+                    <ul>
+                        <li>1. Abra o SIGAA e entre com seu login e senha.</li>
+                        <li>2. Acesse o Portal do Discente</li>
+                        <li>3. No menu horizontal, acesse Ensino > Consultas do Discente > Pendências da Conclusão</li>
+                        <li>4. Na nova página, desça a tela até encontrar 'Limites da Estrutura Curricular'</li>
+                        <li>5. Na seção de Componentes Optativos Livres, veja ‘Integralizado’</li>
+                        <li>6. Pronto! :)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <a href="simulador-tcc.html"><button class="arrows" onclick="armazenarCadeiras()"><img
                     src="assets/icon/arrow-right.png"></button></a>
     </div>
     <div class="popup-wrappep-limpar">
         <div class="popup-limpar">
             <div class="popup-content-limpar">
-                <h2>Tem certeza que deseja limpar a página atual?</h2>
+                <h2>Tem certeza de que deseja limpar a página atual?</h2>
                 <p>Todas as caixas marcadas serão deselecionadas e essa ação não poderá ser desfeita!</p>
             </div>
             <div class="popup-btns-limpar">

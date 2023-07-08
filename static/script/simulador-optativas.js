@@ -489,11 +489,40 @@ function limpar() {
 
 }
 
+function optativasLivres(){
+    const question = document.querySelector('#question')
+    const saibaMais = document.querySelector('#saiba-mais')
+    const closePopup = document.querySelector("#btn_close_popup-horas")
+    const popup = document.querySelector('.popup-wrappep-horas')
+    const infoOptativas = document.querySelector('#info-optativas')
+
+    question.addEventListener('click', ()=>{
+        popup.style.display = "flex"
+        console.log('clicou')
+        if(turno_escolhido == 'Diurno'){
+            infoOptativas.innerText = 'Optativas livres são quaisquer cadeiras que você faz dentro da UFC e não fazem parte da oferta padrão do curso. Você pode cursar no máximo 128 horas de optativas livres, que são integralizadas a sua carga horária total de optativas!'
+        }else{
+            infoOptativas.innerText = 'Optativas livres são quaisquer cadeiras que você faz dentro da UFC e não fazem parte da oferta padrão do curso. Você pode cursar no máximo 256 horas de optativas livres, que são integralizadas a sua carga horária total de optativas!'
+        }
+    })
+
+    saibaMais.addEventListener('click', ()=>{
+        popup.style.display = "flex"
+        console.log('clicou')
+    })
+
+    closePopup.addEventListener('click',()=>{
+        popup.style.display = "none"
+
+    })
+}
+
 function app() {
     console.log("Seleção de Eletivas")
     temaTurno()
     mudarTurno()
     optativas()
+    optativasLivres()
     atualizarCheckboxes()
     onInput()
 

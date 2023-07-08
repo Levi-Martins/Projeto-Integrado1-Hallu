@@ -46,7 +46,7 @@ body{
 
 #disciplina {
     background-color: var(--background-disciplina);
-    max-width: 1389px;
+    max-width: 1505px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -122,6 +122,12 @@ body{
     font-weight: 400;
 }
 
+.tcc-horas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .tcc-horas h1 {
     color: var(--tcc-horas-h1);
     font-family: var(--font);
@@ -188,7 +194,7 @@ body{
 
 #btn-finalizar {
     position: relative;
-    left: 81.7%;
+    left: 82.7%;
     width: 185px;
     height: 70px;
     margin-bottom: 40px;
