@@ -19,7 +19,7 @@ function credito(horas) {
 }
 
 function eletivas() {
-    let horas_cadeira
+
 
     const semestres = document.getElementsByClassName("cadeiras-semestre")
 
@@ -110,26 +110,13 @@ function eletivas() {
 
 
 
-            input.addEventListener("click", function (hora_cad) {
+            input.addEventListener("click", function () {
                 return () => {
                     clique = true
-                    if (input.checked == true) {
-                        horas_eletivas += parseInt(hora_cad)
-
-                    }
-
-                    else if (input.checked == false) {
-
-                        horas_eletivas -= parseInt(hora_cad)
-
-                    }
-
-
-                    if (horas_eletivas <= 0) horas_eletivas = 0
                     if (selecionar_todas.checked == true) {
                         selecionar_todas.checked = false
                     }
-                    if (horas_eletivas > 448) horas_eletivas = 448
+
 
                     const semestre_input = semestres[i].querySelectorAll("input[name='eletivas']")
                     let len = 0;
@@ -148,7 +135,7 @@ function eletivas() {
 
                 }
 
-            }(horas_cadeira))
+            }())
 
 
         }
@@ -186,6 +173,7 @@ function eletivas() {
 }
 
 
+
 function armazenarCadeiras() {
 
     const forms = document.getElementsByClassName("cadeiras-semestre")
@@ -205,6 +193,7 @@ function armazenarCadeiras() {
             const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
 
             let x = 0
+            let h = 0
             let nocheckbox = []
             let yescheckbox = []
             let feitas_semestre = []
@@ -228,11 +217,14 @@ function armazenarCadeiras() {
                 }
                 if (!checkboxes[k].checked) {
                     nocheckbox.push(k)
-                    if (f == 0 && x <= 3) {
+                    if (f == 0 ) {
                         nao_feitas_semestre.push(checkboxes[k].value)
+                        console.log(nao_feitas_semestre)
                     }
-                    else if (f == 1 && x < 3) {
+                    else if (f == 1 ) {
                         nao_feitas_semestre.push(checkboxes[k].value)
+                        console.log(nao_feitas_semestre)
+
                     }
                 }
 

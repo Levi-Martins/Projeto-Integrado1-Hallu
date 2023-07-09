@@ -216,7 +216,7 @@ function obrigatorias() {
             }
 
             else {
-                if (cadeira[i][j][0] == "TCC") {
+                if (cadeira[i][j][0] == "Trabalho de Conclusão de Curso") {
                     tcc.push([cadeira[i][j][0], cadeira[i][j][1], cadeira[i][j][2], cadeira[i][j][3]])
                 }
                 else { semestres[i].appendChild(label) }

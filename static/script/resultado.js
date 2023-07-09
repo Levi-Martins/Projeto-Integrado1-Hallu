@@ -8,7 +8,7 @@ eletivas = JSON.parse(sessionStorage.getItem("eletivas_selecionadas"))
 eletivas_feitas = JSON.parse(sessionStorage.getItem("eletivas_feitas_semestre"))
 eletivas_nao_feitas = JSON.parse(sessionStorage.getItem("eletivas_nao_feitas_semestre"))
 
-
+console.log(eletivas_nao_feitas)
 horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 optativa = JSON.parse(sessionStorage.getItem("optativas_selecionadas"))
 horas_optativas = parseInt(sessionStorage.getItem("horas_optativas"))
@@ -73,9 +73,17 @@ function resultado() {
     }
 
     for (let e in eletivas_optativas) {
-        optativa.push(eletivas_optativas[e][0])
+        if (eletivas_optativas[e][4] == 1) {
+            optativa.push(`${eletivas_optativas[e][0]}*`)
+        }
+    }
+    for (let i in eletivas_optativas) {
+        if (eletivas_optativas[i][4] == 1) {
+            horas_optativas += parseInt(eletivas_optativas[i][1])
+        }
     }
     qtd_eletiva.innerHTML = `${eletivas.length}/7`
+    console.log(optativa.length)
     qtd_optativa.innerHTML = `${optativa.length}/12`
     qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h`
     qtd_complementares.innerHTML = `Horas Complementares ${horas_complementares}h`
@@ -240,7 +248,7 @@ function gerarPdf() {
             }
         }
         lastX += 37
-
+        let y8 = lastY + 10
 
         doc.setFontStyle('bold')
         doc.setFontSize(8.5)
@@ -280,6 +288,7 @@ function gerarPdf() {
                         obrigatorias_nao_feitas[4][i] = "Gestão de Projetos\nMultimídia"
                     }
                     doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[4][i]}`, lastX, lastY + 33 + (i * 3))
+
                 }
 
             }
@@ -326,7 +335,7 @@ function gerarPdf() {
                 doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[5][i]}`, lastX, 70 + (i * 3))
             }
 
-            if (obrigatorias_feitas[5].length < 2) {
+            if (obrigatorias_feitas[5].length < qtd7) {
                 doc.setFontStyle('bold')
                 doc.setFontSize(8.5)
                 doc.setTextColor('#ED1010')
@@ -361,6 +370,8 @@ function gerarPdf() {
                     continue
                 }
                 doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[5][i]}`, lastX, 70 + (i * 3))
+                lastY = 70 + (i * 3)
+
             }
 
         }
@@ -372,12 +383,12 @@ function gerarPdf() {
         doc.setFontSize(8.5)
 
         let qtd = (turno_escolhido == "Diurno") ? 1 : 2
-
-
-        doc.text(`8º semestre (${obrigatorias_feitas[6].length}/${qtd})`, lastX, lastY + 10)
+        let yA 
+        console.log(lastY)
+        doc.text(`8º semestre (${obrigatorias_feitas[6].length}/${qtd})`, lastX, y8)
         if (obrigatorias_feitas[6].length > 0) {
             doc.setTextColor('#11A020')
-            doc.text("Feitas:", lastX, lastY + 15)
+            doc.text("Feitas:", lastX, y8 + 5)
             doc.setFontStyle('normal')
             doc.setFontSize(7.7)
             doc.setTextColor('#000000')
@@ -385,14 +396,34 @@ function gerarPdf() {
                 if (obrigatorias_feitas[6][i] == undefined) {
                     continue
                 }
-                doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[6][i]}`, lastX, lastY + 20 + (i * 3))
+                doc.text(`${parseInt(i) + 1}. ${obrigatorias_feitas[6][i]}`, lastX, y8 + 10 + (i * 3))
+                yA = y8 + 10 + (i * 3)
+            }
+            if (obrigatorias_nao_feitas[6].length > 0) {
+
+                doc.setFontStyle('bold')
+                doc.setFontSize(8.5)
+                doc.setTextColor('#ED1010')
+                doc.text("Não Feitas:", lastX, yA+5)
+                doc.setFontStyle('normal')
+                doc.setFontSize(7.7)
+                doc.setTextColor('#000000')
+                for (let i in obrigatorias_nao_feitas) {
+                    if (obrigatorias_nao_feitas[6][i] == undefined) {
+                        continue
+                    }
+                    doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[6][i]}`, lastX, yA + 12 + (i * 3))
+
+                }
+
+
             }
         }
         else {
             doc.setFontStyle('bold')
             doc.setFontSize(8.5)
             doc.setTextColor('#ED1010')
-            doc.text("Não Feitas:", lastX, lastY + 15)
+            doc.text("Não Feitas:", lastX, y8 + 5)
             doc.setFontStyle('normal')
             doc.setFontSize(7.7)
             doc.setTextColor('#000000')
@@ -400,100 +431,318 @@ function gerarPdf() {
                 if (obrigatorias_nao_feitas[6][i] == undefined) {
                     continue
                 }
-                doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[6][i]}`, lastX, lastY + 20 + (i * 3))
+                doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[6][i]}`, lastX, y8 + 10 + (i * 3))
             }
 
         }
     }
 
     //ELETVAS
-    doc.setFontSize(10)
-    doc.setFontStyle('bold')
-
-    doc.text(`Feitas: ${eletivas.length}/7`, 19.3, 118)
-    let x1
-
-
-
-    if (horas_eletivas > 0 && horas_eletivas < 1000) {
-        x1 = 50.7
-    }
-    else {
-        x1 = 53
-    }
-
-    doc.setFontStyle('normal')
-    doc.text(`Horas Obtidas: ${horas_eletivas}/448`, x1, 118)
-
-    let x2 = (creditos(horas_eletivas) > 0) ? 104.8 : 105.7
-    doc.text(`Créditos Obtidos: ${creditos(horas_eletivas)}/28`, x2, 118)
-
-    for (let x = 0; x < 2; x++) {
-
-        let margem = (eletivas_nao_feitas[0].length > 0) ? 48 : 45
-
-
+    {
+        doc.setFontSize(10)
         doc.setFontStyle('bold')
-        doc.setFontSize(8.5)
-        let s = (x == 0) ? 4 : 3
-        doc.text(`${x + 4}º semestre (${eletivas_feitas[x].length}/${s})`, (x * margem) + 16, 124.1)
-        lastX = (x * margem) + 16
-        if (eletivas_feitas[x].length > 0) {
-            doc.setTextColor('#11A020')
-            doc.text("Feitas:", (x * margem) + 16, 129.1)
-            doc.setFontStyle('normal')
-            doc.setFontSize(7.7)
-            doc.setTextColor('#000000')
 
-            let lastY
-            for (let i in eletivas_feitas[x]) {
-                if (eletivas_feitas[x][i] == undefined) {
-                    continue
-                }
+        doc.text(`Feitas: ${eletivas.length}/7`, 19.3, 118)
+        let x1
 
-                doc.text(`${parseInt(i) + 1}. ${eletivas_feitas[x][i]}`, (x * margem) + 17, 134.1 + (i * 3))
-                lastY = i * 3
-            }
-            if (eletivas_nao_feitas[x].length > 0) {
+
+
+        if (horas_eletivas > 0 && horas_eletivas < 1000) {
+            x1 = 50.7
+        }
+        else {
+            x1 = 53
+        }
+
+        doc.setFontStyle('normal')
+        doc.text(`Horas Obtidas: ${horas_eletivas}/448`, x1, 118)
+
+        let x2 = (creditos(horas_eletivas) > 0) ? 104.8 : 105.7
+        doc.text(`Créditos Obtidos: ${creditos(horas_eletivas)}/28`, x2, 118)
+
+        for (let x = 0; x < 2; x++) {
+
+            let margem = (eletivas_nao_feitas[0].length > 0) ? 48 : 45
+
+            doc.setFontStyle('bold')
+            doc.setFontSize(8.5)
+            let s = (x == 0) ? 4 : 3
+            console.log(eletivas_feitas)
+            if (eletivas_feitas == 'nenhuma' || eletivas_feitas[x].length <= 0) {
+                doc.text(`${x + 4}º semestre (${0}/${s})`, (x * margem) + 16, 124.1)
+
                 doc.setFontStyle('bold')
                 doc.setFontSize(8.5)
                 doc.setTextColor('#ED1010')
-                doc.text(`Ainda deve escolher ${s - eletivas_nao_feitas[x].length} destas:`, (x * margem) + 16, 139.1 + lastY)
-                doc.line((x * margem) + 46, 139.5 + lastY, (x * margem) + 47.7, 139.5 + lastY)
-                console.log(lastY)
+                doc.text(`Ainda deve escolher ${s} destas:`, (x * margem) + 16, 129.1)
+                doc.line((x * margem) + 46, 129.5, (x * margem) + 47.7, 129.5)
+
                 doc.setFontStyle('normal')
                 doc.setFontSize(7.7)
                 doc.setTextColor('#000000')
-                for (let i in eletivas_nao_feitas) {
+                for (let i in eletivas_nao_feitas[x]) {
                     if (eletivas_nao_feitas[x][i] == undefined) {
                         continue
                     }
-                    doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 144.1 + lastY + (i * 3))
+                    console.log("Opa")
+
+                    console.log(eletivas_nao_feitas[x][i])
+                    doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 134.1 + (i * 3))
+                    if (x == 1 && i == eletivas_nao_feitas[x].length - 1) {
+                        doc.setTextColor('#988787')
+                        console.log("Opa")
+                        doc.text("Nenhuma eletiva para optativa", 158, 125)
+                    }
                 }
 
-            }
-        }
-        else {
-            doc.setTextColor('#ED1010')
-            doc.text(`Ainda deve escolher ${eletivas_nao_feitas[x].length} destas:`, (x * margem) + 16, 129.1)
-            doc.line((x * margem) + 46, 129.5, (x * margem) + 47.7, 129.5)
 
-            doc.setFontStyle('normal')
-            doc.setFontSize(7.7)
-            doc.setTextColor('#000000')
-            for (let i in eletivas_nao_feitas) {
-                if (eletivas_nao_feitas[x][i] == undefined) {
-                    continue
+            }
+
+
+            else {
+                doc.text(`${x + 4}º semestre (${eletivas_feitas[x].length}/${s})`, (x * margem) + 16, 124.1)
+
+
+                lastX = (x * margem) + 16
+                if (eletivas_feitas[x].length > 0) {
+                    doc.setFontStyle('bold')
+                    doc.setFontSize(8.5)
+                    doc.setTextColor('#11A020')
+                    doc.text("Feitas:", (x * margem) + 16, 129.1)
+                    doc.setFontStyle('normal')
+                    doc.setFontSize(7.7)
+                    doc.setTextColor('#000000')
+
+                    let lastY
+
+
+
+                    for (let i in eletivas_feitas[x]) {
+                        if (eletivas_feitas[x][i] == undefined) {
+                            continue
+                        }
+
+                        doc.text(`${parseInt(i) + 1}. ${eletivas_feitas[x][i]}`, (x * margem) + 17, 134.1 + (i * 3))
+                        lastY = i * 3
+                    }
+
+                    if (eletivas_nao_feitas[x].length > 0) {
+                        if (s - eletivas_feitas[x].length <= 0) {
+                            continue
+                        }
+                        doc.setFontStyle('bold')
+                        doc.setFontSize(8.5)
+                        doc.setTextColor('#ED1010')
+                        doc.text(`Ainda deve escolher ${s - eletivas_feitas[x].length} destas:`, (x * margem) + 16, 139.1 + lastY)
+                        doc.line((x * margem) + 46, 139.5 + lastY, (x * margem) + 47.7, 139.5 + lastY)
+                        doc.setFontStyle('normal')
+                        doc.setFontSize(7.7)
+                        doc.setTextColor('#000000')
+                        for (let i in eletivas_nao_feitas[x]) {
+
+                            if (eletivas_nao_feitas[x][i] == undefined) {
+                                continue
+                            }
+
+                            doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 144.1 + lastY + (i * 3))
+                            if (x == 1 && i == eletivas_nao_feitas[x].length - 1) {
+                                doc.setTextColor('#988787')
+                                console.log("Opa")
+                                doc.text("Nenhuma eletiva para optativa", 158, 125)
+                            }
+                        }
+                    }
                 }
-                doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 70 + (i * 3))
             }
         }
+
+        if (eletivas_optativas.length > 0) {
+            let ele_op = false
+            let disp = false
+            let sla = false
+            let y
+            let y2 = 0
+            let y_disponiveis
+            let y_disp_cad
+            let c = 0
+            let margem = 0
+           
+
+            for (let i in eletivas_optativas) {
+                y = (i * 3) + 128
+                y_disponiveis = y + 5
+
+
+
+
+                if (eletivas_optativas[i][4] == 1) {
+                    ele_op = true
+                    c++
+                    if (c == 1) {
+                        if (y2 == 1) {
+                            margem = 1
+                        }
+                        else if (y2 == 2) {
+                            margem = -2
+                        }
+                        else {
+                            margem = 2
+                        }
+                    }
+
+                    console.log(margem)
+                    doc.text(`${eletivas_optativas[i][0]} `, 159, y + margem)
+
+                }
+
+                if (eletivas_optativas[i][4] == 0) {
+                    y2++
+                    console.log(y2)
+                    if (y2 > 0 && y2 < 3) {
+                        disp = true
+                        y_disp_cad = y_disponiveis
+
+                        if (y2 == 1) {
+                            if (c == 2) {
+                                y_disp_cad -= 5
+                            }
+
+
+                        }
+                        if (y2 == 2) {
+                            if (c == 1) {
+                                y_disp_cad -= 3
+                            }
+                        }
+
+                        doc.text(`${eletivas_optativas[i][0]} `, 159, y_disp_cad + 10)
+                    }
+
+                    else {
+                        if (y2 > 2) {
+                            sla = true
+                            doc.text(`${eletivas_optativas[i][0]} `, 159, y + 3.5)
+                        }
+
+                    }
+                }
+            }
+
+            doc.setFontStyle('bold')
+            doc.setFontSize(8.5)
+            if (ele_op) {
+                doc.setTextColor('#11A020')
+                doc.text("Feitas:", 158, 127)
+            }
+            if (disp) {
+                doc.setTextColor('#6D6D6D')
+                console.log("opaa")
+                doc.text("Disponíveis para fazer", 158, y_disponiveis)
+            }
+
+            if (sla) {
+                doc.setTextColor('#6D6D6D')
+                doc.text("Disponíveis para fazer", 158, 127)
+
+            }
+
+        }
+        // for (let e in eletivas_nao_feitas) {
+        //     for (o in eletivas_optativas) {
+        //         if (eletivas_nao_feitas[e] == eletivas_optativas[o][0]) {
+        //             console.log(eletivas_nao_feitas[e])
+        //             const index = eletivas_nao_feitas.indexOf(eletivas_nao_feitas[e]);
+        //             if (index > -1) {
+        //                 eletivas_nao_feitas.splice(index, 1);
+        //             }
+        //         }
+        //     }
+        // }
+
     }
 
+    //OPTATIVAS
+    {
+        doc.setFontSize(10)
+        doc.setFontStyle('bold')
+        doc.setTextColor('#000000')
+
+
+
+        if (horas_optativas > 0) {
+            x1 = 18
+        }
+        else {
+            x1 = 20
+        }
+
+
+
+        doc.text(`Horas Totais Obtidas: ${horas_optativas + horas_optativas_livres}/1408`, x1, 176.5)
+
+        let x2 = (creditos(horas_optativas + horas_optativas_livres) > 0) ? 82 : 82.4
+        doc.text(`Créditos Totais Obtidos: ${creditos(horas_optativas + horas_optativas_livres)}/76`, x2, 176.5)
+
+        doc.setFontSize(8.5)
+
+        doc.setFontStyle('bold')
+        let x = 0
+        for (let i in eletivas_optativas) {
+            if (eletivas_optativas[i][4] == 1) {
+                x++
+            }
+        }
+        doc.text(`Optativas Feitas (SMD) - ${optativa.length}/12`, 16, 186)
+
+        optativa.sort()
+        let cadeiras_optativas = splitList(optativa, 5)
+        console.log(cadeiras_optativas)
+
+        for (let x in cadeiras_optativas) {
+
+            doc.setFontStyle('bold')
+            doc.setFontSize(8.5)
+            lastX = (x * 37) + 16
+            if (cadeiras_optativas[x].length > 0) {
+                doc.setFontStyle('normal')
+
+                for (let i in cadeiras_optativas) {
+                    if (cadeiras_optativas[x][i] == undefined) {
+                        continue
+                    }
+
+                    doc.text(cadeiras_optativas[x][i], (x * 37) + 17, 194 + (i * 3))
+                    lastY = i * 3
+                }
+            }
+
+        }
+
+
+
+
+
+
+    }
 
 
     doc.save('Simulação.pdf')
 }
+
+function splitList(list, interval) {
+    let result = []
+    let index = 0
+
+    while (index < list.length) {
+        result.push(list.slice(index, index + interval))
+        index += interval
+    }
+
+    return result
+}
+
+
+
 
 function creditos(horas) {
     return horas / 16

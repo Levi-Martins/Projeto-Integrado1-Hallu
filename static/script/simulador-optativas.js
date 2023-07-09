@@ -2,6 +2,7 @@ let horas = parseInt(sessionStorage.getItem("horas"))
 let turno_escolhido = sessionStorage.getItem("turno")
 let horas_optativas = parseInt(sessionStorage.getItem("horas_optativas"))
 let eletivas_optativas = JSON.parse(sessionStorage.getItem("eletivas_optativas"))
+let cadeira = JSON.parse(localStorage.getItem("optativas"))
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
@@ -33,7 +34,6 @@ function credito(horas) {
 }
 
 function optativas() {
-    let cadeira = JSON.parse(localStorage.getItem("optativas"))
     let horas_cadeira
 
     const form = document.getElementById("form-cadeiras")
@@ -48,7 +48,7 @@ function optativas() {
         botaoInfo.innerText = "i"
         input.setAttribute("type", "checkbox")
         input.setAttribute("name", "optativas")
-        input.setAttribute("value", cadeira[i][0])
+        input.setAttribute("value", cadeira[i][1])
         label.classList.add('c')
         label.appendChild(input)
         label.append(cadeira[i][0])
@@ -63,12 +63,12 @@ function optativas() {
                 nome_cadeira.append(cad[0])
 
                 const pre_requisito = document.getElementById("pre-requisito")
-                pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cad[3]}`
+                pre_requisito.innerHTML = `<b>Pré-requisito: </b>${cad[4]}`
                 const qtd_horas = document.getElementById("qtd_horas")
-                qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cad[i]}h / ${credito(cad[i])} créditos`
+                qtd_horas.innerHTML = `<b>Horas e Créditos: </b> ${cad[2]}h / ${credito(cad[2])} créditos`
 
                 const objetivo = document.getElementById("objetivo")
-                objetivo.innerHTML = `<b>Objetivo: </b>${cad[2]}`
+                objetivo.innerHTML = `<b>Objetivo: </b>${cad[3]}`
                 const btn_close_popup = document.getElementById("btn_close_popup")
 
 
@@ -85,7 +85,7 @@ function optativas() {
 
 
         form.appendChild(label)
-        horas_cadeira = parseInt(cadeira[i][1])
+        horas_cadeira = parseInt(cadeira[i][2])
 
         if (label.clientHeight > 35) {
             botaoInfo.style.marginRight = '30px'
@@ -93,7 +93,7 @@ function optativas() {
 
         let divCriada
 
-        input.addEventListener("click", (function (hora_cad) {
+        input.addEventListener("click", (function (hora_cad,nome) {
             return () => {
 
                 const div = document.createElement("div")
@@ -101,7 +101,7 @@ function optativas() {
                 const botao = document.createElement("button")
                 botao.innerText = "x"
                 const label_escolhidas = document.createElement("label")
-                label_escolhidas.innerText = input.value
+                label_escolhidas.innerText = nome[0]
 
                 div.appendChild(botao)
                 div.appendChild(label_escolhidas)
@@ -156,7 +156,7 @@ function optativas() {
 
             }
 
-        })(horas_cadeira))
+        })(horas_cadeira,cadeira[i]))
 
     }
 
@@ -192,6 +192,7 @@ function armazenarCadeiras() {
     }
 
     sessionStorage.setItem("optativas_selecionadas", JSON.stringify(cadeirasSelecionadas))
+
 
 
     const selecionar_todas = document.getElementsByName('todas')
@@ -385,7 +386,7 @@ function atualizarCheckboxes() {
                 const botao = document.createElement("button")
                 botao.innerText = "x"
                 const label_escolhidas = document.createElement("label")
-                label_escolhidas.innerText = checkboxes[i].value
+                label_escolhidas.innerText = cadeira[i][0]
                 div.appendChild(botao)
                 div.appendChild(label_escolhidas)
                 optativas_escolhidas.appendChild(div)
@@ -445,7 +446,7 @@ function onInput() {
 
     horas_livres.addEventListener("keyup", () => {
 
-        if ((horas_livres.value).length > 3) {
+        if ((horas_livres.value).length > 4) {
             let nova = (horas_livres.value).split("")
             console.log(nova)
             nova.pop()

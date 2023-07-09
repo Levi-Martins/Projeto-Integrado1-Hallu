@@ -93,6 +93,30 @@ function escolhaTurno() {
         sessionStorage.setItem("simuladorIniciado", false)
         sessionStorage.setItem("bool_turno", true)
         sessionStorage.setItem("checktcc", JSON.stringify(['nao-marcado']))
+        sessionStorage.setItem("obrigatorias_selecionadas", JSON.stringify([]))
+        sessionStorage.setItem("obrigatorias_feitas_semestre", JSON.stringify([]))
+        sessionStorage.setItem("obrigatorias_nao_feitas_semestre", JSON.stringify([]))
+        sessionStorage.setItem("horas_obrigatorias", 0)
+        sessionStorage.setItem("eletivas_selecionadas", JSON.stringify([]))
+        sessionStorage.setItem("eletivas_feitas_semestre", JSON.stringify('nenhuma'))
+        let todas = []
+        {
+          let cadeira = JSON.parse(localStorage.getItem("eletivas"))
+
+          for (let i in cadeira) {
+            let semestre = []
+            for (let j in cadeira[i]) {
+              semestre.push(cadeira[i][j][0])
+            }
+            todas.push(semestre)
+          }
+        }
+
+        sessionStorage.setItem("eletivas_nao_feitas_semestre", JSON.stringify(todas))
+        sessionStorage.setItem("horas_eletivas", 0)
+        sessionStorage.setItem("optativas_selecionadas", JSON.stringify([]))
+        sessionStorage.setItem("horas_optativas", 0)
+        sessionStorage.setItem("eletivas_optativas", JSON.stringify([]))
 
 
 
