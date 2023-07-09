@@ -343,3 +343,77 @@ main {
     border: none;
     border-left: 1px solid rgba(0, 0, 0, 0.283);
 }
+
+/* ALTERAR O DISPLAY COM EMAIL ENVIADO */
+.popup-wrappep-email-enviado{
+    display: none; 
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.borda-popup{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    max-width: 667px;
+    max-height: 318px;
+    margin:auto;
+    background: var(--borda-feedback-enviar);
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.popup-enviar-email-enviado{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    max-width: 667px;
+    max-height: 318px;
+    margin:auto;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-enviar-email-enviado img{
+    position: absolute;
+    left: 250px;
+    top: -100px;
+}
+
+.popup-enviar-email-enviado p{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: var(--font);
+    margin-bottom: 40px;
+    padding-top: 70px;
+}
+
+.popup-enviar-email-enviado button{
+    max-width: 148px;
+    max-height: 73px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: var(--font);
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 21px;
+    background: var(--borda-feedback-enviar);
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+/* ALTERAR O DISPLAY COM PDF ENVIADO */
+.popup-wrappep-pdf-enviado{
+    display: none; 
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
