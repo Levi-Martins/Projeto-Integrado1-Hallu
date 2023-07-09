@@ -440,7 +440,16 @@ footer {
     color: black;
 }
 
+@media (max-width: 2050px) {
+    header {
+        background-image: url(../assets/img/landing-page/fundo1-1820.png);
+    }
+}
+
 @media (max-width: 1850px) {
+    header {
+        background-image: url(../assets/img/landing-page/fundo1-1820.png);
+    }
     footer {
         padding: 0px 120px 46px 150px;
 

@@ -132,6 +132,7 @@ body{
     padding: 9px 27px 18px 27px;
     background-color: #FFF;
     border-radius: 0 0 0 20px;
+    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 #form-cadeiras {
@@ -175,6 +176,7 @@ body{
     max-width: 370px;
     position: relative;
     border-radius: 0 0 20px 0;
+    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .header-optativas-escolhidas{
@@ -184,6 +186,7 @@ body{
     text-align: center;
     padding: 24px 0;
     max-height: 75px;
+    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .header-optativas-escolhidas h3{

@@ -237,7 +237,7 @@ function obrigatorias() {
 
 
             if (cadeira[i][j][0] == "-") {
-                semestres[i].innerText = "Não existem cadeiras obrigatórias para esse semestre"
+                semestres[i].innerText = "Nenhuma obrigatória aqui! Nessa você escapou!"
             }
 
             input.addEventListener("click", (function (hora_cad) {
