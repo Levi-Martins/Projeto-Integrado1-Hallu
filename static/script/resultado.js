@@ -669,12 +669,16 @@ function gerarPdf() {
 
 
 
-        if (horas_optativas > 0) {
+        if(horas_optativas>=1000){
+            x1=16.8
+        }
+        else if (horas_optativas > 0) {
             x1 = 18
         }
         else {
             x1 = 20
         }
+
 
 
 
@@ -692,7 +696,7 @@ function gerarPdf() {
                 x++
             }
         }
-        doc.text(`Optativas Feitas (SMD) - ${optativa.length}/12`, 16, 186)
+        doc.text(`Optativas Feitas (SMD) - ${optativa.length}/12`, 16, 184)
 
         optativa.sort()
         let cadeiras_optativas = splitList(optativa, 5)
@@ -701,17 +705,17 @@ function gerarPdf() {
         for (let x in cadeiras_optativas) {
 
             doc.setFontStyle('bold')
-            doc.setFontSize(8.5)
+            doc.setFontSize(8)
             lastX = (x * 37) + 16
             if (cadeiras_optativas[x].length > 0) {
                 doc.setFontStyle('normal')
 
-                for (let i in cadeiras_optativas) {
+                for (let i in cadeiras_optativas[x]) {
                     if (cadeiras_optativas[x][i] == undefined) {
                         continue
                     }
 
-                    doc.text(cadeiras_optativas[x][i], (x * 37) + 17, 194 + (i * 3))
+                    doc.text(cadeiras_optativas[x][i], (x * 35) + 16, 190 + (i * 4))
                     lastY = i * 3
                 }
             }
