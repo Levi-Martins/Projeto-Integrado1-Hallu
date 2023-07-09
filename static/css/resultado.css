@@ -194,7 +194,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 12px 33px;
+    padding: 12px 20px;
 }
 
 #horas_livres {
@@ -381,14 +381,14 @@ main {
 .popup-enviar-email-enviado img{
     position: absolute;
     left: 250px;
-    top: -100px;
+    top: -85px;
 }
 
 .popup-enviar-email-enviado p{
     font-size: 50px;
     font-weight: bold;
     font-family: var(--font);
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     padding-top: 70px;
 }
 

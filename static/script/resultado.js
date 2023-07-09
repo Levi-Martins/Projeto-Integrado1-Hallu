@@ -114,13 +114,51 @@ function enviarEmail() {
 
     const popupWrappep = document.querySelector('.popup-wrappep-enviar-email')
     const cancelar = document.querySelector('#cancelar')
+    const enviar = document.querySelector('#enviar')
     popupWrappep.style.display = 'flex'
     cancelar.addEventListener('click', () => {
         popupWrappep.style.display = 'none'
     })
+
+    //quando colocar os dados do email e for enviar
+    enviar.addEventListener('click', ()=>{
+        popupWrappep.style.display = 'none'
+
+        const imgEnviarPdf = document.querySelector('#img-enviar-email')
+        if(turno_escolhido == 'Diurno'){
+            imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado.png')
+        }else{
+            imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado-noturno.png')
+        }
+
+        const popupEmailEnviado = document.querySelector('.popup-wrappep-email-enviado')
+        popupEmailEnviado.style.display = 'flex'
+        
+        const fecharpopupEmailEnviado = document.querySelector('#fechar-enviar-email')
+        fecharpopupEmailEnviado.addEventListener('click', ()=> popupEmailEnviado.style.display = 'none'
+        )
+
+    })
+}
+
+function popupPDF(){
+    const imgEnviarPdf = document.querySelector('#img-enviar-pdf')
+    if(turno_escolhido == 'Diurno'){
+        imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado.png')
+    }else{
+        imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado-noturno.png')
+    }
+
+    const popupPdfEnviado = document.querySelector('.popup-wrappep-pdf-enviado')
+    popupPdfEnviado.style.display = 'flex'
+    const fecharpopupPdfEnviado = document.querySelector('#fechar-enviar-pdf')
+    fecharpopupPdfEnviado.addEventListener('click', ()=> popupPdfEnviado.style.display = 'none'
+    )
 }
 
 function gerarPdf() {
+    popupPDF()
+
     const doc = new jsPDF({
         format: 'a4',
         unit: 'mm',
