@@ -85,8 +85,12 @@ function resultado() {
     qtd_eletiva.innerHTML = `${eletivas.length}/7`
     console.log(optativa.length)
     qtd_optativa.innerHTML = `${optativa.length}/12`
-    qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h`
-    qtd_complementares.innerHTML = `Horas Complementares ${horas_complementares}h`
+    if(turno_escolhido == 'Diurno'){
+        qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h/128h`
+    }else{
+        qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h/256h`
+    }
+    qtd_complementares.innerHTML = `H. Complementares ${horas_complementares}h/192h`
     if (tcc == '["nao-consolidado"]') {
         qtd_tcc.innerHTML = `TCC sem nota consolidada`
 
