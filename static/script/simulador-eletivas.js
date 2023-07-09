@@ -1,6 +1,5 @@
 
 
-let horas_eletivas = parseInt(sessionStorage.getItem("horas_eletivas"))
 let turno_escolhido = sessionStorage.getItem("turno")
 let cadeira = JSON.parse(localStorage.getItem("eletivas"))
 let eletivas_optativas = JSON.parse(sessionStorage.getItem("eletivas_optativas"))
@@ -38,22 +37,16 @@ function eletivas() {
         selecionar_todas.addEventListener("click", () => {
             clique = true
             const checkboxes = semestres[i].querySelectorAll('input[name="eletivas"]')
+
             for (let j = 0; j < checkboxes.length; j++) {
-
-               
-
                 if (selecionar_todas.checked == true) {
                     if (checkboxes[j].checked == false) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas_eletivas = 448
-                        console.log(`Somando horas: ${horas_eletivas}`)
                     }
                 }
                 else {
                     if (checkboxes[j].checked == true) {
                         checkboxes[j].checked = selecionar_todas.checked
-                        horas_eletivas = 0
-                        console.log(`Diminuindo horas: ${horas_eletivas}`)
 
                     }
                 }
@@ -201,6 +194,7 @@ function armazenarCadeiras() {
     let q = 0
     let eletivas_feitas = []
     let eletivas_nao_feitas = []
+    let horas_eletivas = []
     for (let e in eletivas_optativas) {
         if (eletivas_optativas[e][4] == 1) {
             q++
@@ -228,6 +222,7 @@ function armazenarCadeiras() {
                     }
                     else {
                         feitas_semestre.push(checkboxes[k].value)
+                        horas_eletivas.push(cadeira[f][k][1])
                     }
 
                 }
@@ -315,7 +310,12 @@ function armazenarCadeiras() {
 
     }
     sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
-    sessionStorage.setItem("horas_eletivas", horas_eletivas)
+    let horas_eletivas_feitas = 0
+    for (let i in horas_eletivas) {
+        horas_eletivas_feitas += parseInt(horas_eletivas[i])
+    }
+
+    sessionStorage.setItem("horas_eletivas", horas_eletivas_feitas)
 
 
 

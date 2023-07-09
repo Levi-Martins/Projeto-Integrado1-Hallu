@@ -221,8 +221,9 @@ function gerarPdf() {
                     continue
                 }
                 doc.text(`${parseInt(i) + 1}. Metodolodia de\nPesquisa Cientifica`, lastX + 38, 70 + (i * 3))
+                lastY = 70 + (i * 3)
+
             }
-            lastY = 70 + (i * 3)
         }
         else {
             doc.setTextColor('#ED1010')
@@ -267,7 +268,7 @@ function gerarPdf() {
                 doc.setFontStyle('bold')
                 doc.setFontSize(8.5)
                 doc.setTextColor('#ED1010')
-                doc.text("Não Feitas:", lastX, lastY + 25)
+                doc.text("Não Feitas:", lastX, lastY + 28)
                 doc.setFontStyle('normal')
                 doc.setFontSize(7.7)
                 doc.setTextColor('#000000')
@@ -278,7 +279,7 @@ function gerarPdf() {
                     if (obrigatorias_nao_feitas[4][i] == "Gestão de Projetos Multimídia") {
                         obrigatorias_nao_feitas[4][i] = "Gestão de Projetos\nMultimídia"
                     }
-                    doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[4][i]}`, lastX, lastY + 30 + (i * 3))
+                    doc.text(`${parseInt(i) + 1}. ${obrigatorias_nao_feitas[4][i]}`, lastX, lastY + 33 + (i * 3))
                 }
 
             }
@@ -426,6 +427,70 @@ function gerarPdf() {
 
     let x2 = (creditos(horas_eletivas) > 0) ? 104.8 : 105.7
     doc.text(`Créditos Obtidos: ${creditos(horas_eletivas)}/28`, x2, 118)
+
+    for (let x = 0; x < 2; x++) {
+
+        let margem = (eletivas_nao_feitas[0].length > 0) ? 48 : 45
+
+
+        doc.setFontStyle('bold')
+        doc.setFontSize(8.5)
+        let s = (x == 0) ? 4 : 3
+        doc.text(`${x + 4}º semestre (${eletivas_feitas[x].length}/${s})`, (x * margem) + 16, 124.1)
+        lastX = (x * margem) + 16
+        if (eletivas_feitas[x].length > 0) {
+            doc.setTextColor('#11A020')
+            doc.text("Feitas:", (x * margem) + 16, 129.1)
+            doc.setFontStyle('normal')
+            doc.setFontSize(7.7)
+            doc.setTextColor('#000000')
+
+            let lastY
+            for (let i in eletivas_feitas[x]) {
+                if (eletivas_feitas[x][i] == undefined) {
+                    continue
+                }
+
+                doc.text(`${parseInt(i) + 1}. ${eletivas_feitas[x][i]}`, (x * margem) + 17, 134.1 + (i * 3))
+                lastY = i * 3
+            }
+            if (eletivas_nao_feitas[x].length > 0) {
+                doc.setFontStyle('bold')
+                doc.setFontSize(8.5)
+                doc.setTextColor('#ED1010')
+                doc.text(`Ainda deve escolher ${s - eletivas_nao_feitas[x].length} destas:`, (x * margem) + 16, 139.1 + lastY)
+                doc.line((x * margem) + 46, 139.5 + lastY, (x * margem) + 47.7, 139.5 + lastY)
+                console.log(lastY)
+                doc.setFontStyle('normal')
+                doc.setFontSize(7.7)
+                doc.setTextColor('#000000')
+                for (let i in eletivas_nao_feitas) {
+                    if (eletivas_nao_feitas[x][i] == undefined) {
+                        continue
+                    }
+                    doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 144.1 + lastY + (i * 3))
+                }
+
+            }
+        }
+        else {
+            doc.setTextColor('#ED1010')
+            doc.text(`Ainda deve escolher ${eletivas_nao_feitas[x].length} destas:`, (x * margem) + 16, 129.1)
+            doc.line((x * margem) + 46, 129.5, (x * margem) + 47.7, 129.5)
+
+            doc.setFontStyle('normal')
+            doc.setFontSize(7.7)
+            doc.setTextColor('#000000')
+            for (let i in eletivas_nao_feitas) {
+                if (eletivas_nao_feitas[x][i] == undefined) {
+                    continue
+                }
+                doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 70 + (i * 3))
+            }
+        }
+    }
+
+
 
     doc.save('Simulação.pdf')
 }

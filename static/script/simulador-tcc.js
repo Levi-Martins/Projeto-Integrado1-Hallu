@@ -117,7 +117,13 @@ function atualizarCadeiras() {
     tcc = JSON.parse(sessionStorage.getItem("checktcc"))
     checkbox = document.getElementsByClassName("check-tcc")
     for (let c in checkbox) {
-        checkbox[c].checked = tcc.includes(checkbox[c].value)
+        if (tcc.includes("nao-marcado")) {
+            continue
+        }
+        else {
+            checkbox[c].checked = tcc.includes(checkbox[c].value)
+
+        }
 
     }
     const horas_complementares = document.getElementById("horas_complementares")

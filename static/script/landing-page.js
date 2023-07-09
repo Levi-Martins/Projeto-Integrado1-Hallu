@@ -26,8 +26,7 @@ if (!sessionStorage.getItem("simuladorIniciado")) {
   sessionStorage.setItem("horas_obrigatorias", 0)
   sessionStorage.setItem("horas_eletivas", 0)
   sessionStorage.setItem("horas_optativas", 0)
-  let x = [0, 0]
-  sessionStorage.setItem("valor_x", JSON.stringify(x))
+  sessionStorage.setItem("checktcc", JSON.stringify(['nao-marcado']))
   sessionStorage.setItem("simuladorIniciado", false)
 }
 // sessionStorage.clear()
