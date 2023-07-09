@@ -5,6 +5,11 @@ body{
     background-repeat: no-repeat;
 }
 
+.fa-sun{
+    font-size: 25px;
+    color: #FF9629;
+}
+
 #categorias #eletivas-categorias button{
     width: 45px;
     height: 45px;

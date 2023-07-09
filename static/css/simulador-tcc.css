@@ -5,6 +5,11 @@ body{
     background-repeat: no-repeat;
 }
 
+.fa-sun{
+    font-size: 25px;
+    color: #FF9629;
+}
+
 #categorias #tcc-categorias button{
     width: 45px;
     height: 45px;
@@ -152,25 +157,6 @@ body{
     font-family: var(--default-font);
     font-size: 25px;
 }
-
-.input-tcc input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: 2px solid black;
-    max-width: 30px;
-    width: 100%;
-    height: 30px;
-    border-radius: 10px;
-    background-color: transparent;
-    margin-right: 15px;
-    cursor: pointer;
-}
-
-.input-tcc input[type="checkbox"]:checked {
-    background-color: var(--color-label);
-}
-
 
 .horas-content input {
     padding: 12px 11px;

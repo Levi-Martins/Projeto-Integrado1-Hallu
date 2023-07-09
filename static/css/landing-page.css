@@ -1,3 +1,4 @@
+@import url(global.css);
 * {
     scroll-behavior: smooth;
     scrollbar-width: thin;
@@ -92,8 +93,12 @@ a {
 }
 
 #video-category {
-    padding: 50px 140px 50px 150px;
+    padding: 60px 143px 60px 150px;
     font-family: var(--font);
+    display: flex;
+    gap: 0 40px;
+    align-items: end;
+
 }
 
 #video-category h2 {
@@ -101,8 +106,12 @@ a {
     font-weight: 700;
     max-width: 747px;
     color: #5836AC;
-    padding-bottom: 40px;
-
+}
+.topicos-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px 150px;
 }
 
 #video-descricao {
@@ -111,12 +120,16 @@ a {
     gap: 20px 0;
 }
 
-
-.topicos-video {
+#div-video{
     display: flex;
+    flex-direction: column;
+    gap: 10px 0;
     align-items: center;
-    justify-content: space-between;
-    gap: 0 150px;
+    justify-content: center;
+}
+
+.video-noturno{
+    display: none;
 }
 
 /* #video-mp4 {
@@ -142,6 +155,7 @@ a {
 .subtopicos-video {
     font-family: var(--font);
     font-size: 22px;
+    display: flex;
 }
 
 .subtopicos-video img {
@@ -239,8 +253,8 @@ a {
 #grade-curricular {
     padding: 150px 0 140px 150px;
     font-family: var(--font);
-
     display: flex;
+    align-items: center;
     column-gap: 20px;
     width: 100%;
 }
@@ -310,59 +324,59 @@ a {
 } */
 
 #attention {
-    margin: 100px 0 120px 160px;
-    background: linear-gradient(89.98deg, #FFE25F 0.01%, #FF5C00 104.68%);
-    border-radius: 20px;
-    max-width: 1414px;
-    width: 100%;
-    padding: 40px;
-
     display: flex;
-    flex-direction: column;
-    gap: 56px 0;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 0 70px;
+    margin-bottom: 367px;    
+
 }
 
-.content-attention {
+#attention-image{
+    width: 535px;
+    height: 535px;
+    transform: rotate(-10.138deg);
+}
+
+#attention-content{
     font-family: var(--font);
 }
 
-.content-attention h1 {
-    font-size: 55px;
+#attention-content h2{
+    max-width: 485px;
+    font-size: 67px;
+    line-height: 1;
 }
 
-.content-attention p {
+#attention-content h1{
+    max-width: 485px;
+    font-size: 96px;
+    background-color: #ffe361;
+    line-height: 1;
+
+}
+
+
+.attention-description1{
+    max-width: 449px;
     font-size: 25px;
-    font-weight: 500px;
+    padding: 20px 0;
 }
-
-.description-attention {
-    display: flex;
-    gap: 0 56px;
-}
-
-.description-attention p {
-    font-family: var(--default-font);
+.attention-description2 {
+    max-width: 650px;
     font-size: 22px;
-    max-width: 529px;
+    font-family: var(--default-font);
+    padding-top: 20px;
 }
 
-.simbolo-atencao {
-    width: 555px;
-    height: 525px;
-    position: absolute;
-    top: 0;
-    left: 80%;
-}
 
-.background-footer {
-    background-image: url(../assets/img/fundo-dobra05-1920.png);
+.fundo2{
+    background-image: url(../assets/img/landing-page/fundo2-1920.png);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     row-gap: 70px;
-
 }
 
 #VMF {
@@ -379,10 +393,11 @@ a {
 
 #VMF h1 {
     font-family: var(--font);
-    font-size: 75px;
+    font-size: 90px;
     font-weight: bolder;
     max-width: 751px;
     width: 751px;
+    line-height: 1.1;
 }
 
 #VMF button {
@@ -406,7 +421,6 @@ footer {
     padding: 46px 120px 46px 150px;
     display: flex;
     flex-direction: column;
-
 }
 
 .logo-footer {
@@ -423,16 +437,23 @@ footer {
 .footer-imgs p {
     font-family: var(--default-font);
     font-size: 25px;
-    color: white;
+    color: black;
 }
 
 @media (max-width: 1850px) {
-    #attention {
-        margin: 100px 0 120px 120px;
+    footer {
+        padding: 0px 120px 46px 150px;
+
+    }
+    .fundo2{
+        background-image: url(../assets/img/landing-page/fundo2-1660.png);
+        background-size: contain;
     }
 
-    .simbolo-atencao {
-        width: 520px;
-        height: 490px;
+    #VMF {
+        padding: 108px 0 80px 150px;
+    }
+    #attention {
+        margin-bottom: 367px;    
     }
 }

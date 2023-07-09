@@ -18,6 +18,11 @@ body {
     cursor: pointer;
 }
 
+.fa-sun{
+    font-size: 25px;
+    color: #FF9629;
+}
+
 #resultado-categorias{
     padding-top: 9px;
 }

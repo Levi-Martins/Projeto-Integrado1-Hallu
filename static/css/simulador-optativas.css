@@ -4,6 +4,10 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+.fa-sun{
+    font-size: 25px;
+    color: #FF9629;
+}
 
 #categorias #optativas-categorias button{
     width: 45px;

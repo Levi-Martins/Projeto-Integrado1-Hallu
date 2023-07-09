@@ -22,6 +22,10 @@ body{
 #obrigatorias-categorias p{
     margin-top: 9px;
 }
+.fa-sun{
+    font-size: 25px;
+    color: #FF9629;
+}
 
 #main {
     display: flex;
