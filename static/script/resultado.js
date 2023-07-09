@@ -71,26 +71,22 @@ function resultado() {
             }
         }
     }
-
+    let ops = []
     for (let e in eletivas_optativas) {
         if (eletivas_optativas[e][4] == 1) {
-            optativa.push(`${eletivas_optativas[e][0]}*`)
+            ops.push(`${eletivas_optativas[e][0]}*`)
         }
     }
-    for (let i in eletivas_optativas) {
-        if (eletivas_optativas[i][4] == 1) {
-            horas_optativas += parseInt(eletivas_optativas[i][1])
-        }
-    }
+    ops.sort()
+    optativa.unshift(...ops)
+
+
+
     qtd_eletiva.innerHTML = `${eletivas.length}/7`
     console.log(optativa.length)
     qtd_optativa.innerHTML = `${optativa.length}/12`
-    if(turno_escolhido == 'Diurno'){
-        qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h/128h`
-    }else{
-        qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h/256h`
-    }
-    qtd_complementares.innerHTML = `H. Complementares ${horas_complementares}h/192h`
+    qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h`
+    qtd_complementares.innerHTML = `Horas Complementares ${horas_complementares}h`
     if (tcc == '["nao-consolidado"]') {
         qtd_tcc.innerHTML = `TCC sem nota consolidada`
 
@@ -387,7 +383,7 @@ function gerarPdf() {
         doc.setFontSize(8.5)
 
         let qtd = (turno_escolhido == "Diurno") ? 1 : 2
-        let yA 
+        let yA
         console.log(lastY)
         doc.text(`8º semestre (${obrigatorias_feitas[6].length}/${qtd})`, lastX, y8)
         if (obrigatorias_feitas[6].length > 0) {
@@ -408,7 +404,7 @@ function gerarPdf() {
                 doc.setFontStyle('bold')
                 doc.setFontSize(8.5)
                 doc.setTextColor('#ED1010')
-                doc.text("Não Feitas:", lastX, yA+5)
+                doc.text("Não Feitas:", lastX, yA + 5)
                 doc.setFontStyle('normal')
                 doc.setFontSize(7.7)
                 doc.setTextColor('#000000')
@@ -549,9 +545,8 @@ function gerarPdf() {
                             }
 
                             doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 144.1 + lastY + (i * 3))
-                            if (x == 1 && i == eletivas_nao_feitas[x].length - 1) {
+                            if (!eletivas_optativas.length > 0) {
                                 doc.setTextColor('#988787')
-                                console.log("Opa")
                                 doc.text("Nenhuma eletiva para optativa", 158, 125)
                             }
                         }
@@ -570,7 +565,7 @@ function gerarPdf() {
             let y_disp_cad
             let c = 0
             let margem = 0
-           
+
 
             for (let i in eletivas_optativas) {
                 y = (i * 3) + 128
@@ -673,8 +668,8 @@ function gerarPdf() {
 
 
 
-        if(horas_optativas>=1000){
-            x1=16.8
+        if (horas_optativas >= 1000) {
+            x1 = 16.8
         }
         else if (horas_optativas > 0) {
             x1 = 18
@@ -687,30 +682,37 @@ function gerarPdf() {
 
 
         doc.text(`Horas Totais Obtidas: ${horas_optativas + horas_optativas_livres}/1408`, x1, 176.5)
+        console.log(horas_optativas)
 
-        let x2 = (creditos(horas_optativas + horas_optativas_livres) > 0) ? 82 : 82.4
+        let x2 =0
+
+        if (creditos(horas_optativas + horas_optativas_livres) >= 100) {
+            x2 = 81.5
+        }
+        else if (creditos(horas_optativas + horas_optativas_livres) > 0) {
+            x2 = 82
+        }
+        else {
+            x2 = 82.2
+        }
+
+
         doc.text(`Créditos Totais Obtidos: ${creditos(horas_optativas + horas_optativas_livres)}/76`, x2, 176.5)
 
         doc.setFontSize(8.5)
 
         doc.setFontStyle('bold')
-        let x = 0
-        for (let i in eletivas_optativas) {
-            if (eletivas_optativas[i][4] == 1) {
-                x++
-            }
-        }
+
         doc.text(`Optativas Feitas (SMD) - ${optativa.length}/12`, 16, 184)
 
-        optativa.sort()
-        let cadeiras_optativas = splitList(optativa, 5)
+        let cadeiras_optativas = splitList(optativa, 6)
         console.log(cadeiras_optativas)
-
+        let contador = 0
         for (let x in cadeiras_optativas) {
 
             doc.setFontStyle('bold')
             doc.setFontSize(8)
-            lastX = (x * 37) + 16
+
             if (cadeiras_optativas[x].length > 0) {
                 doc.setFontStyle('normal')
 
@@ -718,15 +720,25 @@ function gerarPdf() {
                     if (cadeiras_optativas[x][i] == undefined) {
                         continue
                     }
+                    contador++
+                    if (contador > 23) {
+                        lastY = 190 + (i * 4)
+                        lastX = (x * 35) + 16
+                        break
+                    } else {
+                        doc.text(cadeiras_optativas[x][i], (x * 35) + 16, 190 + (i * 4))
+                        console.log(190 + (i * 4))
 
-                    doc.text(cadeiras_optativas[x][i], (x * 35) + 16, 190 + (i * 4))
-                    lastY = i * 3
+                    }
                 }
             }
-
+            console.log(contador)
+        }
+        if (contador > 23) {
+            doc.text(`+${(optativa.length + 1) - 21}{...}`, 121, 210)
         }
 
-
+        doc.text(`Horas Obtidas:`,16,221.5)
 
 
 
@@ -748,8 +760,6 @@ function splitList(list, interval) {
 
     return result
 }
-
-
 
 
 function creditos(horas) {
