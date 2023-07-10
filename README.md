@@ -257,6 +257,7 @@
 </table>
    <br>
    <br>
+   
 <a id="ancora3"></a>
 # 🖥Linguagens de programação utilizadas
 
