@@ -101,6 +101,7 @@ main {
 
 #card-resultado h3 {
     font-weight: bold;
+    cursor: pointer;
 }
 
 #header-card {
@@ -219,6 +220,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 7px;
+    
 }
 
 #detalhes img{

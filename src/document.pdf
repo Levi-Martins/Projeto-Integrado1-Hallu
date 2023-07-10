@@ -10,7 +10,7 @@
 endobj
 4 0 obj
 <<
-/Length 7230
+/Length 7312
 >>
 stream
 0.57 w
@@ -24,7 +24,7 @@ BT
 10.35 TL
 0 g
 215.43 756.85 Td
-(SIMULAÇÃO 09/07/2023, 22:15:37) Tj
+(SIMULAÇÃO 09/07/2023, 23:08:40) Tj
 ET
 BT
 /F2 10 Tf
@@ -333,7 +333,7 @@ BT
 8.85 TL
 0.000 g
 48.19 461.76 Td
-(1. Análise e Projeto de Sistemas) Tj
+(1. Análise e Proj. de Sist.) Tj
 ET
 BT
 /F1 7.7 Tf
@@ -354,70 +354,77 @@ BT
 8.85 TL
 0.000 g
 48.19 436.25 Td
-(4. Desenho II) Tj
+(4. Fotografia Digital) Tj
 ET
 BT
 /F2 8.5 Tf
 9.77 TL
 0.000 g
-172.91 490.11 Td
+181.42 490.11 Td
 (5º semestre \(3/3\)) Tj
 ET
 BT
 /F2 8.5 Tf
 9.77 TL
 0.067 0.627 0.125 rg
-172.91 475.94 Td
+181.42 475.94 Td
 (Feitas:) Tj
 ET
 BT
 /F1 7.7 Tf
 8.85 TL
 0.000 g
-175.75 461.76 Td
+184.25 461.76 Td
 (1. Eng. de Software) Tj
 ET
 BT
 /F1 7.7 Tf
 8.85 TL
 0.000 g
-175.75 453.26 Td
+184.25 453.26 Td
 (2. Banco de Dados I) Tj
 ET
 BT
 /F1 7.7 Tf
 8.85 TL
 0.000 g
-175.75 444.76 Td
-(3. Comuni. Visual II) Tj
+184.25 444.76 Td
+(3. Design de Som) Tj
 ET
 BT
 /F1 7.7 Tf
 8.85 TL
 0.000 g
-450.71 473.39 Td
-(Fotografia Digital ) Tj
+450.71 436.54 Td
+(Desenho II ) Tj
 ET
 BT
 /F1 7.7 Tf
 8.85 TL
 0.000 g
-450.71 464.88 Td
+450.71 428.03 Td
 (Semiótica Aplicada ) Tj
 ET
 BT
 /F1 7.7 Tf
 8.85 TL
 0.000 g
-450.71 456.38 Td
-(Design de Som ) Tj
+450.71 452.13 Td
+(Comuni. Visual II ) Tj
 ET
 BT
 /F2 8.5 Tf
 9.77 TL
-0.067 0.627 0.125 rg
+0.427 g
+447.87 447.87 Td
+(Disponíveis para fazer) Tj
+ET
+BT
+/F2 8.5 Tf
+9.77 TL
+0.427 g
 447.87 481.89 Td
-(Feitas:) Tj
+(Disponíveis para fazer) Tj
 ET
 BT
 /F2 10 Tf
@@ -445,84 +452,84 @@ BT
 9.20 TL
 0.000 g
 45.35 303.31 Td
-(Design de Som*) Tj
-ET
-BT
-/F1 8 Tf
-9.20 TL
-0.000 g
-45.35 291.97 Td
-(Fotografia Digital*) Tj
-ET
-BT
-/F1 8 Tf
-9.20 TL
-0.000 g
-45.35 280.63 Td
-(Semiótica Aplicada*) Tj
-ET
-BT
-/F1 8 Tf
-9.20 TL
-0.000 g
-45.35 269.29 Td
 (Adm. Mercadológ. I) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-45.35 257.95 Td
+45.35 291.97 Td
 (Álg. Comp. para Prog.) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-45.35 246.61 Td
+45.35 280.63 Td
 (Amb. Virt. De Aprend.) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-144.57 303.31 Td
+45.35 269.29 Td
 (Análise De Desemp.) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-144.57 291.97 Td
+45.35 257.95 Td
 (Auto. De Míd. De A. Loc.) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-144.57 280.63 Td
+45.35 246.61 Td
 (Banc. De Dad. Apli. Multi.) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-144.57 269.29 Td
+144.57 303.31 Td
 (Ciber. E Edu.: Nov. Prá.) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-144.57 257.95 Td
+144.57 291.97 Td
 (Comp. Física\(D\)) Tj
 ET
 BT
 /F1 8 Tf
 9.20 TL
 0.000 g
-144.57 246.61 Td
+144.57 280.63 Td
 (Comp. Física\(N\)) Tj
+ET
+BT
+/F1 8 Tf
+9.20 TL
+0.000 g
+144.57 269.29 Td
+(Computação Gráfica) Tj
+ET
+BT
+/F1 8 Tf
+9.20 TL
+0.000 g
+144.57 257.95 Td
+(Comp. Móvel E Ubíqua) Tj
+ET
+BT
+/F1 8 Tf
+9.20 TL
+0.000 g
+144.57 246.61 Td
+(Comu. Em Nov. Mídias) Tj
 ET
 BT
 /F1 8 Tf
@@ -611,8 +618,8 @@ BT
 350.08 119.06 Td
 (Créditos Totais Obtidos: 180/128) Tj
 ET
-0.82 0.00 0.00 RG
-0.82 0.00 0.00 rg
+0.09 0.61 0.00 RG
+0.09 0.61 0.00 rg
 46.772 68.032 m 
 341.575 68.032 l
 342.358 68.032 342.992 67.397 342.992 66.614 c
@@ -627,8 +634,8 @@ BT
 /F2 12 Tf
 13.80 TL
 1.000 g
-59.89 45.41 Td
-(RESULTADO FINAL: NÃO APTO A SE FORMAR) Tj
+57.85 45.41 Td
+(RESULTADO FINAL: ESTÁ APTO A SE FORMAR) Tj
 ET
 endstream
 endobj
@@ -4630,7 +4637,7 @@ endobj
 20 0 obj
 <<
 /Producer (jsPDF 1.5.3)
-/CreationDate (D:20230709221537-03'00')
+/CreationDate (D:20230709230840-03'00')
 >>
 endobj
 21 0 obj
@@ -4644,34 +4651,34 @@ endobj
 xref
 0 22
 0000000000 65535 f 
-0000007406 00000 n 
-0000261261 00000 n 
+0000007488 00000 n 
+0000261343 00000 n 
 0000000015 00000 n 
 0000000124 00000 n 
-0000007463 00000 n 
-0000007588 00000 n 
-0000007718 00000 n 
-0000007851 00000 n 
-0000007988 00000 n 
-0000008111 00000 n 
-0000008240 00000 n 
-0000008372 00000 n 
-0000008508 00000 n 
-0000008636 00000 n 
-0000008763 00000 n 
-0000008892 00000 n 
-0000009025 00000 n 
-0000009127 00000 n 
-0000009223 00000 n 
-0000261520 00000 n 
-0000261606 00000 n 
+0000007545 00000 n 
+0000007670 00000 n 
+0000007800 00000 n 
+0000007933 00000 n 
+0000008070 00000 n 
+0000008193 00000 n 
+0000008322 00000 n 
+0000008454 00000 n 
+0000008590 00000 n 
+0000008718 00000 n 
+0000008845 00000 n 
+0000008974 00000 n 
+0000009107 00000 n 
+0000009209 00000 n 
+0000009305 00000 n 
+0000261602 00000 n 
+0000261688 00000 n 
 trailer
 <<
 /Size 22
 /Root 21 0 R
 /Info 20 0 R
-/ID [ <A08D7DC4ACABA60A551E94DF5A2C685D> <A08D7DC4ACABA60A551E94DF5A2C685D> ]
+/ID [ <7EEE64625186752F3B9EA5E4437425A3> <7EEE64625186752F3B9EA5E4437425A3> ]
 >>
 startxref
-261710
+261792
 %%EOF

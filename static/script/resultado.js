@@ -959,7 +959,7 @@ function gerarPdf() {
         let texto
         doc.setFontSize(12)
         doc.setFontStyle('bold')
-        if (horas_obrigatorias >= 1344 && horas_eletivas >= 448 && (horas_optativas + horas_optativas_livres) >= 768 && horas_complementares >= 192 && tcc == '["consolidado"]') {
+        if (horas_obrigatorias >= 1344 && horas_eletivas >= 448 && (horas_smd + horas_optativas_livres) >= 768 && horas_complementares >= 192 && tcc == '["consolidado"]') {
             corRetangulo = '#169C00'; // Vermelho
             texto = `RESULTADO FINAL: ESTÁ APTO A SE FORMAR`
 

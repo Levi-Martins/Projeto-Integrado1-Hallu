@@ -196,7 +196,11 @@ body{
     cursor: pointer;
 }
 
-
+@media (max-width:2050px) {
+    #btn-finalizar {
+        left: 81%;
+    }
+}
 
 
 .div-descricao-disciplina {
