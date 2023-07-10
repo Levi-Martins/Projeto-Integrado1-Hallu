@@ -1,2 +1,2 @@
-login = 'emailautomaticodanielcardeal@gmail.com'
-senha = 'nluuolkvtcmvkygj'
+login = 'voumeformarsmd@gmail.com'
+senha = 'piivmzvoasgnwkqc'

@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/resultado.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
-    integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
-    crossorigin="anonymous"></script>
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
     <script src="script/resultado.js" defer></script>
     <title>Vou Me Formar? - SMD</title>
@@ -96,7 +97,7 @@
                         </div>
                         <div id="detalhes">
                             <label for="detalhes">
-                                <h3>Ver Detalhes <img src="assets/icon/ver-detalhes-icone.svg"></h3>
+                                <h3 id="detalhes">Ver Detalhes <img src="assets/icon/ver-detalhes-icone.svg"></h3>
                             </label>
                         </div>
                     </div>
@@ -104,7 +105,7 @@
             </div>
         </main>
         <div id="exportar">
-            <button onclick="gerarPdf()" class="exportar" id="pdf">
+            <button class="exportar" id="pdf">
                 <h4>Baixar Pdf de resultados</h4>
             </button>
             <button onclick="enviarEmail()" class="exportar" id="email">
@@ -117,11 +118,11 @@
             <div class="popup-content-enviar-email">
                 <div class="seu-nome">
                     <h2>Seu nome:</h2>
-                    <input type="text" id="nome-usuario" placeholder="nome">
+                    <input type="text" id="nome-usuario" placeholder="Nome">
                 </div>
-                <div class="seu-email">
+                <div id="add-email" class="seu-email">
                     <h2>Seu e-mail:</h2>
-                    <input type="text" id="email-usuario" placeholder="e-mail">
+                    <input type="text" id="email-usuario" placeholder="E-mail">
                 </div>
             </div>
             <div class="popup-btns-enviar-email">
@@ -145,7 +146,7 @@
             <div class="popup-enviar-email-enviado">
                 <img id="img-enviar-pdf" src="assets/icon/feedback-enviado.png">
                 <p>PDF baixado!</p>
-                <button id="fechar-enviar-pdf">Ok  </button>
+                <button id="fechar-enviar-pdf">Ok </button>
             </div>
         </div>
     </div>

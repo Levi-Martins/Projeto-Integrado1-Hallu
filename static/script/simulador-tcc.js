@@ -132,20 +132,7 @@ function atualizarCadeiras() {
 
     if ((horas_complementares.value).length > 0) {
         horas_complementares.style.backgroundColor = "#baf5ab"
-        const botao_apagar = document.createElement("button")
-        const div_horas = document.getElementById("div_horas")
-        botao_apagar.classList.add("botao_apagar")
-        botao_apagar.innerText = 'x'
-        botao_apagar.addEventListener("click", () => {
-            horas_complementares.value = ""
-            horas_complementares.style.backgroundColor = "#ECECEC"
-            botao_apagar.remove()
-
-        })
-        div_horas.appendChild(botao_apagar)
-
-
-    }
+       }
     else {
         horas_complementares.style.backgroundColor = "#ECECEC"
     }
@@ -153,17 +140,6 @@ function atualizarCadeiras() {
 
 function onInput() {
     const horas_complementares = document.getElementById("horas_complementares")
-    const botao_apagar = document.createElement("button")
-    const div_horas = document.getElementById("div_horas")
-    botao_apagar.classList.add("botao_apagar")
-    botao_apagar.innerText = 'x'
-    botao_apagar.addEventListener("click", () => {
-        horas_complementares.value = ""
-        horas_complementares.style.backgroundColor = "#ECECEC"
-        botao_apagar.remove()
-
-    })
-
 
     horas_complementares.addEventListener("keyup", () => {
 
@@ -177,11 +153,11 @@ function onInput() {
         setInterval(() => {
             if ((horas_complementares.value).length <= 0 || horas_complementares.value == '') {
                 horas_complementares.style.backgroundColor = "#ECECEC"
-                botao_apagar.remove()
+
             }
             else {
                 horas_complementares.style.backgroundColor = "#baf5ab"
-                div_horas.appendChild(botao_apagar)
+
 
 
             }

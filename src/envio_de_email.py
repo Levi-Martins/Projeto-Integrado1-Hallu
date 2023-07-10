@@ -31,22 +31,25 @@ def enviar_email(usuario,destino):
         server.login(login, senha)
         # construir email
         corpo = fr"""
-        POSSO ME FORMAR?!
+        Email Automático === Hallu (NÃO RESPONDA ESSE EMAIL)
+        
+        VOU ME FORMAR?!
         
         Olá {usuario}!
-        Aqui está o pdf com o relatório.
+        
+        Aqui está o pdf com o resultado.
         
         Obrigado pela preferência!
         
         Essas atualizações são de: {dataAtual} às {horas}.
         
-        -Email Automático === Hallu
+        Email Automático === Hallu
                
 """
         email_msg = MIMEMultipart()
         email_msg['FROM'] = secreto.login
         email_msg['TO'] = destino
-        email_msg['Subject'] = f"Relatório Hallu - Posso me Formar?"
+        email_msg['Subject'] = f"Resultado Simulação VMF - SMD ?"
         email_msg.attach(MIMEText(corpo, 'plain'))
 
         # colocar anexo :

@@ -93,7 +93,7 @@ function optativas() {
 
         let divCriada
 
-        input.addEventListener("click", (function (hora_cad,nome) {
+        input.addEventListener("click", (function (hora_cad, nome) {
             return () => {
 
                 const div = document.createElement("div")
@@ -156,7 +156,7 @@ function optativas() {
 
             }
 
-        })(horas_cadeira,cadeira[i]))
+        })(horas_cadeira, cadeira[i]))
 
     }
 
@@ -411,42 +411,22 @@ function atualizarCheckboxes() {
 
     if ((horas_livres.value).length > 0) {
         horas_livres.style.backgroundColor = "#baf5ab"
-        const botao_apagar = document.createElement("button")
-        const div_horas = document.getElementById("div_horas")
-        botao_apagar.classList.add("botao_apagar")
-        botao_apagar.innerText = 'x'
-        botao_apagar.addEventListener("click", () => {
-            horas_livres.value = ""
-            horas_livres.style.backgroundColor = "#ECECEC"
-            botao_apagar.remove()
 
-        })
-        div_horas.appendChild(botao_apagar)
     }
     else {
         horas_livres.style.backgroundColor = "#ECECEC"
-
     }
 
 }
 
 function onInput() {
     const horas_livres = document.getElementById("horas_livres")
-    const botao_apagar = document.createElement("button")
-    const div_horas = document.getElementById("div_horas")
-    botao_apagar.classList.add("botao_apagar")
-    botao_apagar.innerText = 'x'
-    botao_apagar.addEventListener("click", () => {
-        horas_livres.value = ""
-        horas_livres.style.backgroundColor = "#ECECEC"
-        botao_apagar.remove()
 
-    })
 
 
     horas_livres.addEventListener("keyup", () => {
 
-        if ((horas_livres.value).length > 4) {
+        if ((horas_livres.value).length > 3) {
             let nova = (horas_livres.value).split("")
             console.log(nova)
             nova.pop()
@@ -457,12 +437,9 @@ function onInput() {
             if ((horas_livres.value).length <= 0 || horas_livres.value == '') {
                 horas_livres.style.backgroundColor = "#ECECEC"
                 horas_livres.style.backgroundColor = "#ECECEC"
-                botao_apagar.remove()
-
             }
             else {
                 horas_livres.style.backgroundColor = "#baf5ab"
-                div_horas.appendChild(botao_apagar)
 
             }
 

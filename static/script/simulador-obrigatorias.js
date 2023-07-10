@@ -16,8 +16,8 @@ function temaTurno() {
     }
 }
 
-function credito(horas){
-    return horas/16
+function credito(horas) {
+    return horas / 16
 }
 
 function obrigatorias() {
@@ -216,7 +216,7 @@ function obrigatorias() {
             }
 
             else {
-                if (cadeira[i][j][0] == "Trabalho de Conclusão de Curso") {
+                if (cadeira[i][j][0] == "T.C.C") {
                     tcc.push([cadeira[i][j][0], cadeira[i][j][1], cadeira[i][j][2], cadeira[i][j][3]])
                 }
                 else { semestres[i].appendChild(label) }

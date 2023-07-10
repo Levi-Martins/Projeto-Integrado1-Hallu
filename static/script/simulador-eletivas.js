@@ -183,17 +183,19 @@ function armazenarCadeiras() {
     let eletivas_feitas = []
     let eletivas_nao_feitas = []
     let horas_eletivas = []
+
+    let horas_eletivas_feitas = 0
+
     for (let e in eletivas_optativas) {
         if (eletivas_optativas[e][4] == 1) {
             q++
         }
     }
-    if (q == 0 || clique) {
+    if (q == 0 || clique || horas_eletivas_feitas <= 0) {
         for (let f = 0; f < forms.length; f++) {
             const checkboxes = forms[f].querySelectorAll('input[name="eletivas"]')
 
             let x = 0
-            let h = 0
             let nocheckbox = []
             let yescheckbox = []
             let feitas_semestre = []
@@ -217,11 +219,11 @@ function armazenarCadeiras() {
                 }
                 if (!checkboxes[k].checked) {
                     nocheckbox.push(k)
-                    if (f == 0 ) {
+                    if (f == 0) {
                         nao_feitas_semestre.push(checkboxes[k].value)
                         console.log(nao_feitas_semestre)
                     }
-                    else if (f == 1 ) {
+                    else if (f == 1) {
                         nao_feitas_semestre.push(checkboxes[k].value)
                         console.log(nao_feitas_semestre)
 
@@ -302,7 +304,7 @@ function armazenarCadeiras() {
 
     }
     sessionStorage.setItem("check_eletivas", JSON.stringify(checkTodas))
-    let horas_eletivas_feitas = 0
+
     for (let i in horas_eletivas) {
         horas_eletivas_feitas += parseInt(horas_eletivas[i])
     }

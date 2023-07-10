@@ -17,7 +17,12 @@ horas_optativas_livres = parseInt(sessionStorage.getItem("horas_livres"))
 horas_complementares = parseInt(sessionStorage.getItem("horas_complementares"))
 tcc = sessionStorage.getItem("checktcc")
 let turno_escolhido = sessionStorage.getItem("turno")
-
+const doc = new jsPDF({
+    format: 'a4',
+    unit: 'mm',
+    putOnlyUsedFonts: true,
+    // lineHeight: 1.5
+})
 
 function temaTurno() {
     if (turno_escolhido == "Noturno") {
@@ -43,7 +48,6 @@ function mudarTurno() {
         nome_turno.innerText = "Noturno"
     }
 }
-
 
 
 function resultado() {
@@ -84,9 +88,9 @@ function resultado() {
     qtd_eletiva.innerHTML = `${eletivas.length}/7`
     console.log(optativa.length)
     qtd_optativa.innerHTML = `${optativa.length}/12`
-    if(turno_escolhido == 'Diurno'){
+    if (turno_escolhido == 'Diurno') {
         qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h/128h`
-    }else{
+    } else {
         qtd_livre.innerHTML = `Horas de Optativas Livres ${horas_optativas_livres}h/256h`
     }
     qtd_complementares.innerHTML = `H. Complementares ${horas_complementares}h/192h`
@@ -110,6 +114,7 @@ function resultado() {
 
 }
 
+
 function enviarEmail() {
 
     const popupWrappep = document.querySelector('.popup-wrappep-enviar-email')
@@ -121,50 +126,74 @@ function enviarEmail() {
     })
 
     //quando colocar os dados do email e for enviar
-    enviar.addEventListener('click', ()=>{
-        popupWrappep.style.display = 'none'
+    enviar.addEventListener('click', () => {
+        enviarPdf()
+        const email = String(document.getElementById('email-usuario').value)
+        const nome = String(document.getElementById('nome-usuario').value)
 
-        const imgEnviarPdf = document.querySelector('#img-enviar-email')
-        if(turno_escolhido == 'Diurno'){
-            imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado.png')
-        }else{
-            imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado-noturno.png')
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+        if (regexEmail.test(email) && nome.length > 0) {
+
+            popupWrappep.style.display = 'none'
+            const formData = new FormData();
+            formData.append("email", email)
+            formData.append("nome", nome)
+            formData.append("file", new Blob([doc.output('blob')], { type: 'application/pdf' }), "Resultado-VMF.pdf");
+            axios.post('http://127.0.0.1:8000/final', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            const imgEnviarPdf = document.querySelector('#img-enviar-email')
+            if (turno_escolhido == 'Diurno') {
+                imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado.png')
+            } else {
+                imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado-noturno.png')
+            }
+
+            const popupEmailEnviado = document.querySelector('.popup-wrappep-email-enviado')
+            popupEmailEnviado.style.display = 'flex'
+
+            const fecharpopupEmailEnviado = document.querySelector('#fechar-enviar-email')
+            fecharpopupEmailEnviado.addEventListener('click', () => popupEmailEnviado.style.display = 'none'
+            )
+
+
+
+
+
         }
-
-        const popupEmailEnviado = document.querySelector('.popup-wrappep-email-enviado')
-        popupEmailEnviado.style.display = 'flex'
-        
-        const fecharpopupEmailEnviado = document.querySelector('#fechar-enviar-email')
-        fecharpopupEmailEnviado.addEventListener('click', ()=> popupEmailEnviado.style.display = 'none'
-        )
-
     })
 }
 
-function popupPDF(){
-    const imgEnviarPdf = document.querySelector('#img-enviar-pdf')
-    if(turno_escolhido == 'Diurno'){
-        imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado.png')
-    }else{
-        imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado-noturno.png')
+
+function enviarPdf() {
+    const email = String(document.getElementById('email-usuario').value)
+    const nome = String(document.getElementById('nome-usuario').value)
+
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (regexEmail.test(email) && nome.length > 0) {
+        console.log("foi")
+
+    } else if (!regexEmail.test(email)) {
+        alert('E-mail inválido')
+    }
+    else if (!regexEmail.test(email) && nome.length <= 0) {
+        alert('Nome e E-mail inválido')
+    }
+    else {
+        alert('Nome inválido')
+
     }
 
-    const popupPdfEnviado = document.querySelector('.popup-wrappep-pdf-enviado')
-    popupPdfEnviado.style.display = 'flex'
-    const fecharpopupPdfEnviado = document.querySelector('#fechar-enviar-pdf')
-    fecharpopupPdfEnviado.addEventListener('click', ()=> popupPdfEnviado.style.display = 'none'
-    )
+
 }
 
 function gerarPdf() {
-    popupPDF()
 
-    const doc = new jsPDF({
-        format: 'a4',
-        unit: 'mm',
-        putOnlyUsedFonts: true,
-        // lineHeight: 1.5
-    })
+
     const date = new Date().toLocaleString()
 
 
@@ -174,6 +203,7 @@ function gerarPdf() {
     doc.setFontSize(9)
     doc.setFont("Helvetica")
     doc.text(`SIMULAÇÃO ${date}`, 76, 30)
+
 
     //OBRIGATÓRIAS
     {
@@ -505,11 +535,12 @@ function gerarPdf() {
 
             let margem = (eletivas_nao_feitas[0].length > 0) ? 48 : 45
 
-            doc.setFontStyle('bold')
-            doc.setFontSize(8.5)
+
             let s = (x == 0) ? 4 : 3
             console.log(eletivas_feitas)
             if (eletivas_feitas == 'nenhuma' || eletivas_feitas[x].length <= 0) {
+                doc.setFontStyle('bold')
+                doc.setFontSize(8.5)
                 doc.text(`${x + 4}º semestre (${0}/${s})`, (x * margem) + 16, 124.1)
 
                 doc.setFontStyle('bold')
@@ -529,10 +560,10 @@ function gerarPdf() {
 
                     console.log(eletivas_nao_feitas[x][i])
                     doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 134.1 + (i * 3))
-                    if (x == 1 && i == eletivas_nao_feitas[x].length - 1) {
+                    if (eletivas_nao_feitas.length > 3) {
                         doc.setTextColor('#988787')
-                        console.log("Opa")
                         doc.text("Nenhuma eletiva para optativa", 158, 125)
+                        break
                     }
                 }
 
@@ -541,6 +572,10 @@ function gerarPdf() {
 
 
             else {
+                doc.setFontStyle('bold')
+                doc.setFontSize(8.5)
+                doc.setTextColor('#000000')
+
                 doc.text(`${x + 4}º semestre (${eletivas_feitas[x].length}/${s})`, (x * margem) + 16, 124.1)
 
 
@@ -586,10 +621,12 @@ function gerarPdf() {
                             }
 
                             doc.text(`${parseInt(i) + 1}. ${eletivas_nao_feitas[x][i]}`, (x * margem) + 17, 144.1 + lastY + (i * 3))
-                            if (!eletivas_optativas.length > 0) {
-                                doc.setTextColor('#988787')
-                                doc.text("Nenhuma eletiva para optativa", 158, 125)
-                            }
+
+                        }
+                        if (eletivas_nao_feitas.length > 3) {
+
+                            doc.setTextColor('#988787')
+                            doc.text("Nenhuma eletiva para optativa", 158, 125)
                         }
                     }
                 }
@@ -642,19 +679,24 @@ function gerarPdf() {
                         disp = true
                         y_disp_cad = y_disponiveis
 
+
                         if (y2 == 1) {
+                            if (c == 1) {
+                                y_disp_cad -= 5
+                                console.log('aqui 0')
+                            }
                             if (c == 2) {
                                 y_disp_cad -= 5
+                                console.log('aqui 1')
                             }
-
-
                         }
                         if (y2 == 2) {
                             if (c == 1) {
                                 y_disp_cad -= 3
+                                console.log('aqui 2')
                             }
-                        }
 
+                        }
                         doc.text(`${eletivas_optativas[i][0]} `, 159, y_disp_cad + 10)
                     }
 
@@ -700,6 +742,7 @@ function gerarPdf() {
         // }
 
     }
+    let horas_smd = horas_optativas
 
     //OPTATIVAS
     {
@@ -707,30 +750,38 @@ function gerarPdf() {
         doc.setFontStyle('bold')
         doc.setTextColor('#000000')
 
-
-
-        if (horas_optativas >= 1000) {
-            x1 = 16.8
+        for (let e in eletivas_optativas) {
+            if (eletivas_optativas[e][4] == 1) {
+                horas_smd += parseInt(eletivas_optativas[e][1])
+            }
         }
-        else if (horas_optativas > 0) {
+
+
+        if (horas_optativas + horas_optativas_livres > 0) {
             x1 = 18
         }
-        else {
+        if (horas_optativas + horas_optativas_livres > 100) {
+            x1 = 17.5
+        }
+        if (horas_optativas + horas_optativas_livres >= 1000) {
+            x1 = 16
+        }
+        if (horas_optativas + horas_optativas_livres == 0) {
             x1 = 20
         }
 
 
 
 
-        doc.text(`Horas Totais Obtidas: ${horas_optativas + horas_optativas_livres}/1408`, x1, 176.5)
-        console.log(horas_optativas)
+        doc.text(`Horas Totais Obtidas: ${horas_smd + horas_optativas_livres}/768`, x1, 176.5)
 
-        let x2 =0
 
-        if (creditos(horas_optativas + horas_optativas_livres) >= 100) {
-            x2 = 81.5
+        let x2 = 0
+
+        if (creditos(horas_smd + horas_optativas_livres) >= 100) {
+            x2 = 80
         }
-        else if (creditos(horas_optativas + horas_optativas_livres) > 0) {
+        else if (creditos(horas_smd + horas_optativas_livres) > 0) {
             x2 = 82
         }
         else {
@@ -738,7 +789,7 @@ function gerarPdf() {
         }
 
 
-        doc.text(`Créditos Totais Obtidos: ${creditos(horas_optativas + horas_optativas_livres)}/76`, x2, 176.5)
+        doc.text(`Créditos Totais Obtidos: ${creditos(horas_smd + horas_optativas_livres)}/48`, x2, 176.5)
 
         doc.setFontSize(8.5)
 
@@ -747,7 +798,7 @@ function gerarPdf() {
         doc.text(`Optativas Feitas (SMD) - ${optativa.length}/12`, 16, 184)
 
         let cadeiras_optativas = splitList(optativa, 6)
-        console.log(cadeiras_optativas)
+
         let contador = 0
         for (let x in cadeiras_optativas) {
 
@@ -768,26 +819,234 @@ function gerarPdf() {
                         break
                     } else {
                         doc.text(cadeiras_optativas[x][i], (x * 35) + 16, 190 + (i * 4))
-                        console.log(190 + (i * 4))
+
 
                     }
                 }
             }
-            console.log(contador)
+
         }
         if (contador > 23) {
             doc.text(`+${(optativa.length + 1) - 21}{...}`, 121, 210)
         }
+        doc.setFontStyle('normal')
+        doc.text(`Horas Obtidas: ${horas_smd}/768`, 16, 221.5)
+        doc.text(`Créditos Obtidos: ${creditos(horas_smd)}/48`, 55, 221.5)
 
-        doc.text(`Horas Obtidas:`,16,221.5)
-
-
+        doc.text(`Horas obtidas: ${horas_optativas_livres}/0`, 160, 191.5)
+        doc.text(`Créditos Obtidos: ${creditos(horas_optativas_livres)}/0`, 160, 200)
 
 
     }
 
+    //TCC
+    let horas_tcc
+    {
+        let corRetangulo;
+        let texto
+        if (tcc == '["nao-consolidado"]') {
+            horas_tcc = 0
+            corRetangulo = '#ED1010'; // Vermelho
+            texto = "TCC sem nota consolidada"
+        } else if (tcc == '["consolidado"]') {
+            horas_tcc = 128
 
-    doc.save('Simulação.pdf')
+            corRetangulo = '#41C62C'; // Verde
+            texto = "TCC com nota consolidada"
+
+        } else {
+            corRetangulo = '#ED1010'; // Preto (ou qualquer outra cor padrão)
+            texto = "TCC sem nota consolidada"
+            horas_tcc = 0
+
+        }
+
+        // Definir as propriedades do retângulo
+        let retanguloX = 16;
+        let retanguloY = 235;
+        let retanguloLargura = 60;
+        let retanguloAltura = 7;
+        let raioBordas = 3;
+
+
+        // Desenhar o retângulo no documento jsPDF
+        doc.setDrawColor(corRetangulo); // Define a cor das bordas
+        doc.setFillColor(corRetangulo); // Define a cor do preenchimento
+        doc.roundedRect(retanguloX, retanguloY, retanguloLargura, retanguloAltura, raioBordas, raioBordas, 'FD');
+
+        // Definir o texto a ser exibido dentro do retângulo
+
+        // Centralizar o texto horizontalmente e verticalmente dentro do retângulo
+        let textoX = retanguloX + retanguloLargura / 2;
+        let textoY = retanguloY + retanguloAltura / 2;
+        doc.setFontSize(12);
+        doc.setTextColor(255); // Cor do texto (branco)
+        doc.text(texto, textoX, textoY, { align: 'center', baseline: 'middle' });
+
+    }
+
+    //HORAS COMPLEMENTARES
+    {
+        let corRetangulo;
+        let texto
+        if (horas_complementares < 192) {
+            corRetangulo = '#ED1010'; // Vermelho
+            texto = `Horas computadas: ${horas_complementares}/192`
+        } else if (horas_complementares >= 192) {
+            corRetangulo = '#41C62C'; // Verde
+            texto = `Horas computadas: ${horas_complementares}/192`
+
+        } else {
+            corRetangulo = '#ED1010'; // Preto (ou qualquer outra cor padrão)
+            texto = `Horas computadas: ${horas_complementares}/192`
+
+
+        }
+
+        // Definir as propriedades do retângulo
+        let retanguloX = 16;
+        let retanguloY = 255;
+        let retanguloLargura = 60;
+        let retanguloAltura = 7;
+        let raioBordas = 3;
+
+
+        // Desenhar o retângulo no documento jsPDF
+        doc.setDrawColor(corRetangulo); // Define a cor das bordas
+        doc.setFillColor(corRetangulo); // Define a cor do preenchimento
+        doc.roundedRect(retanguloX, retanguloY, retanguloLargura, retanguloAltura, raioBordas, raioBordas, 'FD');
+
+        // Definir o texto a ser exibido dentro do retângulo
+
+        // Centralizar o texto horizontalmente e verticalmente dentro do retângulo
+        let textoX = retanguloX + retanguloLargura / 2;
+        let textoY = retanguloY + retanguloAltura / 2;
+        doc.setFontSize(12);
+        doc.setTextColor(255); // Cor do texto (branco)
+        doc.text(texto, textoX, textoY, { align: 'center', baseline: 'middle' });
+
+    }
+
+    //MAIS INFORMAÇÕES
+    let horas_totais = horas_obrigatorias + horas_eletivas + horas_smd + horas_optativas_livres + horas_complementares + horas_tcc
+
+    {
+
+        let total_cadeira = obrigatoria.length + eletivas.length + optativa.length
+
+
+        let porcentagem_horas = ((horas_totais * 10) / 288).toFixed(2)
+
+        doc.setFontSize(10);
+        doc.setTextColor(0)
+        doc.text(`Total de Cadeiras Feitas: ${total_cadeira}`, 123.5, 239)
+        doc.text(`Total de Horas Feitas: ${horas_totais}/2880 (${porcentagem_horas}%)`, 123.5, 247)
+        doc.text(`Créditos Totais Obtidos: ${creditos(horas_totais)}/128`, 123.5, 255)
+
+    }
+    console.log(horas_obrigatorias)
+    console.log(horas_eletivas)
+    console.log(horas_optativas)
+    console.log(horas_complementares)
+    console.log(horas_tcc)
+    console.log(tcc)
+    console.log(horas_totais)
+    //RESULTADO
+    {
+
+
+        let corRetangulo;
+        let texto
+        doc.setFontSize(12)
+        doc.setFontStyle('bold')
+        if (horas_obrigatorias >= 1344 && horas_eletivas >= 448 && (horas_optativas + horas_optativas_livres) >= 768 && horas_complementares >= 192 && tcc == '["consolidado"]') {
+            corRetangulo = '#169C00'; // Vermelho
+            texto = `RESULTADO FINAL: ESTÁ APTO A SE FORMAR`
+
+        }
+        else {
+            corRetangulo = '#D00000'; // Preto (ou qualquer outra cor padrão)
+            texto = `RESULTADO FINAL: NÃO APTO A SE FORMAR`
+
+        }
+
+        // Definir as propriedades do retângulo
+        let retanguloX = 16;
+        let retanguloY = 273;
+        let retanguloLargura = 105;
+        let retanguloAltura = 13;
+        let raioBordas = 0.5;
+
+
+        // Desenhar o retângulo no documento jsPDF
+        doc.setDrawColor(corRetangulo); // Define a cor das bordas
+        doc.setFillColor(corRetangulo); // Define a cor do preenchimento
+        doc.roundedRect(retanguloX, retanguloY, retanguloLargura, retanguloAltura, raioBordas, raioBordas, 'FD');
+
+        // Definir o texto a ser exibido dentro do retângulo
+
+        // Centralizar o texto horizontalmente e verticalmente dentro do retângulo
+        let textoX = retanguloX + retanguloLargura / 2;
+        let textoY = retanguloY + retanguloAltura / 2;
+        doc.setFontSize(12);
+        doc.setTextColor(255); // Cor do texto (branco)
+        doc.text(texto, textoX, textoY, { align: 'center', baseline: 'middle' });
+    }
+
+    doc.output('Resultado-VMF.pdf')
+
+
+    const pdfData = doc.output('datauristring');
+
+    // Converte a string em um Blob
+    const pdfBlob = dataURLToBlob(pdfData);
+
+    // Função auxiliar para converter data URL em Blob
+    function dataURLToBlob(dataURL) {
+        const arr = dataURL.split(',');
+        const mimeMatch = arr[0].match(/:(.*?);/);
+        const mime = (mimeMatch && mimeMatch[1]) || 'application/octet-stream';
+        const byteString = atob(arr[1]);
+        let n = byteString.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = byteString.charCodeAt(n);
+        }
+        return new Blob([u8arr], { type: mime });
+    }
+
+    // Cria um URL temporário para o Blob do PDF
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    console.log(pdfUrl);
+
+    // Agora você pode usar a variável pdfUrl para abrir o PDF em uma nova aba
+    let detalhes = document.getElementById("detalhes")
+    detalhes.addEventListener("click", () => {
+        window.open(pdfUrl, '_blank');
+
+    })
+
+
+    let botaoPdf = document.getElementById("pdf")
+    botaoPdf.addEventListener("click", () => {
+        doc.save('Resultado-VMF.pdf')
+        const imgEnviarPdf = document.querySelector('#img-enviar-pdf')
+        if (turno_escolhido == 'Diurno') {
+            imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado.png')
+        } else {
+            imgEnviarPdf.setAttribute('src', 'assets/icon/feedback-enviado-noturno.png')
+        }
+
+        const popupPdfEnviado = document.querySelector('.popup-wrappep-pdf-enviado')
+        popupPdfEnviado.style.display = 'flex'
+        const fecharpopupPdfEnviado = document.querySelector('#fechar-enviar-pdf')
+        fecharpopupPdfEnviado.addEventListener('click', () => popupPdfEnviado.style.display = 'none'
+        )
+    })
+
+
+
 }
 
 function splitList(list, interval) {
@@ -804,13 +1063,14 @@ function splitList(list, interval) {
 
 
 function creditos(horas) {
-    return horas / 16
+    return parseInt(horas / 16)
 }
 
 function app() {
     temaTurno()
     mudarTurno()
     resultado()
+    gerarPdf()
 
 }
-app()
+app()   
