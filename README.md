@@ -307,7 +307,7 @@ Para rodar o código, precisa ter todas as configurações ajustadas:
  # Primeiro uso:
  - 1- Dentro do VsCode e da pasta principal, instale um ambiente virtual do python pelo terminal usando: ```python -m venv env```
  - 2- Vai criar uma pasta chamada 'env', ative o interpretador do python presente nela pelo terminal usando: ```./env/Scripts/Activate.ps1```
- - 3- Se der um erro de script, abra o powershell como administrador no seu computador e digite: ```Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned``` e depois confirme com 'S'. Após isso, feche o terminal do VsCode e abra novamente e execute o comando ```./env/Scripts/Activate.ps1``` e prossiga com o passo a passo
+ - 3- Se der um erro de script, abra o powershell como administrador no seu computador e digite: ```Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned``` e depois confirme com 'A'. Após isso, feche o terminal do VsCode e abra novamente e execute o comando ```./env/Scripts/Activate.ps1``` e prossiga com o passo a passo
  - 4- Após ativar o interpretador, instale as bibliotecas requeridas para o sistema com o comando no terminal: ```pip install -r requeriments.txt
  - 5- Em seguida, entre na pasta src com o comando ```cd src``` e inicie o servidor com o comando: ```uvicorn back:app --reload```
  - 6- Espere o servidor iniciar com a mensagem : ```INFO:     Application startup complete. ```
