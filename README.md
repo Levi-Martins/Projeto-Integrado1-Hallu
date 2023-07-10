@@ -8,9 +8,11 @@
 # Índice
 - [Sobre o projeto](#ancora1)
 - [Integrantes da equipe](#ancora2)
+- [Requisitos Funcionais](#ancora9)
 - [Linguagens de programação utilizadas](#ancora3)
 - [Configurações](#ancora4)
 - [Como rodar](#ancora5)
+  
 
 
 <br>
@@ -94,15 +96,167 @@
 
  <br>
   
-
-<!-- # 📃Relatório Técnico
-<h4>Neste Relatório, está descrito tudo sobre o projeto<h4>
-- Link para o Relatório Técnico:
-  
- <p>🔗 https://docs.google.com/document/d/1AtPl-xIAr9qHdO1rX10HTUl597x1zyx-BlvnrIl1X2A/view#heading=h.dw9vxcv83553</p>
-
- <br>
-   -->
+<a id="ancora9"></a>
+ # 📃Requisitos Funcionais
+<table>
+  <tr>
+    <th>Código</th>
+    <th>Funcionalidade</th>
+    <th>Situação</th>
+  </tr>
+  <tr>
+    <td>RFG0001</td>
+    <td>Mostrar a página inicial com um botão Iniciar para iniciar a simulação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0002</td>
+    <td>Mostrar na página inicial com vídeo e painéis contendo explicações sobre os créditos, horas, etc.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0003</td>
+    <td>Botão de mudar o vídeo para diurno ou noturno.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0004</td>
+    <td>Carrossel explicando as disciplinas do curso.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0005</td>
+    <td>Rodapé da página inicial com botão para iniciar simulação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0006</td>
+    <td>Botão para escolher o turno.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0007</td>
+    <td>Exibir em cada tela da simulação a logo do VMF clicável para retornar à landing page.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0008</td>
+    <td>Dentro da simulação, é exibida em cada tela uma opção para mudar de turno.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0009</td>
+    <td>Exibir a “migalha de pão” da simulação, podendo, ao clicar, ir e vir na aplicação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG00010</td>
+    <td>Botões de voltar e avançar pela simulação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG00011</td>
+    <td>Opções das cadeiras obrigatórias para o usuário selecionar as que já fez.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG00012</td>
+    <td>Botão para adicionar todas as cadeiras do semestre.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0013</td>
+    <td>Mostrar botão em cada cadeira para saber mais informações.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG00014</td>
+    <td>Botão para limpar a seleção da página em que o usuário se encontra.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0015</td>
+    <td>Exibir um guia contendo uma mensagem em cada tela para auxiliar o usuário.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0016</td>
+    <td>Mostrar as opções das cadeiras eletivas para o usuário selecionar as que já fez.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0017</td>
+    <td>Mostrar as opções das cadeiras optativas para o usuário selecionar as que já fez.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0018</td>
+    <td>Mostrar a barra de pesquisa nas cadeiras optativas.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0019</td>
+    <td>Barra para inserir as quantidades de horas optativas livres feitas.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0020</td>
+    <td>Mostrar um guia e requisitos do usuário para buscar as horas optativas (histórico escolar, onde buscar, etc…).</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0021</td>
+    <td>Mostrar um guia e requisitos do usuário para buscar as horas complementares.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0022</td>
+    <td>Mostrar uma opção para selecionar se o TCC está com nota consolidada ou não.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0023</td>
+    <td>Barra para inserir a quantidade de horas complementares feitas.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0024</td>
+    <td>Botão para finalizar a simulação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0025</td>
+    <td>Mostrar tela final com resultado da simulação/feedback.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0026</td>
+    <td>Botão para ver detalhes do resultado da simulação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0027</td>
+    <td>Botão para baixar pdf com o resultado da simulação.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0028</td>
+    <td>Botão para enviar o resultado da simulação via email.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0029</td>
+    <td>Mostrar formulário para preencher nome e o email.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+  <tr>
+    <td>RFG0030</td>
+    <td>Mostrar um pop up de confirmação de envio do email.</td>
+    <td>CONCLUÍDO</td>
+  </tr>
+</table>
+   <br>
+   <br>
 <a id="ancora3"></a>
 # 🖥Linguagens de programação utilizadas
 
