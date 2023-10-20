@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 import banco
-import envio_de_email
+
 
 app = FastAPI()
 
@@ -62,13 +62,3 @@ def final():
     return ('Acho que deu bom')
 
 
-@app.post("/final")
-async def upload_pdf(file: UploadFile = File(...), email: str = Form(...), nome: str = Form(...)):
-
-
-    contents = await file.read()
-    with open("document.pdf", "wb") as f:
-        f.write(contents)
-        
-    envio_de_email.enviar_email(nome.title(), email)
-    return {"message": "Email Enviado"}
