@@ -627,7 +627,7 @@ function gerarPdf() {
                     else {
                         if (y2 > 2) {
                             sla = true
-                            doc.text(`${eletivas_optativas[i][0]} `, 159, y + 3.5)
+                            doc.text(`${eletivas_optativas[i][0]} `, 159, y )
                         }
 
                     }
